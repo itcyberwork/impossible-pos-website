@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impossible POS | Ultra-Fast Restaurant Point of Sale & AI Phone Ordering</title>
-    <meta name="title" content="Impossible POS | Ultra-Fast Restaurant Point of Sale & AI Phone Ordering">
-    <meta name="description" content="Impossible POS is the high-speed restaurant operating system built for relentless speed. Unify front-of-house registers, kitchen displays (KDS), online QR orders, and automated AI voice phone orders. Runs on Windows and Android.">
-    <meta name="keywords" content="restaurant POS, point of sale, punto de venta restaurantes, AI phone ordering, cloud POS, Android POS, Windows POS, kitchen display system, KDS, thermal receipt printing, liquor inventory control, bar POS, bakery POS, drive-thru POS">
+    <title>Impossible POS | The Restaurant OS Built for Relentless Speed</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Impossible POS is the premier all-in-one restaurant point of sale. Fast touchscreen registers, unlimited free kitchen displays (KDS), pour-by-pour liquor control, and AI voice phone ordering. Runs on Windows and Android.">
+    <meta name="keywords" content="restaurant POS, point of sale, kitchen display system, KDS, liquor control, AI phone ordering, offline POS, Windows POS, Android POS, touchscreen register">
     <meta name="author" content="IT Cyber Work LLC">
-    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://impossiblepos.com/">
-
-    <!-- Favicon & Device Icons -->
+    
+    <!-- Favicon & Touch Icons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -40,8 +40,6 @@
       "name": "Impossible POS",
       "operatingSystem": "Windows 10, Windows 11, Android 10+",
       "applicationCategory": "BusinessApplication",
-      "description": "High-speed restaurant management software with front-of-house registers, kitchen display systems (KDS), liquor inventory control, and automated AI voice phone order taking.",
-      "url": "https://impossiblepos.com",
       "offers": {
         "@type": "Offer",
         "price": "85.00",
@@ -53,13 +51,16 @@
           "unitText": "MONTH"
         }
       },
-      "creator": {
+      "publisher": {
         "@type": "Organization",
         "name": "IT Cyber Work LLC",
         "url": "https://impossiblepos.com"
-      }
+      },
+      "description": "High-volume restaurant POS system with unlimited free kitchen display screens (KDS), pour-by-pour liquor control, and AI voice phone ordering."
     }
     </script>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -80,25 +81,43 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+        .lang-active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .lang-inactive { color: #475569 !important; background-color: transparent !important; }
+        .lang-inactive:hover { color: #0f172a !important; }
     </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2">
+                <a href="#" class="flex-shrink-0 flex items-center gap-2">
                     <img src="logo_clean.png" alt="Impossible POS Logo" class="w-12 h-12">
                     <span class="font-extrabold text-2xl tracking-tight text-slate-900">Impossible<span class="text-brand-500">POS</span></span>
-                </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#features" class="text-sm font-medium text-slate-600 hover:text-brand-600">Features</a>
-                    <a href="#hardware" class="text-sm font-medium text-slate-600 hover:text-brand-600">Hardware</a>
-                    <a href="#why-impossible" class="text-sm font-medium text-slate-600 hover:text-brand-600">Why Impossible?</a>
-                    <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-brand-600">Pricing</a>
+                    <a href="#features" data-i18n="nav_features" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Features</a>
+                    <a href="#hardware" data-i18n="nav_hardware" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Hardware</a>
+                    <a href="#why-impossible" data-i18n="nav_why" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Why Impossible?</a>
+                    <a href="#pricing" data-i18n="nav_pricing" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Pricing</a>
                 </div>
-                <div class="hidden md:flex items-center">
-                    <button onclick="openLeadModal('trial')" class="bg-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-slate-800 shadow-md transition-all">
+
+                <!-- Right Actions: Language Switcher & Trial CTA -->
+                <div class="flex items-center gap-3">
+                    <!-- Language Selector Pill -->
+                    <div class="inline-flex p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-bold shadow-inner">
+                        <button id="lang-btn-en" onclick="setLanguage('en')" class="px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold">
+                            🇺🇸 EN
+                        </button>
+                        <button id="lang-btn-es" onclick="setLanguage('es')" class="px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold">
+                            🇲🇽 ES
+                        </button>
+                    </div>
+
+                    <button onclick="openLeadModal('trial')" data-i18n="nav_trial_btn" class="hidden sm:inline-flex bg-dark text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-slate-800 shadow-md transition-all cursor-pointer">
                         Start 14-Day Free Trial
                     </button>
                 </div>
@@ -106,27 +125,28 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-4xl mx-auto">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
                     <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
-                    <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Now with AI Voice Ordering</span>
+                    <span data-i18n="hero_badge" class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Now with AI Voice Ordering</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
+                <h1 data-i18n="hero_title" class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8">
                     The restaurant OS built for <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">relentless speed.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <p data-i18n="hero_subtitle" class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
                     Unify your front-of-house, smart kitchen displays, and AI phone orders in one blazing-fast platform. Scale your operations without the extra hardware fees.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <button onclick="openLeadModal('windows')" class="w-full sm:w-auto bg-brand-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-brand-600 shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-105 active:scale-95">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/></svg>
-                        Download Windows App
+                        <span data-i18n="hero_btn_windows">Download Windows App</span>
                     </button>
                     <button onclick="openLeadModal('android')" class="w-full sm:w-auto bg-slate-800 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-slate-900 shadow-lg flex items-center justify-center gap-2 border-2 border-slate-700 cursor-pointer transition-all hover:scale-105 active:scale-95">
                         <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993s-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1523-.5676.416.416 0 00-.5676.1523l-2.0223 3.503C15.5834 8.4116 13.854 8 12 8s-3.5834.4116-5.1366 1.0507L4.8411 5.5477a.416.416 0 00-.5676-.1523.416.416 0 00-.1523.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
-                        Live Android Demo
+                        <span data-i18n="hero_btn_android">Live Android Demo</span>
                     </button>
                 </div>
 
@@ -134,12 +154,12 @@
                 <div class="mt-8 max-w-xl mx-auto bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 text-left shadow-sm">
                     <div class="flex items-center gap-2.5 mb-2.5 text-slate-900 font-bold text-sm sm:text-base">
                         <span class="flex h-3 w-3 rounded-full bg-emerald-500"></span>
-                        <span>How to run Android in Kiosk Mode (Full-Screen App):</span>
+                        <span data-i18n="hero_kiosk_title">How to run Android in Kiosk Mode (Full-Screen App):</span>
                     </div>
                     <ol class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-decimal list-inside leading-relaxed">
-                        <li>Open <strong class="text-slate-800">Live Android Demo</strong> in Google Chrome on your tablet or phone.</li>
-                        <li>Tap the Chrome menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner.</li>
-                        <li>Select <strong class="text-slate-800">"Install App"</strong> (or "Add to Home Screen"). Open it from your home screen for full-screen Kiosk mode without browser bars!</li>
+                        <li data-i18n="hero_kiosk_step1">Open <strong class="text-slate-800">Live Android Demo</strong> in Google Chrome on your tablet or phone.</li>
+                        <li data-i18n="hero_kiosk_step2">Tap the Chrome menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner.</li>
+                        <li data-i18n="hero_kiosk_step3">Select <strong class="text-slate-800">"Install App"</strong> (or "Add to Home Screen"). Open it from your home screen for full-screen Kiosk mode without browser bars!</li>
                     </ol>
                 </div>
             </div>
@@ -149,7 +169,7 @@
     <!-- Integrations & Ecosystem -->
     <section class="py-10 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">Powered by industry-leading technology</p>
+            <p data-i18n="ecosystem_title" class="text-center text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">Powered by industry-leading technology</p>
             <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 <!-- Windows -->
                 <div class="flex items-center gap-2 font-bold text-xl text-slate-800"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.801"/></svg> Windows</div>
@@ -169,8 +189,8 @@
     <section id="features" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Enterprise features, without the enterprise price tag.</h2>
-                <p class="text-lg text-slate-600">Everything you need to run a high-volume restaurant, fully synchronized in real-time.</p>
+                <h2 data-i18n="feat_header_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Enterprise features, without the enterprise price tag.</h2>
+                <p data-i18n="feat_header_desc" class="text-lg text-slate-600">Everything you need to run a high-volume restaurant, fully synchronized in real-time.</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -179,8 +199,8 @@
                     <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Unified Loyalty & CRM</h3>
-                    <p class="text-slate-600 leading-relaxed">Instant customer registration, dynamic QR codes, and lightning-fast autocomplete. Connect Drive-Thru, Delivery, and Dine-In under one profile.</p>
+                    <h3 data-i18n="feat1_title" class="text-xl font-bold text-slate-900 mb-3">Unified Loyalty & CRM</h3>
+                    <p data-i18n="feat1_desc" class="text-slate-600 leading-relaxed">Instant customer registration, dynamic QR codes, and lightning-fast autocomplete. Connect Drive-Thru, Delivery, and Dine-In under one profile.</p>
                 </div>
 
                 <!-- Feature 2 -->
@@ -188,18 +208,18 @@
                     <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Unlimited Smart KDS</h3>
-                    <p class="text-slate-600 leading-relaxed">Touch-enabled Kitchen Display Systems. Color-coded meats and modifiers keep your kitchen and runners perfectly synchronized. Included for free.</p>
+                    <h3 data-i18n="feat2_title" class="text-xl font-bold text-slate-900 mb-3">Unlimited Smart KDS</h3>
+                    <p data-i18n="feat2_desc" class="text-slate-600 leading-relaxed">Touch-enabled Kitchen Display Systems. Color-coded meats and modifiers keep your kitchen and runners perfectly synchronized. Included for free.</p>
                 </div>
 
                 <!-- Feature 3 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Game Changer</div>
+                    <div data-i18n="feat3_badge" class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Game Changer</div>
                     <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">AI Voice Integration</h3>
-                    <p class="text-slate-600 leading-relaxed">Built-in webhooks for Twilio and Vapi. Let Artificial Intelligence answer your phones and inject orders directly into the kitchen. Zero missed calls.</p>
+                    <h3 data-i18n="feat3_title" class="text-xl font-bold text-slate-900 mb-3">AI Voice Integration</h3>
+                    <p data-i18n="feat3_desc" class="text-slate-600 leading-relaxed">Built-in webhooks for Twilio and Vapi. Let Artificial Intelligence answer your phones and inject orders directly into the kitchen. Zero missed calls.</p>
                 </div>
 
                 <!-- Feature 4 -->
@@ -207,8 +227,8 @@
                     <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Total Control & CCTV</h3>
-                    <p class="text-slate-600 leading-relaxed">Say goodbye to shrinkage. Connect directly to your NVR/DVR security cameras to overlay live receipts on video feeds. Includes built-in stealth screen recording.</p>
+                    <h3 data-i18n="feat4_title" class="text-xl font-bold text-slate-900 mb-3">Total Control & CCTV</h3>
+                    <p data-i18n="feat4_desc" class="text-slate-600 leading-relaxed">Say goodbye to shrinkage. Connect directly to your NVR/DVR security cameras to overlay live receipts on video feeds. Includes built-in stealth screen recording.</p>
                 </div>
 
                 <!-- Feature 5 -->
@@ -216,8 +236,8 @@
                     <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Biometrics & Reporting</h3>
-                    <p class="text-slate-600 leading-relaxed">Forget passwords and swipe cards. Secure employee access via Fingerprint scanner. Get hyper-detailed reporting by person, hour, and station with lightning-fast UI buttons.</p>
+                    <h3 data-i18n="feat5_title" class="text-xl font-bold text-slate-900 mb-3">Biometrics & Reporting</h3>
+                    <p data-i18n="feat5_desc" class="text-slate-600 leading-relaxed">Forget passwords and swipe cards. Secure employee access via Fingerprint scanner. Get hyper-detailed reporting by person, hour, and station with lightning-fast UI buttons.</p>
                 </div>
             </div>
         </div>
@@ -228,40 +248,40 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
                 <div class="lg:w-1/2">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider mb-6">
+                    <div data-i18n="hard_badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider mb-6">
                         Hybrid Architecture
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Works with the hardware you already own.</h2>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    <h2 data-i18n="hard_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Works with the hardware you already own.</h2>
+                    <p data-i18n="hard_desc" class="text-lg text-slate-600 mb-8 leading-relaxed">
                         Impossible POS is built on a modern hybrid engine. Run it natively as a desktop app, or load it via Kiosk Web Mode on any mobile operating system. No need to buy expensive proprietary tablets.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-slate-700 font-medium">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <strong>Cross-Platform:</strong> Windows, Apple iPads, Android Tablets & Sunmi POS Terminals
+                            <span data-i18n="hard_item1"><strong>Cross-Platform:</strong> Windows, Apple iPads, Android Tablets & Sunmi POS Terminals</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-700 font-medium">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Epson & Star Micronics Thermal Printers
+                            <span data-i18n="hard_item2">Epson & Star Micronics Thermal Printers</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-700 font-medium">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Standard RJ11 Cash Drawers & Barcode Scanners
+                            <span data-i18n="hard_item3">Standard RJ11 Cash Drawers & Barcode Scanners</span>
                         </li>
                     </ul>
                     <div class="mt-8 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
-                        <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <h4 data-i18n="hard_req_title" class="font-bold text-slate-900 mb-4 flex items-center gap-2">
                             <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             Minimum System Requirements
                         </h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                             <div>
-                                <p class="font-bold text-slate-700 mb-1">Windows (.exe)</p>
-                                <p class="text-slate-600 leading-relaxed">• Windows 10 or 11<br>• Home or Pro Editions<br>• 4GB RAM minimum</p>
+                                <p data-i18n="hard_req_win_title" class="font-bold text-slate-700 mb-1">Windows (.exe)</p>
+                                <p data-i18n="hard_req_win_desc" class="text-slate-600 leading-relaxed">• Windows 10 or 11<br>• Home or Pro Editions<br>• 4GB RAM minimum</p>
                             </div>
                             <div>
-                                <p class="font-bold text-slate-700 mb-1">Android & Tablets (Cloud)</p>
-                                <p class="text-slate-600 leading-relaxed">• Android 10 or newer<br>• Google Chrome installed<br>• Sunmi OS compatible</p>
+                                <p data-i18n="hard_req_and_title" class="font-bold text-slate-700 mb-1">Android & Tablets (Cloud)</p>
+                                <p data-i18n="hard_req_and_desc" class="text-slate-600 leading-relaxed">• Android 10 or newer<br>• Google Chrome installed<br>• Sunmi OS compatible</p>
                             </div>
                         </div>
                     </div>
@@ -275,8 +295,8 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Enterprise Grade</p>
-                            <p class="text-sm font-bold text-slate-900">Biometric Security</p>
+                            <p data-i18n="hard_badge_enterprise" class="text-xs text-slate-500 font-bold uppercase tracking-wider">Enterprise Grade</p>
+                            <p data-i18n="hard_badge_biometric" class="text-sm font-bold text-slate-900">Biometric Security</p>
                         </div>
                     </div>
                 </div>
@@ -293,23 +313,23 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Brand Story Header -->
             <div class="text-center max-w-4xl mx-auto mb-20">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs font-bold text-brand-400 uppercase tracking-wider mb-6">
+                <div data-i18n="why_badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs font-bold text-brand-400 uppercase tracking-wider mb-6">
                     Our Origin & Mission
                 </div>
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-8">
+                <h2 data-i18n="why_title" class="text-3xl md:text-5xl font-black tracking-tight mb-8">
                     Why are we called <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-300">Impossible POS?</span>
                 </h2>
                 <div class="bg-slate-800/70 backdrop-blur-sm p-8 md:p-10 rounded-3xl border border-slate-700/80 text-left shadow-2xl">
-                    <p class="text-lg md:text-xl text-slate-200 leading-relaxed mb-6 font-medium">
+                    <p data-i18n="why_story_p1" class="text-lg md:text-xl text-slate-200 leading-relaxed mb-6 font-medium">
                         "For years, after working deep inside the restaurant, bar, and bakery industry, we witnessed the exact same nightmare over and over: legacy POS companies charging thousands of dollars upfront, trapping business owners in rigid proprietary hardware, and billing $100 extra for every kitchen screen, tablet, or printer."
                     </p>
-                    <p class="text-slate-300 leading-relaxed mb-6">
+                    <p data-i18n="why_story_p2" class="text-slate-300 leading-relaxed mb-6">
                         When we decided to build an all-in-one operating system that included <strong class="text-white">unlimited free kitchen displays</strong>, <strong class="text-white">precision liquor pour control</strong>, <strong class="text-white">military-grade offline resilience</strong>, and <strong class="text-white">autonomous AI phone order answering</strong> with zero hardware markups... traditional POS salespeople laughed and said:
                     </p>
-                    <div class="p-4 bg-slate-950/60 rounded-2xl border-l-4 border-brand-500 mb-6 font-mono text-brand-300 text-sm md:text-base">
+                    <div data-i18n="why_story_quote" class="p-4 bg-slate-950/60 rounded-2xl border-l-4 border-brand-500 mb-6 font-mono text-brand-300 text-sm md:text-base">
                         «That's impossible. Nobody gives away unlimited KDS for free. Nobody builds native CCTV integrations without enterprise contracts. Nobody lets restaurants run 100% offline with zero lag.»
                     </div>
-                    <p class="text-lg text-white font-bold">
+                    <p data-i18n="why_story_p3" class="text-lg text-white font-bold">
                         We refused to accept that. We engineered the impossible. That is why our software is proudly named <span class="text-brand-400 font-extrabold">Impossible POS</span>.
                     </p>
                 </div>
@@ -317,24 +337,24 @@
 
             <!-- Master Capabilities Directory -->
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-xs font-bold text-brand-400 uppercase tracking-wider mb-4">
+                <div data-i18n="chk_badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-xs font-bold text-brand-400 uppercase tracking-wider mb-4">
                     Master Checklist
                 </div>
-                <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Everything Impossible POS does.</h3>
-                <p class="text-slate-400 text-lg">Every capability below is built directly into our core engine. Zero third-party patchwork.</p>
+                <h3 data-i18n="chk_title" class="text-3xl md:text-4xl font-extrabold text-white mb-4">Everything Impossible POS does.</h3>
+                <p data-i18n="chk_subtitle" class="text-slate-400 text-lg">Every capability below is built directly into our core engine. Zero third-party patchwork.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Module 1: FOH & Registers -->
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">⚡</div>
-                    <h4 class="text-xl font-bold text-white mb-3">Front-of-House & Cashier</h4>
+                    <h4 data-i18n="mod1_title" class="text-xl font-bold text-white mb-3">Front-of-House & Cashier</h4>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Blazing-Fast Order Entry:</strong> Single-touch modifiers, size variants, custom notes.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Flexible Check Splitting:</strong> Split by seat, split by item, or divide bill equally in seconds.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Interactive Table Map:</strong> Visual floorplan builder with live occupied/open statuses.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Bar Tabs & Pre-Auth:</strong> Fast credit card hold for busy nightclub and bar stations.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Dual Cash Drawer:</strong> Assign separate physical drawers to cashiers on the same terminal.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod1_item1"><strong>Blazing-Fast Order Entry:</strong> Single-touch modifiers, size variants, custom notes.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod1_item2"><strong>Flexible Check Splitting:</strong> Split by seat, split by item, or divide bill equally in seconds.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod1_item3"><strong>Interactive Table Map:</strong> Visual floorplan builder with live occupied/open statuses.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod1_item4"><strong>Bar Tabs & Pre-Auth:</strong> Fast credit card hold for busy nightclub and bar stations.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod1_item5"><strong>Dual Cash Drawer:</strong> Assign separate physical drawers to cashiers on the same terminal.</span></li>
                     </ul>
                 </div>
 
@@ -342,15 +362,15 @@
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-orange-500/10 text-orange-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🍳</div>
                     <div class="flex items-center justify-between mb-3">
-                        <h4 class="text-xl font-bold text-white">Unlimited Smart KDS</h4>
-                        <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">100% Free</span>
+                        <h4 data-i18n="mod2_title" class="text-xl font-bold text-white">Unlimited Smart KDS</h4>
+                        <span data-i18n="mod2_free" class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">100% Free</span>
                     </div>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Zero Extra Screen Fees:</strong> Connect as many kitchen screens as you want for $0.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Live Cooking Timers:</strong> Tickets change color (green &gt; yellow &gt; red) as wait times climb.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Color-Coded Modifiers:</strong> Meat temperatures and allergens highlighted instantly.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Runner & Expo Screens:</strong> Coordinate food expeditors and table runners seamlessly.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Audible Chimes:</strong> Multi-frequency chimes announce incoming kitchen tickets.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod2_item1"><strong>Zero Extra Screen Fees:</strong> Connect as many kitchen screens as you want for $0.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod2_item2"><strong>Live Cooking Timers:</strong> Tickets change color (green &gt; yellow &gt; red) as wait times climb.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod2_item3"><strong>Color-Coded Modifiers:</strong> Meat temperatures and allergens highlighted instantly.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod2_item4"><strong>Runner & Expo Screens:</strong> Coordinate food expeditors and table runners seamlessly.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod2_item5"><strong>Audible Chimes:</strong> Multi-frequency chimes announce incoming kitchen tickets.</span></li>
                     </ul>
                 </div>
 
@@ -358,26 +378,26 @@
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🍾</div>
                     <div class="flex items-center justify-between mb-3">
-                        <h4 class="text-xl font-bold text-white">Liquor & Bar Control</h4>
-                        <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full border border-amber-500/30">+$100/mo</span>
+                        <h4 data-i18n="mod3_title" class="text-xl font-bold text-white">Liquor & Bar Control</h4>
+                        <span data-i18n="mod3_price" class="bg-amber-500/20 text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full border border-amber-500/30">+$100/mo</span>
                     </div>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Ounce-by-Ounce Tracking:</strong> Calculate exact liquor margins and poured costs.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Bottle Scale Weight Sync:</strong> Weigh bottles at shift close to detect over-pouring and theft.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Speed Bar Interface:</strong> High-speed shot & beer buttons for packed bars.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Bartender Shift Reconciliations:</strong> Individual drawer balances and cash drop audits.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod3_item1"><strong>Ounce-by-Ounce Tracking:</strong> Calculate exact liquor margins and poured costs.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod3_item2"><strong>Bottle Scale Weight Sync:</strong> Weigh bottles at shift close to detect over-pouring and theft.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod3_item3"><strong>Speed Bar Interface:</strong> High-speed shot & beer buttons for packed bars.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod3_item4"><strong>Bartender Shift Reconciliations:</strong> Individual drawer balances and cash drop audits.</span></li>
                     </ul>
                 </div>
 
                 <!-- Module 4: QR & Self-Service -->
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">📱</div>
-                    <h4 class="text-xl font-bold text-white mb-3">QR Menus & Autoservicio</h4>
+                    <h4 data-i18n="mod4_title" class="text-xl font-bold text-white mb-3">QR Menus & Autoservicio</h4>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Zero App Downloads:</strong> Customers scan QR and view live photo menus in 1 second.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Custom Cake Photo Portal:</strong> Customers upload design photos directly from mobile data.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Digital Waitlist:</strong> Guests join waitlist by QR and get live queue position on their phone.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Customer CRM & Loyalty:</strong> Instant phone number registration with visit reward tracking.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod4_item1"><strong>Zero App Downloads:</strong> Customers scan QR and view live photo menus in 1 second.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod4_item2"><strong>Custom Cake Photo Portal:</strong> Customers upload design photos directly from mobile data.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod4_item3"><strong>Digital Waitlist:</strong> Guests join waitlist by QR and get live queue position on their phone.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod4_item4"><strong>Customer CRM & Loyalty:</strong> Instant phone number registration with visit reward tracking.</span></li>
                     </ul>
                 </div>
 
@@ -385,50 +405,50 @@
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🤖</div>
                     <div class="flex items-center justify-between mb-3">
-                        <h4 class="text-xl font-bold text-white">AI Voice Phone Ordering</h4>
-                        <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">AI Powered</span>
+                        <h4 data-i18n="mod5_title" class="text-xl font-bold text-white">AI Voice Phone Ordering</h4>
+                        <span data-i18n="mod5_badge" class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">AI Powered</span>
                     </div>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Twilio & Vapi Webhooks:</strong> Artificial Intelligence answers your restaurant phone lines.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Zero Missed Calls:</strong> Takes multiple telephone orders simultaneously during dinner rush.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Direct Kitchen Injection:</strong> Phone orders print straight to kitchen printers and KDS.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Caller ID Recognition:</strong> Recognizes repeat customers and their previous orders.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod5_item1"><strong>Twilio & Vapi Webhooks:</strong> Artificial Intelligence answers your restaurant phone lines.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod5_item2"><strong>Zero Missed Calls:</strong> Takes multiple telephone orders simultaneously during dinner rush.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod5_item3"><strong>Direct Kitchen Injection:</strong> Phone orders print straight to kitchen printers and KDS.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod5_item4"><strong>Caller ID Recognition:</strong> Recognizes repeat customers and their previous orders.</span></li>
                     </ul>
                 </div>
 
                 <!-- Module 6: Offline Resilience -->
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-red-500/10 text-red-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🛡️</div>
-                    <h4 class="text-xl font-bold text-white mb-3">Military-Grade Offline Mode</h4>
+                    <h4 data-i18n="mod6_title" class="text-xl font-bold text-white mb-3">Military-Grade Offline Mode</h4>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Local SQLite Architecture:</strong> Never slows down or spins waiting for a cloud server.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Zero Internet Required:</strong> Ring up sales, print receipts, and send kitchen tickets with internet cut.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Local LAN Mesh Sync:</strong> Cash registers and kitchen screens sync over your local Wi-Fi router.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Automatic Cloud Sync:</strong> Uploads shifts and sales seamlessly when connectivity returns.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod6_item1"><strong>Local SQLite Architecture:</strong> Never slows down or spins waiting for a cloud server.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod6_item2"><strong>Zero Internet Required:</strong> Ring up sales, print receipts, and send kitchen tickets with internet cut.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod6_item3"><strong>Local LAN Mesh Sync:</strong> Cash registers and kitchen screens sync over your local Wi-Fi router.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod6_item4"><strong>Automatic Cloud Sync:</strong> Uploads shifts and sales seamlessly when connectivity returns.</span></li>
                     </ul>
                 </div>
 
                 <!-- Module 7: Hardware & Printers -->
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🖨️</div>
-                    <h4 class="text-xl font-bold text-white mb-3">Hardware & Thermal Printing</h4>
+                    <h4 data-i18n="mod7_title" class="text-xl font-bold text-white mb-3">Hardware & Thermal Printing</h4>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Epson & Star Micronics:</strong> Native ESC/POS thermal printing over USB and Ethernet.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Station Routing:</strong> Bar drinks print only to bar printer; tacos print to kitchen printer.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Automatic Kick Drawers:</strong> Compatible with all standard RJ11 24V cash drawers.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Cross-Platform:</strong> Runs natively on Windows 10/11 and Android 10+ tablets / Sunmi.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item1"><strong>Epson & Star Micronics:</strong> Native ESC/POS thermal printing over USB and Ethernet.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item2"><strong>Station Routing:</strong> Bar drinks print only to bar printer; kitchen items print to kitchen printer.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item3"><strong>Automatic Kick Drawers:</strong> Compatible with all standard RJ11 24V cash drawers.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item4"><strong>Cross-Platform:</strong> Runs natively on Windows 10/11 and Android 10+ tablets / Sunmi.</span></li>
                     </ul>
                 </div>
 
                 <!-- Module 8: Biometrics & CCTV -->
                 <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 hover:border-brand-500/50 transition-all">
                     <div class="w-12 h-12 bg-pink-500/10 text-pink-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">📊</div>
-                    <h4 class="text-xl font-bold text-white mb-3">CCTV & Biometric Security</h4>
+                    <h4 data-i18n="mod8_title" class="text-xl font-bold text-white mb-3">CCTV & Biometric Security</h4>
                     <ul class="space-y-2.5 text-sm text-slate-300">
-                        <li class="flex items-start gap-2">• <span><strong>Fingerprint Authentication:</strong> Cashiers log in with biometrics in 0.2 seconds. No stolen PINs.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>NVR/DVR Camera Text Overlay:</strong> Prints line-item sales on security camera video.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Detailed Audit Logs:</strong> Track every void, discount, drawer kick, and price override.</span></li>
-                        <li class="flex items-start gap-2">• <span><strong>Comprehensive Reports:</strong> Z-Reports, tip payouts, department breakdowns, and sales tax.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod8_item1"><strong>Fingerprint Authentication:</strong> Cashiers log in with biometrics in 0.2 seconds. No stolen PINs.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod8_item2"><strong>NVR/DVR Camera Text Overlay:</strong> Prints line-item sales on security camera video.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod8_item3"><strong>Detailed Audit Logs:</strong> Track every void, discount, drawer kick, and price override.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod8_item4"><strong>Comprehensive Reports:</strong> Z-Reports, tip payouts, department breakdowns, and sales tax.</span></li>
                     </ul>
                 </div>
 
@@ -436,12 +456,12 @@
                 <div class="bg-gradient-to-br from-brand-900/40 to-slate-800/90 rounded-3xl p-8 border border-brand-500/40 flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 bg-brand-500/20 text-brand-400 rounded-2xl flex items-center justify-center mb-6 text-2xl">🎁</div>
-                        <h4 class="text-2xl font-extrabold text-white mb-3">100% Free Remote Setup</h4>
-                        <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                        <h4 data-i18n="mod9_title" class="text-2xl font-extrabold text-white mb-3">100% Free Remote Setup</h4>
+                        <p data-i18n="mod9_desc" class="text-sm text-slate-300 leading-relaxed mb-6">
                             Other companies charge $500 to $1,500 for "onboarding". We believe you shouldn't pay a single cent just to get your system ready. Our technical team connects via RustDesk and configures your menu, tax rates, and printers completely free of charge.
                         </p>
                     </div>
-                    <button onclick="openLeadModal('trial')" class="w-full bg-brand-500 text-white font-bold py-3 px-6 rounded-2xl hover:bg-brand-600 transition-all text-center shadow-lg cursor-pointer">
+                    <button onclick="openLeadModal('trial')" data-i18n="mod9_btn" class="w-full bg-brand-500 text-white font-bold py-3 px-6 rounded-2xl hover:bg-brand-600 transition-all text-center shadow-lg cursor-pointer">
                         Start 14-Day Free Trial
                     </button>
                 </div>
@@ -452,25 +472,25 @@
     <!-- How it Works Section -->
     <section class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16">Launch your system in 3 easy steps.</h2>
+            <h2 data-i18n="how_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-16">Launch your system in 3 easy steps.</h2>
             <div class="grid md:grid-cols-3 gap-12">
                 <!-- Step 1 -->
                 <div class="relative">
                     <div class="w-16 h-16 mx-auto bg-brand-100 text-brand-600 font-black text-2xl rounded-full flex items-center justify-center mb-6 relative z-10 border-4 border-white shadow-sm">1</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Download & Install</h3>
-                    <p class="text-slate-600">Get the lightweight Windows installer or open the Kiosk link on any tablet.</p>
+                    <h3 data-i18n="how_step1_title" class="text-xl font-bold text-slate-900 mb-2">Download & Install</h3>
+                    <p data-i18n="how_step1_desc" class="text-slate-600">Get the lightweight Windows installer or open the Kiosk link on any tablet.</p>
                 </div>
                 <!-- Step 2 -->
                 <div class="relative">
                     <div class="w-16 h-16 mx-auto bg-brand-100 text-brand-600 font-black text-2xl rounded-full flex items-center justify-center mb-6 relative z-10 border-4 border-white shadow-sm">2</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Build Your Menu</h3>
-                    <p class="text-slate-600">Use our intuitive cloud dashboard to upload products, modifiers, and set tax rates.</p>
+                    <h3 data-i18n="how_step2_title" class="text-xl font-bold text-slate-900 mb-2">Build Your Menu</h3>
+                    <p data-i18n="how_step2_desc" class="text-slate-600">Use our intuitive cloud dashboard to upload products, modifiers, and set tax rates.</p>
                 </div>
                 <!-- Step 3 -->
                 <div class="relative">
                     <div class="w-16 h-16 mx-auto bg-brand-100 text-brand-600 font-black text-2xl rounded-full flex items-center justify-center mb-6 relative z-10 border-4 border-white shadow-sm">3</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Start Selling</h3>
-                    <p class="text-slate-600">Connect your printers automatically and start crushing lines faster than ever.</p>
+                    <h3 data-i18n="how_step3_title" class="text-xl font-bold text-slate-900 mb-2">Start Selling</h3>
+                    <p data-i18n="how_step3_desc" class="text-slate-600">Connect your printers automatically and start crushing lines faster than ever.</p>
                 </div>
             </div>
         </div>
@@ -480,58 +500,58 @@
     <section id="pricing" class="py-24 bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing.</h2>
-                <p class="text-lg text-slate-400">Pay only for the core terminals. We give you the entire kitchen ecosystem for free.</p>
+                <h2 data-i18n="price_title" class="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing.</h2>
+                <p data-i18n="price_subtitle" class="text-lg text-slate-400">Pay only for the core terminals. We give you the entire kitchen ecosystem for free.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Core POS -->
                 <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700 relative">
-                    <h3 class="text-2xl font-bold mb-2">Core POS & Back Office</h3>
-                    <p class="text-slate-400 mb-6">Everything you need to run the front and back of house.</p>
-                    <div class="text-4xl font-extrabold mb-6">$85<span class="text-lg text-slate-400 font-medium">/mo per register</span></div>
+                    <h3 data-i18n="price_core_title" class="text-2xl font-bold mb-2">Core POS & Back Office</h3>
+                    <p data-i18n="price_core_desc" class="text-slate-400 mb-6">Everything you need to run the front and back of house.</p>
+                    <div data-i18n="price_core_amount" class="text-4xl font-extrabold mb-6">$85<span class="text-lg text-slate-400 font-medium">/mo per register</span></div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center gap-3 text-slate-300">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Point of Sale Software
+                            <span data-i18n="price_core_item1">Point of Sale Software</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-300">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Cloud License Dashboard
+                            <span data-i18n="price_core_item2">Cloud License Dashboard</span>
                         </li>
                         <li class="flex items-center gap-3 text-brand-400 font-semibold">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Unlimited KDS Screens (FREE)
+                            <span data-i18n="price_core_item3">Unlimited KDS Screens (FREE)</span>
                         </li>
                         <li class="flex items-center gap-3 text-brand-400 font-semibold">
                             <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Includes 1 Mobile Phone / Tablet (+ $20/mo per additional device)
+                            <span data-i18n="price_core_item4">Includes 1 Mobile Phone / Tablet (+ $20/mo per additional device)</span>
                         </li>
                     </ul>
-                    <button onclick="openLeadModal('windows')" class="block w-full bg-brand-500 text-center py-3 rounded-xl font-bold hover:bg-brand-600 transition-colors cursor-pointer">Start Free Trial</button>
+                    <button onclick="openLeadModal('windows')" data-i18n="price_core_btn" class="block w-full bg-brand-500 text-center py-3 rounded-xl font-bold hover:bg-brand-600 transition-colors cursor-pointer">Start Free Trial</button>
                 </div>
 
                 <!-- Premium Add-on -->
                 <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Premium Add-On</div>
-                    <h3 class="text-2xl font-bold mb-2">Liquor Control Module</h3>
-                    <p class="text-slate-400 mb-6">Advanced inventory and bar tab management for clubs.</p>
-                    <div class="text-4xl font-extrabold mb-6">+$100<span class="text-lg text-slate-400 font-medium">/mo</span></div>
+                    <div data-i18n="price_add_badge" class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Premium Add-On</div>
+                    <h3 data-i18n="price_add_title" class="text-2xl font-bold mb-2">Liquor Control Module</h3>
+                    <p data-i18n="price_add_desc" class="text-slate-400 mb-6">Advanced inventory and bar tab management for clubs.</p>
+                    <div data-i18n="price_add_amount" class="text-4xl font-extrabold mb-6">+$100<span class="text-lg text-slate-400 font-medium">/mo</span></div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center gap-3 text-slate-300">
                             <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Precision Ounce-Level Weight Inventory
+                            <span data-i18n="price_add_item1">Precision Ounce-Level Weight Inventory</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-300">
                             <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Advanced Bar Tab Management
+                            <span data-i18n="price_add_item2">Advanced Bar Tab Management</span>
                         </li>
                         <li class="flex items-center gap-3 text-slate-300">
                             <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Real-time Drink Cost & Pour Reports
+                            <span data-i18n="price_add_item3">Real-time Drink Cost & Pour Reports</span>
                         </li>
                     </ul>
-                    <button onclick="openLeadModal('sales')" class="block w-full bg-slate-700 text-center py-3 rounded-xl font-bold hover:bg-slate-600 transition-colors cursor-pointer">Contact Sales</button>
+                    <button onclick="openLeadModal('sales')" data-i18n="price_add_btn" class="block w-full bg-slate-700 text-center py-3 rounded-xl font-bold hover:bg-slate-600 transition-colors cursor-pointer">Contact Sales</button>
                 </div>
             </div>
         </div>
@@ -541,35 +561,35 @@
     <section class="py-24 bg-white border-t border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-slate-600">Everything you need to know about Impossible POS.</p>
+                <h2 data-i18n="faq_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+                <p data-i18n="faq_subtitle" class="text-lg text-slate-600">Everything you need to know about Impossible POS.</p>
             </div>
             
             <div class="space-y-6">
                 <!-- FAQ 0: Android Kiosk -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">How do I run Impossible POS on Android tablets in Kiosk Mode?</h3>
-                    <p class="text-slate-600">Installing Impossible POS on any Android tablet takes under 10 seconds: Open your cloud link in Google Chrome, tap the menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner, and tap <strong class="text-slate-800">"Install App"</strong>. The system installs directly to your home screen with the official Impossible POS logo and launches in 100% full-screen Kiosk Mode without browser bars or URL inputs.</p>
+                    <h3 data-i18n="faq0_q" class="text-lg font-bold text-slate-900 mb-2">How do I run Impossible POS on Android tablets in Kiosk Mode?</h3>
+                    <p data-i18n="faq0_a" class="text-slate-600">Installing Impossible POS on any Android tablet takes under 10 seconds: Open your cloud link in Google Chrome, tap the menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner, and tap <strong class="text-slate-800">"Install App"</strong>. The system installs directly to your home screen with the official Impossible POS logo and launches in 100% full-screen Kiosk Mode without browser bars or URL inputs.</p>
                 </div>
                 <!-- FAQ 1 -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Do I need to buy proprietary hardware?</h3>
-                    <p class="text-slate-600">Not at all. We believe in open ecosystems. Impossible POS runs flawlessly on your existing Windows PCs, Apple iPads, Android Tablets, and standard Epson or Star Micronics thermal printers.</p>
+                    <h3 data-i18n="faq1_q" class="text-lg font-bold text-slate-900 mb-2">Do I need to buy proprietary hardware?</h3>
+                    <p data-i18n="faq1_a" class="text-slate-600">Not at all. We believe in open ecosystems. Impossible POS runs flawlessly on your existing Windows PCs, Apple iPads, Android Tablets, and standard Epson or Star Micronics thermal printers.</p>
                 </div>
                 <!-- FAQ 2 -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">What happens if my internet goes down?</h3>
-                    <p class="text-slate-600">Your restaurant won't skip a beat. Our system is built with a resilient offline-first architecture. You can continue ringing up orders and printing tickets, and the system will sync with the cloud automatically once connection is restored.</p>
+                    <h3 data-i18n="faq2_q" class="text-lg font-bold text-slate-900 mb-2">What happens if my internet goes down?</h3>
+                    <p data-i18n="faq2_a" class="text-slate-600">Your restaurant won't skip a beat. Our system is built with a resilient offline-first architecture. You can continue ringing up orders and printing tickets, and the system will sync with the cloud automatically once connection is restored.</p>
                 </div>
                 <!-- FAQ 3 -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Are there hidden fees for Kitchen Displays (KDS)?</h3>
-                    <p class="text-slate-600">No. Unlike our competitors who charge you per screen, we include unlimited KDS and Line Buster tablet connections for free. You only pay for the main cash register terminals.</p>
+                    <h3 data-i18n="faq3_q" class="text-lg font-bold text-slate-900 mb-2">Are there hidden fees for Kitchen Displays (KDS)?</h3>
+                    <p data-i18n="faq3_a" class="text-slate-600">No. Unlike our competitors who charge you per screen, we include unlimited KDS and Line Buster tablet connections for free. You only pay for the main cash register terminals.</p>
                 </div>
                 <!-- FAQ 4 -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Is my data secure?</h3>
-                    <p class="text-slate-600">Extremely. We offer Biometric Fingerprint authentication for your employees and direct NVR/DVR security camera integrations to completely eliminate shrinkage and unauthorized access.</p>
+                    <h3 data-i18n="faq4_q" class="text-lg font-bold text-slate-900 mb-2">Is my data secure?</h3>
+                    <p data-i18n="faq4_a" class="text-slate-600">Extremely. We offer Biometric Fingerprint authentication for your employees and direct NVR/DVR security camera integrations to completely eliminate shrinkage and unauthorized access.</p>
                 </div>
             </div>
         </div>
@@ -581,7 +601,7 @@
             <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <div class="md:col-span-2">
                     <span class="font-extrabold text-2xl tracking-tight text-slate-900">Impossible<span class="text-brand-500">POS</span></span>
-                    <p class="text-slate-500 mt-4 max-w-sm">The most reliable, blazing-fast Point of Sale system built for high-volume operations. Proudly developed by IT Cyber Work LLC.</p>
+                    <p data-i18n="foot_desc" class="text-slate-500 mt-4 max-w-sm">The most reliable, blazing-fast Point of Sale system built for high-volume operations. Proudly developed by IT Cyber Work LLC.</p>
                     <div class="mt-4 flex items-center gap-3">
                         <a href="https://www.facebook.com/ImpossiblePOS" target="_blank" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 flex items-center justify-center transition-all shadow-sm" title="Follow us on Facebook">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -595,27 +615,27 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Resources</h4>
+                    <h4 data-i18n="foot_resources" class="font-bold text-slate-900 mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-slate-500 hover:text-brand-600">Installation Guide</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-brand-600">Hardware Setup</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-brand-600">FAQ</a></li>
+                        <li><a href="#" data-i18n="foot_guide" class="text-slate-500 hover:text-brand-600">Installation Guide</a></li>
+                        <li><a href="#" data-i18n="foot_hw_setup" class="text-slate-500 hover:text-brand-600">Hardware Setup</a></li>
+                        <li><a href="#" data-i18n="foot_faq" class="text-slate-500 hover:text-brand-600">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Support</h4>
+                    <h4 data-i18n="foot_support" class="font-bold text-slate-900 mb-4">Support</h4>
                     <ul class="space-y-2">
-                        <li><a href="mailto:support@impossiblepos.com" class="text-slate-500 hover:text-brand-600">Email Us</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-brand-600">Request Remote Setup</a></li>
-                        <li><a href="#" class="text-slate-500 hover:text-brand-600">Report an Issue</a></li>
+                        <li><a href="mailto:info@impossiblepos.com" data-i18n="foot_email" class="text-slate-500 hover:text-brand-600">Email Us</a></li>
+                        <li><a href="#" onclick="openLeadModal('sales')" data-i18n="foot_req_setup" class="text-slate-500 hover:text-brand-600">Request Remote Setup</a></li>
+                        <li><a href="mailto:support@impossiblepos.com" data-i18n="foot_report" class="text-slate-500 hover:text-brand-600">Report an Issue</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-slate-400 text-sm">© 2026 IT Cyber Work LLC. All rights reserved.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="text-sm text-slate-400 hover:text-slate-600">Privacy Policy</a>
-                    <a href="#" class="text-sm text-slate-400 hover:text-slate-600">Terms of Service (EULA)</a>
+                    <a href="#" data-i18n="foot_privacy" class="text-sm text-slate-400 hover:text-slate-600">Privacy Policy</a>
+                    <a href="#" data-i18n="foot_terms" class="text-sm text-slate-400 hover:text-slate-600">Terms of Service (EULA)</a>
                 </div>
             </div>
         </div>
@@ -633,8 +653,8 @@
             <div class="flex items-center gap-3 mb-4">
                 <img src="logo_clean.png" alt="Impossible POS" class="w-10 h-10">
                 <div>
-                    <h3 id="lead-modal-title" class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">Start Your 14-Day Free Trial</h3>
-                    <p class="text-xs sm:text-sm text-slate-500 font-medium">No credit card required • Instant access • 100% Free Remote Setup</p>
+                    <h3 id="lead-modal-title" data-i18n="lead_title_default" class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">Start Your 14-Day Free Trial</h3>
+                    <p data-i18n="lead_subtitle" class="text-xs sm:text-sm text-slate-500 font-medium">No credit card required • Instant access • 100% Free Remote Setup</p>
                 </div>
             </div>
 
@@ -644,29 +664,29 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Name *</label>
-                        <input type="text" id="leadName" required placeholder="e.g. John Miller" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
+                        <label data-i18n="lead_lbl_name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Name *</label>
+                        <input type="text" id="leadName" required placeholder="e.g. John Miller" data-i18n-placeholder="lead_ph_name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Restaurant / Business *</label>
-                        <input type="text" id="leadBusiness" required placeholder="e.g. Miller's Tavern & BBQ" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone Number (WhatsApp / Mobile) *</label>
-                        <input type="tel" id="leadPhone" required placeholder="e.g. (555) 234-5678" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email Address *</label>
-                        <input type="email" id="leadEmail" required placeholder="e.g. owner@restaurant.com" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
+                        <label data-i18n="lead_lbl_business" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Restaurant / Business *</label>
+                        <input type="text" id="leadBusiness" required placeholder="e.g. Miller's Tavern & BBQ" data-i18n-placeholder="lead_ph_business" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">How did you hear about us?</label>
+                        <label data-i18n="lead_lbl_phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone Number (WhatsApp / Mobile) *</label>
+                        <input type="tel" id="leadPhone" required placeholder="e.g. (555) 234-5678" data-i18n-placeholder="lead_ph_phone" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label data-i18n="lead_lbl_email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email Address *</label>
+                        <input type="email" id="leadEmail" required placeholder="e.g. owner@restaurant.com" data-i18n-placeholder="lead_ph_email" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label data-i18n="lead_lbl_source" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">How did you hear about us?</label>
                         <select id="leadSource" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
                             <option value="Google Search">Google Search</option>
                             <option value="Facebook / Instagram">Facebook / Instagram</option>
@@ -677,7 +697,7 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">How many tablets/screens?</label>
+                        <label data-i18n="lead_lbl_terminals" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">How many tablets/screens?</label>
                         <select id="leadTerminals" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all">
                             <option value="1 Main Station (Cash Register)">1 Main Register</option>
                             <option value="2 to 3 Stations (Registers + Handheld)">2 - 3 Stations</option>
@@ -688,14 +708,14 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Existing Equipment or Questions?</label>
-                    <textarea id="leadNotes" rows="2" placeholder="e.g. I already have an Epson printer and 2 touchscreen PCs, can I reuse them? Do you help me upload my menu before opening?" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all"></textarea>
+                    <label data-i18n="lead_lbl_notes" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Existing Equipment or Questions?</label>
+                    <textarea id="leadNotes" rows="2" placeholder="e.g. I already have an Epson printer and 2 touchscreen PCs, can I reuse them? Do you help me upload my menu before opening?" data-i18n-placeholder="lead_ph_notes" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-900 transition-all"></textarea>
                 </div>
 
                 <!-- 100% Free Setup Callout -->
                 <div class="p-3 bg-brand-50 border border-brand-200 rounded-2xl flex items-start gap-2.5 text-xs text-brand-900">
                     <span class="text-base">💡</span>
-                    <span><strong>100% Free Remote Setup:</strong> Our engineering team connects remotely via RustDesk to check your hardware and configure your menu completely free during your trial.</span>
+                    <span data-i18n="lead_tip"><strong>100% Free Remote Setup:</strong> Our engineering team connects remotely via RustDesk to check your hardware and configure your menu completely free during your trial.</span>
                 </div>
 
                 <button type="submit" id="leadSubmitBtn" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3.5 px-6 rounded-2xl shadow-lg transition-all text-base flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01] active:scale-[0.99]">
@@ -707,9 +727,9 @@
             <!-- Success State -->
             <div id="lead-success" class="hidden text-center py-6 space-y-4">
                 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">✓</div>
-                <h4 class="text-2xl font-black text-slate-900">Welcome to Impossible POS!</h4>
+                <h4 id="lead-success-title" data-i18n="lead_success_title" class="text-2xl font-black text-slate-900">Welcome to Impossible POS!</h4>
                 <p id="lead-success-msg" class="text-sm text-slate-600 max-w-sm mx-auto">Your trial has been registered. Your download is starting right now...</p>
-                <button onclick="closeLeadModal()" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-slate-800 transition-all cursor-pointer">
+                <button onclick="closeLeadModal()" data-i18n="lead_success_btn_close" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-slate-800 transition-all cursor-pointer">
                     Close
                 </button>
             </div>
@@ -724,8 +744,8 @@
                 <div class="flex items-center gap-2.5">
                     <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></div>
                     <div>
-                        <span class="font-bold text-sm block">Impossible AI Sales</span>
-                        <span class="text-[10px] text-slate-400 block">Online • Master POS Specialist</span>
+                        <span data-i18n="ai_bot_title" class="font-bold text-sm block">Impossible AI Sales</span>
+                        <span data-i18n="ai_bot_subtitle" class="text-[10px] text-slate-400 block">Online • Master POS Specialist</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-1">
@@ -737,23 +757,23 @@
 
             <!-- Messages Stream -->
             <div id="ai-chat-messages" class="flex-1 p-4 bg-slate-50 overflow-y-auto space-y-3 text-xs sm:text-sm">
-                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-700 max-w-[85%] border border-slate-100 leading-relaxed">
+                <div id="ai-welcome-bubble" data-i18n="ai_welcome" class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-700 max-w-[85%] border border-slate-100 leading-relaxed">
                     Hello! I'm the Impossible POS virtual specialist. Ask me anything about our $85 pricing, free KDS screens, offline mode, or your existing hardware!
                 </div>
             </div>
 
             <!-- Quick Action Chips -->
             <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto text-[11px] font-medium text-slate-600 scrollbar-none">
-                <button type="button" onclick="askQuickQuestion('What is the monthly price?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">💰 Pricing</button>
-                <button type="button" onclick="askQuickQuestion('Does it work without internet?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🛡️ Offline</button>
-                <button type="button" onclick="askQuickQuestion('Are kitchen screens free?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🍳 Free KDS</button>
-                <button type="button" onclick="askQuickQuestion('Can I speak with a sales specialist?')" class="whitespace-nowrap px-2.5 py-1 bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-full transition-all font-semibold cursor-pointer">📞 Talk to Sales</button>
+                <button type="button" onclick="askQuickQuestion('pricing')" data-i18n="ai_chip_pricing" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">💰 Pricing</button>
+                <button type="button" onclick="askQuickQuestion('offline')" data-i18n="ai_chip_offline" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🛡️ Offline</button>
+                <button type="button" onclick="askQuickQuestion('kds')" data-i18n="ai_chip_kds" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🍳 Free KDS</button>
+                <button type="button" onclick="askQuickQuestion('sales')" data-i18n="ai_chip_sales" class="whitespace-nowrap px-2.5 py-1 bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-full transition-all font-semibold cursor-pointer">📞 Talk to Sales</button>
             </div>
 
             <!-- Input Bar -->
             <div class="p-3 bg-white border-t border-slate-200">
                 <form onsubmit="handleAIChatSubmit(event)" class="relative flex items-center">
-                    <input type="text" id="ai-chat-input" placeholder="Type a question or your phone number..." class="w-full bg-slate-100 border border-slate-200 rounded-full pl-4 pr-10 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-800">
+                    <input type="text" id="ai-chat-input" placeholder="Type a question or your phone number..." data-i18n-placeholder="ai_input_placeholder" class="w-full bg-slate-100 border border-slate-200 rounded-full pl-4 pr-10 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white text-slate-800">
                     <button type="submit" class="absolute right-2 text-brand-600 hover:text-brand-700 p-1.5 cursor-pointer">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                     </button>
@@ -767,18 +787,468 @@
         </button>
     </div>
 
-    <!-- Core Scripts: Lead Capture, Telegram Webhook, AI Engine -->
+    <!-- Core Scripts: Localization, Lead Capture, Telegram Webhook, AI Engine -->
     <script>
     const TG_TOKEN = "8883667960:AAFVCTqMwI75fGFZ76LCb5ektTVkduv878s";
     const TG_CHAT = "8681270663";
     const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.0.0/Impossible_POS_v1.0.zip";
     const ANDROID_DEMO_URL = "https://demo.impossiblepos.com";
 
+    // --- Complete Translations Dictionary ---
+    const i18n = {
+        en: {
+            nav_features: "Features",
+            nav_hardware: "Hardware",
+            nav_why: "Why Impossible?",
+            nav_pricing: "Pricing",
+            nav_trial_btn: "Start 14-Day Free Trial",
+
+            hero_badge: "Now with AI Voice Ordering",
+            hero_title: 'The restaurant OS built for <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">relentless speed.</span>',
+            hero_subtitle: "Unify your front-of-house, smart kitchen displays, and AI phone orders in one blazing-fast platform. Scale your operations without the extra hardware fees.",
+            hero_btn_windows: "Download Windows App",
+            hero_btn_android: "Live Android Demo",
+            hero_kiosk_title: "How to run Android in Kiosk Mode (Full-Screen App):",
+            hero_kiosk_step1: 'Open <strong class="text-slate-800">Live Android Demo</strong> in Google Chrome on your tablet or phone.',
+            hero_kiosk_step2: 'Tap the Chrome menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner.',
+            hero_kiosk_step3: 'Select <strong class="text-slate-800">"Install App"</strong> (or "Add to Home Screen"). Open it from your home screen for full-screen Kiosk mode without browser bars!',
+
+            ecosystem_title: "Powered by industry-leading technology",
+
+            feat_header_title: "Enterprise features, without the enterprise price tag.",
+            feat_header_desc: "Everything you need to run a high-volume restaurant, fully synchronized in real-time.",
+            feat1_title: "Unified Loyalty & CRM",
+            feat1_desc: "Instant customer registration, dynamic QR codes, and lightning-fast autocomplete. Connect Drive-Thru, Delivery, and Dine-In under one profile.",
+            feat2_title: "Unlimited Smart KDS",
+            feat2_desc: "Touch-enabled Kitchen Display Systems. Color-coded meats and modifiers keep your kitchen and runners perfectly synchronized. Included for free.",
+            feat3_badge: "Game Changer",
+            feat3_title: "AI Voice Integration",
+            feat3_desc: "Built-in webhooks for Twilio and Vapi. Let Artificial Intelligence answer your phones and inject orders directly into the kitchen. Zero missed calls.",
+            feat4_title: "Total Control & CCTV",
+            feat4_desc: "Say goodbye to shrinkage. Connect directly to your NVR/DVR security cameras to overlay live receipts on video feeds. Includes built-in stealth screen recording.",
+            feat5_title: "Biometrics & Reporting",
+            feat5_desc: "Forget passwords and swipe cards. Secure employee access via Fingerprint scanner. Get hyper-detailed reporting by person, hour, and station with lightning-fast UI buttons.",
+
+            hard_badge: "Hybrid Architecture",
+            hard_title: "Works with the hardware you already own.",
+            hard_desc: "Impossible POS is built on a modern hybrid engine. Run it natively as a desktop app, or load it via Kiosk Web Mode on any mobile operating system. No need to buy expensive proprietary tablets.",
+            hard_item1: "<strong>Cross-Platform:</strong> Windows, Apple iPads, Android Tablets & Sunmi POS Terminals",
+            hard_item2: "Epson & Star Micronics Thermal Printers",
+            hard_item3: "Standard RJ11 Cash Drawers & Barcode Scanners",
+            hard_req_title: "Minimum System Requirements",
+            hard_req_win_title: "Windows (.exe)",
+            hard_req_win_desc: "• Windows 10 or 11<br>• Home or Pro Editions<br>• 4GB RAM minimum",
+            hard_req_and_title: "Android & Tablets (Cloud)",
+            hard_req_and_desc: "• Android 10 or newer<br>• Google Chrome installed<br>• Sunmi OS compatible",
+            hard_badge_enterprise: "Enterprise Grade",
+            hard_badge_biometric: "Biometric Security",
+
+            why_badge: "Our Origin & Mission",
+            why_title: 'Why are we called <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-300">Impossible POS?</span>',
+            why_story_p1: '"For years, after working deep inside the restaurant, bar, and bakery industry, we witnessed the exact same nightmare over and over: legacy POS companies charging thousands of dollars upfront, trapping business owners in rigid proprietary hardware, and billing $100 extra for every kitchen screen, tablet, or printer."',
+            why_story_p2: 'When we decided to build an all-in-one operating system that included <strong class="text-white">unlimited free kitchen displays</strong>, <strong class="text-white">precision liquor pour control</strong>, <strong class="text-white">military-grade offline resilience</strong>, and <strong class="text-white">autonomous AI phone order answering</strong> with zero hardware markups... traditional POS salespeople laughed and said:',
+            why_story_quote: '«That\'s impossible. Nobody gives away unlimited KDS for free. Nobody builds native CCTV integrations without enterprise contracts. Nobody lets restaurants run 100% offline with zero lag.»',
+            why_story_p3: 'We refused to accept that. We engineered the impossible. That is why our software is proudly named <span class="text-brand-400 font-extrabold">Impossible POS</span>.',
+
+            chk_badge: "Master Checklist",
+            chk_title: "Everything Impossible POS does.",
+            chk_subtitle: "Every capability below is built directly into our core engine. Zero third-party patchwork.",
+            mod1_title: "Front-of-House & Cashier",
+            mod1_item1: "<strong>Blazing-Fast Order Entry:</strong> Single-touch modifiers, size variants, custom notes.",
+            mod1_item2: "<strong>Flexible Check Splitting:</strong> Split by seat, split by item, or divide bill equally in seconds.",
+            mod1_item3: "<strong>Interactive Table Map:</strong> Visual floorplan builder with live occupied/open statuses.",
+            mod1_item4: "<strong>Bar Tabs & Pre-Auth:</strong> Fast credit card hold for busy nightclub and bar stations.",
+            mod1_item5: "<strong>Dual Cash Drawer:</strong> Assign separate physical drawers to cashiers on the same terminal.",
+
+            mod2_title: "Unlimited Smart KDS",
+            mod2_free: "100% Free",
+            mod2_item1: "<strong>Zero Extra Screen Fees:</strong> Connect as many kitchen screens as you want for $0.",
+            mod2_item2: "<strong>Live Cooking Timers:</strong> Tickets change color (green &gt; yellow &gt; red) as wait times climb.",
+            mod2_item3: "<strong>Color-Coded Modifiers:</strong> Meat temperatures and allergens highlighted instantly.",
+            mod2_item4: "<strong>Runner & Expo Screens:</strong> Coordinate food expeditors and table runners seamlessly.",
+            mod2_item5: "<strong>Audible Chimes:</strong> Multi-frequency chimes announce incoming kitchen tickets.",
+
+            mod3_title: "Liquor & Bar Control",
+            mod3_price: "+$100/mo",
+            mod3_item1: "<strong>Ounce-by-Ounce Tracking:</strong> Calculate exact liquor margins and poured costs.",
+            mod3_item2: "<strong>Bottle Scale Weight Sync:</strong> Weigh bottles at shift close to detect over-pouring and theft.",
+            mod3_item3: "<strong>Speed Bar Interface:</strong> High-speed shot & beer buttons for packed bars.",
+            mod3_item4: "<strong>Bartender Shift Reconciliations:</strong> Individual drawer balances and cash drop audits.",
+
+            mod4_title: "QR Menus & Autoservicio",
+            mod4_item1: "<strong>Zero App Downloads:</strong> Customers scan QR and view live photo menus in 1 second.",
+            mod4_item2: "<strong>Custom Cake Photo Portal:</strong> Customers upload design photos directly from mobile data.",
+            mod4_item3: "<strong>Digital Waitlist:</strong> Guests join waitlist by QR and get live queue position on their phone.",
+            mod4_item4: "<strong>Customer CRM & Loyalty:</strong> Instant phone number registration with visit reward tracking.",
+
+            mod5_title: "AI Voice Phone Ordering",
+            mod5_badge: "AI Powered",
+            mod5_item1: "<strong>Twilio & Vapi Webhooks:</strong> Artificial Intelligence answers your restaurant phone lines.",
+            mod5_item2: "<strong>Zero Missed Calls:</strong> Takes multiple telephone orders simultaneously during dinner rush.",
+            mod5_item3: "<strong>Direct Kitchen Injection:</strong> Phone orders print straight to kitchen printers and KDS.",
+            mod5_item4: "<strong>Caller ID Recognition:</strong> Recognizes repeat customers and their previous orders.",
+
+            mod6_title: "Military-Grade Offline Mode",
+            mod6_item1: "<strong>Local SQLite Architecture:</strong> Never slows down or spins waiting for a cloud server.",
+            mod6_item2: "<strong>Zero Internet Required:</strong> Ring up sales, print receipts, and send kitchen tickets with internet cut.",
+            mod6_item3: "<strong>Local LAN Mesh Sync:</strong> Cash registers and kitchen screens sync over your local Wi-Fi router.",
+            mod6_item4: "<strong>Automatic Cloud Sync:</strong> Uploads shifts and sales seamlessly when connectivity returns.",
+
+            mod7_title: "Hardware & Thermal Printing",
+            mod7_item1: "<strong>Epson & Star Micronics:</strong> Native ESC/POS thermal printing over USB and Ethernet.",
+            mod7_item2: "<strong>Station Routing:</strong> Bar drinks print only to bar printer; kitchen items print to kitchen printer.",
+            mod7_item3: "<strong>Automatic Kick Drawers:</strong> Compatible with all standard RJ11 24V cash drawers.",
+            mod7_item4: "<strong>Cross-Platform:</strong> Runs natively on Windows 10/11 and Android 10+ tablets / Sunmi.",
+
+            mod8_title: "CCTV & Biometric Security",
+            mod8_item1: "<strong>Fingerprint Authentication:</strong> Cashiers log in with biometrics in 0.2 seconds. No stolen PINs.",
+            mod8_item2: "<strong>NVR/DVR Camera Text Overlay:</strong> Prints line-item sales on security camera video.",
+            mod8_item3: "<strong>Detailed Audit Logs:</strong> Track every void, discount, drawer kick, and price override.",
+            mod8_item4: "<strong>Comprehensive Reports:</strong> Z-Reports, tip payouts, department breakdowns, and sales tax.",
+
+            mod9_title: "100% Free Remote Setup",
+            mod9_desc: "Other companies charge $500 to $1,500 for 'onboarding'. We believe you shouldn't pay a single cent just to get your system ready. Our technical team connects via RustDesk and configures your menu, tax rates, and printers completely free of charge.",
+            mod9_btn: "Start 14-Day Free Trial",
+
+            how_title: "Launch your system in 3 easy steps.",
+            how_step1_title: "Download & Install",
+            how_step1_desc: "Get the lightweight Windows installer or open the Kiosk link on any tablet.",
+            how_step2_title: "Build Your Menu",
+            how_step2_desc: "Use our intuitive cloud dashboard to upload products, modifiers, and set tax rates.",
+            how_step3_title: "Start Selling",
+            how_step3_desc: "Connect your printers automatically and start crushing lines faster than ever.",
+
+            price_title: "Simple, transparent pricing.",
+            price_subtitle: "Pay only for the core terminals. We give you the entire kitchen ecosystem for free.",
+            price_core_title: "Core POS & Back Office",
+            price_core_desc: "Everything you need to run the front and back of house.",
+            price_core_amount: "$85<span class=\"text-lg text-slate-400 font-medium\">/mo per register</span>",
+            price_core_item1: "Point of Sale Software",
+            price_core_item2: "Cloud License Dashboard",
+            price_core_item3: "Unlimited KDS Screens (FREE)",
+            price_core_item4: "Includes 1 Mobile Phone / Tablet (+ $20/mo per additional device)",
+            price_core_btn: "Start Free Trial",
+
+            price_add_badge: "Premium Add-On",
+            price_add_title: "Liquor Control Module",
+            price_add_desc: "Advanced inventory and bar tab management for clubs.",
+            price_add_amount: "+$100<span class=\"text-lg text-slate-400 font-medium\">/mo</span>",
+            price_add_item1: "Precision Ounce-Level Weight Inventory",
+            price_add_item2: "Advanced Bar Tab Management",
+            price_add_item3: "Real-time Drink Cost & Pour Reports",
+            price_add_btn: "Contact Sales",
+
+            faq_title: "Frequently Asked Questions",
+            faq_subtitle: "Everything you need to know about Impossible POS.",
+            faq0_q: "How do I run Impossible POS on Android tablets in Kiosk Mode?",
+            faq0_a: 'Installing Impossible POS on any Android tablet takes under 10 seconds: Open your cloud link in Google Chrome, tap the menu <strong class="text-slate-800">(⋮)</strong> in the top-right corner, and tap <strong class="text-slate-800">"Install App"</strong>. The system installs directly to your home screen with the official Impossible POS logo and launches in 100% full-screen Kiosk Mode without browser bars or URL inputs.',
+            faq1_q: "Do I need to buy proprietary hardware?",
+            faq1_a: "Not at all. We believe in open ecosystems. Impossible POS runs flawlessly on your existing Windows PCs, Apple iPads, Android Tablets, and standard Epson or Star Micronics thermal printers.",
+            faq2_q: "What happens if my internet goes down?",
+            faq2_a: "Your restaurant won't skip a beat. Our system is built with a resilient offline-first architecture. You can continue ringing up orders and printing tickets, and the system will sync with the cloud automatically once connection is restored.",
+            faq3_q: "Are there hidden fees for Kitchen Displays (KDS)?",
+            faq3_a: "No. Unlike our competitors who charge you per screen, we include unlimited KDS and Line Buster tablet connections for free. You only pay for the main cash register terminals.",
+            faq4_q: "Is my data secure?",
+            faq4_a: "Extremely. We offer Biometric Fingerprint authentication for your employees and direct NVR/DVR security camera integrations to completely eliminate shrinkage and unauthorized access.",
+
+            foot_desc: "The most reliable, blazing-fast Point of Sale system built for high-volume operations. Proudly developed by IT Cyber Work LLC.",
+            foot_resources: "Resources",
+            foot_guide: "Installation Guide",
+            foot_hw_setup: "Hardware Setup",
+            foot_faq: "FAQ",
+            foot_support: "Support",
+            foot_email: "Email Us",
+            foot_req_setup: "Request Remote Setup",
+            foot_report: "Report an Issue",
+            foot_privacy: "Privacy Policy",
+            foot_terms: "Terms of Service (EULA)",
+
+            lead_title_default: "Start Your 14-Day Free Trial",
+            lead_title_android: "Try Live Android Cloud Demo",
+            lead_title_sales: "Contact Impossible POS Sales",
+            lead_subtitle: "No credit card required • Instant access • 100% Free Remote Setup",
+            lead_lbl_name: "Your Name *",
+            lead_lbl_business: "Restaurant / Business *",
+            lead_lbl_phone: "Phone Number (WhatsApp / Mobile) *",
+            lead_lbl_email: "Email Address *",
+            lead_lbl_source: "How did you hear about us?",
+            lead_lbl_terminals: "How many tablets/screens?",
+            lead_lbl_notes: "Existing Equipment or Questions?",
+            lead_tip: "<strong>100% Free Remote Setup:</strong> Our engineering team connects remotely via RustDesk to check your hardware and configure your menu completely free during your trial.",
+            lead_btn_windows: "Download Windows App & Start Trial",
+            lead_btn_android: "Launch Android Demo",
+            lead_btn_sales: "Request Consultation",
+            lead_success_title: "Welcome to Impossible POS!",
+            lead_success_btn_close: "Close",
+
+            lead_ph_name: "e.g. John Miller",
+            lead_ph_business: "e.g. Miller's Tavern & BBQ",
+            lead_ph_phone: "e.g. (555) 234-5678",
+            lead_ph_email: "e.g. owner@restaurant.com",
+            lead_ph_notes: "e.g. I already have an Epson printer and 2 touchscreen PCs, can I reuse them? Do you help me upload my menu before opening?",
+
+            ai_bot_title: "Impossible AI Sales",
+            ai_bot_subtitle: "Online • Master POS Specialist",
+            ai_welcome: "Hello! I'm the Impossible POS virtual specialist. Ask me anything about our $85 pricing, free KDS screens, offline mode, or your existing hardware!",
+            ai_chip_pricing: "💰 Pricing",
+            ai_chip_offline: "🛡️ Offline",
+            ai_chip_kds: "🍳 Free KDS",
+            ai_chip_sales: "📞 Talk to Sales",
+            ai_input_placeholder: "Type a question or your phone number..."
+        },
+        es: {
+            nav_features: "Funcionalidades",
+            nav_hardware: "Hardware",
+            nav_why: "¿Por qué Impossible?",
+            nav_pricing: "Precios",
+            nav_trial_btn: "Prueba Gratis 14 Días",
+
+            hero_badge: "Ahora con Pedidos por Voz con IA",
+            hero_title: 'El sistema para restaurantes diseñado para <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">máxima velocidad.</span>',
+            hero_subtitle: "Unifica tus cajas registradoras, pantallas de cocina inteligentes y pedidos telefónicos por IA en una plataforma ultra veloz. Crece sin pagar licencias abusivas por pantalla.",
+            hero_btn_windows: "Descargar App para Windows",
+            hero_btn_android: "Demo en Vivo Android",
+            hero_kiosk_title: "Cómo usar Android en Modo Kiosco (Pantalla Completa):",
+            hero_kiosk_step1: 'Abre <strong class="text-slate-800">Demo en Vivo Android</strong> en Google Chrome en tu tablet o celular.',
+            hero_kiosk_step2: 'Toca el menú de Chrome <strong class="text-slate-800">(⋮)</strong> en la esquina superior derecha.',
+            hero_kiosk_step3: 'Selecciona <strong class="text-slate-800">"Instalar Aplicación"</strong> (o "Agregar a pantalla principal"). ¡Ábrelo desde tu pantalla de inicio para usarlo en pantalla completa sin barras de navegador!',
+
+            ecosystem_title: "Impulsado por tecnología líder en la industria",
+
+            feat_header_title: "Funciones de nivel corporativo, sin precios abusivos.",
+            feat_header_desc: "Todo lo que necesitas para operar un restaurante de alto volumen, 100% sincronizado en tiempo real.",
+            feat1_title: "Fidelización y Clientes Unificados",
+            feat1_desc: "Registro instantáneo de clientes, códigos QR dinámicos y autocompletado ultra veloz. Conecta Drive-Thru, Delivery y Comedor bajo un solo perfil.",
+            feat2_title: "Pantallas de Cocina (KDS) Ilimitadas",
+            feat2_desc: "Pantallas táctiles para cocina. Colores por tipo de carne y modificadores que mantienen a cocineros y meseros perfectamente sincronizados. 100% Gratis.",
+            feat3_badge: "Revolución Total",
+            feat3_title: "Integración de Voz con IA",
+            feat3_desc: "Conexión directa con Twilio y Vapi. Deja que la Inteligencia Artificial conteste tus teléfonos y mande las órdenes directo a la cocina. Cero llamadas perdidas.",
+            feat4_title: "Control Total y Cámaras CCTV",
+            feat4_desc: "Dile adiós a las pérdidas y robos hormiga. Conecta tus cámaras NVR/DVR para imprimir el recibo de venta sobre el video en vivo. Incluye grabación de pantalla secreta.",
+            feat5_title: "Biometría y Reportes Avanzados",
+            feat5_desc: "Olvídate de contraseñas y tarjetas perdidas. Acceso seguro con Huella Digital. Reportes hiper detallados por cajero, hora y estación en segundos.",
+
+            hard_badge: "Arquitectura Híbrida",
+            hard_title: "Funciona con el equipo que ya tienes.",
+            hard_desc: "Impossible POS está construido sobre un motor híbrido moderno. Úsalo como aplicación nativa en Windows o en Modo Kiosco Web en cualquier tablet. Sin obligarte a comprar equipo propietario costoso.",
+            hard_item1: "<strong>Multiplataforma:</strong> Windows, iPads de Apple, Tablets Android y Terminales Sunmi POS",
+            hard_item2: "Impresoras Térmicas Epson y Star Micronics",
+            hard_item3: "Cajones de Dinero RJ11 Estándar y Lectores de Código",
+            hard_req_title: "Requisitos Mínimos del Sistema",
+            hard_req_win_title: "Windows (.exe)",
+            hard_req_win_desc: "• Windows 10 u 11<br>• Ediciones Home o Pro<br>• Mínimo 4GB de RAM",
+            hard_req_and_title: "Android y Tablets (Cloud)",
+            hard_req_and_desc: "• Android 10 o posterior<br>• Google Chrome instalado<br>• Compatible con Sunmi OS",
+            hard_badge_enterprise: "Nivel Corporativo",
+            hard_badge_biometric: "Seguridad Biométrica",
+
+            why_badge: "Nuestro Origen y Misión",
+            why_title: '¿Por qué nos llamamos <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-300">Impossible POS?</span>',
+            why_story_p1: '"Durante años, tras trabajar dentro de la industria de restaurantes, bares y panaderías, fuimos testigos de la misma pesadilla una y otra vez: compañías de POS tradicionales cobrando miles de dólares por adelantado, obligando a los dueños a comprar hardware exclusivo y cobrando $100 extra por cada pantalla de cocina, tablet o impresora."',
+            why_story_p2: 'Cuando decidimos crear un sistema todo en uno que incluyera <strong class="text-white">pantallas de cocina ilimitadas gratis</strong>, <strong class="text-white">control de licor por onza</strong>, <strong class="text-white">modo fuera de línea de grado militar</strong> y <strong class="text-white">toma de pedidos por teléfono con IA</strong> sin sobrecostos de equipo... los vendedores tradicionales se rieron y dijeron:',
+            why_story_quote: '«Eso es imposible. Nadie regala pantallas de cocina ilimitadas. Nadie integra cámaras de seguridad sin contratos corporativos. Nadie permite que un restaurante cobre 100% fuera de línea sin trabarse.»',
+            why_story_p3: 'Nos negamos a aceptar eso. Programamos lo imposible. Por eso nuestro software se llama orgullosamente <span class="text-brand-400 font-extrabold">Impossible POS</span>.',
+
+            chk_badge: "Directorio Maestro",
+            chk_title: "Todo lo que hace Impossible POS.",
+            chk_subtitle: "Cada función que ves aquí está integrada directamente en el corazón del sistema. Cero parches de terceros.",
+            mod1_title: "Caja Principal y Atención",
+            mod1_item1: "<strong>Captura Ultra Rápida:</strong> Modificadores a un solo toque, variantes de tamaño y notas personalizadas.",
+            mod1_item2: "<strong>División de Cuentas Flexible:</strong> Divide por comensal, por producto o en partes iguales en segundos.",
+            mod1_item3: "<strong>Mapa de Mesas Interactivo:</strong> Diseña el plano de tu restaurante con estado de mesas en vivo.",
+            mod1_item4: "<strong>Cuentas de Bar y Preautorización:</strong> Retención de tarjeta para bares y discotecas de alto volumen.",
+            mod1_item5: "<strong>Doble Cajón de Dinero:</strong> Asigna cajones físicos independientes a dos cajeros en la misma terminal.",
+
+            mod2_title: "Pantallas de Cocina (KDS)",
+            mod2_free: "100% Gratis",
+            mod2_item1: "<strong>Cero Cobros por Pantalla:</strong> Conecta tantas pantallas de cocina como quieras por $0.",
+            mod2_item2: "<strong>Tiempos de Cocción en Vivo:</strong> Las órdenes cambian de color (verde &gt; amarillo &gt; rojo) conforme sube la espera.",
+            mod2_item3: "<strong>Modificadores con Código de Color:</strong> Términos de carne y alergias resaltados al instante.",
+            mod2_item4: "<strong>Pantallas Expo y Runners:</strong> Coordina a los empacadores y meseros sin confusiones.",
+            mod2_item5: "<strong>Alertas Sonoras:</strong> Timbres de distintas frecuencias anuncian comandas entrantes.",
+
+            mod3_title: "Control de Licor y Bar",
+            mod3_price: "+$100/mes",
+            mod3_item1: "<strong>Rastreo Onza por Onza:</strong> Calcula márgenes exactos de alcohol y costo de cada trago servido.",
+            mod3_item2: "<strong>Báscula de Botellas Inteligente:</strong> Pesa las botellas al corte de turno para detectar robos o tragos regalados.",
+            mod3_item3: "<strong>Botones Speed Bar:</strong> Teclas rápidas para cerveza y shots en barras abarrotadas.",
+            mod3_item4: "<strong>Cortes por Bartender:</strong> Balance individual de caja y auditoría de retiros de efectivo.",
+
+            mod4_title: "Menús QR y Autoservicio",
+            mod4_item1: "<strong>Cero Descarga de Apps:</strong> Los clientes escanean el QR y ven el menú con fotos en 1 segundo.",
+            mod4_item2: "<strong>Portal de Fotos de Pasteles:</strong> Los clientes suben sus fotos de diseño de pastel desde su celular.",
+            mod4_item3: "<strong>Lista de Espera Digital:</strong> Tus clientes se anotan con QR y ven su lugar en la fila en su teléfono.",
+            mod4_item4: "<strong>CRM y Monedero Electrónico:</strong> Registro con número de celular y acumulación de puntos por visita.",
+
+            mod5_title: "Pedidos por Teléfono con IA",
+            mod5_badge: "Impulsado por IA",
+            mod5_item1: "<strong>Webhooks de Twilio y Vapi:</strong> La Inteligencia Artificial contesta la línea de tu restaurante.",
+            mod5_item2: "<strong>Cero Llamadas Perdidas:</strong> Toma múltiples pedidos simultáneamente en la hora pico.",
+            mod5_item3: "<strong>Inyección Directa a Cocina:</strong> Las órdenes telefónicas se imprimen solas en cocina y KDS.",
+            mod5_item4: "<strong>Identificador de Clientes:</strong> Reconoce clientes frecuentes y repite sus pedidos anteriores.",
+
+            mod6_title: "Modo Fuera de Línea Militar",
+            mod6_item1: "<strong>Arquitectura SQLite Local:</strong> Jamás se congela esperando respuestas de un servidor en la nube.",
+            mod6_item2: "<strong>Cero Internet Necesario:</strong> Sigue cobrando, imprimiendo tickets y mandando comandas sin internet.",
+            mod6_item3: "<strong>Red Mesh LAN Local:</strong> Cajas y cocinas se comunican a través de tu router Wi-Fi local.",
+            mod6_item4: "<strong>Sincronización Automática:</strong> Sube turnos y ventas a la nube en cuanto regresa el internet.",
+
+            mod7_title: "Hardware e Impresión Térmica",
+            mod7_item1: "<strong>Epson y Star Micronics:</strong> Impresión térmica ESC/POS nativa por USB y cable de red (Ethernet).",
+            mod7_item2: "<strong>Ruteo por Estación:</strong> Las bebidas van solo al bar; los tacos van a la cocina.",
+            mod7_item3: "<strong>Apertura Automática de Cajón:</strong> Compatible con todos los cajones de dinero RJ11 de 24V.",
+            mod7_item4: "<strong>Multiplataforma:</strong> Corre nativamente en Windows 10/11 y tablets Android 10+ / Sunmi.",
+
+            mod8_title: "Cámaras CCTV y Biometría",
+            mod8_item1: "<strong>Acceso por Huella Digital:</strong> Los cajeros entran en 0.2 segundos. Cero préstamos de PIN.",
+            mod8_item2: "<strong>Texto sobre Video NVR/DVR:</strong> Imprime cada producto cobrado directamente sobre el video de seguridad.",
+            mod8_item3: "<strong>Auditoría Completa:</strong> Rastrea cancelaciones, descuentos, aperturas de cajón y cambios de precio.",
+            mod8_item4: "<strong>Reportes Exhaustivos:</strong> Cortes Z, liquidación de propinas, desglose por departamentos e impuestos.",
+
+            mod9_title: "Configuración Remota 100% Gratis",
+            mod9_desc: "Otras compañías te cobran entre $500 y $1,500 de 'onboarding'. Nosotros creemos que no debes pagar un solo centavo para empezar. Nuestro equipo técnico se conecta por RustDesk y configura tu menú, impuestos e impresoras totalmente gratis.",
+            mod9_btn: "Prueba Gratis 14 Días",
+
+            how_title: "Inicia tu sistema en 3 sencillos pasos.",
+            how_step1_title: "Descarga e Instala",
+            how_step1_desc: "Obtén el instalador ligero de Windows o abre el enlace en cualquier tablet.",
+            how_step2_title: "Crea tu Menú",
+            how_step2_desc: "Usa nuestro panel en la nube para subir productos, modificadores y fijar tus impuestos.",
+            how_step3_title: "Comienza a Cobrar",
+            how_step3_desc: "Conecta tus impresoras automáticamente y atiende filas más rápido que nunca.",
+
+            price_title: "Precios transparentes y sencillos.",
+            price_subtitle: "Paga únicamente por tus cajas registradoras. El ecosistema completo de cocina es gratis.",
+            price_core_title: "POS Principal y Administración",
+            price_core_desc: "Todo lo que necesitas para operar el frente de tu negocio y la administración.",
+            price_core_amount: "$85<span class=\"text-lg text-slate-400 font-medium\">/mes por caja</span>",
+            price_core_item1: "Software Completo de Punto de Venta",
+            price_core_item2: "Panel de Control de Licencias en la Nube",
+            price_core_item3: "Pantallas de Cocina (KDS) Ilimitadas (GRATIS)",
+            price_core_item4: "Incluye 1 Celular / Tablet Móvil (+ $20/mes por dispositivo adicional)",
+            price_core_btn: "Iniciar Prueba Gratis",
+
+            price_add_badge: "Módulo Premium",
+            price_add_title: "Módulo de Control de Licor",
+            price_add_desc: "Inventario de alta precisión y control de cuentas para bares y clubes.",
+            price_add_amount: "+$100<span class=\"text-lg text-slate-400 font-medium\">/mes</span>",
+            price_add_item1: "Inventario de Precisión por Peso a Nivel Onza",
+            price_add_item2: "Control Avanzado de Cuentas de Barra (Tabs)",
+            price_add_item3: "Reportes en Tiempo Real de Costo y Vaciado de Botellas",
+            price_add_btn: "Contactar a Ventas",
+
+            faq_title: "Preguntas Frecuentes",
+            faq_subtitle: "Todo lo que necesitas saber sobre Impossible POS.",
+            faq0_q: "¿Cómo uso Impossible POS en tablets Android en Modo Kiosco?",
+            faq0_a: 'Instalar Impossible POS en cualquier tablet Android toma menos de 10 segundos: Abre tu enlace en Google Chrome, toca el menú <strong class="text-slate-800">(⋮)</strong> arriba a la derecha y toca <strong class="text-slate-800">"Instalar Aplicación"</strong>. El sistema se instala directamente en tu pantalla de inicio con el logo oficial y abre en pantalla completa al 100% sin barras de navegación.',
+            faq1_q: "¿Necesito comprar hardware propietario costoso?",
+            faq1_a: "Para nada. Creemos en los ecosistemas abiertos. Impossible POS funciona a la perfección en tus computadoras Windows existentes, iPads de Apple, Tablets Android e impresoras térmicas estándar Epson o Star Micronics.",
+            faq2_q: "¿Qué sucede si se corta mi internet?",
+            faq2_a: "Tu restaurante no se detendrá ni un segundo. Nuestro sistema cuenta con arquitectura fuera de línea (Offline-First). Puedes seguir cobrando, abriendo cajones e imprimiendo comandas, y todo se sincronizará solo en cuanto regrese la conexión.",
+            faq3_q: "¿Hay cargos ocultos por pantallas de cocina (KDS)?",
+            faq3_a: "No. A diferencia de nuestros competidores que cobran por cada pantalla, nosotros incluimos pantallas de cocina y tablets de meseros ilimitadas gratis. Solo pagas por tus cajas registradoras principales.",
+            faq4_q: "¿Están seguros mis datos y mi dinero?",
+            faq4_a: "Totalmente. Ofrecemos autenticación por Huella Digital para tus empleados e integración directa con tus cámaras de seguridad NVR/DVR para eliminar por completo el robo hormiga.",
+
+            foot_desc: "El sistema de punto de venta más confiable y ultra veloz diseñado para alto volumen. Orgullosamente desarrollado por IT Cyber Work LLC.",
+            foot_resources: "Recursos",
+            foot_guide: "Guía de Instalación",
+            foot_hw_setup: "Configuración de Hardware",
+            foot_faq: "Preguntas Frecuentes",
+            foot_support: "Soporte",
+            foot_email: "Escríbenos por Email",
+            foot_req_setup: "Solicitar Configuración Gratuita",
+            foot_report: "Reportar un Problema",
+            foot_privacy: "Política de Privacidad",
+            foot_terms: "Términos de Servicio (EULA)",
+
+            lead_title_default: "Inicia tu Prueba Gratis de 14 Días",
+            lead_title_android: "Probar Demo en la Nube para Android",
+            lead_title_sales: "Contactar a Ventas de Impossible POS",
+            lead_subtitle: "Sin tarjeta de crédito • Acceso inmediato • Instalación remota 100% Gratis",
+            lead_lbl_name: "Tu Nombre Completo *",
+            lead_lbl_business: "Nombre de tu Restaurante / Negocio *",
+            lead_lbl_phone: "Número de Teléfono (WhatsApp / Celular) *",
+            lead_lbl_email: "Correo Electrónico *",
+            lead_lbl_source: "¿Cómo te enteraste de nosotros?",
+            lead_lbl_terminals: "¿Cuántas pantallas o tablets necesitas?",
+            lead_lbl_notes: "¿Equipo existente o dudas?",
+            lead_tip: "<strong>Instalación Remota 100% Gratis:</strong> Nuestro equipo de ingenieros se conecta por RustDesk para revisar tu equipo y configurar tu menú totalmente gratis durante tu prueba.",
+            lead_btn_windows: "Descargar App de Windows y Probar",
+            lead_btn_android: "Abrir Demo de Android",
+            lead_btn_sales: "Solicitar Asesoría",
+            lead_success_title: "¡Bienvenido a Impossible POS!",
+            lead_success_btn_close: "Cerrar",
+
+            lead_ph_name: "ej. Juan Pérez",
+            lead_ph_business: "ej. Taquería El Pastor",
+            lead_ph_phone: "ej. (555) 234-5678",
+            lead_ph_email: "ej. dueno@restaurante.com",
+            lead_ph_notes: "ej. Ya tengo impresoras Epson y 2 PCs táctiles, ¿las puedo reutilizar? ¿Me ayudan a subir mi menú antes de abrir?",
+
+            ai_bot_title: "Impossible AI Ventas",
+            ai_bot_subtitle: "En línea • Especialista en Punto de Venta",
+            ai_welcome: "¡Hola! Soy el especialista virtual de Impossible POS. Pregúntame sobre el precio de $85, pantallas de cocina gratis, modo sin internet o compatibilidad de tu equipo.",
+            ai_chip_pricing: "💰 Precios",
+            ai_chip_offline: "🛡️ Sin Internet",
+            ai_chip_kds: "🍳 Cocina Gratis",
+            ai_chip_sales: "📞 Hablar con Ventas",
+            ai_input_placeholder: "Escribe tu duda o tu teléfono..."
+        }
+    };
+
+    let currentLang = 'en';
+
+    function getInitialLanguage() {
+        const saved = localStorage.getItem('imp_pos_lang');
+        if (saved === 'en' || saved === 'es') return saved;
+        const browser = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        return browser.startsWith('es') ? 'es' : 'en';
+    }
+
+    function setLanguage(lang) {
+        if (lang !== 'en' && lang !== 'es') lang = 'en';
+        currentLang = lang;
+        localStorage.setItem('imp_pos_lang', lang);
+        document.documentElement.lang = lang;
+
+        // Update Navbar Switcher Styles
+        const btnEn = document.getElementById('lang-btn-en');
+        const btnEs = document.getElementById('lang-btn-es');
+        if (btnEn && btnEs) {
+            if (lang === 'en') {
+                btnEn.className = 'px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active';
+                btnEs.className = 'px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive';
+            } else {
+                btnEs.className = 'px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active';
+                btnEn.className = 'px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive';
+            }
+        }
+
+        // Translate all data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[lang] && i18n[lang][key]) {
+                el.innerHTML = i18n[lang][key];
+            }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (i18n[lang] && i18n[lang][key]) {
+                el.placeholder = i18n[lang][key];
+            }
+        });
+
+        // Update lead modal submit text dynamically
+        updateLeadModalText();
+    }
+
     // --- Lead Modal Functions ---
     function openLeadModal(target) {
         const modal = document.getElementById('lead-modal');
-        const title = document.getElementById('lead-modal-title');
-        const submitText = document.getElementById('leadSubmitText');
         const targetInput = document.getElementById('leadTargetAction');
         const form = document.getElementById('lead-form');
         const success = document.getElementById('lead-success');
@@ -787,18 +1257,29 @@
         success.classList.add('hidden');
         targetInput.value = target || 'windows';
 
-        if (target === 'android') {
-            title.innerText = "Try Live Android Cloud Demo";
-            submitText.innerText = "Launch Android Demo";
-        } else if (target === 'sales') {
-            title.innerText = "Contact Impossible POS Sales";
-            submitText.innerText = "Request Consultation";
-        } else {
-            title.innerText = "Start Your 14-Day Free Trial";
-            submitText.innerText = "Download Windows App & Start Trial";
-        }
-
+        updateLeadModalText();
         modal.classList.remove('hidden');
+    }
+
+    function updateLeadModalText() {
+        const title = document.getElementById('lead-modal-title');
+        const submitText = document.getElementById('leadSubmitText');
+        const targetInput = document.getElementById('leadTargetAction');
+        if (!title || !submitText || !targetInput) return;
+
+        const target = targetInput.value;
+        const dict = i18n[currentLang];
+
+        if (target === 'android') {
+            title.innerText = dict.lead_title_android;
+            submitText.innerText = dict.lead_btn_android;
+        } else if (target === 'sales') {
+            title.innerText = dict.lead_title_sales;
+            submitText.innerText = dict.lead_btn_sales;
+        } else {
+            title.innerText = dict.lead_title_default;
+            submitText.innerText = dict.lead_btn_windows;
+        }
     }
 
     function closeLeadModal() {
@@ -833,6 +1314,7 @@
 ${notes ? notes : 'Ninguno especificado.'}
 
 🎯 *Acción Solicitada:* ${target === 'android' ? 'Live Android Demo' : (target === 'sales' ? 'Contacto con Ventas' : 'Descarga Windows')}
+🌐 *Idioma Web:* ${currentLang.toUpperCase()}
 🕒 *Fecha/Hora:* ${timeStr}
 📲 *Dispositivo:* ${deviceType}
 🌐 *Origen:* impossiblepos.com`;
@@ -856,14 +1338,20 @@ ${notes ? notes : 'Ninguno especificado.'}
         success.classList.remove('hidden');
 
         if (target === 'android') {
-            successMsg.innerText = "Opening the Live Android Demo in a new tab...";
+            successMsg.innerText = currentLang === 'es' 
+                ? "Abriendo el Demo en Vivo de Android en una pestaña nueva..."
+                : "Opening the Live Android Demo in a new tab...";
             setTimeout(() => {
                 window.open(ANDROID_DEMO_URL, '_blank');
             }, 800);
         } else if (target === 'sales') {
-            successMsg.innerText = "Thank you! An Impossible POS specialist will contact you via phone/WhatsApp shortly.";
+            successMsg.innerText = currentLang === 'es'
+                ? "¡Muchas gracias! Un especialista de Impossible POS se comunicará contigo por WhatsApp o teléfono a la brevedad."
+                : "Thank you! An Impossible POS specialist will contact you via phone/WhatsApp shortly.";
         } else {
-            successMsg.innerText = "Your free trial is registered. Downloading the Windows installer now...";
+            successMsg.innerText = currentLang === 'es'
+                ? "Tu prueba gratuita ha sido registrada. Descargando el instalador de Windows ahora..."
+                : "Your free trial is registered. Downloading the Windows installer now...";
             setTimeout(() => {
                 window.location.href = WINDOWS_DOWNLOAD_URL;
             }, 800);
@@ -882,7 +1370,19 @@ ${notes ? notes : 'Ninguno especificado.'}
         container.scrollTop = container.scrollHeight;
     }
 
-    function askQuickQuestion(questionText) {
+    function askQuickQuestion(type) {
+        let questionText = "";
+        if (currentLang === 'es') {
+            if (type === 'pricing') questionText = "¿Cuál es el precio mensual?";
+            else if (type === 'offline') questionText = "¿Funciona sin internet?";
+            else if (type === 'kds') questionText = "¿Las pantallas de cocina son gratis?";
+            else if (type === 'sales') questionText = "Quiero hablar con un asesor de ventas";
+        } else {
+            if (type === 'pricing') questionText = "What is the monthly price?";
+            else if (type === 'offline') questionText = "Does it work without internet?";
+            else if (type === 'kds') questionText = "Are kitchen screens free?";
+            else if (type === 'sales') questionText = "Can I speak with a sales specialist?";
+        }
         document.getElementById('ai-chat-input').value = questionText;
         handleAIChatSubmit(new Event('submit'));
     }
@@ -908,39 +1408,74 @@ ${notes ? notes : 'Ninguno especificado.'}
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         chat_id: TG_CHAT,
-                        text: `💬 *¡LEAD DEL CHAT DE IA DEJÓ SU TELÉFONO!*\n\n📞 *Contacto:* ${userText}\n🕒 *Hora:* ${new Date().toLocaleTimeString()}\n🌐 *Web:* impossiblepos.com`,
+                        text: `💬 *¡LEAD DEL CHAT DE IA DEJÓ SU TELÉFONO!*\n\n📞 *Contacto:* ${userText}\n🌐 *Idioma:* ${currentLang.toUpperCase()}\n🕒 *Hora:* ${new Date().toLocaleTimeString()}\n🌐 *Web:* impossiblepos.com`,
                         parse_mode: 'Markdown'
                     }),
                     keepalive: true
                 }).catch(() => {});
 
-                addChatMessage('bot', `Thank you! I have passed your phone number directly to our founder <strong>Jorge Hernandez</strong>. We will contact you shortly.<br><br>Want an immediate answer? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Click here to request a callback</a>.`);
+                const replyText = currentLang === 'es'
+                    ? `¡Muchas gracias! Le he enviado tu número de teléfono directamente a nuestro fundador <strong>Jorge Hernández</strong>. Te contactaremos en breve.<br><br>¿Quieres atención inmediata? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Haz clic aquí para solicitar llamada</a>.`
+                    : `Thank you! I have passed your phone number directly to our founder <strong>Jorge Hernandez</strong>. We will contact you shortly.<br><br>Want an immediate answer? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Click here to request a callback</a>.`;
+                addChatMessage('bot', replyText);
                 return;
             }
 
             const lower = userText.toLowerCase();
 
             if (lower.includes('price') || lower.includes('cost') || lower.includes('cuanto') || lower.includes('precio') || lower.includes('85')) {
-                addChatMessage('bot', `<strong>Pricing is straightforward:</strong><br>• Core POS: <strong>$85/month per register</strong>.<br>• Includes 1 mobile ordering station (waiter tablet/phone).<br>• Additional mobile devices are only <strong>+$20/mo each</strong>.<br>• <strong>Unlimited Kitchen Displays (KDS) are 100% FREE</strong>.<br>• Optional Liquor Control Module: +$100/mo.<br>• 14-day free trial with <strong>zero credit card required</strong>.`);
-            } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae')) {
-                addChatMessage('bot', `<strong>Yes! 100% Offline-First.</strong><br>Impossible POS is engineered on a local SQLite database. If your internet cuts out completely, your cash registers, kitchen printers, and touchscreens continue ringing up sales with zero delay. Everything automatically syncs to the cloud once connection returns.`);
+                const ans = currentLang === 'es'
+                    ? `<strong>Precios claros y directos:</strong><br>• POS Principal: <strong>$85/mes por caja</strong>.<br>• Incluye 1 estación móvil (tablet o celular de mesero).<br>• Dispositivos móviles adicionales: solo <strong>+$20/mes c/u</strong>.<br>• <strong>Pantallas de Cocina (KDS) Ilimitadas: 100% GRATIS</strong>.<br>• Módulo opcional de Control de Licor: +$100/mes.<br>• Prueba de 14 días <strong>sin pedir tarjeta de crédito</strong>.`
+                    : `<strong>Pricing is straightforward:</strong><br>• Core POS: <strong>$85/month per register</strong>.<br>• Includes 1 mobile ordering station (waiter tablet/phone).<br>• Additional mobile devices are only <strong>+$20/mo each</strong>.<br>• <strong>Unlimited Kitchen Displays (KDS) are 100% FREE</strong>.<br>• Optional Liquor Control Module: +$100/mo.<br>• 14-day free trial with <strong>zero credit card required</strong>.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>¡Sí! 100% Fuera de Línea (Offline-First).</strong><br>Impossible POS opera sobre una base de datos SQLite local en tu computadora. Si se corta el internet, tus cajas, impresoras de cocina y pantallas táctiles siguen cobrando y sacando comandas al instante. Todo se sincroniza solo con la nube en cuanto regresa la conexión.`
+                    : `<strong>Yes! 100% Offline-First.</strong><br>Impossible POS is engineered on a local SQLite database. If your internet cuts out completely, your cash registers, kitchen printers, and touchscreens continue ringing up sales with zero delay. Everything automatically syncs to the cloud once connection returns.`;
+                addChatMessage('bot', ans);
             } else if (lower.includes('kds') || lower.includes('kitchen') || lower.includes('cocina') || lower.includes('pantalla')) {
-                addChatMessage('bot', `<strong>Unlimited Smart KDS screens are 100% Free!</strong><br>Unlike competitors who charge $50-$100 per kitchen screen, we include unlimited kitchen, bar, and runner screens for free. Includes cooking timers that turn from green to yellow to red, and audible chimes for new tickets.`);
-            } else if (lower.includes('liquor') || lower.includes('bar') || lower.includes('alcohol') || lower.includes('botella')) {
-                addChatMessage('bot', `<strong>Advanced Liquor Control Module (+$100/mo):</strong><br>Track inventory down to the exact ounce. Includes bottle scale integration, bartender shift balancing, and high-speed bar tabs for busy taverns and nightclubs.`);
+                const ans = currentLang === 'es'
+                    ? `<strong>¡Pantallas de Cocina Inteligentes 100% Gratis e Ilimitadas!</strong><br>A diferencia de competidores que cobran $50-$100 al mes por cada pantalla, nosotros incluimos pantallas de cocina, bar y runners gratis. Incluye tiempos de cocción con colores (verde, amarillo, rojo) y timbres sonoros para comandas nuevas.`
+                    : `<strong>Unlimited Smart KDS screens are 100% Free!</strong><br>Unlike competitors who charge $50-$100 per kitchen screen, we include unlimited kitchen, bar, and runner screens for free. Includes cooking timers that turn from green to yellow to red, and audible chimes for new tickets.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('liquor') || lower.includes('bar') || lower.includes('alcohol') || lower.includes('botella') || lower.includes('licor')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Módulo de Control de Licor (+$100/mes):</strong><br>Rastrea el inventario hasta la onza exacta. Incluye sincronización con báscula de botellas para pesar al final del turno, botones ultra veloces para cantineros (Speed Bar) y control de cuentas de bar.`
+                    : `<strong>Advanced Liquor Control Module (+$100/mo):</strong><br>Track inventory down to the exact ounce. Includes bottle scale integration, bartender shift balancing, and high-speed bar tabs for busy taverns and nightclubs.`;
+                addChatMessage('bot', ans);
             } else if (lower.includes('printer') || lower.includes('hardware') || lower.includes('impresora') || lower.includes('sunmi') || lower.includes('epson') || lower.includes('equipo')) {
-                addChatMessage('bot', `<strong>Open Hardware Compatibility:</strong><br>• Works on any PC running Windows 10 or 11.<br>• Works on Android 10+ tablets and Sunmi POS hardware.<br>• Direct USB & Ethernet ESC/POS thermal printing with Epson and Star Micronics.<br>• Works with standard RJ11 cash drawers and barcode scanners.`);
+                const ans = currentLang === 'es'
+                    ? `<strong>Compatibilidad Total con tu Equipo Existente:</strong><br>• Funciona en cualquier PC con Windows 10 u 11.<br>• Funciona en tablets Android 10+ y terminales Sunmi.<br>• Impresión térmica directa ESC/POS con Epson y Star Micronics.<br>• Conexión con cajones de dinero estándar RJ11 y lectores de código.`
+                    : `<strong>Open Hardware Compatibility:</strong><br>• Works on any PC running Windows 10 or 11.<br>• Works on Android 10+ tablets and Sunmi POS hardware.<br>• Direct USB & Ethernet ESC/POS thermal printing with Epson and Star Micronics.<br>• Works with standard RJ11 cash drawers and barcode scanners.`;
+                addChatMessage('bot', ans);
             } else if (lower.includes('setup') || lower.includes('configur') || lower.includes('instal') || lower.includes('ayuda')) {
-                addChatMessage('bot', `<strong>Setup is 100% FREE:</strong><br>We do not charge onboarding or setup fees. Our technical engineering team connects remotely via RustDesk to configure your menu, taxes, and printers with zero hassle.`);
-            } else if (lower.includes('human') || lower.includes('sales') || lower.includes('ventas') || lower.includes('hablar') || lower.includes('call') || lower.includes('persona') || lower.includes('speak')) {
-                addChatMessage('bot', `I'd love to connect you with our team! Type your <strong>phone number</strong> here in the chat, or <button onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline cursor-pointer">click here to request a callback</button>. We'll reach out to you today!`);
+                const ans = currentLang === 'es'
+                    ? `<strong>La Instalación es 100% GRATIS:</strong><br>No cobramos cuotas abusivas de configuración o 'onboarding'. Nuestro equipo de ingenieros se conecta de forma remota por RustDesk para dejar tu menú, impuestos e impresoras listos sin costo.`
+                    : `<strong>Setup is 100% FREE:</strong><br>We do not charge onboarding or setup fees. Our technical engineering team connects remotely via RustDesk to configure your menu, taxes, and printers with zero hassle.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('human') || lower.includes('sales') || lower.includes('ventas') || lower.includes('hablar') || lower.includes('call') || lower.includes('persona') || lower.includes('speak') || lower.includes('asesor')) {
+                const ans = currentLang === 'es'
+                    ? `¡Con gusto te comunico con nuestro equipo! Escribe tu <strong>número de teléfono</strong> aquí en el chat, o <button onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline cursor-pointer">haz clic aquí para solicitar llamada</button>. ¡Te contactamos hoy mismo!`
+                    : `I'd love to connect you with our team! Type your <strong>phone number</strong> here in the chat, or <button onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline cursor-pointer">click here to request a callback</button>. We'll reach out to you today!`;
+                addChatMessage('bot', ans);
             } else if (lower.includes('why') || lower.includes('impossible') || lower.includes('nombre') || lower.includes('porque')) {
-                addChatMessage('bot', `We are called <strong>Impossible POS</strong> because legacy POS companies told restaurant owners that giving unlimited free kitchen screens, zero-latency offline mode, and built-in AI phone ordering was 'impossible'. We refused to accept that and built the system owners actually deserve!`);
+                const ans = currentLang === 'es'
+                    ? `Nos llamamos <strong>Impossible POS</strong> porque las compañías de POS tradicionales decían que dar pantallas de cocina ilimitadas gratis, modo fuera de línea sin congelamientos y pedidos automáticos por teléfono con IA era 'imposible'. ¡Nosotros lo hicimos realidad!`
+                    : `We are called <strong>Impossible POS</strong> because legacy POS companies told restaurant owners that giving unlimited free kitchen screens, zero-latency offline mode, and built-in AI phone ordering was 'impossible'. We refused to accept that and built the system owners actually deserve!`;
+                addChatMessage('bot', ans);
             } else {
-                addChatMessage('bot', `Impossible POS is built for relentless speed, featuring unlimited free kitchen screens, offline resilience, and automated AI phone ordering for $85/mo.<br><br>Would you like to speak with a sales specialist? <strong>Type your phone number below</strong> or <button onclick="openLeadModal('trial')" class="text-brand-600 font-bold underline cursor-pointer">start your 14-day free trial</button>.`);
+                const ans = currentLang === 'es'
+                    ? `Impossible POS está diseñado para máxima velocidad, con pantallas de cocina gratis ilimitadas, modo fuera de línea militar y toma de pedidos por IA por $85/mes.<br><br>¿Te gustaría hablar con un asesor? <strong>Escribe tu teléfono abajo</strong> o <button onclick="openLeadModal('trial')" class="text-brand-600 font-bold underline cursor-pointer">inicia tu prueba gratis de 14 días</button>.`
+                    : `Impossible POS is built for relentless speed, featuring unlimited free kitchen screens, offline resilience, and automated AI phone ordering for $85/mo.<br><br>Would you like to speak with a sales specialist? <strong>Type your phone number below</strong> or <button onclick="openLeadModal('trial')" class="text-brand-600 font-bold underline cursor-pointer">start your 14-day free trial</button>.`;
+                addChatMessage('bot', ans);
             }
         }, 350);
     }
+
+    // --- On DOM Load: Initialize Language ---
+    document.addEventListener('DOMContentLoaded', () => {
+        setLanguage(getInitialLanguage());
+    });
     </script>
 </body>
 </html>
