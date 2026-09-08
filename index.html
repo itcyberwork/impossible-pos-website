@@ -513,30 +513,67 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Core POS -->
-                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700 relative">
-                    <h3 data-i18n="price_core_title" class="text-2xl font-bold mb-2">Core POS & Back Office</h3>
-                    <p data-i18n="price_core_desc" class="text-slate-400 mb-6">Everything you need to run the front and back of house.</p>
-                    <div data-i18n="price_core_amount" class="text-4xl font-extrabold mb-6">$85<span class="text-lg text-slate-400 font-medium">/mo per register</span></div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_core_item1">Point of Sale Software</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_core_item2">Cloud License Dashboard</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-brand-400 font-semibold">
-                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_core_item3">Unlimited KDS Screens (FREE)</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-brand-400 font-semibold">
-                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_core_item4">Includes 1 Mobile Phone / Tablet (+ $20/mo per additional device)</span>
-                        </li>
-                    </ul>
-                    <button onclick="openLeadModal('windows')" data-i18n="price_core_btn" class="block w-full bg-brand-500 text-center py-3 rounded-xl font-bold hover:bg-brand-600 transition-colors cursor-pointer">Start Free Trial</button>
+                <!-- Core POS with Interactive Plan Selector -->
+                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 data-i18n="price_core_title" class="text-2xl font-bold">Core POS & Back Office</h3>
+                        </div>
+                        <p data-i18n="price_core_desc" class="text-slate-400 mb-5">Everything you need to run the front and back of house.</p>
+
+                        <!-- Plan Period Selector (1 Month / 6 Months / 1 Year) -->
+                        <div class="flex items-center p-1 bg-slate-900/90 rounded-2xl mb-6 border border-slate-700" id="pricingBillingToggle">
+                            <button type="button" onclick="selectPricingPeriod('monthly')" id="btnPlanMonthly" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all bg-brand-500 text-white shadow">
+                                <span data-i18n="price_tab_1m">1 Month</span>
+                            </button>
+                            <button type="button" onclick="selectPricingPeriod('semi')" id="btnPlanSemi" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all text-slate-400 hover:text-white relative">
+                                <span data-i18n="price_tab_6m">6 Mos</span> <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-1 py-0.5 rounded font-extrabold ml-0.5" data-i18n="price_pill_1free">1 Free</span>
+                            </button>
+                            <button type="button" onclick="selectPricingPeriod('yearly')" id="btnPlanYearly" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all text-slate-400 hover:text-white relative">
+                                <span data-i18n="price_tab_1y">1 Year</span> <span class="text-[9px] bg-amber-500/20 text-amber-400 px-1 py-0.5 rounded font-extrabold ml-0.5" data-i18n="price_pill_3free">3 Free</span>
+                            </button>
+                        </div>
+
+                        <!-- Price display & Michigan Tax Note -->
+                        <div class="mb-6 bg-slate-900/40 p-4 rounded-2xl border border-slate-700/50">
+                            <div class="flex items-baseline gap-2">
+                                <span id="priceCoreDisplay" class="text-4xl font-extrabold text-white">$85</span>
+                                <span id="priceCorePeriod" class="text-sm text-slate-400 font-medium">/ month per register</span>
+                            </div>
+                            <div id="priceCoreMichigan" class="text-xs text-amber-400 mt-1 font-medium">
+                                *Michigan businesses (6% MI Tax): <strong class="text-white" id="priceCoreMichiganVal">$90.10 USD</strong>
+                            </div>
+                            <div id="priceCoreSavings" class="hidden mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
+                                <span>🎉</span> <span id="priceCoreSavingsText">Pay 5 months, 1 Month FREE! Save $85</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_core_item1">Point of Sale Software</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_core_item2">Cloud License Dashboard</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-400 font-semibold">
+                                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_core_item3">Unlimited KDS Screens (FREE)</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-brand-400 font-semibold">
+                                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_core_item4">Includes 1 Mobile Phone / Tablet (+ $20/mo per additional device)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button onclick="openLeadModal('windows')" data-i18n="price_core_btn" class="block w-full bg-brand-500 text-center py-3 rounded-xl font-bold hover:bg-brand-600 transition-colors cursor-pointer">Start Free Trial</button>
+                        <button type="button" onclick="openZelleModal()" class="block w-full bg-emerald-600 hover:bg-emerald-500 text-white text-center py-3 rounded-xl font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 border border-emerald-500/40 shadow-lg shadow-emerald-950/40">
+                            <span>💳</span> <span data-i18n="price_zelle_btn">Pay / Renew with Zelle QR</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Premium Add-on -->
@@ -677,6 +714,63 @@
                 <span data-i18n="commercial_cta">Start 14-Day Free Trial</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
+        </div>
+    </div>
+
+    <!-- MODAL: INSTANT ZELLE PAYMENT (1 MO, 6 MOS, 1 YR) -->
+    <div id="modalZellePayment" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md hidden p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-md w-full relative shadow-2xl text-center text-white my-auto">
+            <button onclick="closeZelleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-800 transition-colors">×</button>
+            
+            <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">Z</div>
+            <h3 class="text-xl font-bold mb-1" data-i18n="zelle_modal_title">Pay with Zelle®</h3>
+            <p class="text-xs text-slate-400 mb-4" data-i18n="zelle_modal_desc">Select your plan and scan to activate your license</p>
+            
+            <!-- Plan Selector inside Modal -->
+            <div class="flex gap-1.5 p-1 bg-slate-800 rounded-2xl mb-4 border border-slate-700 text-xs font-bold">
+                <button type="button" onclick="selectModalZellePlan('monthly')" id="modalZelleBtn1" class="flex-1 py-2 rounded-xl bg-brand-500 text-white transition-all">
+                    1 Month
+                </button>
+                <button type="button" onclick="selectModalZellePlan('semi')" id="modalZelleBtn2" class="flex-1 py-2 rounded-xl text-slate-400 hover:text-white transition-all">
+                    6 Mos <span class="text-[9px] text-emerald-400 font-extrabold">(1 Free)</span>
+                </button>
+                <button type="button" onclick="selectModalZellePlan('yearly')" id="modalZelleBtn3" class="flex-1 py-2 rounded-xl text-slate-400 hover:text-white transition-all">
+                    1 Year <span class="text-[9px] text-amber-400 font-extrabold">(3 Free)</span>
+                </button>
+            </div>
+
+            <!-- Summary Amount Box -->
+            <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 mb-4 text-left">
+                <div class="flex justify-between items-center text-sm font-semibold mb-1">
+                    <span id="modalZellePlanTitle" class="text-slate-200">1 Month Subscription</span>
+                    <span id="modalZelleAmountRegular" class="text-emerald-400 text-xl font-extrabold">$85.00 USD</span>
+                </div>
+                <div id="modalZelleAmountMichigan" class="text-xs text-amber-400 font-medium">
+                    Michigan Businesses (6% Tax): <strong class="text-white" id="modalZelleAmountMichiganVal">$90.10 USD</strong>
+                </div>
+                <div id="modalZelleSavings" class="text-[11px] text-emerald-400 mt-1 font-bold hidden">
+                    🎉 <span id="modalZelleSavingsText">1 Month FREE included (Save $85.00)</span>
+                </div>
+            </div>
+
+            <!-- Zelle QR Image -->
+            <div class="bg-white p-3 rounded-2xl inline-block mb-3 shadow-xl">
+                <img src="zelle_qr.jpg" alt="Zelle QR Code" class="w-44 h-44 object-contain rounded-lg mx-auto">
+            </div>
+            
+            <div class="text-sm font-bold text-white mb-0.5">IT CYBER WORK L.L.C</div>
+            <p class="text-[11px] text-slate-400 mb-4" data-i18n="zelle_recipient_note">Recipient Business Name in your Zelle App</p>
+
+            <!-- Step by Step Instructions -->
+            <div class="bg-slate-800/60 rounded-xl p-3 text-left text-xs text-slate-300 space-y-1.5 border border-slate-700/60 mb-5">
+                <div class="flex gap-2"><span class="text-brand-400 font-bold">1.</span><span data-i18n="zelle_step1">Scan QR code in your bank app or send to <strong>IT CYBER WORK L.L.C</strong>.</span></div>
+                <div class="flex gap-2"><span class="text-brand-400 font-bold">2.</span><span data-i18n="zelle_step2">Transfer the exact amount for your selected plan.</span></div>
+                <div class="flex gap-2"><span class="text-brand-400 font-bold">3.</span><span data-i18n="zelle_step3">Send screenshot + your <strong>Hardware ID</strong> via WhatsApp to receive your activation key.</span></div>
+            </div>
+
+            <a href="https://wa.me/18681270663?text=Hello%20Impossible%20POS,%20I%20have%20sent%20a%20Zelle%20payment%20for%20my%20license." target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
+                <span>💬</span> <span data-i18n="zelle_btn_whatsapp">Send Payment Proof via WhatsApp</span>
+            </a>
         </div>
     </div>
 
@@ -966,6 +1060,19 @@
             price_core_title: "Core POS & Back Office",
             price_core_desc: "Everything you need to run the front and back of house.",
             price_core_amount: "$85<span class=\"text-lg text-slate-400 font-medium\">/mo per register</span>",
+            price_tab_1m: "1 Month",
+            price_tab_6m: "6 Mos",
+            price_tab_1y: "1 Year",
+            price_pill_1free: "1 Free",
+            price_pill_3free: "3 Free",
+            price_zelle_btn: "Pay / Renew with Zelle QR",
+            zelle_modal_title: "Pay with Zelle®",
+            zelle_modal_desc: "Select your plan and scan to activate your license",
+            zelle_recipient_note: "Recipient Business Name in your Zelle App",
+            zelle_step1: "Scan QR code in your bank app or send to <strong>IT CYBER WORK L.L.C</strong>.",
+            zelle_step2: "Transfer the exact amount for your selected plan.",
+            zelle_step3: "Send screenshot + your <strong>Hardware ID</strong> via WhatsApp to receive your activation key.",
+            zelle_btn_whatsapp: "Send Payment Proof via WhatsApp",
             price_core_item1: "Point of Sale Software",
             price_core_item2: "Cloud License Dashboard",
             price_core_item3: "Unlimited KDS Screens (FREE)",
@@ -1170,6 +1277,19 @@
             price_core_title: "POS Principal y Administración",
             price_core_desc: "Todo lo que necesitas para operar el frente de tu negocio y la administración.",
             price_core_amount: "$85<span class=\"text-lg text-slate-400 font-medium\">/mes por caja</span>",
+            price_tab_1m: "1 Mes",
+            price_tab_6m: "6 Meses",
+            price_tab_1y: "1 Año",
+            price_pill_1free: "1 Gratis",
+            price_pill_3free: "3 Gratis",
+            price_zelle_btn: "Pagar / Renovar con QR de Zelle",
+            zelle_modal_title: "Pagar con Zelle®",
+            zelle_modal_desc: "Selecciona tu plan y escanea para activar tu licencia",
+            zelle_recipient_note: "Nombre del negocio receptor en tu aplicación de Zelle",
+            zelle_step1: "Escanea el código QR en tu app bancaria o envía a <strong>IT CYBER WORK L.L.C</strong>.",
+            zelle_step2: "Transfiere el monto exacto correspondiente a tu plan elegido.",
+            zelle_step3: "Envía comprobante + tu <strong>Hardware ID</strong> por WhatsApp para recibir tu llave al instante.",
+            zelle_btn_whatsapp: "Enviar Comprobante por WhatsApp",
             price_core_item1: "Software Completo de Punto de Venta",
             price_core_item2: "Panel de Control de Licencias en la Nube",
             price_core_item3: "Pantallas de Cocina (KDS) Ilimitadas (GRATIS)",
@@ -1488,10 +1608,10 @@ ${notes ? notes : 'Ninguno especificado.'}
 
             const lower = userText.toLowerCase();
 
-            if (lower.includes('price') || lower.includes('cost') || lower.includes('cuanto') || lower.includes('precio') || lower.includes('85')) {
+            if (lower.includes('price') || lower.includes('cost') || lower.includes('cuanto') || lower.includes('precio') || lower.includes('85') || lower.includes('plan') || lower.includes('zelle')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Precios claros y directos:</strong><br>• POS Principal: <strong>$85/mes por caja</strong>.<br>• Incluye 1 estación móvil (tablet o celular de mesero).<br>• Dispositivos móviles adicionales: solo <strong>+$20/mes c/u</strong>.<br>• <strong>Pantallas de Cocina (KDS) Ilimitadas: 100% GRATIS</strong>.<br>• Módulo opcional de Control de Licor: +$100/mes.<br>• Prueba de 14 días <strong>sin pedir tarjeta de crédito</strong>.`
-                    : `<strong>Pricing is straightforward:</strong><br>• Core POS: <strong>$85/month per register</strong>.<br>• Includes 1 mobile ordering station (waiter tablet/phone).<br>• Additional mobile devices are only <strong>+$20/mo each</strong>.<br>• <strong>Unlimited Kitchen Displays (KDS) are 100% FREE</strong>.<br>• Optional Liquor Control Module: +$100/mo.<br>• 14-day free trial with <strong>zero credit card required</strong>.`;
+                    ? `<strong>Planes de Licencia Transparentes:</strong><br>• <strong>1 Mes:</strong> $85 USD ($90.10 negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $425 USD ($450.50 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $85)</em>.<br>• <strong>1 Año:</strong> $765 USD ($810.90 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $255)</em>.<br><br>• Pantallas de cocina (KDS) ilimitadas 100% GRATIS.<br>• Activación inmediata con Zelle a <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver código QR de Zelle y Pagar</button>`
+                    : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew</button>`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
                 const ans = currentLang === 'es'
@@ -1535,6 +1655,108 @@ ${notes ? notes : 'Ninguno especificado.'}
                 addChatMessage('bot', ans);
             }
         }, 350);
+    }
+
+
+    // --- Interactive Plan Selector & Zelle Modal Controller ---
+    let currentPricingPeriod = 'monthly';
+
+    function selectPricingPeriod(period) {
+        currentPricingPeriod = period;
+        const btn1 = document.getElementById('btnPlanMonthly');
+        const btn2 = document.getElementById('btnPlanSemi');
+        const btn3 = document.getElementById('btnPlanYearly');
+        const display = document.getElementById('priceCoreDisplay');
+        const periodLbl = document.getElementById('priceCorePeriod');
+        const miVal = document.getElementById('priceCoreMichiganVal');
+        const savingsBadge = document.getElementById('priceCoreSavings');
+        const savingsText = document.getElementById('priceCoreSavingsText');
+
+        [btn1, btn2, btn3].forEach(b => {
+            b.classList.remove('bg-brand-500', 'text-white', 'shadow');
+            b.classList.add('text-slate-400');
+        });
+
+        const isEs = currentLang === 'es';
+
+        if (period === 'monthly') {
+            btn1.classList.add('bg-brand-500', 'text-white', 'shadow');
+            btn1.classList.remove('text-slate-400');
+            display.innerText = '$85';
+            periodLbl.innerText = isEs ? '/ mes por caja' : '/ month per register';
+            miVal.innerText = '$90.10 USD';
+            savingsBadge.classList.add('hidden');
+        } else if (period === 'semi') {
+            btn2.classList.add('bg-brand-500', 'text-white', 'shadow');
+            btn2.classList.remove('text-slate-400');
+            display.innerText = '$425';
+            periodLbl.innerText = isEs ? '/ 6 meses (~$70.83/mes)' : '/ 6 months (~$70.83/mo)';
+            miVal.innerText = '$450.50 USD';
+            savingsText.innerText = isEs ? '¡Pagas 5 meses, 1 Mes GRATIS! Ahorras $85.00' : 'Pay 5 months, 1 Month FREE! Save $85.00';
+            savingsBadge.classList.remove('hidden');
+        } else if (period === 'yearly') {
+            btn3.classList.add('bg-brand-500', 'text-white', 'shadow');
+            btn3.classList.remove('text-slate-400');
+            display.innerText = '$765';
+            periodLbl.innerText = isEs ? '/ 1 año (~$63.75/mes)' : '/ 1 year (~$63.75/mo)';
+            miVal.innerText = '$810.90 USD';
+            savingsText.innerText = isEs ? '¡Pagas 9 meses, 3 Meses GRATIS! Ahorras $255.00' : 'Pay 9 months, 3 Months FREE! Save $255.00';
+            savingsBadge.classList.remove('hidden');
+        }
+    }
+
+    function openZelleModal(preferredPeriod = null) {
+        const modal = document.getElementById('modalZellePayment');
+        if (modal) modal.classList.remove('hidden');
+        selectModalZellePlan(preferredPeriod || currentPricingPeriod);
+    }
+
+    function closeZelleModal() {
+        const modal = document.getElementById('modalZellePayment');
+        if (modal) modal.classList.add('hidden');
+    }
+
+    function selectModalZellePlan(plan) {
+        const b1 = document.getElementById('modalZelleBtn1');
+        const b2 = document.getElementById('modalZelleBtn2');
+        const b3 = document.getElementById('modalZelleBtn3');
+        const title = document.getElementById('modalZellePlanTitle');
+        const reg = document.getElementById('modalZelleAmountRegular');
+        const mi = document.getElementById('modalZelleAmountMichiganVal');
+        const savings = document.getElementById('modalZelleSavings');
+        const savingsText = document.getElementById('modalZelleSavingsText');
+
+        [b1, b2, b3].forEach(b => {
+            b.classList.remove('bg-brand-500', 'text-white');
+            b.classList.add('text-slate-400');
+        });
+
+        const isEs = currentLang === 'es';
+
+        if (plan === 'monthly') {
+            b1.classList.add('bg-brand-500', 'text-white');
+            b1.classList.remove('text-slate-400');
+            title.innerText = isEs ? 'Plan 1 Mes' : '1 Month Plan';
+            reg.innerText = '$85.00 USD';
+            mi.innerText = '$90.10 USD';
+            savings.classList.add('hidden');
+        } else if (plan === 'semi') {
+            b2.classList.add('bg-brand-500', 'text-white');
+            b2.classList.remove('text-slate-400');
+            title.innerText = isEs ? 'Plan 6 Meses (1 Mes Gratis)' : '6 Months Plan (1 Mo Free)';
+            reg.innerText = '$425.00 USD';
+            mi.innerText = '$450.50 USD';
+            savingsText.innerText = isEs ? 'Incluye 1 mes gratis de regalo (Ahorras $85.00)' : 'Includes 1 month free discount (Save $85.00)';
+            savings.classList.remove('hidden');
+        } else if (plan === 'yearly') {
+            b3.classList.add('bg-brand-500', 'text-white');
+            b3.classList.remove('text-slate-400');
+            title.innerText = isEs ? 'Plan 1 Año (3 Meses Gratis)' : '1 Year Plan (3 Mos Free)';
+            reg.innerText = '$765.00 USD';
+            mi.innerText = '$810.90 USD';
+            savingsText.innerText = isEs ? 'Incluye 3 meses gratis de regalo (Ahorras $255.00)' : 'Includes 3 months free discount (Save $255.00)';
+            savings.classList.remove('hidden');
+        }
     }
 
     // --- On DOM Load: Initialize Language ---
