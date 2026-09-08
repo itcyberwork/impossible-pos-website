@@ -576,27 +576,68 @@
                     </div>
                 </div>
 
-                <!-- Premium Add-on -->
-                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700 relative overflow-hidden">
+                <!-- Premium Add-on: Liquor / Bar Hub Control Module with Interactive Plan Selector -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700 relative overflow-hidden flex flex-col justify-between">
                     <div data-i18n="price_add_badge" class="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Premium Add-On</div>
-                    <h3 data-i18n="price_add_title" class="text-2xl font-bold mb-2">Liquor Control Module</h3>
-                    <p data-i18n="price_add_desc" class="text-slate-400 mb-6">Advanced inventory and bar tab management for clubs.</p>
-                    <div data-i18n="price_add_amount" class="text-4xl font-extrabold mb-6">+$100<span class="text-lg text-slate-400 font-medium">/mo</span></div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_add_item1">Precision Ounce-Level Weight Inventory</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_add_item2">Advanced Bar Tab Management</span>
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-300">
-                            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            <span data-i18n="price_add_item3">Real-time Drink Cost & Pour Reports</span>
-                        </li>
-                    </ul>
-                    <button onclick="openLeadModal('sales')" data-i18n="price_add_btn" class="block w-full bg-slate-700 text-center py-3 rounded-xl font-bold hover:bg-slate-600 transition-colors cursor-pointer">Contact Sales</button>
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 data-i18n="price_add_title" class="text-2xl font-bold">Liquor & Bar Hub Control</h3>
+                        </div>
+                        <p data-i18n="price_add_desc" class="text-slate-400 mb-5">Advanced inventory, liquor dispensing, wine & bar tab management.</p>
+
+                        <!-- Plan Period Selector (1 Month / 6 Months / 1 Year) for Bar Hub -->
+                        <div class="flex items-center p-1 bg-slate-900/90 rounded-2xl mb-6 border border-slate-700" id="pricingBarToggle">
+                            <button type="button" onclick="selectBarPricingPeriod('monthly')" id="btnBarPlanMonthly" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all bg-amber-500 text-black shadow">
+                                <span data-i18n="price_tab_1m">1 Month</span>
+                            </button>
+                            <button type="button" onclick="selectBarPricingPeriod('semi')" id="btnBarPlanSemi" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all text-slate-400 hover:text-white relative">
+                                <span data-i18n="price_tab_6m">6 Mos</span> <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-1 py-0.5 rounded font-extrabold ml-0.5" data-i18n="price_pill_1free">1 Free</span>
+                            </button>
+                            <button type="button" onclick="selectBarPricingPeriod('yearly')" id="btnBarPlanYearly" class="flex-1 py-2 px-2 text-xs font-bold rounded-xl transition-all text-slate-400 hover:text-white relative">
+                                <span data-i18n="price_tab_1y">1 Year</span> <span class="text-[9px] bg-amber-500/20 text-amber-400 px-1 py-0.5 rounded font-extrabold ml-0.5" data-i18n="price_pill_3free">3 Free</span>
+                            </button>
+                        </div>
+
+                        <!-- Price display & Michigan Tax Note for Bar Hub -->
+                        <div class="mb-6 bg-slate-900/40 p-4 rounded-2xl border border-slate-700/50">
+                            <div class="flex items-baseline gap-2">
+                                <span id="priceBarDisplay" class="text-4xl font-extrabold text-white">$100</span>
+                                <span id="priceBarPeriod" class="text-sm text-slate-400 font-medium">/ month per location</span>
+                            </div>
+                            <div id="priceBarMichigan" class="text-xs text-amber-400 mt-1 font-medium">
+                                *Michigan businesses (6% MI Tax): <strong class="text-white" id="priceBarMichiganVal">$106.00 USD</strong>
+                            </div>
+                            <div id="priceBarSavings" class="hidden mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-lg">
+                                🎉 <span id="priceBarSavingsText">Pay 5 months, 1 Month FREE! Save $100.00</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_add_item1">Precision Ounce-Level Weight Inventory</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_add_item2">Advanced Bar Tab Management & Pre-Auth</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_add_item3">Real-time Drink Cost & Pour Yield Reports</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="price_add_item4">Custom Cocktail Recipes & Wine Cellar Tracking</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button type="button" onclick="openZelleModal('bar')" class="block w-full bg-amber-500 hover:bg-amber-400 text-black text-center py-3 rounded-xl font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-lg shadow-amber-950/40">
+                            <span>🍾</span> <span data-i18n="price_bar_zelle_btn">Pay Bar Hub with Zelle QR</span>
+                        </button>
+                        <button onclick="openLeadModal('sales')" data-i18n="price_add_btn" class="block w-full bg-slate-700/80 hover:bg-slate-700 text-slate-300 text-center py-2.5 rounded-xl font-medium text-xs transition-colors cursor-pointer">Talk to Sales Specialist</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -724,18 +765,30 @@
             
             <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">Z</div>
             <h3 class="text-xl font-bold mb-1" data-i18n="zelle_modal_title">Pay with Zelle®</h3>
-            <p class="text-xs text-slate-400 mb-4" data-i18n="zelle_modal_desc">Select your plan and scan to activate your license</p>
+            <p class="text-xs text-slate-400 mb-3" data-i18n="zelle_modal_desc">Select your plan and scan to activate your license</p>
             
+            <!-- Product Switcher (Core POS vs Bar Hub) -->
+            <div class="flex gap-2 p-1 bg-slate-800/90 rounded-2xl mb-3 border border-slate-700 text-xs font-bold">
+                <button type="button" onclick="switchZelleProduct('core')" id="modalZelleProdCore" class="flex-1 py-1.5 rounded-xl bg-brand-500 text-white transition-all">
+                    <span data-i18n="zelle_prod_core">🖥️ Core POS</span>
+                </button>
+                <button type="button" onclick="switchZelleProduct('bar')" id="modalZelleProdBar" class="flex-1 py-1.5 rounded-xl text-slate-400 hover:text-white transition-all">
+                    <span data-i18n="zelle_prod_bar">🍾 Bar Hub Addon</span>
+                </button>
+            </div>
+
             <!-- Plan Selector inside Modal -->
             <div class="flex gap-1.5 p-1 bg-slate-800 rounded-2xl mb-4 border border-slate-700 text-xs font-bold">
                 <button type="button" onclick="selectModalZellePlan('monthly')" id="modalZelleBtn1" class="flex-1 py-2 rounded-xl bg-brand-500 text-white transition-all">
-                    1 Month
+                    1 Month<br><span class="text-sm font-extrabold" id="modalZelleBtn1Val">$85</span>
                 </button>
                 <button type="button" onclick="selectModalZellePlan('semi')" id="modalZelleBtn2" class="flex-1 py-2 rounded-xl text-slate-400 hover:text-white transition-all">
-                    6 Mos <span class="text-[9px] text-emerald-400 font-extrabold">(1 Free)</span>
+                    6 Mos<br><span class="text-sm font-extrabold" id="modalZelleBtn2Val">$425</span>
+                    <span class="block text-[9px] text-emerald-400 font-extrabold">(1 Free)</span>
                 </button>
                 <button type="button" onclick="selectModalZellePlan('yearly')" id="modalZelleBtn3" class="flex-1 py-2 rounded-xl text-slate-400 hover:text-white transition-all">
-                    1 Year <span class="text-[9px] text-amber-400 font-extrabold">(3 Free)</span>
+                    1 Year<br><span class="text-sm font-extrabold" id="modalZelleBtn3Val">$765</span>
+                    <span class="block text-[9px] text-amber-400 font-extrabold">(3 Free)</span>
                 </button>
             </div>
 
@@ -755,7 +808,7 @@
 
             <!-- Zelle QR Image -->
             <div class="bg-white p-3 rounded-2xl inline-block mb-3 shadow-xl">
-                <img src="zelle_qr.jpg" alt="Zelle QR Code" class="w-44 h-44 object-contain rounded-lg mx-auto">
+                <img src="zelle_qr.jpg" alt="Zelle QR Code" class="w-40 h-40 object-contain rounded-lg mx-auto">
             </div>
             
             <div class="text-sm font-bold text-white mb-0.5">IT CYBER WORK L.L.C</div>
@@ -768,7 +821,7 @@
                 <div class="flex gap-2"><span class="text-brand-400 font-bold">3.</span><span data-i18n="zelle_step3">Send screenshot + your <strong>Hardware ID</strong> via WhatsApp to receive your activation key.</span></div>
             </div>
 
-            <a href="https://wa.me/18681270663?text=Hello%20Impossible%20POS,%20I%20have%20sent%20a%20Zelle%20payment%20for%20my%20license." target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
+            <a id="modalZelleWhatsappLink" href="https://wa.me/18681270663?text=Hello%20Impossible%20POS,%20I%20have%20sent%20a%20Zelle%20payment%20for%20my%20license." target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
                 <span>💬</span> <span data-i18n="zelle_btn_whatsapp">Send Payment Proof via WhatsApp</span>
             </a>
         </div>
@@ -1066,6 +1119,10 @@
             price_pill_1free: "1 Free",
             price_pill_3free: "3 Free",
             price_zelle_btn: "Pay / Renew with Zelle QR",
+            price_bar_zelle_btn: "Pay Bar Hub with Zelle QR",
+            price_add_item4: "Custom Cocktail Recipes & Wine Cellar Tracking",
+            zelle_prod_core: "🖥️ Core POS",
+            zelle_prod_bar: "🍾 Bar Hub Addon",
             zelle_modal_title: "Pay with Zelle®",
             zelle_modal_desc: "Select your plan and scan to activate your license",
             zelle_recipient_note: "Recipient Business Name in your Zelle App",
@@ -1283,6 +1340,10 @@
             price_pill_1free: "1 Gratis",
             price_pill_3free: "3 Gratis",
             price_zelle_btn: "Pagar / Renovar con QR de Zelle",
+            price_bar_zelle_btn: "Pagar Bar Hub con QR de Zelle",
+            price_add_item4: "Recetas de Cócteles y Control de Bodega de Vinos",
+            zelle_prod_core: "🖥️ POS Principal",
+            zelle_prod_bar: "🍾 Addon Bar Hub (Vinos)",
             zelle_modal_title: "Pagar con Zelle®",
             zelle_modal_desc: "Selecciona tu plan y escanea para activar tu licencia",
             zelle_recipient_note: "Nombre del negocio receptor en tu aplicación de Zelle",
@@ -1611,7 +1672,7 @@ ${notes ? notes : 'Ninguno especificado.'}
             if (lower.includes('price') || lower.includes('cost') || lower.includes('cuanto') || lower.includes('precio') || lower.includes('85') || lower.includes('plan') || lower.includes('zelle')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Planes de Licencia Transparentes:</strong><br>• <strong>1 Mes:</strong> $85 USD ($90.10 negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $425 USD ($450.50 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $85)</em>.<br>• <strong>1 Año:</strong> $765 USD ($810.90 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $255)</em>.<br><br>• Pantallas de cocina (KDS) ilimitadas 100% GRATIS.<br>• Activación inmediata con Zelle a <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver código QR de Zelle y Pagar</button>`
-                    : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew</button>`;
+                    : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• <strong>Bar Hub (Wine/Liquor Addon):</strong> $100/mo ($106 MI) | 6 Mos: $500 ($530 MI) | 1 Year: $900 ($954 MI).<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew</button>`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
                 const ans = currentLang === 'es'
@@ -1623,10 +1684,10 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>¡Pantallas de Cocina Inteligentes 100% Gratis e Ilimitadas!</strong><br>A diferencia de competidores que cobran $50-$100 al mes por cada pantalla, nosotros incluimos pantallas de cocina, bar y runners gratis. Incluye tiempos de cocción con colores (verde, amarillo, rojo) y timbres sonoros para comandas nuevas.`
                     : `<strong>Unlimited Smart KDS screens are 100% Free!</strong><br>Unlike competitors who charge $50-$100 per kitchen screen, we include unlimited kitchen, bar, and runner screens for free. Includes cooking timers that turn from green to yellow to red, and audible chimes for new tickets.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('liquor') || lower.includes('bar') || lower.includes('alcohol') || lower.includes('botella') || lower.includes('licor')) {
+            } else if (lower.includes('liquor') || lower.includes('bar') || lower.includes('alcohol') || lower.includes('botella') || lower.includes('licor') || lower.includes('vino') || lower.includes('wine')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Módulo de Control de Licor (+$100/mes):</strong><br>Rastrea el inventario hasta la onza exacta. Incluye sincronización con báscula de botellas para pesar al final del turno, botones ultra veloces para cantineros (Speed Bar) y control de cuentas de bar.`
-                    : `<strong>Advanced Liquor Control Module (+$100/mo):</strong><br>Track inventory down to the exact ounce. Includes bottle scale integration, bartender shift balancing, and high-speed bar tabs for busy taverns and nightclubs.`;
+                    ? `<strong>Módulo de Control de Barra y Vinos (Bar Hub):</strong><br>• <strong>1 Mes:</strong> $100 USD ($106.00 para negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $500 USD ($530.00 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $100)</em>.<br>• <strong>1 Año:</strong> $900 USD ($954.00 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $300)</em>.<br><br>Rastrea inventario a la onza exacta, balanzas de botellas, speed bar y control de botellas de vino.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver Código QR de Zelle para Pagar o Renovar Bar Hub</button>`
+                    : `<strong>Liquor & Wine Control Module (Bar Hub):</strong><br>• <strong>1 Month:</strong> $100 USD ($106.00 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $500 USD ($530.00 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $100)</em>.<br>• <strong>1 Year:</strong> $900 USD ($954.00 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $300)</em>.<br><br>Precision ounce-level tracking, bottle scale integration, and wine cellar control.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew Bar Hub</button>`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('printer') || lower.includes('hardware') || lower.includes('impresora') || lower.includes('sunmi') || lower.includes('epson') || lower.includes('equipo')) {
                 const ans = currentLang === 'es'
@@ -1660,6 +1721,9 @@ ${notes ? notes : 'Ninguno especificado.'}
 
     // --- Interactive Plan Selector & Zelle Modal Controller ---
     let currentPricingPeriod = 'monthly';
+    let currentBarPricingPeriod = 'monthly';
+    let currentZelleProduct = 'core'; // 'core' or 'bar'
+    let currentModalPlan = 'monthly';
 
     function selectPricingPeriod(period) {
         currentPricingPeriod = period;
@@ -1673,6 +1737,7 @@ ${notes ? notes : 'Ninguno especificado.'}
         const savingsText = document.getElementById('priceCoreSavingsText');
 
         [btn1, btn2, btn3].forEach(b => {
+            if (!b) return;
             b.classList.remove('bg-brand-500', 'text-white', 'shadow');
             b.classList.add('text-slate-400');
         });
@@ -1680,35 +1745,99 @@ ${notes ? notes : 'Ninguno especificado.'}
         const isEs = currentLang === 'es';
 
         if (period === 'monthly') {
-            btn1.classList.add('bg-brand-500', 'text-white', 'shadow');
-            btn1.classList.remove('text-slate-400');
-            display.innerText = '$85';
-            periodLbl.innerText = isEs ? '/ mes por caja' : '/ month per register';
-            miVal.innerText = '$90.10 USD';
-            savingsBadge.classList.add('hidden');
+            if (btn1) { btn1.classList.add('bg-brand-500', 'text-white', 'shadow'); btn1.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$85';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ mes por caja' : '/ month per register';
+            if (miVal) miVal.innerText = '$90.10 USD';
+            if (savingsBadge) savingsBadge.classList.add('hidden');
         } else if (period === 'semi') {
-            btn2.classList.add('bg-brand-500', 'text-white', 'shadow');
-            btn2.classList.remove('text-slate-400');
-            display.innerText = '$425';
-            periodLbl.innerText = isEs ? '/ 6 meses (~$70.83/mes)' : '/ 6 months (~$70.83/mo)';
-            miVal.innerText = '$450.50 USD';
-            savingsText.innerText = isEs ? '¡Pagas 5 meses, 1 Mes GRATIS! Ahorras $85.00' : 'Pay 5 months, 1 Month FREE! Save $85.00';
-            savingsBadge.classList.remove('hidden');
+            if (btn2) { btn2.classList.add('bg-brand-500', 'text-white', 'shadow'); btn2.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$425';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ 6 meses (~$70.83/mes)' : '/ 6 months (~$70.83/mo)';
+            if (miVal) miVal.innerText = '$450.50 USD';
+            if (savingsText) savingsText.innerText = isEs ? '¡Pagas 5 meses, 1 Mes GRATIS! Ahorras $85.00' : 'Pay 5 months, 1 Month FREE! Save $85.00';
+            if (savingsBadge) savingsBadge.classList.remove('hidden');
         } else if (period === 'yearly') {
-            btn3.classList.add('bg-brand-500', 'text-white', 'shadow');
-            btn3.classList.remove('text-slate-400');
-            display.innerText = '$765';
-            periodLbl.innerText = isEs ? '/ 1 año (~$63.75/mes)' : '/ 1 year (~$63.75/mo)';
-            miVal.innerText = '$810.90 USD';
-            savingsText.innerText = isEs ? '¡Pagas 9 meses, 3 Meses GRATIS! Ahorras $255.00' : 'Pay 9 months, 3 Months FREE! Save $255.00';
-            savingsBadge.classList.remove('hidden');
+            if (btn3) { btn3.classList.add('bg-brand-500', 'text-white', 'shadow'); btn3.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$765';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ 1 año (~$63.75/mes)' : '/ 1 year (~$63.75/mo)';
+            if (miVal) miVal.innerText = '$810.90 USD';
+            if (savingsText) savingsText.innerText = isEs ? '¡Pagas 9 meses, 3 Meses GRATIS! Ahorras $255.00' : 'Pay 9 months, 3 Months FREE! Save $255.00';
+            if (savingsBadge) savingsBadge.classList.remove('hidden');
         }
     }
 
-    function openZelleModal(preferredPeriod = null) {
+    function selectBarPricingPeriod(period) {
+        currentBarPricingPeriod = period;
+        const btn1 = document.getElementById('btnBarPlanMonthly');
+        const btn2 = document.getElementById('btnBarPlanSemi');
+        const btn3 = document.getElementById('btnBarPlanYearly');
+        const display = document.getElementById('priceBarDisplay');
+        const periodLbl = document.getElementById('priceBarPeriod');
+        const miVal = document.getElementById('priceBarMichiganVal');
+        const savingsBadge = document.getElementById('priceBarSavings');
+        const savingsText = document.getElementById('priceBarSavingsText');
+
+        [btn1, btn2, btn3].forEach(b => {
+            if (!b) return;
+            b.classList.remove('bg-amber-500', 'text-black', 'shadow');
+            b.classList.add('text-slate-400');
+        });
+
+        const isEs = currentLang === 'es';
+
+        if (period === 'monthly') {
+            if (btn1) { btn1.classList.add('bg-amber-500', 'text-black', 'shadow'); btn1.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$100';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ mes por local' : '/ month per location';
+            if (miVal) miVal.innerText = '$106.00 USD';
+            if (savingsBadge) savingsBadge.classList.add('hidden');
+        } else if (period === 'semi') {
+            if (btn2) { btn2.classList.add('bg-amber-500', 'text-black', 'shadow'); btn2.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$500';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ 6 meses (~$83.33/mes)' : '/ 6 months (~$83.33/mo)';
+            if (miVal) miVal.innerText = '$530.00 USD';
+            if (savingsText) savingsText.innerText = isEs ? '¡Pagas 5 meses, 1 Mes GRATIS! Ahorras $100.00' : 'Pay 5 months, 1 Month FREE! Save $100.00';
+            if (savingsBadge) savingsBadge.classList.remove('hidden');
+        } else if (period === 'yearly') {
+            if (btn3) { btn3.classList.add('bg-amber-500', 'text-black', 'shadow'); btn3.classList.remove('text-slate-400'); }
+            if (display) display.innerText = '$900';
+            if (periodLbl) periodLbl.innerText = isEs ? '/ 1 año (~$75.00/mes)' : '/ 1 year (~$75.00/mo)';
+            if (miVal) miVal.innerText = '$954.00 USD';
+            if (savingsText) savingsText.innerText = isEs ? '¡Pagas 9 meses, 3 Meses GRATIS! Ahorras $300.00' : 'Pay 9 months, 3 Months FREE! Save $300.00';
+            if (savingsBadge) savingsBadge.classList.remove('hidden');
+        }
+    }
+
+    function switchZelleProduct(product) {
+        currentZelleProduct = product;
+        const btnCore = document.getElementById('modalZelleProdCore');
+        const btnBar = document.getElementById('modalZelleProdBar');
+
+        if (product === 'bar') {
+            if (btnCore) { btnCore.classList.remove('bg-brand-500', 'text-white'); btnCore.classList.add('text-slate-400'); }
+            if (btnBar) { btnBar.classList.add('bg-amber-500', 'text-black'); btnBar.classList.remove('text-slate-400'); }
+        } else {
+            if (btnCore) { btnCore.classList.add('bg-brand-500', 'text-white'); btnCore.classList.remove('text-slate-400'); }
+            if (btnBar) { btnBar.classList.remove('bg-amber-500', 'text-black'); btnBar.classList.add('text-slate-400'); }
+        }
+        selectModalZellePlan(currentModalPlan);
+    }
+
+    function openZelleModal(productOrPeriod = 'core') {
         const modal = document.getElementById('modalZellePayment');
         if (modal) modal.classList.remove('hidden');
-        selectModalZellePlan(preferredPeriod || currentPricingPeriod);
+
+        if (productOrPeriod === 'bar') {
+            switchZelleProduct('bar');
+            selectModalZellePlan(currentBarPricingPeriod);
+        } else if (productOrPeriod === 'monthly' || productOrPeriod === 'semi' || productOrPeriod === 'yearly') {
+            switchZelleProduct('core');
+            selectModalZellePlan(productOrPeriod);
+        } else {
+            switchZelleProduct('core');
+            selectModalZellePlan(currentPricingPeriod);
+        }
     }
 
     function closeZelleModal() {
@@ -1717,45 +1846,84 @@ ${notes ? notes : 'Ninguno especificado.'}
     }
 
     function selectModalZellePlan(plan) {
+        currentModalPlan = plan;
         const b1 = document.getElementById('modalZelleBtn1');
         const b2 = document.getElementById('modalZelleBtn2');
         const b3 = document.getElementById('modalZelleBtn3');
+        const p1Val = document.getElementById('modalZelleBtn1Val');
+        const p2Val = document.getElementById('modalZelleBtn2Val');
+        const p3Val = document.getElementById('modalZelleBtn3Val');
         const title = document.getElementById('modalZellePlanTitle');
         const reg = document.getElementById('modalZelleAmountRegular');
         const mi = document.getElementById('modalZelleAmountMichiganVal');
         const savings = document.getElementById('modalZelleSavings');
         const savingsText = document.getElementById('modalZelleSavingsText');
+        const waLink = document.getElementById('modalZelleWhatsappLink');
+
+        const isEs = currentLang === 'es';
+        const isBar = (currentZelleProduct === 'bar');
+
+        const activeClass = isBar ? ['bg-amber-500', 'text-black'] : ['bg-brand-500', 'text-white'];
+        const removeClasses = ['bg-brand-500', 'bg-amber-500', 'text-white', 'text-black'];
 
         [b1, b2, b3].forEach(b => {
-            b.classList.remove('bg-brand-500', 'text-white');
+            if (!b) return;
+            b.classList.remove(...removeClasses);
             b.classList.add('text-slate-400');
         });
 
-        const isEs = currentLang === 'es';
+        if (p1Val) p1Val.innerText = isBar ? '$100' : '$85';
+        if (p2Val) p2Val.innerText = isBar ? '$500' : '$425';
+        if (p3Val) p3Val.innerText = isBar ? '$900' : '$765';
+
+        let planNameText = '';
+        let amountRegularText = '';
+        let amountMiText = '';
 
         if (plan === 'monthly') {
-            b1.classList.add('bg-brand-500', 'text-white');
-            b1.classList.remove('text-slate-400');
-            title.innerText = isEs ? 'Plan 1 Mes' : '1 Month Plan';
-            reg.innerText = '$85.00 USD';
-            mi.innerText = '$90.10 USD';
-            savings.classList.add('hidden');
+            if (b1) { b1.classList.add(...activeClass); b1.classList.remove('text-slate-400'); }
+            planNameText = isBar 
+                ? (isEs ? 'Bar Hub: Plan 1 Mes' : 'Bar Hub: 1 Month Plan')
+                : (isEs ? 'Core POS: Plan 1 Mes' : 'Core POS: 1 Month Plan');
+            amountRegularText = isBar ? '$100.00 USD' : '$85.00 USD';
+            amountMiText = isBar ? '$106.00 USD' : '$90.10 USD';
+            if (savings) savings.classList.add('hidden');
         } else if (plan === 'semi') {
-            b2.classList.add('bg-brand-500', 'text-white');
-            b2.classList.remove('text-slate-400');
-            title.innerText = isEs ? 'Plan 6 Meses (1 Mes Gratis)' : '6 Months Plan (1 Mo Free)';
-            reg.innerText = '$425.00 USD';
-            mi.innerText = '$450.50 USD';
-            savingsText.innerText = isEs ? 'Incluye 1 mes gratis de regalo (Ahorras $85.00)' : 'Includes 1 month free discount (Save $85.00)';
-            savings.classList.remove('hidden');
+            if (b2) { b2.classList.add(...activeClass); b2.classList.remove('text-slate-400'); }
+            planNameText = isBar
+                ? (isEs ? 'Bar Hub: Plan 6 Meses (1 Mes Gratis)' : 'Bar Hub: 6 Months Plan (1 Mo Free)')
+                : (isEs ? 'Core POS: Plan 6 Meses (1 Mes Gratis)' : 'Core POS: 6 Months Plan (1 Mo Free)');
+            amountRegularText = isBar ? '$500.00 USD' : '$425.00 USD';
+            amountMiText = isBar ? '$530.00 USD' : '$450.50 USD';
+            if (savingsText) {
+                savingsText.innerText = isBar
+                    ? (isEs ? 'Incluye 1 mes gratis (Ahorras $100.00)' : 'Includes 1 month free (Save $100.00)')
+                    : (isEs ? 'Incluye 1 mes gratis (Ahorras $85.00)' : 'Includes 1 month free (Save $85.00)');
+            }
+            if (savings) savings.classList.remove('hidden');
         } else if (plan === 'yearly') {
-            b3.classList.add('bg-brand-500', 'text-white');
-            b3.classList.remove('text-slate-400');
-            title.innerText = isEs ? 'Plan 1 Año (3 Meses Gratis)' : '1 Year Plan (3 Mos Free)';
-            reg.innerText = '$765.00 USD';
-            mi.innerText = '$810.90 USD';
-            savingsText.innerText = isEs ? 'Incluye 3 meses gratis de regalo (Ahorras $255.00)' : 'Includes 3 months free discount (Save $255.00)';
-            savings.classList.remove('hidden');
+            if (b3) { b3.classList.add(...activeClass); b3.classList.remove('text-slate-400'); }
+            planNameText = isBar
+                ? (isEs ? 'Bar Hub: Plan 1 Año (3 Meses Gratis)' : 'Bar Hub: 1 Year Plan (3 Mos Free)')
+                : (isEs ? 'Core POS: Plan 1 Año (3 Meses Gratis)' : 'Core POS: 1 Year Plan (3 Mos Free)');
+            amountRegularText = isBar ? '$900.00 USD' : '$765.00 USD';
+            amountMiText = isBar ? '$954.00 USD' : '$810.90 USD';
+            if (savingsText) {
+                savingsText.innerText = isBar
+                    ? (isEs ? 'Incluye 3 meses gratis (Ahorras $300.00)' : 'Includes 3 months free (Save $300.00)')
+                    : (isEs ? 'Incluye 3 meses gratis (Ahorras $255.00)' : 'Includes 3 months free (Save $255.00)');
+            }
+            if (savings) savings.classList.remove('hidden');
+        }
+
+        if (title) title.innerText = planNameText;
+        if (reg) reg.innerText = amountRegularText;
+        if (mi) mi.innerText = amountMiText;
+
+        if (waLink) {
+            const prodDesc = isBar ? 'Liquor / Bar Hub Addon' : 'Impossible POS Core';
+            const msg = encodeURIComponent(`Hello Impossible POS, I have sent a Zelle payment of ${amountRegularText} for my ${prodDesc} (${planNameText}). My Hardware ID is: `);
+            waLink.href = `https://wa.me/18681270663?text=${msg}`;
         }
     }
 
