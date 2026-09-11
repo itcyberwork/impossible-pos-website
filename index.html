@@ -457,6 +457,7 @@
                         <li class="flex items-start gap-2">• <span data-i18n="mod8_item2"><strong>NVR/DVR Camera Text Overlay:</strong> Prints line-item sales on security camera video.</span></li>
                         <li class="flex items-start gap-2">• <span data-i18n="mod8_item3"><strong>Detailed Audit Logs:</strong> Track every void, discount, drawer kick, and price override.</span></li>
                         <li class="flex items-start gap-2">• <span data-i18n="mod8_item4"><strong>Comprehensive Reports:</strong> Z-Reports, tip payouts, department breakdowns, and sales tax.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod8_item5"><strong>Optional USDA EBT/WIC & NVR Audit:</strong> Video and screen recording sync for groceries and food trucks. 1-click toggle; stays 100% hidden for bars and restaurants.</span></li>
                     </ul>
                 </div>
 
@@ -652,6 +653,11 @@
             </div>
             
             <div class="space-y-6">
+                <!-- FAQ EBT & WIC -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_ebt_q" class="text-lg font-bold text-slate-900 mb-2">Can I accept EBT Food Stamps and WIC with Impossible POS?</h3>
+                    <p data-i18n="faq_ebt_a" class="text-slate-600">Yes! Impossible POS includes an optional, 1-click USDA EBT (SNAP) and WIC compliance suite. For carnicerías, bodegas, markets, and authorized food trucks, it provides automatic split-tender calculations and timestamped NVR camera & screen recording synchronization to protect your store against government audits. If you operate a standard bar or restaurant, this module stays 100% hidden with zero screen clutter.</p>
+                </div>
                 <!-- FAQ 0: Android Kiosk -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                     <h3 data-i18n="faq0_q" class="text-lg font-bold text-slate-900 mb-2">How do I run Impossible POS on Android tablets in Kiosk Mode?</h3>
@@ -806,10 +812,15 @@
                 </div>
             </div>
 
-            <!-- Zelle QR Image -->
-            <div class="bg-white p-3 rounded-2xl inline-block mb-3 shadow-xl">
-                <img src="zelle_qr.jpg" alt="Zelle QR Code" class="w-40 h-40 object-contain rounded-lg mx-auto">
-            </div>
+            <!-- Zelle QR Image & Direct Link -->
+            <a href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiSVQgQ1lCRVIgV09SSyBMLkwuQyIsInRva2VuIjoiaXRjeWJlcndvcmsiLCJhY3Rpb24iOiJwYXltZW50In0=" target="_blank" class="block group mb-3">
+                <div class="bg-white p-3.5 rounded-2xl inline-block shadow-2xl transition-transform group-hover:scale-105 border border-slate-200">
+                    <img src="zelle_qr.jpg" alt="Zelle QR Code" class="w-52 h-52 sm:w-60 sm:h-60 object-contain rounded-lg mx-auto">
+                </div>
+                <div class="text-[11px] text-brand-400 hover:text-brand-300 font-medium underline flex items-center justify-center gap-1 mt-1">
+                    <span data-i18n="zelle_tap_mobile">📱 On your phone? Tap QR to open directly in Zelle</span>
+                </div>
+            </a>
             
             <div class="text-sm font-bold text-white mb-0.5">IT CYBER WORK L.L.C</div>
             <p class="text-[11px] text-slate-400 mb-4" data-i18n="zelle_recipient_note">Recipient Business Name in your Zelle App</p>
@@ -821,9 +832,12 @@
                 <div class="flex gap-2"><span class="text-brand-400 font-bold">3.</span><span data-i18n="zelle_step3">Send screenshot + your <strong>Hardware ID</strong> via WhatsApp to receive your activation key.</span></div>
             </div>
 
-            <a id="modalZelleWhatsappLink" href="https://wa.me/18681270663?text=Hello%20Impossible%20POS,%20I%20have%20sent%20a%20Zelle%20payment%20for%20my%20license." target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
+            <a id="modalZelleWhatsappLink" href="https://wa.me/13133129090?text=Hello%20Impossible%20POS,%20I%20have%20sent%20a%20Zelle%20payment%20for%20my%20license." target="_blank" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
                 <span>💬</span> <span data-i18n="zelle_btn_whatsapp">Send Payment Proof via WhatsApp</span>
             </a>
+            <div class="mt-2 text-center text-xs text-slate-400">
+                <span>WhatsApp / Direct Line:</span> <strong class="text-white font-mono">+1 (313) 312-9090</strong>
+            </div>
         </div>
     </div>
 
@@ -1095,6 +1109,9 @@
             mod8_item2: "<strong>NVR/DVR Camera Text Overlay:</strong> Prints line-item sales on security camera video.",
             mod8_item3: "<strong>Detailed Audit Logs:</strong> Track every void, discount, drawer kick, and price override.",
             mod8_item4: "<strong>Comprehensive Reports:</strong> Z-Reports, tip payouts, department breakdowns, and sales tax.",
+            mod8_item5: "<strong>Optional USDA EBT/WIC & NVR Audit:</strong> Video and screen recording sync for groceries and food trucks. 1-click toggle; stays 100% hidden for bars and restaurants.",
+            faq_ebt_q: "Can I accept EBT Food Stamps and WIC with Impossible POS?",
+            faq_ebt_a: "Yes! Impossible POS includes an optional, 1-click USDA EBT (SNAP) and WIC compliance suite. For carnicerías, bodegas, markets, and authorized food trucks, it provides automatic split-tender calculations and timestamped NVR camera & screen recording synchronization to protect your store against government audits. If you operate a standard bar or restaurant, this module stays 100% hidden with zero screen clutter.",
 
             mod9_title: "100% Free Remote Setup",
             mod9_desc: "Other companies charge $500 to $1,500 for 'onboarding'. We believe you shouldn't pay a single cent just to get your system ready. Our technical team connects via RustDesk and configures your menu, tax rates, and printers completely free of charge.",
@@ -1130,6 +1147,7 @@
             zelle_step2: "Transfer the exact amount for your selected plan.",
             zelle_step3: "Send screenshot + your <strong>Hardware ID</strong> via WhatsApp to receive your activation key.",
             zelle_btn_whatsapp: "Send Payment Proof via WhatsApp",
+            zelle_tap_mobile: "📱 On your phone? Tap QR to open directly in Zelle",
             price_core_item1: "Point of Sale Software",
             price_core_item2: "Cloud License Dashboard",
             price_core_item3: "Unlimited KDS Screens (FREE)",
@@ -1316,6 +1334,9 @@
             mod8_item2: "<strong>Texto sobre Video NVR/DVR:</strong> Imprime cada producto cobrado directamente sobre el video de seguridad.",
             mod8_item3: "<strong>Auditoría Completa:</strong> Rastrea cancelaciones, descuentos, aperturas de cajón y cambios de precio.",
             mod8_item4: "<strong>Reportes Exhaustivos:</strong> Cortes Z, liquidación de propinas, desglose por departamentos e impuestos.",
+            mod8_item5: "<strong>Módulo Opcional EBT/WIC y Auditoría NVR:</strong> Sincronización de video y grabación de pantalla para carnicerías y food trucks. Actívalo en 1 clic; se mantiene 100% oculto para bares y restaurantes.",
+            faq_ebt_q: "¿Puedo aceptar estampillas de comida EBT (SNAP) y WIC con Impossible POS?",
+            faq_ebt_a: "¡Sí! Impossible POS incluye un módulo opcional de cumplimiento USDA para EBT y WIC. Para carnicerías, abarrotes, tiendas y camiones de comida autorizados, ofrece cálculo automático de cobro dividido (split-tender) y sincronización con cámaras NVR y grabación de pantalla para protegerte ante auditorías del gobierno. Si tienes un bar o restaurante tradicional, el módulo se mantiene 100% oculto sin estorbar en la caja.",
 
             mod9_title: "Configuración Remota 100% Gratis",
             mod9_desc: "Otras compañías te cobran entre $500 y $1,500 de 'onboarding'. Nosotros creemos que no debes pagar un solo centavo para empezar. Nuestro equipo técnico se conecta por RustDesk y configura tu menú, impuestos e impresoras totalmente gratis.",
@@ -1351,6 +1372,7 @@
             zelle_step2: "Transfiere el monto exacto correspondiente a tu plan elegido.",
             zelle_step3: "Envía comprobante + tu <strong>Hardware ID</strong> por WhatsApp para recibir tu llave al instante.",
             zelle_btn_whatsapp: "Enviar Comprobante por WhatsApp",
+            zelle_tap_mobile: "📱 ¿En tu celular? Toca el QR para abrir directo en Zelle",
             price_core_item1: "Software Completo de Punto de Venta",
             price_core_item2: "Panel de Control de Licencias en la Nube",
             price_core_item3: "Pantallas de Cocina (KDS) Ilimitadas (GRATIS)",
@@ -1674,6 +1696,11 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>Planes de Licencia Transparentes:</strong><br>• <strong>1 Mes:</strong> $85 USD ($90.10 negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $425 USD ($450.50 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $85)</em>.<br>• <strong>1 Año:</strong> $765 USD ($810.90 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $255)</em>.<br><br>• Pantallas de cocina (KDS) ilimitadas 100% GRATIS.<br>• Activación inmediata con Zelle a <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver código QR de Zelle y Pagar</button>`
                     : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• <strong>Bar Hub (Wine/Liquor Addon):</strong> $100/mo ($106 MI) | 6 Mos: $500 ($530 MI) | 1 Year: $900 ($954 MI).<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew</button>`;
                 addChatMessage('bot', ans);
+            } else if (lower.includes('ebt') || lower.includes('wic') || lower.includes('stamp') || lower.includes('estampilla') || lower.includes('food stamp')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Módulo Opcional EBT / SNAP y WIC:</strong><br>• <strong>Diseñado para Carnicerías, Tiendas y Food Trucks:</strong> Incluye cálculo automático de cobro dividido (Split-Tender) y sincronización con cámaras NVR y grabación de pantalla para cumplir con los requisitos antifraude del USDA.<br>• <strong>100% Opcional:</strong> Si operas un bar o restaurante que no recibe asistencia del gobierno, el módulo permanece totalmente oculto sin saturar tu pantalla de cobro.`
+                    : `<strong>Optional USDA EBT / SNAP & WIC Suite:</strong><br>• <strong>Engineered for Carnicerías, Groceries & Food Trucks:</strong> Features automatic split-tender calculations and timestamped NVR camera & screen recording synchronization to protect your store against USDA audits.<br>• <strong>100% Optional:</strong> If you run a standard bar or restaurant, the module stays completely hidden with zero screen clutter.`;
+                addChatMessage('bot', ans);
             } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
                 const ans = currentLang === 'es'
                     ? `<strong>¡Sí! 100% Fuera de Línea (Offline-First).</strong><br>Impossible POS opera sobre una base de datos SQLite local en tu computadora. Si se corta el internet, tus cajas, impresoras de cocina y pantallas táctiles siguen cobrando y sacando comandas al instante. Todo se sincroniza solo con la nube en cuanto regresa la conexión.`
@@ -1923,7 +1950,7 @@ ${notes ? notes : 'Ninguno especificado.'}
         if (waLink) {
             const prodDesc = isBar ? 'Liquor / Bar Hub Addon' : 'Impossible POS Core';
             const msg = encodeURIComponent(`Hello Impossible POS, I have sent a Zelle payment of ${amountRegularText} for my ${prodDesc} (${planNameText}). My Hardware ID is: `);
-            waLink.href = `https://wa.me/18681270663?text=${msg}`;
+            waLink.href = `https://wa.me/13133129090?text=${msg}`;
         }
     }
 
