@@ -856,6 +856,14 @@
             </div>
 
             <!-- Form Content -->
+            <!-- Direct 1-Click Instant Download Banner for customers who want immediate trial -->
+            <div style="background: rgba(48,209,88,0.08); border: 1px solid #30d158; border-radius: 12px; padding: 12px; margin-bottom: 14px; text-align: center;">
+                <div style="font-size: 12px; font-weight: bold; color: #166534; margin-bottom: 4px;">⚡ ¿Quieres descargar directamente sin esperar? / Instant Direct Download:</div>
+                <a href="Impossible_POS_v1.0.zip" download="Impossible_POS_v1.0.zip" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm shadow transition-all">
+                    ⬇️ Descargar Impossible_POS_v1.0.zip Directo (398 MB)
+                </a>
+            </div>
+            
             <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-4 text-left">
                 <input type="hidden" id="leadTargetAction" value="windows">
 
@@ -1042,7 +1050,7 @@
     <script>
     const TG_TOKEN = "8883667960:AAFVCTqMwI75fGFZ76LCb5ektTVkduv878s";
     const TG_CHAT = "8681270663";
-    const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.0.0/Impossible_POS_v1.0.zip";
+    const WINDOWS_DOWNLOAD_URL = "Impossible_POS_v1.0.zip";
     const ANDROID_DEMO_URL = "https://demo.impossiblepos.com";
 
     // --- Complete Translations Dictionary ---
@@ -1944,8 +1952,6 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `Impossible POS está diseñado para máxima velocidad, con pantallas de cocina gratis, básculas USB, pedidos telefónicos por IA y modo fuera de línea militar por $85/mes.<br><br><a href="https://wa.me/13133129090?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:6px 12px; border-radius:6px; font-size:11px; font-weight:bold; text-decoration:none; margin: 4px 0;">Chatear por WhatsApp</a><br>O escribe tu teléfono aquí para que te contactemos.`
                     : `Impossible POS is built for relentless speed, featuring unlimited free kitchen screens, USB scale support, AI phone orders, and offline resilience for $85/mo.<br><br><a href="https://wa.me/13133129090?text=Hello%2C%20I%20have%20a%20question%20about%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:6px 12px; border-radius:6px; font-size:11px; font-weight:bold; text-decoration:none; margin: 4px 0;">Chat on WhatsApp</a><br>Or type your phone number below and we'll reach out to you.`;
                 addChatMessage('bot', ans);
-            }
-addChatMessage('bot', ans);
             }
         }, 350);
     }
