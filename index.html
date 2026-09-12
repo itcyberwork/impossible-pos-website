@@ -927,6 +927,14 @@
                 <h4 id="lead-success-title" data-i18n="lead_success_title" class="text-2xl font-black text-slate-900">Welcome to Impossible POS!</h4>
                 <p id="lead-success-msg" class="text-sm text-slate-600 max-w-sm mx-auto">Your trial has been registered. Your download is starting right now...</p>
                 
+                <!-- Direct Download Button -->
+                <div id="lead-download-btn-container" class="pt-2 hidden">
+                    <a id="lead-download-direct-btn" href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.0.0/Impossible_POS_v1.0.zip" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-2xl text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
+                        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span data-i18n="lead_success_btn_download">Download Impossible_POS_v1.0.zip</span>
+                    </a>
+                </div>
+                
                 <!-- Step-by-Step Installation Instructions Box -->
                 <div id="lead-install-guide" class="text-left bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mt-4 space-y-3 text-xs text-slate-700 hidden shadow-sm">
                     <div class="flex items-center gap-2 font-bold text-slate-900 text-sm border-b border-slate-200 pb-2">
@@ -1233,6 +1241,7 @@
             lead_btn_sales: "Request Consultation",
             lead_success_title: "Welcome to Impossible POS!",
             lead_success_btn_close: "Close",
+            lead_success_btn_download: "⬇️ Download Impossible_POS_v1.0.zip Now",
             install_guide_title: "Critical Windows Installation Steps:",
             install_step0: "<strong>Install Node.js Runtime (Only once):</strong> Download & install Node.js LTS from <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (do NOT check extra boxes or Chocolatey; simply click Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
             install_step1: "<strong>Do NOT run directly from browser:</strong> Once downloaded, open your computer's <strong>Downloads</strong> folder.",
@@ -1464,6 +1473,7 @@
             lead_btn_sales: "Solicitar Asesoría",
             lead_success_title: "¡Bienvenido a Impossible POS!",
             lead_success_btn_close: "Cerrar",
+            lead_success_btn_download: "⬇️ Descargar Impossible_POS_v1.0.zip Ahora",
             install_guide_title: "Pasos Obligatorios de Instalación en Windows:",
             install_step0: "<strong>Instalar Motor Node.js (Solo la primera vez):</strong> Descarga Node.js LTS desde <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (NO marques casillas extras ni Chocolatey; solo dale Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
             install_step1: "<strong>NO abras el archivo directo desde el navegador:</strong> Una vez descargado, ve a tu carpeta de <strong>Descargas (Downloads)</strong>.",
@@ -1563,6 +1573,10 @@
 
         form.classList.remove('hidden');
         success.classList.add('hidden');
+        const dlBtn = document.getElementById('lead-download-btn-container');
+        if (dlBtn) dlBtn.classList.add('hidden');
+        const guide = document.getElementById('lead-install-guide');
+        if (guide) guide.classList.add('hidden');
         targetInput.value = target || 'windows';
 
         updateLeadModalText();
@@ -1661,13 +1675,24 @@ ${notes ? notes : 'Ninguno especificado.'}
                 : "Thank you! An Impossible POS specialist will contact you via phone/WhatsApp shortly.";
         } else {
             if (installGuide) installGuide.classList.remove('hidden');
+            const dlBtn = document.getElementById('lead-download-btn-container');
+            if (dlBtn) dlBtn.classList.remove('hidden');
             applyTranslations();
             successMsg.innerText = currentLang === 'es'
-                ? "Tu prueba gratuita ha sido registrada. Descargando el instalador de Windows ahora..."
-                : "Your free trial is registered. Downloading the Windows installer now...";
+                ? "Tu prueba gratuita ha sido registrada. La descarga comenzará automáticamente, o haz clic en el botón verde abajo:"
+                : "Your free trial is registered. Download starting automatically, or click the green button below:";
             setTimeout(() => {
-                window.location.href = WINDOWS_DOWNLOAD_URL;
-            }, 800);
+                try {
+                    const dlLink = document.createElement('a');
+                    dlLink.href = WINDOWS_DOWNLOAD_URL;
+                    dlLink.setAttribute('download', 'Impossible_POS_v1.0.zip');
+                    document.body.appendChild(dlLink);
+                    dlLink.click();
+                    document.body.removeChild(dlLink);
+                } catch (e) {
+                    window.location.href = WINDOWS_DOWNLOAD_URL;
+                }
+            }, 300);
         }
     }
 
