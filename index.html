@@ -949,24 +949,24 @@
                     </div>
                     <div class="space-y-2.5">
                         <div class="flex items-start gap-2.5">
-                            <span class="bg-emerald-600 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">1</span>
-                            <span data-i18n="install_step0"><strong>Install Node.js Runtime (Only once):</strong> Download & install Node.js LTS from <a href="https://nodejs.org" target="_blank" class="text-brand-600 underline font-bold">nodejs.org</a> (do NOT check extra boxes or Chocolatey; simply click Next ➔ Next ➔ Next ➔ Install ➔ Finish).</span>
+                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">1</span>
+                            <span data-i18n="install_step1"><strong>Extract All Files:</strong> Extract <code>Impossible_POS_v1.0.zip</code> to your computer (e.g. <code>C:\Impossible_POS</code>).</span>
                         </div>
                         <div class="flex items-start gap-2.5">
-                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">2</span>
-                            <span data-i18n="install_step1"><strong>Do NOT run directly from browser:</strong> Once downloaded, open your computer's <strong>Downloads</strong> folder.</span>
+                            <span class="bg-emerald-600 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">2</span>
+                            <span data-i18n="install_step2"><strong>Launch Native App:</strong> Open the folder and double-click <strong>Impossible_POS.exe</strong>. The register opens instantly!</span>
                         </div>
                         <div class="flex items-start gap-2.5">
                             <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">3</span>
-                            <span data-i18n="install_step2"><strong>Extract All Files:</strong> Open Local C, create a new folder <code>Impossible_POS</code>, and extract all files there.</span>
+                            <span data-i18n="install_step3"><strong>Desktop Shortcut:</strong> Double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official icon on your Desktop.</span>
                         </div>
                         <div class="flex items-start gap-2.5">
                             <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">4</span>
-                            <span data-i18n="install_step3"><strong>Desktop Shortcut:</strong> Open folder <code>C:\Impossible_POS</code> and double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official Impossible POS icon on your Desktop (or run <strong>START_IMPOSSIBLE_POS.bat</strong>).</span>
+                            <span data-i18n="install_step4"><strong>Kitchen & Bar Screens:</strong> Run <code>START_KITCHEN_KDS.bat</code> or <code>START_BAR_KDS.bat</code> for extra stations.</span>
                         </div>
                         <div class="flex items-start gap-2.5">
                             <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">5</span>
-                            <span data-i18n="install_step4"><strong>SmartScreen & Firewall:</strong> If SmartScreen appears, click <em>"More info ➔ Run anyway"</em>. In the Windows Firewall prompt, check both boxes and click <em>"Allow access"</em>.</span>
+                            <span data-i18n="install_step5"><strong>Link Sunmi & Tablets:</strong> In the POS header, click <strong>📱 Link Devices</strong> to scan QR codes for Waiters, Kitchen & Mobile screens.</span>
                         </div>
                     </div>
                 </div>
@@ -1006,10 +1006,19 @@
 
             <!-- Quick Action Chips -->
             <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto text-[11px] font-medium text-slate-600 scrollbar-none">
-                <button type="button" onclick="askQuickQuestion('pricing')" data-i18n="ai_chip_pricing" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">💰 Pricing</button>
-                <button type="button" onclick="askQuickQuestion('offline')" data-i18n="ai_chip_offline" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🛡️ Offline</button>
-                <button type="button" onclick="askQuickQuestion('kds')" data-i18n="ai_chip_kds" class="whitespace-nowrap px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer">🍳 Free KDS</button>
-                <button type="button" onclick="askQuickQuestion('sales')" data-i18n="ai_chip_sales" class="whitespace-nowrap px-2.5 py-1 bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-full transition-all font-semibold cursor-pointer">📞 Talk to Sales</button>
+                <button type="button" onclick="askQuickQuestion('pricing')" data-i18n="ai_chip_pricing" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Pricing & Plans</button>
+                <button type="button" onclick="askQuickQuestion('devices')" data-i18n="ai_chip_devices" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Device Linking</button>
+                <button type="button" onclick="askQuickQuestion('scales')" data-i18n="ai_chip_scales" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">USB Scales</button>
+                <button type="button" onclick="askQuickQuestion('aivoice')" data-i18n="ai_chip_aivoice" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">AI Phone Orders</button>
+                <button type="button" onclick="askQuickQuestion('cctv')" data-i18n="ai_chip_cctv" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">CCTV & Screen Rec</button>
+                <button type="button" onclick="askQuickQuestion('biometrics')" data-i18n="ai_chip_biometrics" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Biometrics & Time Clock</button>
+                <button type="button" onclick="askQuickQuestion('dualdrawer')" data-i18n="ai_chip_dualdrawer" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Dual Cash Drawer</button>
+                <button type="button" onclick="askQuickQuestion('android')" data-i18n="ai_chip_android" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Android & Database</button>
+                <button type="button" onclick="askQuickQuestion('hybrid')" data-i18n="ai_chip_hybrid" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Local vs Cloud</button>
+                <button type="button" onclick="askQuickQuestion('ebt')" data-i18n="ai_chip_ebt" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">EBT & WIC</button>
+                <button type="button" onclick="askQuickQuestion('trial')" data-i18n="ai_chip_trial" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">15-Day Free Trial</button>
+                <button type="button" onclick="askQuickQuestion('whatsapp')" data-i18n="ai_chip_whatsapp" class="whitespace-nowrap px-3 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-full transition-all font-semibold cursor-pointer">WhatsApp Support</button>
+                <button type="button" onclick="askQuickQuestion('sales')" data-i18n="ai_chip_sales" class="whitespace-nowrap px-3 py-1 bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-full transition-all font-semibold cursor-pointer">Talk to Sales</button>
             </div>
 
             <!-- Input Bar -->
@@ -1248,12 +1257,13 @@
             lead_success_title: "Welcome to Impossible POS!",
             lead_success_btn_close: "Close",
             lead_success_btn_download: "⬇️ Download Impossible_POS_v1.0.zip Now",
-            install_guide_title: "Critical Windows Installation Steps:",
-            install_step0: "<strong>Install Node.js Runtime (Only once):</strong> Download & install Node.js LTS from <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (do NOT check extra boxes or Chocolatey; simply click Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
-            install_step1: "<strong>Do NOT run directly from browser:</strong> Once downloaded, open your computer's <strong>Downloads</strong> folder.",
-            install_step2: "<strong>Extract All Files:</strong> Open Local C, create a new folder <code>Impossible_POS</code>, and extract all files there.",
-            install_step3: "<strong>Desktop Shortcut:</strong> Open folder <code>C:\\Impossible_POS</code> and double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official Impossible POS icon on your Desktop (or run <strong>START_IMPOSSIBLE_POS.bat</strong>).",
-            install_step4: "<strong>SmartScreen & Firewall:</strong> If SmartScreen appears, click <em>\"More info ➔ Run anyway\"</em>. In the Windows Firewall prompt, check both boxes and click <em>\"Allow access\"</em>.",
+            install_guide_title: "Quick 1-Minute Windows Setup:",
+            install_step1: "<strong>Extract All Files:</strong> Extract <code>Impossible_POS_v1.0.zip</code> to your computer (recommended: <code>C:\\Impossible_POS</code>).",
+            install_step2: "<strong>Launch Native App:</strong> Open the folder and double-click <strong>Impossible_POS.exe</strong>. The cashier register opens instantly in full screen!",
+            install_step3: "<strong>Desktop Shortcut:</strong> Double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official icon on your Desktop.",
+            install_step4: "<strong>Kitchen & Bar Screens:</strong> In the folder, run <code>START_KITCHEN_KDS.bat</code> or <code>START_BAR_KDS.bat</code> for extra stations.",
+            install_step5: "<strong>Link Sunmi & Tablets:</strong> In the POS header, click <strong>📱 Link Devices</strong> to scan QR codes for Waiters, Kitchen & Mobile screens.",
+            install_step0: "",
 
             lead_ph_name: "e.g. John Miller",
             lead_ph_business: "e.g. Miller's Tavern & BBQ",
@@ -1264,10 +1274,21 @@
             ai_bot_title: "Impossible AI Sales",
             ai_bot_subtitle: "Online • Master POS Specialist",
             ai_welcome: "Hello! I'm the Impossible POS virtual specialist. Ask me anything about our $85 pricing, free KDS screens, offline mode, or your existing hardware!",
-            ai_chip_pricing: "💰 Pricing",
-            ai_chip_offline: "🛡️ Offline",
-            ai_chip_kds: "🍳 Free KDS",
-            ai_chip_sales: "📞 Talk to Sales",
+            ai_chip_pricing: "Pricing & Plans",
+            ai_chip_offline: "Offline Resilience",
+            ai_chip_kds: "Free KDS Screens",
+            ai_chip_devices: "Device Linking",
+            ai_chip_scales: "USB Scales",
+            ai_chip_aivoice: "AI Phone Orders",
+            ai_chip_cctv: "CCTV & Screen Rec",
+            ai_chip_biometrics: "Biometrics & Time Clock",
+            ai_chip_dualdrawer: "Dual Cash Drawer",
+            ai_chip_android: "Android & Database",
+            ai_chip_hybrid: "Local vs Cloud",
+            ai_chip_ebt: "EBT & WIC Compliance",
+            ai_chip_trial: "15-Day Free Trial",
+            ai_chip_whatsapp: "WhatsApp Support",
+            ai_chip_sales: "Talk to Sales",
             ai_input_placeholder: "Type a question or your phone number..."
         },
         es: {
@@ -1480,12 +1501,13 @@
             lead_success_title: "¡Bienvenido a Impossible POS!",
             lead_success_btn_close: "Cerrar",
             lead_success_btn_download: "⬇️ Descargar Impossible_POS_v1.0.zip Ahora",
-            install_guide_title: "Pasos Obligatorios de Instalación en Windows:",
-            install_step0: "<strong>Instalar Motor Node.js (Solo la primera vez):</strong> Descarga Node.js LTS desde <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (NO marques casillas extras ni Chocolatey; solo dale Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
-            install_step1: "<strong>NO abras el archivo directo desde el navegador:</strong> Una vez descargado, ve a tu carpeta de <strong>Descargas (Downloads)</strong>.",
-            install_step2: "<strong>Extraer archivos:</strong> Abre Disco Local (C:), crea una nueva carpeta llamada <code>Impossible_POS</code> y extrae todos los archivos ahí.",
-            install_step3: "<strong>Acceso directo:</strong> Entra a <code>C:\\Impossible_POS</code> y haz doble clic en <strong>2_CREAR_ACCESO_DIRECTO.bat</strong> para colocar el icono oficial en tu Escritorio (o ejecuta <strong>START_IMPOSSIBLE_POS.bat</strong>).",
-            install_step4: "<strong>SmartScreen y Firewall:</strong> Si sale SmartScreen dale <em>\"Más información ➔ Ejecutar de todas formas\"</em>. En la alerta del Firewall marca ambas casillas y dale <em>\"Permitir acceso\"</em>.",
+            install_guide_title: "Guía Rápida de Inicio (1 Minuto):",
+            install_step1: "<strong>Extraer archivos:</strong> Descomprime <code>Impossible_POS_v1.0.zip</code> en tu computadora (recomendado: <code>C:\\Impossible_POS</code>).",
+            install_step2: "<strong>Abrir Programa:</strong> Entra a la carpeta y haz doble clic en <strong>Impossible_POS.exe</strong>. ¡La caja registradora abre de inmediato!",
+            install_step3: "<strong>Acceso directo:</strong> Haz doble clic en <strong>2_CREAR_ACCESO_DIRECTO.bat</strong> para tener el icono oficial en tu Escritorio.",
+            install_step4: "<strong>Pantallas de Cocina y Bar:</strong> En la carpeta tienes <code>START_KITCHEN_KDS.bat</code> o <code>START_BAR_KDS.bat</code> para estaciones adicionales.",
+            install_step5: "<strong>Vincular Sunmi y Tabletas:</strong> En la caja, haz clic en <strong>📱 Link Devices</strong> para escanear los códigos QR de Meseros, Cocina y Celulares.",
+            install_step0: "",
 
             lead_ph_name: "ej. Juan Pérez",
             lead_ph_business: "ej. Taquería El Pastor",
@@ -1496,10 +1518,21 @@
             ai_bot_title: "Impossible AI Ventas",
             ai_bot_subtitle: "En línea • Especialista en Punto de Venta",
             ai_welcome: "¡Hola! Soy el especialista virtual de Impossible POS. Pregúntame sobre el precio de $85, pantallas de cocina gratis, modo sin internet o compatibilidad de tu equipo.",
-            ai_chip_pricing: "💰 Precios",
-            ai_chip_offline: "🛡️ Sin Internet",
-            ai_chip_kds: "🍳 Cocina Gratis",
-            ai_chip_sales: "📞 Hablar con Ventas",
+            ai_chip_pricing: "Precios y Planes",
+            ai_chip_offline: "Modo Sin Internet",
+            ai_chip_kds: "Pantallas de Cocina",
+            ai_chip_devices: "Vincular Dispositivos",
+            ai_chip_scales: "Básculas USB",
+            ai_chip_aivoice: "Pedidos por Teléfono",
+            ai_chip_cctv: "CCTV y Pantalla",
+            ai_chip_biometrics: "Biometría y Reloj Checador",
+            ai_chip_dualdrawer: "Doble Cajón de Dinero",
+            ai_chip_android: "Android y Base de Datos",
+            ai_chip_hybrid: "Local o Nube",
+            ai_chip_ebt: "EBT y WIC",
+            ai_chip_trial: "Prueba de 15 Días",
+            ai_chip_whatsapp: "Soporte WhatsApp",
+            ai_chip_sales: "Hablar con Ventas",
             ai_input_placeholder: "Escribe tu duda o tu teléfono..."
         }
     };
@@ -1729,13 +1762,35 @@ ${notes ? notes : 'Ninguno especificado.'}
     function askQuickQuestion(type) {
         let questionText = "";
         if (currentLang === 'es') {
-            if (type === 'pricing') questionText = "¿Cuál es el precio mensual?";
+            if (type === 'pricing') questionText = "¿Cuál es el precio mensual y qué incluye?";
             else if (type === 'offline') questionText = "¿Funciona sin internet?";
+            else if (type === 'devices') questionText = "¿Cómo conecto mis meseros Sunmi, cocina y celulares?";
+            else if (type === 'scales') questionText = "¿Cómo funcionan las básculas USB para carnicerías y supermercados?";
+            else if (type === 'aivoice') questionText = "¿Cómo funciona la toma de pedidos por teléfono con Inteligencia Artificial?";
+            else if (type === 'cctv') questionText = "¿Cómo se integra con cámaras de seguridad y grabación de pantalla?";
+            else if (type === 'biometrics') questionText = "¿Tiene lector de huella digital y reloj checador de horas?";
+            else if (type === 'dualdrawer') questionText = "¿Puedo conectar dos cajones de dinero en una sola computadora?";
+            else if (type === 'android') questionText = "¿Dónde se guarda la base de datos y cómo funciona en Android?";
+            else if (type === 'hybrid') questionText = "¿Funciona en la nube o local? ¿Qué elijo al instalar?";
+            else if (type === 'ebt') questionText = "¿Cómo funcionan las teclas de EBT y WIC?";
+            else if (type === 'trial') questionText = "¿Cómo funciona la prueba gratis de 15 días?";
+            else if (type === 'whatsapp') questionText = "Quiero chatear por WhatsApp con soporte";
             else if (type === 'kds') questionText = "¿Las pantallas de cocina son gratis?";
             else if (type === 'sales') questionText = "Quiero hablar con un asesor de ventas";
         } else {
-            if (type === 'pricing') questionText = "What is the monthly price?";
+            if (type === 'pricing') questionText = "What is the monthly price and what is included?";
             else if (type === 'offline') questionText = "Does it work without internet?";
+            else if (type === 'devices') questionText = "How do I connect Sunmi handhelds, kitchen screens and phones?";
+            else if (type === 'scales') questionText = "How do USB digital scales work for delis and supermarkets?";
+            else if (type === 'aivoice') questionText = "How does AI Voice phone ordering work?";
+            else if (type === 'cctv') questionText = "How does CCTV NVR overlay and screen recording work?";
+            else if (type === 'biometrics') questionText = "Does it support biometric fingerprint login and employee time punch?";
+            else if (type === 'dualdrawer') questionText = "Can I connect two cash drawers to one single PC?";
+            else if (type === 'android') questionText = "Where is the database stored and how does Android work?";
+            else if (type === 'hybrid') questionText = "Does it run on Cloud or Local? What do I choose during install?";
+            else if (type === 'ebt') questionText = "How do the EBT and WIC payment keys work?";
+            else if (type === 'trial') questionText = "How does the 15-day free trial work?";
+            else if (type === 'whatsapp') questionText = "I want to chat on WhatsApp with technical support";
             else if (type === 'kds') questionText = "Are kitchen screens free?";
             else if (type === 'sales') questionText = "Can I speak with a sales specialist?";
         }
@@ -1781,54 +1836,116 @@ ${notes ? notes : 'Ninguno especificado.'}
 
             if (lower.includes('price') || lower.includes('cost') || lower.includes('cuanto') || lower.includes('precio') || lower.includes('85') || lower.includes('plan') || lower.includes('zelle')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Planes de Licencia Transparentes:</strong><br>• <strong>1 Mes:</strong> $85 USD ($90.10 negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $425 USD ($450.50 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $85)</em>.<br>• <strong>1 Año:</strong> $765 USD ($810.90 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $255)</em>.<br><br>• Pantallas de cocina (KDS) ilimitadas 100% GRATIS.<br>• Activación inmediata con Zelle a <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver código QR de Zelle y Pagar</button>`
-                    : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• <strong>Bar Hub (Wine/Liquor Addon):</strong> $100/mo ($106 MI) | 6 Mos: $500 ($530 MI) | 1 Year: $900 ($954 MI).<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew</button>`;
+                    ? `<strong>Planes de Licencia Transparentes:</strong><br>• <strong>1 Mes:</strong> $85 USD ($90.10 negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $425 USD ($450.50 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $85)</em>.<br>• <strong>1 Año:</strong> $765 USD ($810.90 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $255)</em>.<br><br>• Pantallas de cocina (KDS) ilimitadas 100% GRATIS.<br>• Activación inmediata con Zelle a <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">Ver código QR de Zelle y Pagar</button>`
+                    : `<strong>Clear License Plans & Pricing:</strong><br>• <strong>1 Month:</strong> $85 USD ($90.10 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $425 USD ($450.50 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $85)</em>.<br>• <strong>1 Year:</strong> $765 USD ($810.90 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $255)</em>.<br><br>• Unlimited Kitchen Displays (KDS) are 100% FREE.<br>• <strong>Bar Hub (Wine/Liquor Addon):</strong> $100/mo ($106 MI) | 6 Mos: $500 ($530 MI) | 1 Year: $900 ($954 MI).<br>• Instant activation with Zelle to <strong>IT CYBER WORK L.L.C</strong>.<br><button type="button" onclick="openZelleModal()" class="text-brand-600 font-bold underline cursor-pointer mt-1 inline-block">View Zelle QR Code to Pay or Renew</button>`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('scale') || lower.includes('bascula') || lower.includes('báscula') || lower.includes('pesar') || lower.includes('peso') || lower.includes('weigh') || lower.includes('libra') || lower.includes('kilo') || lower.includes('toledo') || lower.includes('cas') || lower.includes('dymo') || lower.includes('fairbanks') || lower.includes('granel')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Básculas Digitales USB (Supermercados, Carnicerías y Delis):</strong><br>• <strong>100% Opcional:</strong> Si tienes un bar o restaurante, el módulo se mantiene oculto. En carnicerías y abarrotes, se activa con un clic.<br>• <strong>Conexión Directa USB / Serial:</strong> Compatible con básculas Toledo/NCI, CAS, Fairbanks y Dymo.<br>• <strong>Botón Inteligente [ ⚖️ Pesar ]:</strong> Aparece en la caja y abre una pantalla digital LCD con función de tarado (0.00 Tare), lectura en vivo por libra (lb) o kilo (kg), y cálculo automático de precio por peso.<br>• <strong>Desglose en Ticket:</strong> Muestra claramente el peso, precio por unidad y total calculado sin margen de error para el cajero.`
+                    : `<strong>USB Digital Scales (Supermarkets, Carnicerías & Delis):</strong><br>• <strong>100% Optional:</strong> If you operate a bar or taco truck, the scale module stays completely hidden. Supermarkets enable it in 1 click.<br>• <strong>Plug-and-Play USB / Serial:</strong> Supports Toledo/NCI, CAS, Fairbanks, and Dymo scales.<br>• <strong>Smart [ ⚖️ Weigh ] Button:</strong> Appears directly in the register, featuring a digital LCD screen, Tare to 0.00, live weight in pounds (lb) or kilos (kg), and automatic price computation.<br>• <strong>Clear Receipt Breakdown:</strong> Explicitly logs unit weight, price per pound, and total cost with zero cashier math errors.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('aivoice') || lower.includes('telefono') || lower.includes('teléfono') || lower.includes('llamada') || lower.includes('voice') || lower.includes('twilio') || lower.includes('vapi') || lower.includes('pedidos por telefono') || lower.includes('call center')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Toma de Pedidos Telefónicos con Inteligencia Artificial (24/7):</strong><br>• <strong>Asistente Virtual Telefónico:</strong> Se integra con webhooks de Twilio y Vapi para responder las llamadas entrantes de tu restaurante con voz natural humana.<br>• <strong>Toma la Orden Completa:</strong> Escucha lo que pide el cliente (términos de carne, extras, refrescos), calcula el total y despacha la comanda directo a la pantalla de cocina (KDS) y al POS.<br>• <strong>Cero Meseros Ocupados:</strong> Tu personal atiende a los comensales presentes mientras la IA levanta los pedidos telefónicos para llevar sin dejar a nadie esperando en la línea.`
+                    : `<strong>AI Voice Phone Ordering (24/7 Automated Phone Attendant):</strong><br>• <strong>Conversational Voice AI:</strong> Integrates with Twilio and Vapi webhooks to answer incoming phone calls with ultra-natural voice.<br>• <strong>End-to-End Order Entry:</strong> Understands food modifications, sides, and drinks, computes totals, and injects tickets directly into the kitchen KDS and POS.<br>• <strong>Zero Busy Signals:</strong> Your floor staff focuses on in-person guests while AI captures to-go phone orders seamlessly with zero dropped calls.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('cctv') || lower.includes('camara') || lower.includes('cámara') || lower.includes('camera') || lower.includes('nvr') || lower.includes('grabar') || lower.includes('screen rec') || lower.includes('pantalla') || lower.includes('overlay') || lower.includes('robo') || lower.includes('seguridad') || lower.includes('rtsp')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Seguridad Total: Sincronización NVR CCTV y Grabación de Pantalla:</strong><br>• <strong>Sobreimpresión de Ticket en Video (Ticket Overlay):</strong> Cada producto marcado, total cobrado y cajero en turno se estampa en tiempo real sobre el video de tus cámaras de seguridad vía NVR/RTSP.<br>• <strong>Grabación de Pantalla Discreta:</strong> Registra la interacción del cajero en pantalla para deslindar responsabilidades, prevenir robos y demostrar qué cobró exactamente.<br>• <strong>Blindaje Legal:</strong> Expediente digital exportable con video + ticket para defenderte ante quejas de clientes o auditorías estatales.`
+                    : `<strong>Total Security: NVR CCTV Overlay & Screen Recording Ledger:</strong><br>• <strong>Live Receipt Text Overlay:</strong> Burns ticket line items, prices, and cashier ID directly onto your security camera surveillance footage in real time via NVR/RTSP.<br>• <strong>Stealth Screen Recording:</strong> Logs cashier touchscreen actions to deter cash theft and prevent unrecorded voids.<br>• <strong>Legal Defense Vault:</strong> 1-click exportable audit trail with synchronized video and receipt proof for client disputes and state inspections.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('biometric') || lower.includes('huella') || lower.includes('fingerprint') || lower.includes('reloj') || lower.includes('punch') || lower.includes('checador') || lower.includes('asistencia') || lower.includes('nomina') || lower.includes('nómina') || lower.includes('zkteco')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Biometría y Reloj Checador de Empleados (Time Clock):</strong><br>• <strong>Lector de Huella Dactilar USB (ZKTeco):</strong> Inicio de sesión instantáneo en caja y autorizaciones gerenciales mediante huella real. Se acabaron los códigos compartidos o robados.<br>• <strong>Reloj Checador Integrado:</strong> Botón de ponchado (Punch In / Out) en la pantalla principal para registrar entradas, salidas y turnos con cálculo exacto de horas para la nómina.`
+                    : `<strong>Biometrics & Staff Time Clock (ZKTeco Fingerprint):</strong><br>• <strong>USB Fingerprint Scanner:</strong> Instant register login and manager overrides via biometric finger scan. Completely eliminates shared PINs and buddy punching.<br>• <strong>Built-in Employee Punch Clock:</strong> Dedicated Punch In / Out button on the main splash screen to track shifts, breaks, and calculate payroll hours accurately.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('dual') || lower.includes('cajon') || lower.includes('cajón') || lower.includes('drawer') || lower.includes('dos cajon') || lower.includes('pin 2') || lower.includes('pin 5')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Doble Cajón de Dinero (Dual Cash Drawer):</strong><br>• <strong>Dos Cajeros en Una Computadora:</strong> Controla 2 cajones de dinero independientes conectándolos a una sola impresora térmica.<br>• <strong>Apertura Inteligente por Pin:</strong> El Cajón 1 responde al Pin 2 y el Cajón 2 al Pin 5 del conector RJ11. Cada cajero maneja su propio fondo y corte de caja sin mezclar el dinero.`
+                    : `<strong>Dual Cash Drawer Integration:</strong><br>• <strong>Two Cashiers on One Terminal:</strong> Controls two independent cash drawers connected through a single thermal printer RJ11 port.<br>• <strong>Pin-Level Triggering:</strong> Drawer 1 opens on Pin 2 and Drawer 2 opens on Pin 5. Each cashier maintains their own drawer bank and shift closeout with zero cash mingling.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('caller') || lower.includes('identificador') || lower.includes('quien llama') || lower.includes('quién llama')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Identificador de Llamadas por Hardware (Caller ID):</strong><br>• Ventana emergente automática en cuanto suena el teléfono del restaurante.<br>• Despliega al instante el nombre del cliente, dirección de entrega y su historial de pedidos antes de descolgar la bocina.`
+                    : `<strong>Hardware Caller ID Integration:</strong><br>• Automatic popup appears on the POS register the moment the phone rings.<br>• Displays customer name, delivery address, and past favorite orders before staff picks up the handset.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('mapa') || lower.includes('mesa') || lower.includes('croquis') || lower.includes('hostess') || lower.includes('plano') || lower.includes('reservacion') || lower.includes('reservación') || lower.includes('floor')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Mapa de Mesas Gráfico, Reservaciones y Hostess:</strong><br>• <strong>Diseñador de Salón:</strong> Arrastra y acomoda mesas circulares o cuadradas, barras y terrazas para que coincidan con la distribución física de tu local.<br>• <strong>Control de Sillas y Cuentas:</strong> Asigna comensales por asiento (C1, C2, C3) y divide cuentas en 1 clic.<br>• <strong>Pantalla de Hostess y TV de Espera:</strong> Módulo para organizar reservaciones y pantalla pública para que los clientes vean su turno en la sala de espera.`
+                    : `<strong>Visual Table Floor Map, Reservations & Hostess Station:</strong><br>• <strong>Drag-and-Drop Floor Layout:</strong> Visually arrange tables, booths, and outdoor patios matching your exact restaurant blueprint.<br>• <strong>Seat-Level Ordering:</strong> Assign items per chair (C1, C2, C3) for seamless split checks.<br>• <strong>Hostess & Lobby TV:</strong> Complete reservation dashboard and waitlist display for waiting area screens.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('fiado') || lower.includes('credito') || lower.includes('crédito') || lower.includes('cuenta por cobrar') || lower.includes('receivable') || lower.includes('deuda')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Cuentas por Cobrar y Crédito a Clientes (Fiado):</strong><br>• Guarda pedidos pendientes con nombre, teléfono y motivo del cliente.<br>• Lleva un libro contable claro de saldos pendientes y registra abonos parciales o liquidaciones con recibo impreso.`
+                    : `<strong>Accounts Receivable & Customer Credit Ledger:</strong><br>• Store unpaid tabs with customer name, phone number, and authorized credit terms.<br>• Comprehensive ledger tracks outstanding balances, partial payments, and installment receipts.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('pastel') || lower.includes('cake') || lower.includes('boda') || lower.includes('evento') || lower.includes('quinceañera') || lower.includes('catering')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Pastelería Personalizada, Banquetes y Eventos Especiales:</strong><br>• Cotizador especializado de pasteles por pisos, formas, sabores y decoraciones.<br>• Control de anticipos/depósitos con fecha y hora programada de entrega.<br>• <strong>Código QR para Fotos:</strong> Imprime un QR en el ticket del cliente para que suba directamente desde su celular la foto o diseño que desea para su pastel.`
+                    : `<strong>Custom Cakes, Catering & Special Events Builder:</strong><br>• Dedicated cake quoting tool tracking tiers, shapes, flavors, and themes.<br>• Deposit handling with scheduled pickup calendar.<br>• <strong>QR Photo Upload:</strong> Prints a dedicated QR code on the receipt so clients can upload inspiration photos straight from their smartphones.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('moneda') || lower.includes('coin') || lower.includes('dispensador') || lower.includes('dispenser')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Dispensador Automático de Monedas (Coin Dispenser):</strong><br>• Conexión USB para entrega de cambio exacto en monedas en menos de 1 segundo.<br>• Ideal para drive-thrus, carnicerías y cajas con alto volumen de efectivo.`
+                    : `<strong>Automatic Coin Dispenser:</strong><br>• USB connection dispensing exact coin change in under 1 second.<br>• Perfect for drive-thru lanes and high-velocity cash registers.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('conectar') || lower.includes('vincular') || lower.includes('dispositivo') || lower.includes('device') || lower.includes('link') || lower.includes('sunmi') || lower.includes('mesero')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Vinculación de Dispositivos en 1 Clic (Meseros Sunmi, Cocina y Celulares):</strong><br>• En la barra superior de la caja principal, haz clic en el botón verde <strong>📱 Link Devices</strong>.<br>• <strong>Con terminales Sunmi, celulares o tabletas de meseros:</strong> Abre la cámara del dispositivo o el escáner del Sunmi, apunta al código QR de <em>Meseros</em>... ¡y listo! Entra directo a tomar órdenes. Puedes conectar 1, 5, 10 o 20 Sunmis al mismo tiempo con el mismo QR.<br>• <strong>Con pantallas fijas de cocina sin cámara:</strong> Debajo de cada QR aparece la dirección directa (ej: <code>192.168.1.50:3000/cocina.html</code>). Escríbela en Chrome en la pantalla de cocina una sola vez y selecciona 'Agregar a inicio' para que quede guardada como app para siempre.`
+                    : `<strong>1-Click Device Linking (Sunmi Waiters, Kitchen & Phones):</strong><br>• In your register header, click the green <strong>📱 Link Devices</strong> button.<br>• <strong>For Sunmi handhelds & waiter smartphones:</strong> Open the device camera or Sunmi scanner, point at the <em>Waiters</em> QR code... and boom! It opens the live table ordering screen instantly. Connect 1, 5, 10, or 20 Sunmis concurrently with the same QR.<br>• <strong>For fixed kitchen screens without camera:</strong> Below each QR code you'll see the direct URL (e.g. <code>http://192.168.1.50:3000/cocina.html</code>). Open Chrome on the kitchen monitor once, type that URL, and tap 'Add to Home Screen' for a permanent fullscreen app!`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('android') || lower.includes('base de datos') || lower.includes('database') || lower.includes('disco c') || lower.includes('donde se guarda') || lower.includes('server') || lower.includes('servidor') || lower.includes('master') || lower.includes('dos software') || lower.includes('comunica')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>¿Dónde se guarda la base de datos y cómo opera en Android?</strong><br>• <strong>Un Solo Master Universal:</strong> No existen dos programas diferentes; Impossible POS es un solo software inteligente que opera de forma idéntica en Windows, Android, Sunmi e iPads.<br>• <strong>En entorno Windows:</strong> La base de datos vive en tu computadora principal (<code>pos.db</code>). Todas las tabletas Android y celulares se conectan en vivo a esa PC por Wi-Fi sin gastar memoria local.<br>• <strong>En negocio con puras tabletas Android:</strong> En Android no existe el 'Disco C:'. La tableta principal de tu oficina guarda <code>pos.db</code> automáticamente en su memoria interna protegida.<br>• <strong>Sincronización Total:</strong> Lo que cambies o cobres en una tableta se actualiza en menos de 1 segundo en todas las demás pantallas del restaurante.`
+                    : `<strong>Where is the database stored & how does Android work?</strong><br>• <strong>One Single Master:</strong> There are not two separate softwares. Impossible POS is a single unified engine running seamlessly across Windows, Android, Sunmi handhelds, and mobile screens.<br>• <strong>Windows Main Station:</strong> The database lives on your PC (<code>pos.db</code>). All Android waiter tablets and phones connect live over Wi-Fi with zero local storage clutter.<br>• <strong>100% Android Environment:</strong> Android has no 'C: Drive'. The master tablet in your office automatically provisions <code>pos.db</code> inside its secure internal storage.<br>• <strong>Instant Live Sync:</strong> Any price change or order entered on a phone or tablet reflects instantly across all registers and screens in under 1 second.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('nube') || lower.includes('cloud') || lower.includes('hibrid') || lower.includes('al instalar') || lower.includes('elegir') || lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>¿Funciona en la Nube o Local? ¿Qué pasa si se va el Internet?</strong><br>• <strong>¡Tiene las DOS por default automáticamente! (Arquitectura Híbrida):</strong> No tienes que elegir entre una u otra al instalarlo.<br>• <strong>Modo Local (100% Sin Internet):</strong> El sistema corre sobre un motor SQLite local. Si se corta el Internet o falla el módem, tus cajas, impresoras de cocina y pantallas táctiles siguen cobrando y sacando comandas al instante. ¡Tu negocio nunca se detiene!<br>• <strong>Modo Nube:</strong> Al mismo tiempo, el sistema respalda en la nube en segundo plano para que el dueño consulte reportes, ventas e inventario desde su casa en su teléfono.`
+                    : `<strong>Cloud or Local? What happens if the Internet goes down?</strong><br>• <strong>Both by default automatically! (Hybrid Architecture):</strong> You never have to choose between them.<br>• <strong>100% Offline-First:</strong> Runs on a local SQLite engine. If your internet cuts out completely, your cash registers, kitchen printers, and touchscreens continue ringing up sales with zero delay. Your restaurant never freezes!<br>• <strong>Cloud Sync:</strong> Concurrently syncs in the background so the business owner can monitor live sales, shift totals, and inventory from home.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('ebt') || lower.includes('wic') || lower.includes('stamp') || lower.includes('estampilla') || lower.includes('food stamp')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Módulo Opcional EBT / SNAP y WIC:</strong><br>• <strong>Diseñado para Carnicerías, Tiendas y Food Trucks:</strong> Incluye cálculo automático de cobro dividido (Split-Tender) y sincronización con cámaras NVR y grabación de pantalla para cumplir con los requisitos antifraude del USDA.<br>• <strong>100% Opcional:</strong> Si operas un bar o restaurante que no recibe asistencia del gobierno, el módulo permanece totalmente oculto sin saturar tu pantalla de cobro.`
-                    : `<strong>Optional USDA EBT / SNAP & WIC Suite:</strong><br>• <strong>Engineered for Carnicerías, Groceries & Food Trucks:</strong> Features automatic split-tender calculations and timestamped NVR camera & screen recording synchronization to protect your store against USDA audits.<br>• <strong>100% Optional:</strong> If you run a standard bar or restaurant, the module stays completely hidden with zero screen clutter.`;
+                    ? `<strong>Módulo Oficial USDA EBT / SNAP y WIC:</strong><br>• <strong>Teclas de Cobro Directas:</strong> En la ventana de pago (Checkout) tienes botones dedicados <code>[ 🛒 EBT / SNAP ]</code> y <code>[ 🍼 WIC ]</code>.<br>• <strong>Diseñado para Carnicerías, Abarrotes y Taquerías:</strong> Incluye cálculo de pago dividido (Split-Tender) y sincronización con cámaras NVR y grabación de pantalla para auditorías federales del USDA.<br>• <strong>100% Configurable:</strong> Si operas un bar o discoteca que no recibe estampillas, puedes apagar las teclas en Configuración con un clic.`
+                    : `<strong>Official USDA EBT / SNAP & WIC Module:</strong><br>• <strong>Dedicated Tender Keys:</strong> Located directly on the checkout screen as <code>[ 🛒 EBT / SNAP ]</code> and <code>[ 🍼 WIC ]</code>.<br>• <strong>Engineered for Carnicerías, Groceries & Food Trucks:</strong> Supports split-tender checkout and synchronized NVR CCTV & screen recording for USDA antifraud compliance.<br>• <strong>100% Configurable:</strong> Standard bars or restaurants not accepting food stamps can toggle it off in Settings in one click.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('offline') || lower.includes('internet') || lower.includes('wifi') || lower.includes('cae') || lower.includes('sin internet')) {
+            } else if (lower.includes('trial') || lower.includes('prueba') || lower.includes('15') || lower.includes('dias') || lower.includes('free trial') || lower.includes('demo') || lower.includes('exe') || lower.includes('instalar') || lower.includes('abrir')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>¡Sí! 100% Fuera de Línea (Offline-First).</strong><br>Impossible POS opera sobre una base de datos SQLite local en tu computadora. Si se corta el internet, tus cajas, impresoras de cocina y pantallas táctiles siguen cobrando y sacando comandas al instante. Todo se sincroniza solo con la nube en cuanto regresa la conexión.`
-                    : `<strong>Yes! 100% Offline-First.</strong><br>Impossible POS is engineered on a local SQLite database. If your internet cuts out completely, your cash registers, kitchen printers, and touchscreens continue ringing up sales with zero delay. Everything automatically syncs to the cloud once connection returns.`;
+                    ? `<strong>Prueba Gratuita de 15 Días e Instalación en 1 Clic:</strong><br>• <strong>15 Días Completos sin Compromiso:</strong> Descarga el sistema y úsalo con todas las funciones activadas. Un contador visible te indica los días restantes.<br>• <strong>Instalación Nativa en 1 Clic con Impossible_POS.exe:</strong> No necesitas comandos complicados ni instalar Node.js. Descomprimes <code>Impossible_POS_v1.0.zip</code> y abres <strong>Impossible_POS.exe</strong> directamente.<br>• <strong>Asistente de Bienvenida:</strong> Escribe el nombre de tu negocio, acepta los términos y comienza a cobrar en menos de 60 segundos.`
+                    : `<strong>15-Day Free Trial & Native 1-Click App:</strong><br>• <strong>Full 15-Day Free Trial:</strong> Download the system and experience every premium feature for 15 full days with zero commitments. A live counter displays days remaining.<br>• <strong>Native App (Impossible_POS.exe):</strong> No complex setup or command lines. Just extract <code>Impossible_POS_v1.0.zip</code> and double-click <strong>Impossible_POS.exe</strong> to open the full register.<br>• <strong>Welcome Wizard:</strong> Set your store name, accept terms, and start taking orders in under 60 seconds.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('kds') || lower.includes('kitchen') || lower.includes('cocina') || lower.includes('pantalla')) {
+            } else if (lower.includes('kds') || lower.includes('kitchen') || lower.includes('cocina')) {
                 const ans = currentLang === 'es'
                     ? `<strong>¡Pantallas de Cocina Inteligentes 100% Gratis e Ilimitadas!</strong><br>A diferencia de competidores que cobran $50-$100 al mes por cada pantalla, nosotros incluimos pantallas de cocina, bar y runners gratis. Incluye tiempos de cocción con colores (verde, amarillo, rojo) y timbres sonoros para comandas nuevas.`
                     : `<strong>Unlimited Smart KDS screens are 100% Free!</strong><br>Unlike competitors who charge $50-$100 per kitchen screen, we include unlimited kitchen, bar, and runner screens for free. Includes cooking timers that turn from green to yellow to red, and audible chimes for new tickets.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('liquor') || lower.includes('bar') || lower.includes('alcohol') || lower.includes('botella') || lower.includes('licor') || lower.includes('vino') || lower.includes('wine')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Módulo de Control de Barra y Vinos (Bar Hub):</strong><br>• <strong>1 Mes:</strong> $100 USD ($106.00 para negocios en Michigan con 6% tax).<br>• <strong>6 Meses:</strong> $500 USD ($530.00 en MI) — <em>¡Pagas 5 meses, 1 Mes GRATIS! (Ahorras $100)</em>.<br>• <strong>1 Año:</strong> $900 USD ($954.00 en MI) — <em>¡Pagas 9 meses, 3 Meses GRATIS! (Ahorras $300)</em>.<br><br>Rastrea inventario a la onza exacta, balanzas de botellas, speed bar y control de botellas de vino.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">👉 Ver Código QR de Zelle para Pagar o Renovar Bar Hub</button>`
-                    : `<strong>Liquor & Wine Control Module (Bar Hub):</strong><br>• <strong>1 Month:</strong> $100 USD ($106.00 for Michigan businesses with 6% tax).<br>• <strong>6 Months:</strong> $500 USD ($530.00 in MI) — <em>Pay 5 months, 1 Month FREE! (Save $100)</em>.<br>• <strong>1 Year:</strong> $900 USD ($954.00 in MI) — <em>Pay 9 months, 3 Months FREE! (Save $300)</em>.<br><br>Precision ounce-level tracking, bottle scale integration, and wine cellar control.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">👉 View Zelle QR Code to Pay or Renew Bar Hub</button>`;
+                    ? `<strong>Módulo de Control de Barra y Vinos (Bar Hub):</strong><br>• <strong>1 Mes:</strong> $100 USD ($106.00 en MI con 6% tax) | <strong>6 Meses:</strong> $500 ($530 MI) | <strong>1 Año:</strong> $900 ($954 MI).<br>Rastrea inventario a la onza exacta, balanzas de botellas, speed bar y control de botellas de vino.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">Ver Código QR de Zelle para Pagar o Renovar Bar Hub</button>`
+                    : `<strong>Liquor & Wine Control Module (Bar Hub):</strong><br>• <strong>1 Month:</strong> $100 USD ($106.00 in MI) | <strong>6 Months:</strong> $500 ($530 MI) | <strong>1 Year:</strong> $900 ($954 MI).<br>Precision ounce-level tracking, bottle scale integration, and wine cellar control.<br><button type="button" onclick="openZelleModal('bar')" class="text-amber-400 font-bold underline cursor-pointer mt-1 inline-block">View Zelle QR Code to Pay or Renew Bar Hub</button>`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('printer') || lower.includes('hardware') || lower.includes('impresora') || lower.includes('sunmi') || lower.includes('epson') || lower.includes('equipo')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Compatibilidad Total con tu Equipo Existente:</strong><br>• Funciona en cualquier PC con Windows 10 u 11.<br>• Funciona en tablets Android 10+ y terminales Sunmi.<br>• Impresión térmica directa ESC/POS con Epson y Star Micronics.<br>• Conexión con cajones de dinero estándar RJ11 y lectores de código.`
-                    : `<strong>Open Hardware Compatibility:</strong><br>• Works on any PC running Windows 10 or 11.<br>• Works on Android 10+ tablets and Sunmi POS hardware.<br>• Direct USB & Ethernet ESC/POS thermal printing with Epson and Star Micronics.<br>• Works with standard RJ11 cash drawers and barcode scanners.`;
+                    ? `<strong>Compatibilidad Total con tu Equipo Existente:</strong><br>• Funciona en cualquier PC con Windows 10 u 11.<br>• Funciona en tablets Android 10+ y terminales Sunmi.<br>• Impresión térmica directa ESC/POS con Epson y Star Micronics.<br>• Conexión con cajones de dinero estándar RJ11, balanzas USB y lectores de código.`
+                    : `<strong>Open Hardware Compatibility:</strong><br>• Works on any PC running Windows 10 or 11.<br>• Works on Android 10+ tablets and Sunmi POS hardware.<br>• Direct USB & Ethernet ESC/POS thermal printing with Epson and Star Micronics.<br>• Works with standard RJ11 cash drawers, USB scales, and barcode scanners.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('setup') || lower.includes('configur') || lower.includes('instal') || lower.includes('ayuda')) {
+            } else if (lower.includes('whatsapp') || lower.includes('soporte') || lower.includes('human') || lower.includes('sales') || lower.includes('ventas') || lower.includes('hablar') || lower.includes('asesor') || lower.includes('persona')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>La Instalación es 100% GRATIS:</strong><br>No cobramos cuotas abusivas de configuración o 'onboarding'. Nuestro equipo de ingenieros se conecta de forma remota por RustDesk para dejar tu menú, impuestos e impresoras listos sin costo.`
-                    : `<strong>Setup is 100% FREE:</strong><br>We do not charge onboarding or setup fees. Our technical engineering team connects remotely via RustDesk to configure your menu, taxes, and printers with zero hassle.`;
-                addChatMessage('bot', ans);
-            } else if (lower.includes('human') || lower.includes('sales') || lower.includes('ventas') || lower.includes('hablar') || lower.includes('call') || lower.includes('persona') || lower.includes('speak') || lower.includes('asesor')) {
-                const ans = currentLang === 'es'
-                    ? `¡Con gusto te comunico con nuestro equipo! Escribe tu <strong>número de teléfono</strong> aquí en el chat, o <button onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline cursor-pointer">haz clic aquí para solicitar llamada</button>. ¡Te contactamos hoy mismo!`
-                    : `I'd love to connect you with our team! Type your <strong>phone number</strong> here in the chat, or <button onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline cursor-pointer">click here to request a callback</button>. We'll reach out to you today!`;
+                    ? `¡Con gusto te atendemos de inmediato!<br><br><a href="https://wa.me/13133129090?text=Hola%2C%20quisiera%20informacion%20sobre%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:8px 16px; border-radius:8px; font-weight:bold; text-decoration:none; margin-top:4px; box-shadow: 0 2px 8px rgba(37,211,102,0.3);">Chatear con Soporte por WhatsApp</a><br><br>O si prefieres, <strong>escribe tu número de teléfono</strong> aquí en el chat para llamarte hoy mismo.`
+                    : `We'd love to assist you right away!<br><br><a href="https://wa.me/13133129090?text=Hello%2C%20I%20would%20like%20more%20information%20about%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:8px 16px; border-radius:8px; font-weight:bold; text-decoration:none; margin-top:4px; box-shadow: 0 2px 8px rgba(37,211,102,0.3);">Chat with Support on WhatsApp</a><br><br>Or if you prefer, <strong>type your phone number</strong> below and a specialist will call you today.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('why') || lower.includes('impossible') || lower.includes('nombre') || lower.includes('porque')) {
                 const ans = currentLang === 'es'
-                    ? `Nos llamamos <strong>Impossible POS</strong> porque las compañías de POS tradicionales decían que dar pantallas de cocina ilimitadas gratis, modo fuera de línea sin congelamientos y pedidos automáticos por teléfono con IA era 'imposible'. ¡Nosotros lo hicimos realidad!`
+                    ? `Nos llamamos <strong>Impossible POS</strong> porque las compañías de POS tradicionales decían que dar pantallas de cocina ilimitadas gratis, modo fuera de línea militar y pedidos automáticos por teléfono con IA era 'imposible'. ¡Nosotros lo hicimos realidad!`
                     : `We are called <strong>Impossible POS</strong> because legacy POS companies told restaurant owners that giving unlimited free kitchen screens, zero-latency offline mode, and built-in AI phone ordering was 'impossible'. We refused to accept that and built the system owners actually deserve!`;
                 addChatMessage('bot', ans);
             } else {
                 const ans = currentLang === 'es'
-                    ? `Impossible POS está diseñado para máxima velocidad, con pantallas de cocina gratis ilimitadas, modo fuera de línea militar y toma de pedidos por IA por $85/mes.<br><br>¿Te gustaría hablar con un asesor? <strong>Escribe tu teléfono abajo</strong> o <button onclick="openLeadModal('trial')" class="text-brand-600 font-bold underline cursor-pointer">inicia tu prueba gratis de 14 días</button>.`
-                    : `Impossible POS is built for relentless speed, featuring unlimited free kitchen screens, offline resilience, and automated AI phone ordering for $85/mo.<br><br>Would you like to speak with a sales specialist? <strong>Type your phone number below</strong> or <button onclick="openLeadModal('trial')" class="text-brand-600 font-bold underline cursor-pointer">start your 14-day free trial</button>.`;
+                    ? `Impossible POS está diseñado para máxima velocidad, con pantallas de cocina gratis, básculas USB, pedidos telefónicos por IA y modo fuera de línea militar por $85/mes.<br><br><a href="https://wa.me/13133129090?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:6px 12px; border-radius:6px; font-size:11px; font-weight:bold; text-decoration:none; margin: 4px 0;">Chatear por WhatsApp</a><br>O escribe tu teléfono aquí para que te contactemos.`
+                    : `Impossible POS is built for relentless speed, featuring unlimited free kitchen screens, USB scale support, AI phone orders, and offline resilience for $85/mo.<br><br><a href="https://wa.me/13133129090?text=Hello%2C%20I%20have%20a%20question%20about%20Impossible%20POS" target="_blank" style="display:inline-flex; align-items:center; gap:6px; background:#25D366; color:#fff; padding:6px 12px; border-radius:6px; font-size:11px; font-weight:bold; text-decoration:none; margin: 4px 0;">Chat on WhatsApp</a><br>Or type your phone number below and we'll reach out to you.`;
                 addChatMessage('bot', ans);
+            }
+addChatMessage('bot', ans);
             }
         }, 350);
     }
