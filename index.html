@@ -926,6 +926,37 @@
                 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">✓</div>
                 <h4 id="lead-success-title" data-i18n="lead_success_title" class="text-2xl font-black text-slate-900">Welcome to Impossible POS!</h4>
                 <p id="lead-success-msg" class="text-sm text-slate-600 max-w-sm mx-auto">Your trial has been registered. Your download is starting right now...</p>
+                
+                <!-- Step-by-Step Installation Instructions Box -->
+                <div id="lead-install-guide" class="text-left bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mt-4 space-y-3 text-xs text-slate-700 hidden shadow-sm">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 text-sm border-b border-slate-200 pb-2">
+                        <span class="text-amber-500 text-base">⚠️</span>
+                        <span data-i18n="install_guide_title">Critical Windows Installation Steps:</span>
+                    </div>
+                    <div class="space-y-2.5">
+                        <div class="flex items-start gap-2.5">
+                            <span class="bg-emerald-600 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">1</span>
+                            <span data-i18n="install_step0"><strong>Install Node.js Runtime (Only once):</strong> Download & install Node.js LTS from <a href="https://nodejs.org" target="_blank" class="text-brand-600 underline font-bold">nodejs.org</a> (do NOT check extra boxes or Chocolatey; simply click Next ➔ Next ➔ Next ➔ Install ➔ Finish).</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">2</span>
+                            <span data-i18n="install_step1"><strong>Do NOT run directly from browser:</strong> Once downloaded, open your computer's <strong>Downloads</strong> folder.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">3</span>
+                            <span data-i18n="install_step2"><strong>Extract All Files:</strong> Open Local C, create a new folder <code>Impossible_POS</code>, and extract all files there.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">4</span>
+                            <span data-i18n="install_step3"><strong>Desktop Shortcut:</strong> Open folder <code>C:\Impossible_POS</code>, right-click <strong>Impossible_POS.exe</strong> ➔ <em>Send to ➔ Desktop (create shortcut)</em>.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">5</span>
+                            <span data-i18n="install_step4"><strong>SmartScreen & Firewall:</strong> If SmartScreen appears, click <em>"More info ➔ Run anyway"</em>. In the Windows Firewall prompt, check both boxes and click <em>"Allow access"</em>.</span>
+                        </div>
+                    </div>
+                </div>
+
                 <button onclick="closeLeadModal()" data-i18n="lead_success_btn_close" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-slate-800 transition-all cursor-pointer">
                     Close
                 </button>
@@ -1202,6 +1233,12 @@
             lead_btn_sales: "Request Consultation",
             lead_success_title: "Welcome to Impossible POS!",
             lead_success_btn_close: "Close",
+            install_guide_title: "Critical Windows Installation Steps:",
+            install_step0: "<strong>Install Node.js Runtime (Only once):</strong> Download & install Node.js LTS from <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (do NOT check extra boxes or Chocolatey; simply click Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
+            install_step1: "<strong>Do NOT run directly from browser:</strong> Once downloaded, open your computer's <strong>Downloads</strong> folder.",
+            install_step2: "<strong>Extract All Files:</strong> Open Local C, create a new folder <code>Impossible_POS</code>, and extract all files there.",
+            install_step3: "<strong>Desktop Shortcut:</strong> Open folder <code>C:\\Impossible_POS</code>, right-click <strong>Impossible_POS.exe</strong> ➔ <em>Send to ➔ Desktop (create shortcut)</em>.",
+            install_step4: "<strong>SmartScreen & Firewall:</strong> If SmartScreen appears, click <em>\"More info ➔ Run anyway\"</em>. In the Windows Firewall prompt, check both boxes and click <em>\"Allow access\"</em>.",
 
             lead_ph_name: "e.g. John Miller",
             lead_ph_business: "e.g. Miller's Tavern & BBQ",
@@ -1427,6 +1464,12 @@
             lead_btn_sales: "Solicitar Asesoría",
             lead_success_title: "¡Bienvenido a Impossible POS!",
             lead_success_btn_close: "Cerrar",
+            install_guide_title: "Pasos Obligatorios de Instalación en Windows:",
+            install_step0: "<strong>Instalar Motor Node.js (Solo la primera vez):</strong> Descarga Node.js LTS desde <a href=\"https://nodejs.org\" target=\"_blank\" class=\"text-brand-600 underline font-bold\">nodejs.org</a> (NO marques casillas extras ni Chocolatey; solo dale Next ➔ Next ➔ Next ➔ Install ➔ Finish).",
+            install_step1: "<strong>NO abras el archivo directo desde el navegador:</strong> Una vez descargado, ve a tu carpeta de <strong>Descargas (Downloads)</strong>.",
+            install_step2: "<strong>Extraer archivos:</strong> Abre Disco Local (C:), crea una nueva carpeta llamada <code>Impossible_POS</code> y extrae todos los archivos ahí.",
+            install_step3: "<strong>Acceso directo:</strong> Entra a <code>C:\\Impossible_POS</code>, haz clic derecho sobre <strong>Impossible_POS.exe</strong> ➔ <em>Enviar a ➔ Escritorio</em>.",
+            install_step4: "<strong>SmartScreen y Firewall:</strong> Si sale SmartScreen dale <em>\"Más información ➔ Ejecutar de todas formas\"</em>. En la alerta del Firewall marca ambas casillas y dale <em>\"Permitir acceso\"</em>.",
 
             lead_ph_name: "ej. Juan Pérez",
             lead_ph_business: "ej. Taquería El Pastor",
@@ -1601,8 +1644,10 @@ ${notes ? notes : 'Ninguno especificado.'}
         const success = document.getElementById('lead-success');
         const successMsg = document.getElementById('lead-success-msg');
         success.classList.remove('hidden');
+        const installGuide = document.getElementById('lead-install-guide');
 
         if (target === 'android') {
+            if (installGuide) installGuide.classList.add('hidden');
             successMsg.innerText = currentLang === 'es' 
                 ? "Abriendo el Demo en Vivo de Android en una pestaña nueva..."
                 : "Opening the Live Android Demo in a new tab...";
@@ -1610,10 +1655,13 @@ ${notes ? notes : 'Ninguno especificado.'}
                 window.open(ANDROID_DEMO_URL, '_blank');
             }, 800);
         } else if (target === 'sales') {
+            if (installGuide) installGuide.classList.add('hidden');
             successMsg.innerText = currentLang === 'es'
                 ? "¡Muchas gracias! Un especialista de Impossible POS se comunicará contigo por WhatsApp o teléfono a la brevedad."
                 : "Thank you! An Impossible POS specialist will contact you via phone/WhatsApp shortly.";
         } else {
+            if (installGuide) installGuide.classList.remove('hidden');
+            applyTranslations();
             successMsg.innerText = currentLang === 'es'
                 ? "Tu prueba gratuita ha sido registrada. Descargando el instalador de Windows ahora..."
                 : "Your free trial is registered. Downloading the Windows installer now...";
