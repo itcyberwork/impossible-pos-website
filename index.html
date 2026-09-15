@@ -103,17 +103,25 @@
                     <a href="#hardware" data-i18n="nav_hardware" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Hardware</a>
                     <a href="#why-impossible" data-i18n="nav_why" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Why Impossible?</a>
                     <a href="#pricing" data-i18n="nav_pricing" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Pricing</a>
+                    <a href="portal.html" class="text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span data-i18n="nav_portal">Owner Portal</span>
+                    </a>
                 </div>
 
-                <!-- Right Actions: Language Switcher & Trial CTA -->
+                <!-- Right Actions: Language Switcher, Owner Portal & Trial CTA -->
                 <div class="flex items-center gap-3">
+                    <a href="portal.html" class="inline-flex items-center gap-1.5 bg-brand-500 hover:bg-brand-600 text-slate-950 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold shadow-md transition-all">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+                        <span data-i18n="nav_owner_login">Owner Login</span>
+                    </a>
                     <!-- Language Selector Pill -->
                     <div class="inline-flex p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-bold shadow-inner">
                         <button id="lang-btn-en" onclick="setLanguage('en')" class="px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold">
-                            🇺🇸 EN
+                            EN
                         </button>
                         <button id="lang-btn-es" onclick="setLanguage('es')" class="px-2.5 sm:px-3 py-1 rounded-full transition-all cursor-pointer font-bold">
-                            🇲🇽 ES
+                            ES
                         </button>
                     </div>
 
@@ -1062,6 +1070,8 @@
             nav_hardware: "Hardware",
             nav_why: "Why Impossible?",
             nav_pricing: "Pricing",
+            nav_portal: "Owner Portal",
+            nav_owner_login: "Owner Login",
             nav_trial_btn: "Start 14-Day Free Trial",
 
             hero_badge: "Now with AI Voice Ordering",
@@ -1308,6 +1318,8 @@
             nav_hardware: "Hardware",
             nav_why: "¿Por qué Impossible?",
             nav_pricing: "Precios",
+            nav_portal: "Portal de Dueños",
+            nav_owner_login: "Acceso Dueños",
             nav_trial_btn: "Prueba Gratis 14 Días",
 
             hero_badge: "Ahora con Pedidos por Voz con IA",
@@ -1850,9 +1862,22 @@ ${notes ? notes : 'Ninguno especificado.'}
                 return;
             }
 
-            const lower = userText.toLowerCase();
-
-            if (lower.includes('multistation') || lower.includes('multi-estacion') || lower.includes('multi-caja') || lower.includes('varias cajas') || lower.includes('varias computadoras') || lower.includes('conectar cajas') || lower.includes('estaciones') || lower.includes('croquis') || lower.includes('topology') || lower.includes('claim') || lower.includes('otra pc') || lower.includes('segunda pc') || lower.includes('multiple registers') || lower.includes('secondary pc') || lower.includes('secondary terminal')) {
+            if (lower.includes('portal') || lower.includes('cloud') || lower.includes('ver ventas') || lower.includes('desde casa') || lower.includes('en mi celular') || lower.includes('owner portal') || lower.includes('portal de dueños') || lower.includes('remote sales') || lower.includes('live sales') || lower.includes('check sales from home')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Portal Cloud para Dueños (impossiblepos.com/portal.html):</strong><br>• <strong>Acceso Remoto 24/7:</strong> Monitorea tus ventas en vivo, ganancias netas, impuestos, propinas y cortes de caja (Z-Report) desde cualquier celular, tablet o computadora en tu casa.<br>• <strong>Tu Propio Usuario:</strong> Regístrate con tu nombre, email, contraseña y el Key de tu licencia. Nadie más puede ver tu información.<br>• <strong>Lo Más Vendido y Gráficas:</strong> Ranking de platillos estrella y distribución horaria para saber a qué hora vendes más.<br>• <strong>100% Sin Emojis e Idioma:</strong> Diseño empresarial limpio con cambio instantáneo entre Inglés y Español.<br><a href="portal.html" target="_blank" class="text-brand-600 font-bold underline inline-block mt-1">Ir al Portal de Dueños (Login / Registro)</a>`
+                    : `<strong>Cloud Owner Portal (impossiblepos.com/portal.html):</strong><br>• <strong>24/7 Live Remote Monitoring:</strong> Track real-time gross revenue, net sales, taxes, cash vs card breakdown, and Z-Reports from any smartphone, tablet, or laptop from home.<br>• <strong>Owner Self-Service:</strong> Sign up with your name, business name, email, secure password, and your License Key. Multi-tenant privacy guaranteed.<br>• <strong>Best Sellers & Hourly Trends:</strong> Real-time ranking of top-selling food items and peak hour sales graphs.<br>• <strong>Clean Typography & Bilingual:</strong> Clean enterprise design with instant toggle between English and Spanish.<br><a href="portal.html" target="_blank" class="text-brand-600 font-bold underline inline-block mt-1">Open Owner Portal (Login / Sign Up)</a>`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('restaurar') || lower.includes('recuperar') || lower.includes('backup') || lower.includes('disaster') || lower.includes('respaldo') || lower.includes('se me rompio') || lower.includes('computadora nueva') || lower.includes('robaron') || lower.includes('perder datos') || lower.includes('cloud restore') || lower.includes('restore menu') || lower.includes('pin 2026') || lower.includes('manager pin')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Recuperación de Desastres y Respaldo en la Nube (Cloud Disaster Recovery):</strong><br>• <strong>Respaldo en 1 Clic:</strong> En <em>Options ➔ Settings ➔ Database</em>, presiona <strong>[ Cloud Menu Backup ]</strong> para guardar todos tus platillos, precios, modificadores y departamentos en la nube segura.<br>• <strong>Restauración Rápida con PIN en el Negocio:</strong> Si estás en la máquina del local, no necesitas teclear contraseñas largas; ingresa tu <strong>PIN de Manager</strong> o el PIN Maestro de Soporte (<code>2026</code>) y el menú se restaura en 2 segundos.<br>• <strong>En Computadora Nueva o de Reemplazo:</strong> Si la máquina se quemó, mojó o fue robada, abres el POS en cualquier PC nueva, ingresas tu <strong>Email y Contraseña de Dueño</strong> (o tu Clave de Licencia) y descarga tu menú al instante.<br>• <strong>Cero Pérdida de Menú:</strong> Nunca más tendrás que volver a teclear 100 platillos a mano.`
+                    : `<strong>Cloud Disaster Recovery & Menu Catalog Backup:</strong><br>• <strong>1-Click Cloud Backup:</strong> In <em>Options ➔ Settings ➔ Database</em>, click <strong>[ Cloud Menu Backup ]</strong> to safely back up your food items, prices, modifier groups, and departments to the secure cloud.<br>• <strong>Fast In-Store Restore with PIN:</strong> On your store terminal, you don't have to type long credentials; just enter your <strong>Manager PIN</strong> or the Master Support PIN (<code>2026</code>) and your menu restores in 2 seconds.<br>• <strong>On New / Replacement PC:</strong> If your terminal was stolen, damaged, or wet, open Impossible POS on a blank replacement PC, enter your <strong>Owner Email & Password</strong> (or License Key), and your menu downloads automatically.<br>• <strong>Zero Menu Loss:</strong> You will never have to retype 100 food items by hand again.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('actualizar') || lower.includes('update') || lower.includes('parche') || lower.includes('nueva version') || lower.includes('ota') || lower.includes('actualizacion') || lower.includes('reparar software')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Actualizaciones OTA y Protección de Base de Datos:</strong><br>• <strong>Actualizaciones en 1 Clic:</strong> Ve a <em>Options ➔ Software Updates (U)</em> y presiona <strong>[ Check Updates ]</strong>.<br>• <strong>Respaldo Automático Previo:</strong> Antes de aplicar cualquier actualización, el sistema crea un respaldo completo de tu base de datos en <code>Backups/pre_update_backup_[fecha]</code>.<br>• <strong>Base de Datos Blindada:</strong> Las actualizaciones de software reemplazan archivos del sistema pero <strong>NUNCA tocan tu base de datos de ventas (pos.db)</strong>. Tus ventas, clientes y configuraciones están 100% a salvo.<br>• <strong>Auto-Reinicio:</strong> El sistema descarga el parche en segundos y se recarga automáticamente listo para seguir cobrando.`
+                    : `<strong>Over-The-Air (OTA) Updates & Database Safeguard:</strong><br>• <strong>1-Click Updates:</strong> Go to <em>Options ➔ Software Updates (U)</em> and click <strong>[ Check Updates ]</strong>.<br>• <strong>Automatic Pre-Update Backup:</strong> Before any update is installed, the system automatically creates a full database backup in <code>Backups/pre_update_backup_[timestamp]</code>.<br>• <strong>Protected Database:</strong> Software patches update core application files but <strong>NEVER overwrite your sales database (pos.db)</strong>. All your tickets, customer records, and settings remain untouched.<br>• <strong>Instant Auto-Reload:</strong> The system downloads the small patch in under 2 seconds and reloads automatically with zero downtime.`;
+                addChatMessage('bot', ans);
+            } else if (lower.includes('multistation') || lower.includes('multi-estacion') || lower.includes('multi-caja') || lower.includes('varias cajas') || lower.includes('varias computadoras') || lower.includes('conectar cajas') || lower.includes('estaciones') || lower.includes('croquis') || lower.includes('topology') || lower.includes('claim') || lower.includes('otra pc') || lower.includes('segunda pc') || lower.includes('multiple registers') || lower.includes('secondary pc') || lower.includes('secondary terminal')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Red Multi-Estación y Croquis Visual de Red:</strong><br>• <strong>Configuración Visual en el Servidor:</strong> En <em>Options ➔ Hardware ➔ Stations & Map / Croquis</em> puedes ajustar con los botones [+] y [-] cuántas Cajas Windows, Estaciones de Bar, Meseras, Pantallas KDS y Móviles Sunmi necesitas.<br>• <strong>Auto-Vinculación en 1 Clic en PCs Secundarias:</strong> En cualquier otra computadora conectada al mismo Wi-Fi o cable, abres el sistema o el navegador en la IP del servidor (ej. <code>http://192.168.1.50:3000</code>). Aparecerá una pantalla que pregunta: <em>"¿Qué estación corresponde a esta computadora?"</em>; haces clic en tu estación (ej. 🍸 Bar Station o 💵 Caja 2) y el equipo se configura solo sin teclear IPs ni puertos.<br>• <strong>Terminales Móviles Sunmi:</strong> Presionas <em>Ver Códigos QR</em>, abres la cámara del Sunmi y escaneas tu tarjeta QR para comanda inmediata.<br>• <strong>Facturación Privada:</strong> $85/mes por terminal Windows, $100/mes Bar Hub, 1ra Sunmi GRATIS + $20/mes cada extra. El desglose es visible <strong>únicamente para el Dueño</strong> en el Servidor.`
                     : `<strong>Multi-Station Setup & Interactive Network Croquis:</strong><br>• <strong>Visual Designer on Main Server:</strong> In <em>Options ➔ Hardware ➔ Stations & Map / Croquis</em>, click [+] and [-] to configure your Cashier registers, Bar stations, Waitress PCs, Kitchen KDS, and Mobile Sunmis.<br>• <strong>1-Click Station Claiming on Secondary PCs:</strong> On any secondary computer connected to the same Wi-Fi/Ethernet, open the POS or browser at the Server IP (e.g. <code>http://192.168.1.50:3000</code>). A popup asks: <em>"Which station is this device?"</em>; click your station (e.g. 🍸 Bar Station or 💵 Cashier 2) and it auto-configures instantly without typing IPs or ports!<br>• <strong>Mobile Sunmi Handhelds:</strong> Click <em>View Sunmi QR Codes</em>, point the device camera, and start taking orders right away.<br>• <strong>Private Billing:</strong> $85/mo per Windows register, $100/mo Bar Hub, 1st Sunmi FREE + $20/mo extra. Invoices and payment buttons are visible <strong>strictly to the Owner</strong> on the Server.`;
