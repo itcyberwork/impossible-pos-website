@@ -255,6 +255,17 @@
                     <h3 data-i18n="feat5_title" class="text-xl font-bold text-slate-900 mb-3">Biometrics & Reporting</h3>
                     <p data-i18n="feat5_desc" class="text-slate-600 leading-relaxed">Forget passwords and swipe cards. Secure employee access via Fingerprint scanner. Get hyper-detailed reporting by person, hour, and station with lightning-fast UI buttons.</p>
                 </div>
+                <!-- Feature 6: All-in-One Delivery Integration -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path></svg>
+                    </div>
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700 mb-2">
+                        <span>DoorDash • Uber Eats • Grubhub</span>
+                    </div>
+                    <h3 data-i18n="feat6_title" class="text-xl font-bold text-slate-900 mb-3">All-in-One Delivery & KDS</h3>
+                    <p data-i18n="feat6_desc" class="text-slate-600 leading-relaxed">Say goodbye to counter clutter and 5 different tablets. Orders from DoorDash, Uber Eats, Grubhub, and your own online menu flow directly into your POS and Kitchen KDS with automated color coding and 1-second barcode driver dispatch.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1103,6 +1114,8 @@
             feat4_desc: "Say goodbye to shrinkage. Connect directly to your NVR/DVR security cameras to overlay live receipts on video feeds. Includes built-in stealth screen recording.",
             feat5_title: "Biometrics & Reporting",
             feat5_desc: "Forget passwords and swipe cards. Secure employee access via Fingerprint scanner. Get hyper-detailed reporting by person, hour, and station with lightning-fast UI buttons.",
+            feat6_title: "All-in-One Delivery & KDS",
+            feat6_desc: "Say goodbye to counter clutter and 5 different tablets. Orders from DoorDash, Uber Eats, Grubhub, and your own online menu flow directly into your POS and Kitchen KDS with automated color coding and 1-second barcode driver dispatch.",
 
             hard_badge: "Hybrid Architecture",
             hard_title: "Works with the hardware you already own.",
@@ -1351,6 +1364,8 @@
             feat4_desc: "Dile adiós a las pérdidas y robos hormiga. Conecta tus cámaras NVR/DVR para imprimir el recibo de venta sobre el video en vivo. Incluye grabación de pantalla secreta.",
             feat5_title: "Biometría y Reportes Avanzados",
             feat5_desc: "Olvídate de contraseñas y tarjetas perdidas. Acceso seguro con Huella Digital. Reportes hiper detallados por cajero, hora y estación en segundos.",
+            feat6_title: "Integración All-in-One de Delivery",
+            feat6_desc: "Dile adiós al desorden en tu mostrador y a pagar por 5 tabletas diferentes. Los pedidos de DoorDash, Uber Eats, Grubhub y tu tienda online entran directo a tu POS y a la pantalla de cocina KDS con colores automáticos y despacho con escáner al repartidor.",
 
             hard_badge: "Arquitectura Híbrida",
             hard_title: "Funciona con el equipo que ya tienes.",
@@ -1859,6 +1874,14 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `¡Muchas gracias! Le he enviado tu número de teléfono directamente a nuestro fundador <strong>Jorge Hernández</strong>. Te contactaremos en breve.<br><br>¿Quieres atención inmediata? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Haz clic aquí para solicitar llamada</a>.`
                     : `Thank you! I have passed your phone number directly to our founder <strong>Jorge Hernandez</strong>. We will contact you shortly.<br><br>Want an immediate answer? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Click here to request a callback</a>.`;
                 addChatMessage('bot', replyText);
+                return;
+            }
+
+            if (lower.includes('doordash') || lower.includes('uber') || lower.includes('ubereats') || lower.includes('grubhub') || lower.includes('delivery') || lower.includes('tableta') || lower.includes('tablets') || lower.includes('pedidos online') || lower.includes('online orders')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Integración Todo-en-Uno de Delivery (DoorDash, Uber Eats, Grubhub y Menú Web):</strong><br>• <strong>Cero Tabletas en el Mostrador:</strong> Olvídate de tener 4 o 5 tabletas diferentes sonando y ocupando espacio. Todos los pedidos entran directamente a Impossible POS.<br>• <strong>Cocina KDS con Colores Oficiales:</strong> Las comandas llegan a la pantalla de cocina con distintivos oficiales (DoorDash en rojo, Uber Eats en verde, Grubhub en naranja y Menú Web en azul) con timbre sonoro automático.<br>• <strong>Despacho Ultrarrápido con Escáner:</strong> Cuando el chofer (Dasher / Uber Driver) llega, la cajera solo escanea el código QR o de barras de su teléfono para verificar la bolsa y confirmar la entrega en 1 segundo.<br>• <strong>Hardware Compatible:</strong> Funciona con cualquier pantalla o tablet táctil para cocina y lectores de código de barras USB estándar.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Solicitar demostración de Delivery</a>`
+                    : `<strong>All-in-One Delivery Integration (DoorDash, Uber Eats, Grubhub & Web Store):</strong><br>• <strong>Zero Counter Clutter:</strong> Eliminate the chaos of 5 different tablets taking up counter space. All orders stream directly into Impossible POS.<br>• <strong>Color-Coded Smart KDS:</strong> Tickets appear on the kitchen display with official platform branding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue) and automatic chime sounds.<br>• <strong>Instant Barcode / QR Handover:</strong> When the delivery driver arrives, simply scan their phone screen with your USB scanner to verify the bag and hand it over in 1 second.<br>• <strong>Universal Hardware:</strong> Works with standard monitors/tablets for Kitchen KDS and standard USB 2D barcode/QR scanners.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Request a Delivery Demo</a>`;
+                addChatMessage('bot', ans);
                 return;
             }
 
