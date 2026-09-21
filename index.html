@@ -702,6 +702,31 @@
                     <h3 data-i18n="faq4_q" class="text-lg font-bold text-slate-900 mb-2">Is my data secure?</h3>
                     <p data-i18n="faq4_a" class="text-slate-600">Extremely. We offer Biometric Fingerprint authentication for your employees and direct NVR/DVR security camera integrations to completely eliminate shrinkage and unauthorized access.</p>
                 </div>
+                <!-- FAQ Shift / Float -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_shift_q" class="text-lg font-bold text-slate-900 mb-2">Why is checkout locked until a shift is opened? How do I record the cash float?</h3>
+                    <p data-i18n="faq_shift_a" class="text-slate-600">Impossible POS enforces strict cash control and audit security: transactions and checkout cannot proceed until the cashier on duty opens their shift and enters their starting cash drawer float by denomination ($100, $50, $20, etc.). At closing, the system performs a Blind Drop count where the cashier counts cash without seeing expected numbers, eliminating cash skimming and computing exact overage or shortage on the Z-Report.</p>
+                </div>
+                <!-- FAQ Waiter Role -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_waiter_q" class="text-lg font-bold text-slate-900 mb-2">Can I set up order-only Waiter Stations without cash drawers or float requirements?</h3>
+                    <p data-i18n="faq_waiter_a" class="text-slate-600">Yes! In Setup &gt; Hardware &gt; Caja, you can assign the station role to either 'Cashier Terminal (Full Register with Cash Drawer &amp; Checkout)' or 'Waiter Station (Order Taking &amp; Kitchen Only)'. Waiter stations allow servers to start tables, send orders to the kitchen/bar KDS, and print customer checks, but they cannot take cash payments or open cash drawers, removing the need for a cash float.</p>
+                </div>
+                <!-- FAQ Station QR Sign -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_qrsign_q" class="text-lg font-bold text-slate-900 mb-2">How do customers link their account if my register has a single monitor?</h3>
+                    <p data-i18n="faq_qrsign_a" class="text-slate-600">If your counter has single-monitor terminals without a customer-facing screen, go to Setup &gt; Hardware &gt; Caja and click 'Print Customer QR Sign'. Select your station (Station 1, Station 2, etc.) to print a high-resolution, branded pairing sign on 80mm receipt paper or 8.5x11 sheets. Laminate the sign and display it on the back of the monitor facing the customer. Each station prints a unique QR code so the customer connects directly to the cashier serving them.</p>
+                </div>
+                <!-- FAQ Delivery Hub -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_delivery_q" class="text-lg font-bold text-slate-900 mb-2">How does Impossible POS integrate DoorDash, Uber Eats, and Grubhub without tablets?</h3>
+                    <p data-i18n="faq_delivery_a" class="text-slate-600">All incoming orders from DoorDash, Uber Eats, Grubhub, and your online web store route directly into Impossible POS and kitchen KDS screens with official color coding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue). When the delivery driver arrives, the cashier simply scans the QR code or barcode on the driver's phone with a USB barcode scanner to instantly verify and dispatch the order—zero counter clutter and zero third-party hardware tablets.</p>
+                </div>
+                <!-- FAQ Telegram Alerts -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_telegram_q" class="text-lg font-bold text-slate-900 mb-2">Does Impossible POS support free customer notifications via Telegram instead of paid SMS?</h3>
+                    <p data-i18n="faq_telegram_a" class="text-slate-600">Yes! You have 100% free choice between Telegram Bot (100% free with unlimited notifications and zero monthly carrier fees) and traditional Twilio SMS. In Setup &gt; Hardware &gt; Food Hub, simply enter your Telegram bot token created via @BotFather. Customers scan the QR on their receipt, tap 'Start' on Telegram, and get instant cooking and pickup alerts without costing the restaurant a single penny.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1034,6 +1059,11 @@
             <!-- Quick Action Chips -->
             <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto text-[11px] font-medium text-slate-600 scrollbar-none">
                 <button type="button" onclick="askQuickQuestion('pricing')" data-i18n="ai_chip_pricing" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Pricing & Plans</button>
+                <button type="button" onclick="askQuickQuestion('shift')" data-i18n="ai_chip_shift" class="whitespace-nowrap px-3 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-full transition-all font-semibold cursor-pointer">💵 Shift & Cash Float</button>
+                <button type="button" onclick="askQuickQuestion('waiter')" data-i18n="ai_chip_waiter" class="whitespace-nowrap px-3 py-1 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-full transition-all font-semibold cursor-pointer">🖥️ Waiter vs Cashier</button>
+                <button type="button" onclick="askQuickQuestion('qrsign')" data-i18n="ai_chip_qrsign" class="whitespace-nowrap px-3 py-1 bg-amber-50 text-amber-700 hover:bg-amber-100 rounded-full transition-all font-semibold cursor-pointer">🏷️ Printable Station QR</button>
+                <button type="button" onclick="askQuickQuestion('delivery')" data-i18n="ai_chip_delivery" class="whitespace-nowrap px-3 py-1 bg-red-50 text-red-700 hover:bg-red-100 rounded-full transition-all font-semibold cursor-pointer">🛵 Delivery Hub</button>
+                <button type="button" onclick="askQuickQuestion('telegram')" data-i18n="ai_chip_telegram" class="whitespace-nowrap px-3 py-1 bg-teal-50 text-teal-700 hover:bg-teal-100 rounded-full transition-all font-semibold cursor-pointer">📲 Telegram Alerts ($0)</button>
                 <button type="button" onclick="askQuickQuestion('multistation')" data-i18n="ai_chip_multistation" class="whitespace-nowrap px-3 py-1 bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-full transition-all font-semibold cursor-pointer">🌐 Multi-Station Network</button>
                 <button type="button" onclick="askQuickQuestion('hardware')" data-i18n="ai_chip_hardware" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">🖨️ Hardware & Printers</button>
                 <button type="button" onclick="askQuickQuestion('devices')" data-i18n="ai_chip_devices" class="whitespace-nowrap px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-full transition-all cursor-pointer font-medium text-slate-700">Device Linking</button>
@@ -1259,6 +1289,16 @@
             faq3_a: "No. Unlike our competitors who charge you per screen, we include unlimited KDS and Line Buster tablet connections for free. You only pay for the main cash register terminals.",
             faq4_q: "Is my data secure?",
             faq4_a: "Extremely. We offer Biometric Fingerprint authentication for your employees and direct NVR/DVR security camera integrations to completely eliminate shrinkage and unauthorized access.",
+            faq_shift_q: "Why is checkout locked until a shift is opened? How do I record the cash float?",
+            faq_shift_a: "Impossible POS enforces strict cash control and drawer auditing: cashiers cannot process sales or take payments until they open a shift and record their starting cash drawer float by denomination ($100, $50, $20, $10, $5, $1, coins). At the end of the day, cashiers perform a Blind Drop count without seeing the computer's expected totals, preventing cash skimming and generating exact overage or shortage calculations on the Z-Report.",
+            faq_waiter_q: "Can I configure order-only Waiter Stations without cash drawers or cash float requirements?",
+            faq_waiter_a: "Yes! In Setup &gt; Hardware &gt; Caja, each terminal can be designated as either 'Cashier Terminal (Full Register with Cash Drawer &amp; Checkout)' or 'Waiter Station (Order Taking &amp; Kitchen Only)'. Waiter stations allow servers to start tables, send tickets to the kitchen/bar KDS, and print guest checks, but they cannot take cash payments or pop open cash drawers, eliminating the need for a starting cash float.",
+            faq_qrsign_q: "How do customers link their account if my register has a single monitor?",
+            faq_qrsign_a: "If your counter terminals use a single monitor without a customer-facing secondary display, go to Setup &gt; Hardware &gt; Caja and click 'Print Customer QR Sign'. Choose your terminal (Station 1, Station 2, etc.) to print a professional, high-resolution QR pairing sign on 80mm thermal paper or standard letter paper. Laminate it and mount it on the back of the monitor facing the guest. Each station prints a unique QR code so the customer connects directly to the cashier serving them.",
+            faq_delivery_q: "How does Impossible POS integrate DoorDash, Uber Eats, and Grubhub without counter tablets?",
+            faq_delivery_a: "All online orders from DoorDash, Uber Eats, Grubhub, and your web storefront route directly into Impossible POS and kitchen KDS displays with official brand color coding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue) and automated kitchen chime alerts. When the delivery driver arrives, the cashier simply scans the QR code or barcode on the driver's phone with a USB scanner to instantly verify and dispatch the order—zero counter clutter and zero extra tablet rentals.",
+            faq_telegram_q: "Does Impossible POS support free customer notifications via Telegram instead of paid SMS?",
+            faq_telegram_a: "Yes! Restaurant owners can choose between 100% Free Telegram Bot notifications (unlimited messages, zero carrier fees) and traditional Twilio SMS. In Setup &gt; Hardware &gt; Food Hub, enter your Telegram bot token created in 2 minutes via @BotFather. Customers scan the QR on their receipt, tap 'Start' on Telegram, and receive automated live updates when their food is cooking or ready for pickup—with zero monthly costs to the restaurant.",
 
             foot_desc: "The most reliable, blazing-fast Point of Sale system built for high-volume operations. Proudly developed by IT Cyber Work LLC.",
             foot_resources: "Resources",
@@ -1308,6 +1348,11 @@
             ai_bot_subtitle: "Online • Master POS Specialist",
             ai_welcome: "Hello! I'm the Impossible POS virtual specialist. Ask me anything about our $85 pricing, free KDS screens, offline mode, or your existing hardware!",
             ai_chip_pricing: "Pricing & Plans",
+            ai_chip_shift: "💵 Shift & Cash Float",
+            ai_chip_waiter: "🖥️ Waiter vs Cashier",
+            ai_chip_qrsign: "🏷️ Printable Station QR",
+            ai_chip_delivery: "🛵 Delivery Hub",
+            ai_chip_telegram: "📲 Telegram Alerts ($0)",
             ai_chip_multistation: "🌐 Multi-Station Network",
             ai_chip_hardware: "🖨️ Hardware & Printers",
             ai_chip_offline: "Offline Resilience",
@@ -1509,6 +1554,16 @@
             faq3_a: "No. A diferencia de nuestros competidores que cobran por cada pantalla, nosotros incluimos pantallas de cocina y tablets de meseros ilimitadas gratis. Solo pagas por tus cajas registradoras principales.",
             faq4_q: "¿Están seguros mis datos y mi dinero?",
             faq4_a: "Totalmente. Ofrecemos autenticación por Huella Digital para tus empleados e integración directa con tus cámaras de seguridad NVR/DVR para eliminar por completo el robo hormiga.",
+            faq_shift_q: "¿Por qué se bloquea el cobro hasta abrir turno? ¿Cómo registro el fondo de caja?",
+            faq_shift_a: "Impossible POS cuenta con estricta seguridad contable y auditoría anti-fraude: el sistema no permite cobrar órdenes hasta que el cajero en turno abra su turno e ingrese su fondo inicial desglosado por denominación ($100, $50, $20, etc.) y monedas. Al final de la jornada, el cajero realiza un Arqueo Ciego (Blind Drop) contando el dinero sin ver la cifra esperada en pantalla, lo que elimina pérdidas de efectivo y genera el sobrante o faltante exacto en el Corte Z.",
+            faq_waiter_q: "¿Puedo configurar estaciones solo para meseros sin cajón de dinero ni fondo inicial?",
+            faq_waiter_a: "¡Sí! En Setup &gt; Hardware &gt; Caja, puedes configurar cada estación como 'Terminal de Caja (Con Cajón y Cobro)' o 'Terminal de Mesero (Solo Comandas y Cocina)'. En modo mesero, el personal puede abrir mesas, enviar pedidos a la cocina/bar KDS e imprimir pre-cuentas, pero no pueden cobrar en efectivo ni disparar cajones de dinero, por lo que no requieren abrir turno ni fondo inicial.",
+            faq_qrsign_q: "¿Cómo vincula el cliente su cuenta si mi caja tiene un solo monitor (sin pantalla de cliente)?",
+            faq_qrsign_a: "Si tus cajas cuentan con un solo monitor para la cajera, ve a Setup &gt; Hardware &gt; Caja y presiona 'Print Customer QR Sign'. Selecciona el número de caja (Caja 1, Caja 2, etc.) para imprimir un letrero profesional de alta resolución en papel térmico de 80mm o en hoja normal. Lamínalo / enmícalo y colócalo en el reverso del monitor de cara al cliente. Cada caja genera un QR único para que el cliente se enlace exactamente con la cajera que lo está atendiendo.",
+            faq_delivery_q: "¿Cómo se integra DoorDash, Uber Eats y Grubhub sin tener tabletas en el mostrador?",
+            faq_delivery_a: "Todos los pedidos de DoorDash, Uber Eats, Grubhub y tu tienda online entran directo a Impossible POS y a las pantallas de cocina KDS con sus colores oficiales (DoorDash en rojo, Uber Eats en verde, Grubhub en naranja y Menú Web en azul) y timbres sonoros automáticos. Cuando el repartidor llega al restaurante, la cajera solo escanea el código de barras o QR en el teléfono del chofer con un lector USB para verificar y entregar la comanda en 1 segundo—sin desorden de 5 tabletas en tu mostrador.",
+            faq_telegram_q: "¿Impossible POS permite enviar notificaciones a clientes gratis con Telegram en lugar de SMS de pago?",
+            faq_telegram_a: "¡Sí! Puedes elegir libremente entre Telegram Bot (100% gratuito, sin límites de mensajes y con $0 costo mensual de telefonía) o mensajes de texto tradicionales por Twilio SMS. En Setup &gt; Hardware &gt; Food Hub, solo ingresas el Token de tu bot de Telegram creado en 2 minutos con @BotFather. El cliente escanea el QR de su ticket, presiona 'Start' en Telegram y recibe alertas en vivo cuando su comida se cocina o está lista, con costo cero para el restaurante.",
 
             foot_desc: "El sistema de punto de venta más confiable y ultra veloz diseñado para alto volumen. Orgullosamente desarrollado por IT Cyber Work LLC.",
             foot_resources: "Recursos",
@@ -1558,6 +1613,11 @@
             ai_bot_subtitle: "En línea • Especialista en Punto de Venta",
             ai_welcome: "¡Hola! Soy el especialista virtual de Impossible POS. Pregúntame sobre el precio de $85, pantallas de cocina gratis, modo sin internet o compatibilidad de tu equipo.",
             ai_chip_pricing: "Precios y Planes",
+            ai_chip_shift: "💵 Turno y Fondo de Caja",
+            ai_chip_waiter: "🖥️ Modo Mesero vs Caja",
+            ai_chip_qrsign: "🏷️ Letrero QR por Caja",
+            ai_chip_delivery: "🛵 Delivery Hub",
+            ai_chip_telegram: "📲 Notificaciones Telegram ($0)",
             ai_chip_multistation: "🌐 Red Multi-Caja",
             ai_chip_hardware: "🖨️ Hardware e Impresoras",
             ai_chip_offline: "Modo Sin Internet",
@@ -1804,6 +1864,11 @@ ${notes ? notes : 'Ninguno especificado.'}
         let questionText = "";
         if (currentLang === 'es') {
             if (type === 'pricing') questionText = "¿Cuál es el precio mensual y qué incluye?";
+            else if (type === 'shift') questionText = "¿Por qué se bloquea el cobro hasta abrir turno y cómo funciona el fondo de caja?";
+            else if (type === 'waiter') questionText = "¿Cómo funciona el Modo Mesero y en qué se diferencia del Modo Caja?";
+            else if (type === 'qrsign') questionText = "¿Cómo imprimo el letrero con código QR para pegar en la caja registradora?";
+            else if (type === 'delivery') questionText = "¿Cómo funciona la integración de DoorDash, Uber Eats y Grubhub sin tabletas?";
+            else if (type === 'telegram') questionText = "¿Cómo configuro las notificaciones 100% gratis con Telegram Bot en lugar de SMS?";
             else if (type === 'multistation') questionText = "¿Cómo conectar varias cajas, estaciones de meseras y Sunmis?";
             else if (type === 'hardware') questionText = "¿Cómo instalo y configuro las impresoras térmicas, gaveta y hardware?";
             else if (type === 'offline') questionText = "¿Funciona sin internet?";
@@ -1822,6 +1887,11 @@ ${notes ? notes : 'Ninguno especificado.'}
             else if (type === 'sales') questionText = "Quiero hablar con un asesor de ventas";
         } else {
             if (type === 'pricing') questionText = "What is the monthly price and what is included?";
+            else if (type === 'shift') questionText = "Why is checkout locked until a shift is opened and how does cash float work?";
+            else if (type === 'waiter') questionText = "How does Waiter Station mode work and how is it different from Cashier mode?";
+            else if (type === 'qrsign') questionText = "How do I print the customer pairing QR sign for single-monitor cash registers?";
+            else if (type === 'delivery') questionText = "How does DoorDash, Uber Eats, and Grubhub integration work without tablets?";
+            else if (type === 'telegram') questionText = "How do I set up 100% free notifications with Telegram Bot instead of paid SMS?";
             else if (type === 'multistation') questionText = "How do I connect multiple cashiers, waitress stations, and Sunmis?";
             else if (type === 'hardware') questionText = "How do I set up thermal printers, cash drawer, and hardware?";
             else if (type === 'offline') questionText = "Does it work without internet?";
@@ -1874,6 +1944,40 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `¡Muchas gracias! Le he enviado tu número de teléfono directamente a nuestro fundador <strong>Jorge Hernández</strong>. Te contactaremos en breve.<br><br>¿Quieres atención inmediata? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Haz clic aquí para solicitar llamada</a>.`
                     : `Thank you! I have passed your phone number directly to our founder <strong>Jorge Hernandez</strong>. We will contact you shortly.<br><br>Want an immediate answer? <a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline">Click here to request a callback</a>.`;
                 addChatMessage('bot', replyText);
+                return;
+            }
+
+            const lower = userText.toLowerCase();
+
+            if (lower.includes('shift') || lower.includes('turno') || lower.includes('fondo') || lower.includes('apertura') || lower.includes('cash float') || lower.includes('bloqueo cobrar') || lower.includes('abrir caja') || lower.includes('blind drop')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Apertura de Turno y Fondo Inicial Obligatorio (Cash Float & Arqueo Ciego):</strong><br>• <strong>Candado de Seguridad:</strong> El sistema no permite cobrar ninguna orden hasta que el cajero en turno abra su turno con el fondo de caja inicial.<br>• <strong>Desglose por Moneda y Billete:</strong> En <em>Opciones ➔ Shift Management</em> (o al intentar cobrar), ingresas la cantidad exacta de billetes ($100, $50, $20, $10, $5, $1) y monedas. El sistema suma el fondo automáticamente.<br>• <strong>Arqueo Ciego (Blind Drop):</strong> Al cerrar el turno, el cajero cuenta el dinero sin ver el monto esperado en la pantalla. El sistema compara y reporta si hubo sobrante o faltante exacto en el Corte Z, blindando tu negocio contra robos o extravíos.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Solicitar asesoría de apertura de caja</a>`
+                    : `<strong>Shift Opening & Mandatory Starting Cash Float (Cash Auditing & Blind Drop):</strong><br>• <strong>Security Checkout Gate:</strong> Cashiers cannot process sales or take payments until a shift is officially opened with a starting drawer float.<br>• <strong>Denomination Breakdown:</strong> In <em>Options ➔ Shift Management</em> (or upon tapping Pay), enter exact counts for each bill ($100, $50, $20, $10, $5, $1) and coins. The starting float is computed automatically.<br>• <strong>Blind Drop Audit:</strong> At shift closeout, cashiers perform a blind count without seeing the computer's expected totals. The system calculates exact overage or shortage on the Z-Report, eliminating cash skimming.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Request Cash Control Demo</a>`;
+                addChatMessage('bot', ans);
+                return;
+            }
+
+            if (lower.includes('mesero') || lower.includes('waiter') || lower.includes('station role') || lower.includes('rol de estacion') || lower.includes('modo caja') || lower.includes('modo mesero') || lower.includes('order only')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Roles de Estación: Modo Caja vs Modo Mesero:</strong><br>• <strong>Modo Caja (Cashier Terminal):</strong> Para computadoras de mostrador con cajón de dinero físico. Permite apertura de turno con fondo inicial, cobro en efectivo/tarjeta, apertura de cajón y corte Z.<br>• <strong>Modo Mesero (Waiter Station):</strong> Para tablets o terminales en el salón donde los meseros toman pedidos. Permite abrir mesas, mandar comandas a cocina/bar KDS e imprimir la cuenta previa, pero NO permite cobrar efectivo ni dispara cajones de dinero (no requiere fondo inicial).<br>• <strong>Configuración en 1 Clic:</strong> En <em>Setup ➔ Hardware ➔ Caja</em>, selecciona el rol de la estación y presiona Guardar.`
+                    : `<strong>Station Roles: Cash Register vs Waiter Terminal:</strong><br>• <strong>Cashier Mode (Full Register):</strong> For counter terminals with physical cash drawers. Enables shift opening with cash float, payment tenders (cash/card), cash drawer kicking, and Z-Reports.<br>• <strong>Waiter Mode (Order-Taking Station):</strong> For floor tablets and server stations. Waiters can start tables, fire tickets to kitchen/bar KDS, and print guest pre-checks, but CANNOT take cash payments or open cash drawers (no float required).<br>• <strong>1-Click Setup:</strong> In <em>Setup ➔ Hardware ➔ Caja</em>, choose your station role and tap Save.`;
+                addChatMessage('bot', ans);
+                return;
+            }
+
+            if (lower.includes('qr sign') || lower.includes('letrero') || lower.includes('letrero qr') || lower.includes('imprimir qr') || lower.includes('single monitor') || lower.includes('vincular cliente') || lower.includes('pantalla cliente')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Letrero QR Imprimible por Caja (Setup ➔ Hardware ➔ Caja):</strong><br>• <strong>Solución para Monitores Sencillos:</strong> Si tu caja no tiene pantalla secundaria orientada al cliente, puedes imprimir un letrero profesional con el código QR para que el cliente vincule su cuenta.<br>• <strong>Cómo Imprimirlo:</strong> Ve a <em>Setup ➔ Hardware ➔ Caja</em> y presiona <strong>[ Print Customer QR Sign ]</strong>. Selecciona la estación (Caja 1, Caja 2, etc.) y genera el letrero listo para imprimir en papel de 80mm o en hoja carta.<br>• <strong>Enmicar y Colocar:</strong> Enmícalo y pégalo detrás del monitor de la cajera mirando al cliente: 'Escanee para vincular su cuenta con esta caja'.<br>• <strong>QR Único por Caja:</strong> Cada estación genera su propio código para que el cliente quede sincronizado exactamente con la caja donde está parado.`
+                    : `<strong>Printable Station QR Sign (Setup ➔ Hardware ➔ Caja):</strong><br>• <strong>Single Monitor Solution:</strong> If your terminals lack a second customer-facing monitor, print a branded pairing sign for each register.<br>• <strong>Where to Print:</strong> Go to <em>Setup ➔ Hardware ➔ Caja</em> and click <strong>[ Print Customer QR Sign ]</strong>. Select your station (Station 1, Station 2, etc.) to preview and print on 80mm thermal paper or letter size.<br>• <strong>Display:</strong> Laminate and affix it to the back of the monitor facing the guest: 'Scan to link your account to this register'.<br>• <strong>Unique Station QR:</strong> Each terminal has a unique code ensuring guests connect directly to the cashier serving them.`;
+                addChatMessage('bot', ans);
+                return;
+            }
+
+            if (lower.includes('telegram') || lower.includes('botfather') || lower.includes('sms gratis') || lower.includes('notificaciones') || lower.includes('alertas cliente')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Notificaciones a Clientes: Telegram Bot (100% Gratis) vs Twilio SMS:</strong><br>• <strong>Telegram Bot ($0 Costo Mensual):</strong> Envía notificaciones instantáneas ilimitadas sin pagar mensualidades a compañías telefónicas. En Telegram abre <code>@BotFather</code>, escribe <code>/newbot</code>, copia tu Token y escríbelo en <em>Setup ➔ Hardware ➔ Food Hub</em>.<br>• <strong>Experiencia del Cliente:</strong> El cliente escanea el QR en su recibo, presiona 'Start' en Telegram y recibe una notificación en vivo cuando su pedido esté en preparación o listo para recoger.<br>• <strong>Twilio SMS Tradicional:</strong> Si prefieres mensajes de texto tradicionales por operadora telefónica, puedes configurar tu Account SID y Token de Twilio en el mismo panel.`
+                    : `<strong>Customer Notifications: Telegram Bot (100% Free) vs Twilio SMS:</strong><br>• <strong>Telegram Bot ($0 Ongoing Carrier Fees):</strong> Send unlimited real-time notification alerts with zero carrier fees. On Telegram, message <code>@BotFather</code>, send <code>/newbot</code>, copy your Bot Token, and paste it in <em>Setup ➔ Hardware ➔ Food Hub</em>.<br>• <strong>Customer Experience:</strong> Guests scan the QR on their receipt, tap 'Start' on Telegram, and receive automated ping alerts when their meal is cooking or ready for pickup.<br>• <strong>Twilio SMS:</strong> If you prefer traditional SMS carrier text messages, enter your Twilio Account SID and Auth Token in the same panel.`;
+                addChatMessage('bot', ans);
                 return;
             }
 
