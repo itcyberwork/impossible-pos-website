@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.2.2",
-  "releaseNotes": "• Actualización v1.2.2: Aviso de Sesión de Soporte Remoto en Pantalla (Bilingüe ES/EN) integrado en cabecera.\n• Soporte Remoto 1-Clic optimizado con RustDesk y asistencia técnica directa.\n• Periodo de prueba gratuito extendido a 30 días completos.\n• Portal del Propietario con privacidad y formularios genéricos y seguros.\n• Roles de Estación, Delivery Hub y Notificaciones Telegram gratuitas.",
+  "latestVersion": "1.2.3",
+  "releaseNotes": "• Actualización v1.2.3: Pestañas de Idioma en Centro de Ayuda (English por defecto y Español con 1-clic).\n• Aviso Oficial de Sesión de Soporte Remoto en Pantalla (Bilingüe ES/EN) integrado en cabecera.\n• Soporte Remoto 1-Clic optimizado con RustDesk y asistencia técnica directa.\n• Periodo de prueba gratuito extendido a 30 días completos.\n• Portal del Propietario con privacidad y formularios genéricos y seguros.",
   "mandatory": false,
-  "patchFileName": "patch-1.2.2.zip",
-  "updatedAt": "2026-09-25T19:10:00.000Z"
+  "patchFileName": "patch-1.2.3.zip",
+  "updatedAt": "2026-09-25T19:20:00.000Z"
 }
