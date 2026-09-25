@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.2.1",
-  "releaseNotes": "• Actualización v1.2.1: Soporte Remoto y Asistencia Técnica Optimizada (RustDesk 1-Clic sin ventanas bloqueantes + Alertas directas a Telegram de Ingeniería + Enlace Directo a WhatsApp).\n• Ampliación de Periodo de Prueba a 30 Días Completos sin Compromiso.\n• Portal del Dueño en la Nube con Privacidad Total y Formularios Seguros y Anónimos.\n• Roles de Estación: Modo Caja (con cobro y cajón) vs Modo Mesero (solo comanda y cocina).\n• Integración All-in-One Delivery y Pantallas de Cocina Inteligentes (KDS) Gratuitas.",
+  "latestVersion": "1.2.2",
+  "releaseNotes": "• Actualización v1.2.2: Aviso de Sesión de Soporte Remoto en Pantalla (Bilingüe ES/EN) integrado en cabecera.\n• Soporte Remoto 1-Clic optimizado con RustDesk y asistencia técnica directa.\n• Periodo de prueba gratuito extendido a 30 días completos.\n• Portal del Propietario con privacidad y formularios genéricos y seguros.\n• Roles de Estación, Delivery Hub y Notificaciones Telegram gratuitas.",
   "mandatory": false,
-  "patchFileName": "patch-1.2.1.zip",
-  "updatedAt": "2026-09-25T15:30:00.000Z"
+  "patchFileName": "patch-1.2.2.zip",
+  "updatedAt": "2026-09-25T19:10:00.000Z"
 }
