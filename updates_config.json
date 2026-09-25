@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.2.3",
-  "releaseNotes": "• Actualización v1.2.3: Pestañas de Idioma en Centro de Ayuda (English por defecto y Español con 1-clic).\n• Aviso Oficial de Sesión de Soporte Remoto en Pantalla (Bilingüe ES/EN) integrado en cabecera.\n• Soporte Remoto 1-Clic optimizado con RustDesk y asistencia técnica directa.\n• Periodo de prueba gratuito extendido a 30 días completos.\n• Portal del Propietario con privacidad y formularios genéricos y seguros.",
+  "latestVersion": "1.2.4",
+  "releaseNotes": "• Actualización v1.2.4: Sistema de Notificaciones de Pedidos Listos por Telegram 100% Automático y Resiliente.\n• Vinculación instantánea de clientes al enviar su número de teléfono o abrir el bot Taco Madre.\n• Botón directo de 1-clic 'Recibir aviso por Telegram' en la pantalla de seguimiento de pedidos en línea (ordena.html).\n• Diagnósticos inteligentes al llamar clientes desde la pantalla del cajero (Llamar al cliente).\n• Persistencia en base de datos SQLite de chats de Telegram entre reinicios del sistema.",
   "mandatory": false,
-  "patchFileName": "patch-1.2.3.zip",
-  "updatedAt": "2026-09-25T19:20:00.000Z"
+  "patchFileName": "patch-1.2.4.zip",
+  "updatedAt": "2026-09-25T21:32:00.000Z"
 }
