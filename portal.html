@@ -72,7 +72,7 @@
         <span class="text-dark-600 text-sm hidden sm:inline">|</span>
         <div id="headerBusinessBadge" class="hidden items-center gap-2 px-3 py-1 bg-dark-800 rounded-full border border-dark-700 text-xs font-semibold text-emerald-400">
           <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-          <span id="txtHeaderBusinessName">Taco Madre Detroit</span>
+          <span id="txtHeaderBusinessName">Mi Negocio</span>
         </div>
       </div>
 
@@ -145,20 +145,20 @@
       <form id="formRegister" onsubmit="handleRegister(event)" class="hidden space-y-3.5">
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1" id="lblRegName">Tu Nombre Completo</label>
-          <input type="text" id="regName" required placeholder="Ej: Juan Pérez" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
+          <input type="text" id="regName" required placeholder="Tu nombre completo" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1" id="lblRegBusiness">Nombre de tu Restaurante / Food Truck</label>
-          <input type="text" id="regBusiness" placeholder="Ej: Taco Madre Detroit" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
+          <input type="text" id="regBusiness" placeholder="Nombre de tu negocio" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1" id="lblRegLicense">Clave de Licencia del POS</label>
-          <input type="text" id="regLicenseKey" required placeholder="Ej: IMPOS-TMADRE-2026" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white font-mono uppercase tracking-wider placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
+          <input type="text" id="regLicenseKey" required placeholder="IMPOS-XXXX-XXXX" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white font-mono uppercase tracking-wider placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
           <span class="text-[10px] text-gray-400 block mt-0.5">La clave que te entregamos con tu sistema Impossible POS</span>
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1" id="lblRegEmail">Correo Electrónico</label>
-          <input type="email" id="regEmail" required placeholder="dueno@tacomadre.com" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
+          <input type="email" id="regEmail" required placeholder="tucorreo@ejemplo.com" class="w-full px-3.5 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
         </div>
         <div>
           <label class="block text-xs font-semibold text-gray-300 mb-1" id="lblRegPassword">Crea una Contraseña</label>
@@ -182,7 +182,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-card p-4 sm:p-5 rounded-2xl">
       <div>
         <div class="flex items-center gap-2.5">
-          <h2 class="text-lg sm:text-xl font-extrabold text-white" id="dashBusinessTitle">Taco Madre Detroit</h2>
+          <h2 class="text-lg sm:text-xl font-extrabold text-white" id="dashBusinessTitle">Panel de Control</h2>
           <span id="dashLiveStatusBadge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
             <span id="dashLiveStatusText">Terminal Activo</span>
@@ -260,7 +260,7 @@
         <div class="flex items-center justify-between mb-4">
           <div>
             <h3 class="font-bold text-white text-base" id="txtOrdersTableTitle">Últimos Tickets Cobrados</h3>
-            <p class="text-xs text-gray-400 mt-0.5" id="txtOrdersTableSubtitle">Transmisión en tiempo real desde el camión</p>
+            <p class="text-xs text-gray-400 mt-0.5" id="txtOrdersTableSubtitle">Transmisión en tiempo real desde tu negocio</p>
           </div>
           <span class="text-xs px-2.5 py-1 bg-dark-900 border border-dark-700 rounded-lg text-brand-400 font-semibold" id="txtOrderLiveBadge">En Vivo</span>
         </div>
@@ -367,7 +367,7 @@
         txtKpiCashTitle: 'Efectivo (Cash)',
         txtKpiCardTitle: 'Tarjeta (Cards)',
         txtOrdersTableTitle: 'Últimos Tickets Cobrados',
-        txtOrdersTableSubtitle: 'Transmisión en tiempo real desde el camión',
+        txtOrdersTableSubtitle: 'Transmisión en tiempo real desde tu negocio',
         txtTopItemsTitle: 'Lo Más Vendido',
         txtZReportTitle: 'Último Corte Z (Cierre)',
         btnSeeAllZ: 'Ver Historial',
@@ -396,7 +396,7 @@
         txtKpiCashTitle: 'Cash Received',
         txtKpiCardTitle: 'Card / Digital',
         txtOrdersTableTitle: 'Recent Completed Orders',
-        txtOrdersTableSubtitle: 'Live transmission from food truck terminal',
+        txtOrdersTableSubtitle: 'Live transmission from POS terminal',
         txtTopItemsTitle: 'Best Selling Items',
         txtZReportTitle: 'Latest Z-Report (Shift Close)',
         btnSeeAllZ: 'View History',
