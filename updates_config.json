@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.1.8",
-  "releaseNotes": "• Base de Conocimiento y Diagnóstico IA: Soporte bilingüe completo (ES/EN) en el bot de la caja y en el website.\n• Apertura de Turno y Fondo Inicial Obligatorio: Candado de seguridad que bloquea ventas hasta registrar desglose de fondo y conteo ciego (Blind Drop) al cierre.\n• Roles de Estación: Modo Caja (con cobro y cajón) vs Modo Mesero (solo comanda y cocina, sin fondo ni cajón).\n• Letrero QR Personalizado Imprimible por Caja: Letrero bilingüe de alta resolución para vincular clientes en pantallas sencillas.\n• Integración Delivery All-in-One: DoorDash, Uber Eats, Grubhub y Tienda Web en KDS con colores oficiales y despacho ultra rápido con escáner USB.\n• Notificaciones Duales: Telegram Bot 100% Gratis ($0 costo mensual) y Twilio SMS para avisos en tiempo real.\n• Manuales Oficiales: Guías completas de instalación y operación integradas en el sistema y descargables en español e inglés.",
+  "latestVersion": "1.2.1",
+  "releaseNotes": "• Actualización v1.2.1: Soporte Remoto y Asistencia Técnica Optimizada (RustDesk 1-Clic sin ventanas bloqueantes + Alertas directas a Telegram de Ingeniería + Enlace Directo a WhatsApp).\n• Ampliación de Periodo de Prueba a 30 Días Completos sin Compromiso.\n• Portal del Dueño en la Nube con Privacidad Total y Formularios Seguros y Anónimos.\n• Roles de Estación: Modo Caja (con cobro y cajón) vs Modo Mesero (solo comanda y cocina).\n• Integración All-in-One Delivery y Pantallas de Cocina Inteligentes (KDS) Gratuitas.",
   "mandatory": false,
-  "patchFileName": "patch-1.1.8.zip",
-  "updatedAt": "2026-09-21T17:56:00.000Z"
+  "patchFileName": "patch-1.2.1.zip",
+  "updatedAt": "2026-09-25T15:30:00.000Z"
 }
