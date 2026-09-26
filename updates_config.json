@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.2.8",
-  "releaseNotes": "• Actualización v1.2.8:\n• Ticket de Cocina: Encabezado con tipo de orden en LETRAS GRANDES y negrita centrado (*** TO GO ***, *** DINE IN ***, etc.). Eliminada la repetición de '(TO GO)' en cada platillo individual.\n• Recibo de Caja Centrado: Eliminado nombre repetido debajo del logotipo; agregada dirección y teléfono configurables en Settings; formato y código de barras centrados.\n• Administrador de Cajas y Terminales: Nueva opción en Hardware para agregar/quitar computadoras, terminales Sunmi o celulares, adaptando los reportes a tus dispositivos activos.\n• Cuentas Abiertas (Open Tabs): Al agregar platillos a una comanda abierta, la cocina solo imprime los platillos nuevos para evitar duplicar comida.\n• Teclado Táctil en Comanda: Teclado virtual activo en nombre de cliente y número de mesa.",
+  "latestVersion": "1.2.9",
+  "releaseNotes": "• Actualización v1.2.9:\n• Recibo de Cliente Limpio: Se removió el nombre de cliente y el tipo de orden (TO GO) del recibo de venta de clientes para un formato impecable y ordenado.\n• Desglose de Impuestos (Tax): En el recibo se imprime detalladamente el Subtotal, Impuesto (Tax %) y Total para total transparencia fiscal.\n• Logotipo Permanente Anti-Pérdida: El logotipo se almacena permanentemente en la base de datos protegida SQLite; nunca más se borrará ni reemplazará en futuras actualizaciones.\n• Gestión de Empleados Mejorada: Visualización garantizada de números de teléfono y PINs en tabla y formulario; asignación automática del PIN con los últimos 4 dígitos del teléfono; visibilidad de clave con botón de ojo (👁️).",
   "mandatory": false,
-  "patchFileName": "patch-1.2.8.zip",
-  "updatedAt": "2026-09-26T09:49:45.543Z"
+  "patchFileName": "patch-1.2.9.zip",
+  "updatedAt": "2026-09-26T10:26:07.479Z"
 }
