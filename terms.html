@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service & EULA | Impossible POS</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="End User License Agreement (EULA) and Terms of Service for Impossible POS by IT Cyber Work LLC. Legal licensing terms, tax compliance, PCI-DSS, AI phone orders, and binding arbitration.">
+    <meta name="author" content="IT Cyber Work LLC">
+    <link rel="canonical" href="https://impossiblepos.com/terms.html">
+    <link rel="icon" type="image/png" href="logo_clean.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 900: '#14532d',
+                        },
+                        dark: '#0f172a'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .lang-active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .lang-inactive { color: #475569 !important; background-color: transparent !important; }
+        .lang-inactive:hover { color: #0f172a !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo & Back to Home -->
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="logo_clean.png" alt="Impossible POS Logo" class="w-10 h-10">
+                        <span class="font-extrabold text-xl tracking-tight text-slate-900">Impossible<span class="text-brand-500">POS</span></span>
+                    </a>
+                    <span class="hidden sm:inline-block text-slate-300">|</span>
+                    <a href="index.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        <span data-i18n="nav_back">Back to Home</span>
+                    </a>
+                </div>
+
+                <!-- Right Nav Links & Language Switcher -->
+                <div class="flex items-center gap-3">
+                    <a href="privacy.html" class="hidden md:inline-block text-xs sm:text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors" data-i18n="nav_privacy">
+                        Privacy Policy
+                    </a>
+                    <!-- Language Selector Pill -->
+                    <div class="inline-flex p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-bold shadow-inner">
+                        <button id="lang-btn-en" onclick="setLanguage('en')" class="px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active">EN</button>
+                        <button id="lang-btn-es" onclick="setLanguage('es')" class="px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive">ES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Header Banner -->
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold mb-4">
+                <span data-i18n="badge_eula">END USER LICENSE AGREEMENT & TERMS OF SERVICE</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3" data-i18n="hero_title">
+                Terms of Service & License Agreement
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base leading-relaxed" data-i18n="hero_desc">
+                Governing Entity: <strong>IT Cyber Work LLC</strong> • Product: <strong>Impossible POS</strong> • Last Updated: September 29, 2026.<br>
+                IMPORTANT: PLEASE READ CAREFULLY BEFORE INSTALLING, DOWNLOADING, OR USING THIS SOFTWARE.
+            </p>
+            <div class="mt-6 pt-6 border-t border-slate-100 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-xs leading-relaxed" data-i18n="eula_notice">
+                By downloading, installing, running, or paying for the Impossible POS software ("Software"), you ("Licensee" or "Merchant") agree to be bound by all terms and conditions of this Agreement. If you do not agree to all terms, do not install or use the Software.
+            </div>
+        </div>
+
+        <!-- 12 Legal Clauses Container -->
+        <div class="space-y-6">
+
+            <!-- Clause 1 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c1_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">1</span>
+                    LICENSE & SUBSCRIPTION GRANT
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c1_body">
+                    The Software is licensed, not sold. IT Cyber Work LLC grants you a limited, revocable, non-exclusive, non-transferable license solely for internal restaurant operations within your physical establishment. Active access requires an active paid subscription or authorized trial. Each license is tied to specific registered hardware terminals.
+                </div>
+            </div>
+
+            <!-- Clause 2 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c2_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">2</span>
+                    STRICT PROHIBITION OF REVERSE ENGINEERING & ANTI-TAMPERING (DMCA)
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c2_body">
+                    You shall NOT copy, modify, disassemble, decompile, decrypt, extract, or reverse engineer any part of the Software, its binaries, scripts, or runtime files. Furthermore, you shall NOT alter, edit, inject, or tamper with the local SQLite database files (<code>pos.db</code>), sales logs, or licensing locks using external tools. Any tampering constitutes a material breach and federal copyright violation (Digital Millennium Copyright Act - DMCA), resulting in immediate license termination without refund and full legal prosecution.
+                </div>
+            </div>
+
+            <!-- Clause 3 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c3_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">3</span>
+                    TAX COMPLIANCE, IMMUTABLE SALES RECORDS & PRIVATE CLOUD SALES LEDGER
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c3_body">
+                    The Software is designed exclusively for legitimate commercial operations and lawful accounting. The Licensee is solely and strictly responsible for the accurate recording, reporting, and remitting of all federal (IRS), state, and municipal sales taxes. Any attempted or actual destruction, deletion, or suppression of sales transactions, tax records, or closing shifts to evade taxes constitutes a federal felony and material breach. Completed sales and closing shift records are permanently immutable. The Licensee acknowledges and agrees that the Software automatically mirrors daily shift summaries to the Licensee's private Cloud Sales Ledger for business continuity and audit defense. This data is private to the Merchant and is not accessed, shared, or commercialized by IT Cyber Work LLC.
+                </div>
+            </div>
+
+            <!-- Clause 4 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c4_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">4</span>
+                    CREDIT CARD PROCESSING, ZERO CARD DATA STORAGE & PCI-DSS COMPLIANCE
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c4_body">
+                    The Software DOES NOT collect, store, process, or transmit raw credit card numbers, Primary Account Numbers (PAN), CVVs, expiration dates, magnetic stripe track data, or PIN data. All card transactions are processed independently via external third-party payment hardware and gateways (e.g., Stripe, Square, PAX, Clover, or merchant acquiring banks). IT Cyber Work LLC is NOT a bank or payment processor. IT Cyber Work LLC assumes ZERO liability for credit card fraud, stolen cards, customer chargebacks, fund holds, or terminal data breaches.
+                </div>
+            </div>
+
+            <!-- Clause 5 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c5_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">5</span>
+                    CASH CONTROL, EMPLOYEE THEFT & EMBEZZLEMENT DISCLAIMER
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c5_body">
+                    The Software provides computational arithmetic and reporting tools only. Physical cash handling, drawer counts, safe drops, and employee supervision are the sole responsibility of the Licensee. IT Cyber Work LLC shall NOT be liable for any cash shortages, employee theft, drawer discrepancies, unauthorized voids, fraudulent discounts, or employee embezzlement.
+                </div>
+            </div>
+
+            <!-- Clause 6 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c6_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">6</span>
+                    FOOD SAFETY, RECIPES & ALLERGEN DISCLAIMERS
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c6_body">
+                    The Software functions strictly as an order communication tool. IT Cyber Work LLC does not prepare food or oversee health codes. The Licensee is 100% responsible for all menu descriptions, dietary warnings, cross-contamination notifications, and allergen disclosures (peanuts, gluten, dairy, shellfish, etc.). IT Cyber Work LLC disclaims all liability for foodborne illness or allergic reactions.
+                </div>
+            </div>
+
+            <!-- Clause 7 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c7_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">7</span>
+                    CUSTOMER PRIVACY & COMMUNICATIONS (TCPA)
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c7_body">
+                    The Licensee is solely responsible for lawful collection and use of end-customer data. If the Licensee uses automated SMS, WhatsApp, or email notifications, the Licensee warrants that it has obtained all necessary prior express written consents under the Telephone Consumer Protection Act (TCPA) and consumer privacy laws.
+                </div>
+            </div>
+
+            <!-- Clause 8 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c8_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">8</span>
+                    ARTIFICIAL INTELLIGENCE & CALL RECORDING DISCLOSURES
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c8_body">
+                    For AI telephone orders, the Licensee is strictly responsible for complying with wiretapping and call recording consent laws and must ensure an automated disclosure (<em>"This call is recorded and assisted by AI"</em>) is played to inbound callers before taking an order. IT Cyber Work LLC provides computational order transcription tools only and assumes no liability for inaccurate orders or unrecorded allergies spoken over the telephone.
+                </div>
+            </div>
+
+            <!-- Clause 9 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c9_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">9</span>
+                    HARDWARE, OS UPDATES & "AS-IS" WARRANTY DISCLAIMER
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c9_body">
+                    The Software is provided strictly "AS IS" without warranty of any kind. IT Cyber Work LLC is not liable for business downtime, lost tickets, or damages resulting from Windows updates, power outages, internet failures, local Wi-Fi drops, thermal printer jams, or third-party hardware failures.
+                </div>
+            </div>
+
+            <!-- Clause 10 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c10_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">10</span>
+                    LIMITATION OF LIABILITY & DAMAGE CAP
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c10_body">
+                    Under no circumstances shall IT Cyber Work LLC be liable for lost profits, lost revenues, loss of data, or indirect, consequential, or punitive damages. In all events, the total cumulative liability of IT Cyber Work LLC shall be strictly capped at the subscription fees actually paid by the Licensee in the preceding three (3) months, or $100 USD, whichever is less.
+                </div>
+            </div>
+
+            <!-- Clause 11 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c11_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">11</span>
+                    INDEMNIFICATION ("HOLD HARMLESS")
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c11_body">
+                    The Licensee agrees to defend, indemnify, and hold harmless IT Cyber Work LLC and its developers from any claims, lawsuits, tax audits, penalties, food safety claims, chargebacks, or legal expenses arising from the restaurant's commercial operations or breach of this Agreement.
+                </div>
+            </div>
+
+            <!-- Clause 12 -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                <h3 class="text-lg font-bold text-slate-900 mb-3 flex items-center gap-2" data-i18n="c12_title">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">12</span>
+                    BINDING ARBITRATION & CLASS ACTION WAIVER
+                </h3>
+                <div class="text-slate-600 text-sm leading-relaxed" data-i18n="c12_body">
+                    Any dispute arising out of or relating to this Agreement shall be resolved exclusively through binding individual arbitration under the commercial rules of the American Arbitration Association (AAA). The Licensee expressly waives any right to participate in a class-action lawsuit, collective arbitration, or representative proceeding.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact Box -->
+        <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl mt-10">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3" data-i18n="contact_title">Licensing & Legal Contact</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="contact_desc">
+                For questions regarding enterprise licensing, merchant contracts, or EULA terms, reach out directly:
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                    <span class="text-slate-400 block mb-1">Company:</span>
+                    <strong class="text-white text-sm">IT Cyber Work LLC</strong>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                    <span class="text-slate-400 block mb-1">Email:</span>
+                    <a href="mailto:support@impossiblepos.com" class="text-emerald-400 hover:underline font-bold text-sm">support@impossiblepos.com</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>© 2026 IT Cyber Work LLC. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-slate-900">Home</a>
+                <a href="terms.html" class="text-brand-600 font-bold">Terms of Service (EULA)</a>
+                <a href="privacy.html" class="hover:text-slate-900">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bilingual Translation Script -->
+    <script>
+        const translations = {
+            en: {
+                nav_back: "Back to Home",
+                nav_privacy: "Privacy Policy",
+                badge_eula: "END USER LICENSE AGREEMENT & TERMS OF SERVICE",
+                hero_title: "Terms of Service & License Agreement",
+                hero_desc: "Governing Entity: IT Cyber Work LLC • Product: Impossible POS • Last Updated: September 29, 2026.<br>IMPORTANT: PLEASE READ CAREFULLY BEFORE INSTALLING, DOWNLOADING, OR USING THIS SOFTWARE.",
+                eula_notice: "By downloading, installing, running, or paying for the Impossible POS software ('Software'), you ('Licensee' or 'Merchant') agree to be bound by all terms and conditions of this Agreement. If you do not agree to all terms, do not install or use the Software.",
+                c1_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">1</span> LICENSE & SUBSCRIPTION GRANT`,
+                c1_body: "The Software is licensed, not sold. IT Cyber Work LLC grants you a limited, revocable, non-exclusive, non-transferable license solely for internal restaurant operations within your physical establishment. Active access requires an active paid subscription or authorized trial. Each license is tied to specific registered hardware terminals.",
+                c2_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">2</span> STRICT PROHIBITION OF REVERSE ENGINEERING & ANTI-TAMPERING (DMCA)`,
+                c2_body: "You shall NOT copy, modify, disassemble, decompile, decrypt, extract, or reverse engineer any part of the Software, its binaries, scripts, or runtime files. Furthermore, you shall NOT alter, edit, inject, or tamper with the local SQLite database files (<code>pos.db</code>), sales logs, or licensing locks using external tools. Any tampering constitutes a material breach and federal copyright violation (Digital Millennium Copyright Act - DMCA), resulting in immediate license termination without refund and full legal prosecution.",
+                c3_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">3</span> TAX COMPLIANCE, IMMUTABLE SALES RECORDS & PRIVATE CLOUD SALES LEDGER`,
+                c3_body: "The Software is designed exclusively for legitimate commercial operations and lawful accounting. The Licensee is solely and strictly responsible for the accurate recording, reporting, and remitting of all federal (IRS), state, and municipal sales taxes. Any attempted or actual destruction, deletion, or suppression of sales transactions, tax records, or closing shifts to evade taxes constitutes a federal felony and material breach. Completed sales and closing shift records are permanently immutable. The Licensee acknowledges and agrees that the Software automatically mirrors daily shift summaries to the Licensee's private Cloud Sales Ledger for business continuity and audit defense. This data is private to the Merchant and is not accessed, shared, or commercialized by IT Cyber Work LLC.",
+                c4_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">4</span> CREDIT CARD PROCESSING, ZERO CARD DATA STORAGE & PCI-DSS COMPLIANCE`,
+                c4_body: "The Software DOES NOT collect, store, process, or transmit raw credit card numbers, Primary Account Numbers (PAN), CVVs, expiration dates, magnetic stripe track data, or PIN data. All card transactions are processed independently via external third-party payment hardware and gateways (e.g., Stripe, Square, PAX, Clover, or merchant acquiring banks). IT Cyber Work LLC is NOT a bank or payment processor. IT Cyber Work LLC assumes ZERO liability for credit card fraud, stolen cards, customer chargebacks, fund holds, or terminal data breaches.",
+                c5_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">5</span> CASH CONTROL, EMPLOYEE THEFT & EMBEZZLEMENT DISCLAIMER`,
+                c5_body: "The Software provides computational arithmetic and reporting tools only. Physical cash handling, drawer counts, safe drops, and employee supervision are the sole responsibility of the Licensee. IT Cyber Work LLC shall NOT be liable for any cash shortages, employee theft, drawer discrepancies, unauthorized voids, fraudulent discounts, or employee embezzlement.",
+                c6_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">6</span> FOOD SAFETY, RECIPES & ALLERGEN DISCLAIMERS`,
+                c6_body: "The Software functions strictly as an order communication tool. IT Cyber Work LLC does not prepare food or oversee health codes. The Licensee is 100% responsible for all menu descriptions, dietary warnings, cross-contamination notifications, and allergen disclosures (peanuts, gluten, dairy, shellfish, etc.). IT Cyber Work LLC disclaims all liability for foodborne illness or allergic reactions.",
+                c7_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">7</span> CUSTOMER PRIVACY & COMMUNICATIONS (TCPA)`,
+                c7_body: "The Licensee is solely responsible for lawful collection and use of end-customer data. If the Licensee uses automated SMS, WhatsApp, or email notifications, the Licensee warrants that it has obtained all necessary prior express written consents under the Telephone Consumer Protection Act (TCPA) and consumer privacy laws.",
+                c8_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">8</span> ARTIFICIAL INTELLIGENCE & CALL RECORDING DISCLOSURES`,
+                c8_body: "For AI telephone orders, the Licensee is strictly responsible for complying with wiretapping and call recording consent laws and must ensure an automated disclosure (<em>'This call is recorded and assisted by AI'</em>) is played to inbound callers before taking an order. IT Cyber Work LLC provides computational order transcription tools only and assumes no liability for inaccurate orders or unrecorded allergies spoken over the telephone.",
+                c9_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">9</span> HARDWARE, OS UPDATES & 'AS-IS' WARRANTY DISCLAIMER`,
+                c9_body: "The Software is provided strictly 'AS IS' without warranty of any kind. IT Cyber Work LLC is not liable for business downtime, lost tickets, or damages resulting from Windows updates, power outages, internet failures, local Wi-Fi drops, thermal printer jams, or third-party hardware failures.",
+                c10_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">10</span> LIMITATION OF LIABILITY & DAMAGE CAP`,
+                c10_body: "Under no circumstances shall IT Cyber Work LLC be liable for lost profits, lost revenues, loss of data, or indirect, consequential, or punitive damages. In all events, the total cumulative liability of IT Cyber Work LLC shall be strictly capped at the subscription fees actually paid by the Licensee in the preceding three (3) months, or $100 USD, whichever is less.",
+                c11_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">11</span> INDEMNIFICATION ('HOLD HARMLESS')`,
+                c11_body: "The Licensee agrees to defend, indemnify, and hold harmless IT Cyber Work LLC and its developers from any claims, lawsuits, tax audits, penalties, food safety claims, chargebacks, or legal expenses arising from the restaurant's commercial operations or breach of this Agreement.",
+                c12_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">12</span> BINDING ARBITRATION & CLASS ACTION WAIVER`,
+                c12_body: "Any dispute arising out of or relating to this Agreement shall be resolved exclusively through binding individual arbitration under the commercial rules of the American Arbitration Association (AAA). The Licensee expressly waives any right to participate in a class-action lawsuit, collective arbitration, or representative proceeding.",
+                contact_title: "Licensing & Legal Contact",
+                contact_desc: "For questions regarding enterprise licensing, merchant contracts, or EULA terms, reach out directly:"
+            },
+            es: {
+                nav_back: "Volver al Inicio",
+                nav_privacy: "Política de Privacidad",
+                badge_eula: "ACUERDO DE LICENCIA DE USUARIO FINAL (EULA) Y TÉRMINOS",
+                hero_title: "Términos de Servicio y Acuerdo de Licencia",
+                hero_desc: "Entidad comercial: IT Cyber Work LLC • Producto: Impossible POS • Última actualización: 29 de Septiembre de 2026.<br>IMPORTANTE: LEA DETENIDAMENTE ANTES DE INSTALAR, DESCARGAR O UTILIZAR ESTE SOFTWARE.",
+                eula_notice: "Al descargar, instalar, ejecutar o pagar por el software Impossible POS ('Software'), usted ('Licenciatario' o 'Comercio') acepta regirse por todos los términos y condiciones de este Acuerdo. Si no acepta todos los términos, no instale ni use el Software.",
+                c1_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">1</span> CONCESIÓN DE LICENCIA Y SUSCRIPCIÓN`,
+                c1_body: "El Software se licencia, no se vende. IT Cyber Work LLC le otorga una licencia limitada, revocable, no exclusiva e intransferible únicamente para la operación de su restaurante en su establecimiento físico. El uso activo requiere una suscripción pagada vigente o periodo de prueba autorizado. Cada licencia está vinculada a terminales de hardware registradas.",
+                c2_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">2</span> PROHIBICIÓN ESTRICTA DE INGENIERÍA INVERSA Y ANTI-MANIPULACIÓN (DMCA)`,
+                c2_body: "Queda estrictamente prohibido copiar, descompilar, desensamblar, descifrar, modificar o aplicar ingeniería inversa a los archivos del Software. Asimismo, queda prohibido alterar, editar o manipular directamente con herramientas externas la base de datos SQLite local (<code>pos.db</code>), registros de ventas o candados de licencia. Cualquier manipulación no autorizada constituye una violación federal a las leyes de propiedad intelectual (DMCA) y causará la cancelación inmediata de la licencia sin reembolso y acciones legales.",
+                c3_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">3</span> CUMPLIMIENTO FISCAL, REGISTROS INMUTABLES Y ESPEJO EN LA NUBE`,
+                c3_body: "El Software está diseñado y licenciado exclusivamente para operaciones comerciales legítimas y contabilidad lícita. Queda estrictamente prohibida la supresión, alteración o intento de borrado de transacciones contables o turnos para evadir impuestos ante el IRS o agencias estatales, lo cual constituye delito federal grave y violación contractual. Todas las ventas cobradas y turnos cerrados son inmutables y permanentes. El Licenciatario reconoce que el sistema sincroniza automáticamente resúmenes de cierre diarios con su Espejo en la Nube Privada (Cloud Sales Ledger) para protección contable, continuidad operativa y defensa ante auditorías fiscales. Dicha información es estrictamente confidencial y exclusiva del comercio, y no es comercializada ni consultada por IT Cyber Work LLC.",
+                c4_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">4</span> PAGOS CON TARJETA, CERO ALMACENAMIENTO Y CUMPLIMIENTO PCI-DSS`,
+                c4_body: "El Software NO recopila, NO almacena, NO procesa ni transmite números de tarjeta de crédito, códigos de seguridad CVV/CVC, fechas de vencimiento ni datos de banda magnética o PIN. Todos los cobros se procesan de forma aislada en terminales bancarias y pasarelas de pago independientes (ej. Stripe, Square, PAX, Clover o bancos adquirentes). IT Cyber Work LLC NO es un banco ni procesador de pagos. IT Cyber Work LLC asume CERO responsabilidad por fraudes con tarjetas, tarjetas robadas, contracargos, retenciones de fondos o brechas de seguridad en terminales de terceros.",
+                c5_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">5</span> CONTROL DE EFECTIVO, ROBO DE EMPLEADOS Y DESLINDE DE MALVERSACIÓN`,
+                c5_body: "El Software es únicamente una herramienta de cómputo y registro. El manejo físico del efectivo, los arqueos de caja y la supervisión del personal son responsabilidad exclusiva del Licenciatario. IT Cyber Work LLC no será responsable por faltantes de dinero, robos de empleados, cancelaciones fraudulentas o malversación en su establecimiento.",
+                c6_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">6</span> SEGURIDAD ALIMENTARIA, RECETAS Y ALÉRGENOS`,
+                c6_body: "El Software actúa estrictamente como medio de comunicación de comandas. El Licenciatario es 100% responsable de las descripciones del menú, advertencias de alérgenos (cacahuates, mariscos, gluten, etc.) y del cumplimiento de salud sanitaria. IT Cyber Work LLC se deslinda de cualquier reclamo por intoxicaciones o reacciones alérgicas.",
+                c7_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">7</span> PRIVACIDAD DE DATOS Y COMUNICACIONES (TCPA)`,
+                c7_body: "El Licenciatario es responsable de la recopilación legal de datos de sus clientes. Al enviar alertas por SMS o WhatsApp, el Licenciatario garantiza haber obtenido el consentimiento expreso de sus clientes según la ley TCPA.",
+                c8_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">8</span> INTELIGENCIA ARTIFICIAL Y GRABACIÓN DE LLAMADAS`,
+                c8_body: "Para pedidos telefónicos con IA, el Licenciatario es el único responsable de cumplir con las leyes sobre consentimiento de grabación telefónica y debe reproducir un aviso previo (<em>'Esta llamada está siendo grabada y asistida por IA'</em>). IT Cyber Work LLC provee herramientas de transcripción de órdenes y no asume responsabilidad por equivocaciones o alérgenos no detectados en audio.",
+                c9_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">9</span> FALLAS DE HARDWARE, ACTUALIZACIONES Y GARANTÍA 'TAL CUAL'`,
+                c9_body: "El Software se entrega 'TAL CUAL'. IT Cyber Work LLC no es responsable por interrupciones del negocio provocadas por actualizaciones de Windows, apagones de luz, fallas de internet, caídas de Wi-Fi o atascos de impresoras térmicas.",
+                c10_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">10</span> TOPE MÁXIMO DE RESPONSABILIDAD`,
+                c10_body: "La responsabilidad máxima acumulada de IT Cyber Work LLC ante cualquier reclamo estará estrictamente limitada al monto efectivamente pagado por el Licenciatario en los últimos tres (3) meses de suscripción, o $100 USD, lo que sea menor.",
+                c11_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">11</span> INDEMNIZACIÓN Y DESLINDE ('SACAR EN PAZ Y A SALVO')`,
+                c11_body: "El Licenciatario se compromete a defender, indemnizar y eximir de toda responsabilidad a IT Cyber Work LLC y a sus desarrolladores ante cualquier demanda, auditoría fiscal, multa, intoxicación, contracargo o gasto legal derivado de la operación comercial del restaurante.",
+                c12_title: `<span class="w-7 h-7 rounded-lg bg-emerald-50 text-brand-600 flex items-center justify-center text-xs font-black">12</span> ARBITRAJE VINCULANTE Y RENUNCIA A DEMANDAS COLECTIVAS`,
+                c12_body: "Cualquier disputa se resolverá exclusivamente mediante arbitraje individual vinculante bajo las reglas de la Asociación Americana de Arbitraje (AAA). El Licenciatario renuncia expresamente a participar en cualquier demanda colectiva (class-action).",
+                contact_title: "Contacto Legal y Licencias",
+                contact_desc: "Para consultas sobre contratos corporativos, licenciamiento o términos del EULA, contáctanos directamente:"
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('impossible_pos_lang', lang);
+            const btnEn = document.getElementById('lang-btn-en');
+            const btnEs = document.getElementById('lang-btn-es');
+            
+            if (lang === 'es') {
+                btnEs.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active";
+                btnEn.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive";
+            } else {
+                btnEn.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active";
+                btnEs.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize from localStorage or default
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('impossible_pos_lang') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
