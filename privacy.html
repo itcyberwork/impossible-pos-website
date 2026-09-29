@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Impossible POS</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Official Privacy Policy and AI Data Governance for Impossible POS by IT Cyber Work LLC. Transparent disclosure of data handling, zero financial data storage, AI usage, and third-party APIs.">
+    <meta name="author" content="IT Cyber Work LLC">
+    <link rel="canonical" href="https://impossiblepos.com/privacy.html">
+    <link rel="icon" type="image/png" href="logo_clean.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 900: '#14532d',
+                        },
+                        dark: '#0f172a'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .lang-active { background-color: #0f172a !important; color: #ffffff !important; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .lang-inactive { color: #475569 !important; background-color: transparent !important; }
+        .lang-inactive:hover { color: #0f172a !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo & Back to Home -->
+                <div class="flex items-center gap-4">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="logo_clean.png" alt="Impossible POS Logo" class="w-10 h-10">
+                        <span class="font-extrabold text-xl tracking-tight text-slate-900">Impossible<span class="text-brand-500">POS</span></span>
+                    </a>
+                    <span class="hidden sm:inline-block text-slate-300">|</span>
+                    <a href="index.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        <span data-i18n="nav_back">Back to Home</span>
+                    </a>
+                </div>
+
+                <!-- Right Nav Links & Language Switcher -->
+                <div class="flex items-center gap-3">
+                    <a href="terms.html" class="hidden md:inline-block text-xs sm:text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors" data-i18n="nav_terms">
+                        Terms of Service (EULA)
+                    </a>
+                    <!-- Language Selector Pill -->
+                    <div class="inline-flex p-1 bg-slate-100 rounded-full border border-slate-200 text-xs font-bold shadow-inner">
+                        <button id="lang-btn-en" onclick="setLanguage('en')" class="px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active">EN</button>
+                        <button id="lang-btn-es" onclick="setLanguage('es')" class="px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive">ES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Header Banner -->
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm mb-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold mb-4">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span data-i18n="badge_compliance">FTC, CCPA/CPRA, GDPR & AI GOVERNANCE COMPLIANT</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3" data-i18n="hero_title">
+                Privacy Policy & Data Protection
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base leading-relaxed" data-i18n="hero_desc">
+                Operated by <strong>IT Cyber Work LLC</strong> • Last Updated: September 29, 2026. This policy outlines how Impossible POS collects, protects, utilizes, and processes merchant and transactional data across our desktop applications, mobile cloud kiosks, and online services.
+            </p>
+            <div class="mt-6 pt-6 border-t border-slate-100 flex flex-wrap gap-4 text-xs font-medium text-slate-500">
+                <span class="flex items-center gap-1.5"><strong class="text-slate-800">Entity:</strong> IT Cyber Work LLC</span>
+                <span class="flex items-center gap-1.5"><strong class="text-slate-800">Product:</strong> Impossible POS</span>
+                <span class="flex items-center gap-1.5"><strong class="text-slate-800">Contact:</strong> support@impossiblepos.com</span>
+            </div>
+        </div>
+
+        <!-- Privacy Pillars (Quick Summary Cards) -->
+        <div class="grid sm:grid-cols-3 gap-4 mb-10">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-3">🛡️</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar1_title">Zero Card Data Stored</h3>
+                <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar1_desc">Full PCI-DSS compliance. We never capture, view, store, or transmit credit card numbers or CVVs.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-3">🤖</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar2_title">Transparent AI Usage</h3>
+                <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar2_desc">AI voice ordering is strictly transactional and includes mandatory audible recording notifications.</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg mb-3">🗑️</div>
+                <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar3_title">Right to Erasure</h3>
+                <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar3_desc">You own 100% of your local database and can request permanent cloud deletion anytime.</p>
+            </div>
+        </div>
+
+        <!-- Section 1: Data We Collect vs Data We NEVER Collect -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 space-y-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2" data-i18n="sec1_title">
+                <span class="text-brand-600">1.</span> Information We Collect & Data We Never Collect
+            </h2>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-4" data-i18n="sec1_body">
+                <p>
+                    <strong>A. Information Collected for Licensing & Support:</strong> When you register or purchase an Impossible POS license, IT Cyber Work LLC collects essential merchant credentials including business legal name, primary contact name, email address, physical restaurant address, phone number (WhatsApp or mobile for technical setup), and Hardware Machine ID. This information is utilized strictly to issue encrypted license keys, deliver critical security updates, and conduct remote onboarding sessions.
+                </p>
+                <p>
+                    <strong>B. Local Operational Database (Stored On-Premise):</strong> Impossible POS is architected as an <em>Offline-First, Local-First</em> operating system. Your menu items, pricing, inventory balances, employee PIN codes, kitchen modifiers, and sales transaction logs are stored locally on your physical Windows terminal inside a local SQLite database (<code>pos.db</code>). IT Cyber Work LLC does not sell, broker, or monetize your store's sales records.
+                </p>
+                <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+                    <strong>⚠️ STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
+                    Impossible POS <strong>DOES NOT</strong> collect, inspect, process, or store raw credit or debit card Primary Account Numbers (PAN), CVV/CVC codes, expiration dates, magnetic stripe track data, or debit PIN blocks. All credit card processing occurs in strict tokenized isolation via certified third-party merchant terminals (such as Stripe, Square, PAX Technology, Clover, or your independent acquiring bank).
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Artificial Intelligence (AI) Disclosure & Governance -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 space-y-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-extrabold uppercase">AI Disclosure</span>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900" data-i18n="sec2_title">
+                    <span class="text-brand-600">2.</span> Artificial Intelligence (AI) Usage & Transparency
+                </h2>
+            </div>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-4" data-i18n="sec2_body">
+                <p>
+                    In full compliance with United States Federal Trade Commission (FTC) guidelines, state artificial intelligence disclosure laws (including California AB 1524), and international AI safety standards, Impossible POS transparently discloses that our platform integrates optional Artificial Intelligence modules:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-600">
+                    <li><strong>AI Voice Phone Ordering Assistant:</strong> An automated voice agent powered by speech-to-text and natural language processing (integrating Twilio, Vapi, OpenAI, and Deepgram) capable of answering incoming restaurant phone calls, interpreting customer food orders, answering menu questions, and injecting tickets into the POS register and kitchen KDS screens.</li>
+                    <li><strong>Conversational Menu Navigation & Text Processing:</strong> Parsing complex spoken food requests and dietary modifiers into structured ticket items.</li>
+                </ul>
+                <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
+                    <p class="font-bold text-slate-900">🛡️ AI Processing Boundaries & Ethical Protections:</p>
+                    <p>• <strong>No Automated Financial Charges:</strong> AI models never initiate or finalize financial charges or bank debits autonomously. All charges require cashier or in-person payment confirmation.</p>
+                    <p>• <strong>No Model Training with Private Proprietary Data:</strong> Audio and transcript data processed during food orders are processed ephemerally for order fulfillment and are <strong>NOT</strong> used by IT Cyber Work LLC or third-party providers to train public foundation models without consent.</p>
+                    <p>• <strong>Mandatory Audio Call Recording Disclosure:</strong> To comply with federal and state wiretapping and two-party consent laws, the system plays an automated audible notice to callers: <em>"This call is recorded and assisted by AI"</em> prior to conversational engagement.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Third-Party Sub-processors & External APIs -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 space-y-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2" data-i18n="sec3_title">
+                <span class="text-brand-600">3.</span> Third-Party Sub-processors & External API Directory
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="sec3_desc">
+                Impossible POS connects with vetted, enterprise-grade third-party service providers to facilitate telecommunications, payment processing, cloud backups, and remote support. Below is the comprehensive directory of our data sub-processors:
+            </p>
+
+            <!-- Sub-processor Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                    <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider">
+                        <tr>
+                            <th class="p-3">Third-Party Service</th>
+                            <th class="p-3">Category / Role</th>
+                            <th class="p-3">Data Processed</th>
+                            <th class="p-3">Compliance Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-600">
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Stripe / Square / PAX / Clover</td>
+                            <td class="p-3">Payment Processing Hardware & Gateways</td>
+                            <td class="p-3">Encrypted payment tokens & authorized transaction totals. (No raw cards stored by POS).</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">PCI-DSS Level 1</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Twilio Inc.</td>
+                            <td class="p-3">Telecommunications & SMS Dispatch</td>
+                            <td class="p-3">Phone numbers for SMS order status and incoming voice call routing.</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-semibold">TCPA / SOC 2 Type II</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Telegram Bot API</td>
+                            <td class="p-3">Zero-Cost Order Alerts (Optional)</td>
+                            <td class="p-3">Encrypted Telegram Chat IDs for food readiness alerts.</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-semibold">End-to-End Encrypted</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">OpenAI / Vapi / Deepgram</td>
+                            <td class="p-3">AI Speech Transcription & Parsing</td>
+                            <td class="p-3">Voice audio streams and menu order strings (processed ephemerally).</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-semibold">Zero Data Retention API</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">Cloudflare Inc.</td>
+                            <td class="p-3">Web Security & Edge DNS</td>
+                            <td class="p-3">IP addresses and web traffic requests for DDoS mitigation and SSL encryption.</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">ISO 27001 / SOC 2</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-3 font-bold text-slate-900">RustDesk / Remote Support</td>
+                            <td class="p-3">Merchant Remote Onboarding (Optional)</td>
+                            <td class="p-3">Temporary desktop view, strictly upon manual merchant invitation for free menu setup.</td>
+                            <td class="p-3"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-semibold">TLS 1.3 / E2E Encrypted</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 4: Right to Deletion, Portability & Account Erasure -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 space-y-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2" data-i18n="sec4_title">
+                <span class="text-brand-600">4.</span> Right to Deletion & Account Erasure ("Right to be Forgotten")
+            </h2>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-4" data-i18n="sec4_body">
+                <p>
+                    Under California Consumer Privacy Act (CCPA/CPRA), General Data Protection Regulation (GDPR), and federal privacy guidelines, every merchant and user has the unrestricted legal right to request the complete deletion of their account and associated cloud data:
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Local PC Data (Your Machine)</h4>
+                        <p class="text-xs text-slate-500">You maintain 100% unilateral ownership of the local <code>pos.db</code> database on your Windows PC. You may export, backup, or permanently delete this file and all software binaries at any time directly through Windows Explorer.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Cloud Account & Backups</h4>
+                        <p class="text-xs text-slate-500">To permanently erase your Cloud Owner Portal account, contact information, and mirrored sales ledgers, simply submit an erasure request to our privacy team.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
+                    <strong>📧 How to Request Account & Data Deletion:</strong><br>
+                    Send an email to <strong>support@impossiblepos.com</strong> or <strong>itcyberwork@gmail.com</strong> with the subject line <em>"Data Erasure Request"</em> including your restaurant name or License Key. Our technical privacy compliance officer will execute a permanent purge of your cloud records within <strong>48 to 72 business hours</strong> and return a signed digital Certificate of Deletion.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Biometrics & Hardware Security -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 space-y-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2" data-i18n="sec5_title">
+                <span class="text-brand-600">5.</span> Biometric Authentication & Video Surveillance Disclaimers
+            </h2>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3" data-i18n="sec5_body">
+                <p>
+                    <strong>Biometric Fingerprint Authentication:</strong> Impossible POS supports optional USB optical fingerprint scanners for rapid cashier clock-in and drawer authorization. All fingerprint templates are hashed into mathematical checksums locally on the physical terminal. <strong>Raw biometric fingerprint images are never saved to disk and are never uploaded to the internet or cloud servers.</strong>
+                </p>
+                <p>
+                    <strong>CCTV / NVR Video Integration:</strong> Where licensed, Impossible POS provides real-time POS transaction text overlay onto local restaurant security cameras (via RTSP). Video streams remain entirely within your private local network and are not transmitted to or hosted by IT Cyber Work LLC.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 6: Contact Information -->
+        <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl mb-12">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3" data-i18n="sec6_title">Questions or Privacy Inquiries?</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="sec6_desc">
+                If you have questions regarding this Privacy Policy, your rights under CCPA/GDPR, or our AI data protection standards, our dedicated compliance team is ready to assist:
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4 text-xs">
+                <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                    <span class="text-slate-400 block mb-1">Company:</span>
+                    <strong class="text-white text-sm">IT Cyber Work LLC</strong>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                    <span class="text-slate-400 block mb-1">Direct Privacy Officer Email:</span>
+                    <a href="mailto:support@impossiblepos.com" class="text-emerald-400 hover:underline font-bold text-sm">support@impossiblepos.com</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>© 2026 IT Cyber Work LLC. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-slate-900">Home</a>
+                <a href="terms.html" class="hover:text-slate-900">Terms of Service (EULA)</a>
+                <a href="privacy.html" class="text-brand-600 font-bold">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bilingual Translation Script -->
+    <script>
+        const translations = {
+            en: {
+                nav_back: "Back to Home",
+                nav_terms: "Terms of Service (EULA)",
+                badge_compliance: "FTC, CCPA/CPRA, GDPR & AI GOVERNANCE COMPLIANT",
+                hero_title: "Privacy Policy & Data Protection",
+                hero_desc: "Operated by IT Cyber Work LLC • Last Updated: September 29, 2026. This policy outlines how Impossible POS collects, protects, utilizes, and processes merchant and transactional data across our desktop applications, mobile cloud kiosks, and online services.",
+                pillar1_title: "Zero Card Data Stored",
+                pillar1_desc: "Full PCI-DSS compliance. We never capture, view, store, or transmit credit card numbers or CVVs.",
+                pillar2_title: "Transparent AI Usage",
+                pillar2_desc: "AI voice ordering is strictly transactional and includes mandatory audible recording notifications.",
+                pillar3_title: "Right to Erasure",
+                pillar3_desc: "You own 100% of your local database and can request permanent cloud deletion anytime.",
+                sec1_title: "1. Information We Collect & Data We Never Collect",
+                sec1_body: `<p><strong>A. Information Collected for Licensing & Support:</strong> When you register or purchase an Impossible POS license, IT Cyber Work LLC collects essential merchant credentials including business legal name, primary contact name, email address, physical restaurant address, phone number (WhatsApp or mobile for technical setup), and Hardware Machine ID. This information is utilized strictly to issue encrypted license keys, deliver critical security updates, and conduct remote onboarding sessions.</p>
+                <p><strong>B. Local Operational Database (Stored On-Premise):</strong> Impossible POS is architected as an <em>Offline-First, Local-First</em> operating system. Your menu items, pricing, inventory balances, employee PIN codes, kitchen modifiers, and sales transaction logs are stored locally on your physical Windows terminal inside a local SQLite database (<code>pos.db</code>). IT Cyber Work LLC does not sell, broker, or monetize your store's sales records.</p>
+                <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+                    <strong>⚠️ STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
+                    Impossible POS <strong>DOES NOT</strong> collect, inspect, process, or store raw credit or debit card Primary Account Numbers (PAN), CVV/CVC codes, expiration dates, magnetic stripe track data, or debit PIN blocks. All credit card processing occurs in strict tokenized isolation via certified third-party merchant terminals (such as Stripe, Square, PAX Technology, Clover, or your independent acquiring bank).
+                </div>`,
+                sec2_title: "2. Artificial Intelligence (AI) Usage & Transparency",
+                sec2_body: `<p>In full compliance with United States Federal Trade Commission (FTC) guidelines, state artificial intelligence disclosure laws (including California AB 1524), and international AI safety standards, Impossible POS transparently discloses that our platform integrates optional Artificial Intelligence modules:</p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-600">
+                    <li><strong>AI Voice Phone Ordering Assistant:</strong> An automated voice agent powered by speech-to-text and natural language processing (integrating Twilio, Vapi, OpenAI, and Deepgram) capable of answering incoming restaurant phone calls, interpreting customer food orders, answering menu questions, and injecting tickets into the POS register and kitchen KDS screens.</li>
+                    <li><strong>Conversational Menu Navigation & Text Processing:</strong> Parsing complex spoken food requests and dietary modifiers into structured ticket items.</li>
+                </ul>
+                <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
+                    <p class="font-bold text-slate-900">🛡️ AI Processing Boundaries & Ethical Protections:</p>
+                    <p>• <strong>No Automated Financial Charges:</strong> AI models never initiate or finalize financial charges or bank debits autonomously. All charges require cashier or in-person payment confirmation.</p>
+                    <p>• <strong>No Model Training with Private Proprietary Data:</strong> Audio and transcript data processed during food orders are processed ephemerally for order fulfillment and are <strong>NOT</strong> used by IT Cyber Work LLC or third-party providers to train public foundation models without consent.</p>
+                    <p>• <strong>Mandatory Audio Call Recording Disclosure:</strong> To comply with federal and state wiretapping and two-party consent laws, the system plays an automated audible notice to callers: <em>"This call is recorded and assisted by AI"</em> prior to conversational engagement.</p>
+                </div>`,
+                sec3_title: "3. Third-Party Sub-processors & External API Directory",
+                sec3_desc: "Impossible POS connects with vetted, enterprise-grade third-party service providers to facilitate telecommunications, payment processing, cloud backups, and remote support. Below is the comprehensive directory of our data sub-processors:",
+                sec4_title: "4. Right to Deletion & Account Erasure ('Right to be Forgotten')",
+                sec4_body: `<p>Under California Consumer Privacy Act (CCPA/CPRA), General Data Protection Regulation (GDPR), and federal privacy guidelines, every merchant and user has the unrestricted legal right to request the complete deletion of their account and associated cloud data:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Local PC Data (Your Machine)</h4>
+                        <p class="text-xs text-slate-500">You maintain 100% unilateral ownership of the local <code>pos.db</code> database on your Windows PC. You may export, backup, or permanently delete this file and all software binaries at any time directly through Windows Explorer.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Cloud Account & Backups</h4>
+                        <p class="text-xs text-slate-500">To permanently erase your Cloud Owner Portal account, contact information, and mirrored sales ledgers, simply submit an erasure request to our privacy team.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
+                    <strong>📧 How to Request Account & Data Deletion:</strong><br>
+                    Send an email to <strong>support@impossiblepos.com</strong> or <strong>itcyberwork@gmail.com</strong> with the subject line <em>"Data Erasure Request"</em> including your restaurant name or License Key. Our technical privacy compliance officer will execute a permanent purge of your cloud records within <strong>48 to 72 business hours</strong> and return a signed digital Certificate of Deletion.
+                </div>`,
+                sec5_title: "5. Biometric Authentication & Video Surveillance Disclaimers",
+                sec5_body: `<p><strong>Biometric Fingerprint Authentication:</strong> Impossible POS supports optional USB optical fingerprint scanners for rapid cashier clock-in and drawer authorization. All fingerprint templates are hashed into mathematical checksums locally on the physical terminal. <strong>Raw biometric fingerprint images are never saved to disk and are never uploaded to the internet or cloud servers.</strong></p>
+                <p><strong>CCTV / NVR Video Integration:</strong> Where licensed, Impossible POS provides real-time POS transaction text overlay onto local restaurant security cameras (via RTSP). Video streams remain entirely within your private local network and are not transmitted to or hosted by IT Cyber Work LLC.</p>`,
+                sec6_title: "Questions or Privacy Inquiries?",
+                sec6_desc: "If you have questions regarding this Privacy Policy, your rights under CCPA/GDPR, or our AI data protection standards, our dedicated compliance team is ready to assist:"
+            },
+            es: {
+                nav_back: "Volver al Inicio",
+                nav_terms: "Términos de Servicio (EULA)",
+                badge_compliance: "CUMPLIMIENTO LEGAL CON FTC, CCPA/CPRA, GDPR Y LEY DE IA",
+                hero_title: "Política de Privacidad y Protección de Datos",
+                hero_desc: "Operado por IT Cyber Work LLC • Última actualización: 29 de Septiembre de 2026. Esta política describe con total transparencia cómo Impossible POS recopila, protege y procesa la información de comercios y clientes en aplicaciones de escritorio, kioscos en la nube y servicios en línea.",
+                pillar1_title: "Cero Datos de Tarjetas",
+                pillar1_desc: "Cumplimiento total PCI-DSS. Jamás capturamos, leemos ni guardamos números de tarjeta de crédito o códigos CVV.",
+                pillar2_title: "Uso Transparente de IA",
+                pillar2_desc: "Los pedidos telefónicos con IA son estrictamente transaccionales e incluyen aviso sonoro obligatorio de grabación.",
+                pillar3_title: "Derecho a Borrado",
+                pillar3_desc: "Eres dueño 100% de tu base de datos local y puedes solicitar el borrado permanente de tu cuenta en la nube cuando desees.",
+                sec1_title: "1. Información que Recopilamos y Datos que JAMÁS Recopilamos",
+                sec1_body: `<p><strong>A. Datos Recopilados para Licenciamiento y Soporte:</strong> Al registrarte o adquirir una licencia de Impossible POS, IT Cyber Work LLC recopila datos indispensables para el servicio: nombre comercial del negocio, nombre del propietario o encargado, correo electrónico, dirección física del restaurante, teléfono (WhatsApp o móvil para asistencia remota) y el Identificador de Máquina (Hardware ID). Esta información se utiliza exclusivamente para emitir llaves de activación cifradas, enviar actualizaciones críticas y brindar soporte técnico.</p>
+                <p><strong>B. Base de Datos Operativa Local (En tu Computadora):</strong> Impossible POS está diseñado con arquitectura <em>Local-First / Fuera de Línea</em>. Tu menú, platillos, inventario, contraseñas PIN de cajeros, modificadores y registros de ventas se guardan localmente en tu propia computadora con Windows en una base de datos SQLite (<code>pos.db</code>). IT Cyber Work LLC no vende, comercializa ni lucra con tus ventas.</p>
+                <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+                    <strong>⚠️ DESLINDE ESTRICTO Y CERO ALMACENAMIENTO FINANCIERO (PCI-DSS):</strong><br>
+                    Impossible POS <strong>NO RECOPILA</strong>, no inspecciona ni almacena números de tarjeta de crédito o débito (PAN), códigos de seguridad CVV/CVC, fechas de vencimiento ni datos de banda magnética o PIN. Todo el procesamiento de tarjetas se realiza de forma aislada y encriptada en terminales bancarias certificadas de terceros (como Stripe, Square, PAX Technology, Clover o tu banco adquirente independiente).
+                </div>`,
+                sec2_title: "2. Declaración de Uso de Inteligencia Artificial (IA) y Ética",
+                sec2_body: `<p>En estricto cumplimiento con las directrices de la Comisión Federal de Comercio (FTC de EE.UU.), leyes de divulgación de IA (incluida la ley de California AB 1524) y estándares internacionales, Impossible POS declara de forma transparente que integra módulos opcionales de Inteligencia Artificial:</p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-600">
+                    <li><strong>Asistente Telefónico de Pedidos por Voz con IA:</strong> Agente de voz automatizado impulsado por modelos de transcripción y lenguaje (conectado con Twilio, Vapi, OpenAI y Deepgram) capaz de responder llamadas telefónicas al restaurante, tomar pedidos de comida, resolver dudas del menú y enviar la comanda directo a la caja y a las pantallas de cocina KDS.</li>
+                    <li><strong>Procesamiento Inteligente de Lenguaje:</strong> Comprensión de peticiones orales complejas y notas de platillos en comandas estructuradas.</li>
+                </ul>
+                <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
+                    <p class="font-bold text-slate-900">🛡️ Límites y Protecciones Éticas del Uso de IA:</p>
+                    <p>• <strong>Cero Cobros Financieros Autónomos:</strong> La IA jamás realiza cargos monetarios ni retiros bancarios por su cuenta. Todo cobro requiere validación del cajero o pago presencial del cliente.</p>
+                    <p>• <strong>No Entrenamiento de Modelos con Datos Privados:</strong> El audio y las transcripciones de pedidos se procesan de manera efímera para despachar la comida y <strong>NO</strong> se utilizan para entrenar modelos públicos de inteligencia artificial.</p>
+                    <p>• <strong>Aviso Sonoro Obligatorio de Grabación Telefónica:</strong> Para cumplir con las leyes federales y estatales de consentimiento de grabación telefónica, el sistema reproduce un aviso sonoro obligatorio al contestar: <em>"Esta llamada está siendo grabada y asistida por Inteligencia Artificial"</em> antes de iniciar el diálogo.</p>
+                </div>`,
+                sec3_title: "3. Directorio de Terceros y Servicios Conectados vía API",
+                sec3_desc: "Impossible POS se conecta exclusivamente con proveedores tecnológicos líderes y auditados para telecomunicaciones, pagos, respaldo en la nube y soporte remoto. A continuación se desglosan todos los terceros:",
+                sec4_title: "4. Derecho a la Eliminación y Borrado de Cuenta ('Derecho al Olvido')",
+                sec4_body: `<p>Conforme a la Ley de Privacidad del Consumidor de California (CCPA/CPRA), el Reglamento General de Protección de Datos (GDPR) y normativas de privacidad, todo comercio tiene el derecho legal incondicional de solicitar la eliminación total de su cuenta y sus datos remotos:</p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Base de Datos en tu PC Local</h4>
+                        <p class="text-xs text-slate-500">Tú posees el 100% del control sobre el archivo local <code>pos.db</code> en tu Windows. Puedes respaldarlo, copiarlo o borrarlo definitivamente en cualquier instante sin autorización externa.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase mb-1">Cuenta y Respaldos en la Nube</h4>
+                        <p class="text-xs text-slate-500">Para borrar irrevocablemente tu cuenta del Portal de Dueños, registros de licencia y resúmenes de cierre en la nube, solo debes enviar una solicitud a nuestro equipo.</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
+                    <strong>📧 Cómo Solicitar el Borrado Permanente de Datos:</strong><br>
+                    Envía un correo a <strong>support@impossiblepos.com</strong> o <strong>itcyberwork@gmail.com</strong> con el asunto <em>"Solicitud de Eliminación de Datos"</em> indicando el nombre de tu restaurante o tu llave de licencia. Nuestro oficial de cumplimiento ejecutará el borrado total de tus registros en un plazo máximo de <strong>48 a 72 horas hábiles</strong> y te enviará un Certificado Digital de Borrado.
+                </div>`,
+                sec5_title: "5. Autenticación Biométrica y Cámaras de Seguridad",
+                sec5_body: `<p><strong>Huella Digital Biométrica:</strong> Impossible POS admite lectores USB ópticos de huella digital para entrada rápida de cajeros. Las huellas se convierten en un código matemático local. <strong>Jamás se guardan imágenes de huellas ni se suben a internet o servidores en la nube.</strong></p>
+                <p><strong>Integración con Cámaras CCTV / NVR:</strong> Donde esté activado, Impossible POS sobrepone el texto de la venta sobre el video de la cámara en vivo a través de tu red local. Las transmisiones de video nunca salen de tu negocio ni son vistas por IT Cyber Work LLC.</p>`,
+                sec6_title: "¿Preguntas sobre Privacidad o Cumplimiento?",
+                sec6_desc: "Si tienes dudas sobre esta Política de Privacidad, tus derechos de datos o nuestros protocolos de protección con IA, contáctanos directamente:"
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('impossible_pos_lang', lang);
+            const btnEn = document.getElementById('lang-btn-en');
+            const btnEs = document.getElementById('lang-btn-es');
+            
+            if (lang === 'es') {
+                btnEs.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active";
+                btnEn.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive";
+            } else {
+                btnEn.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-active";
+                btnEs.className = "px-3 py-1 rounded-full transition-all cursor-pointer font-bold lang-inactive";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        // Initialize from localStorage or default
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('impossible_pos_lang') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
