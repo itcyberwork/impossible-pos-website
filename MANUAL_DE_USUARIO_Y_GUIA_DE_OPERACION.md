@@ -25,18 +25,29 @@
 
 Impossible POS está diseñado para comenzar a operar en menos de 60 segundos sin requerir configuraciones técnicas complejas.
 
-### A. Instalación en Windows (.exe Nativo)
-1. Descarga el paquete `Impossible_POS_v1.0.zip`.
-2. Haz clic derecho y selecciona **Extraer Todo** en `C:\Impossible_POS`.
-3. Haz doble clic en `2_CREAR_ACCESO_DIRECTO.bat` para generar los iconos en el Escritorio.
-4. Ejecuta `ABRIR_PUERTOS_FIREWALL.bat` como Administrador una sola vez para habilitar la comunicación de red local con tabletas y pantallas de cocina.
-5. Abre el sistema haciendo doble clic en **Impossible_POS.exe**. ¡La caja registradora arranca inmediatamente en pantalla completa!
+### A. Instalación en Windows (Servidor Principal / Caja 1)
+1. Crea una carpeta directamente en tu Disco C:: `C:\ImpossiblePOS` (o `C:\Impossible_POS`).
+2. Descarga el paquete `Impossible_POS_v1.3.4.zip`.
+3. Haz clic derecho y selecciona **Extraer Todo** dentro de `C:\ImpossiblePOS`.
+4. Haz doble clic en `1_INSTALAR_REQUISITO_NODEJS.bat` si la PC no tiene Node.js instalado.
+5. Haz doble clic en `2_CREAR_ACCESO_DIRECTO.bat` para generar el acceso directo oficial en el Escritorio.
+6. Haz clic derecho en `ABRIR_PUERTOS_FIREWALL.bat` y selecciona **Ejecutar como Administrador** para habilitar la comunicación de red local con tabletas y pantallas de cocina.
+7. Abre el sistema haciendo doble clic en **Impossible_POS.exe**. ¡La caja registradora arranca inmediatamente en pantalla completa!
 
-### B. Modo Kiosco en Tablets Android e iPads
-1. Conecta la tableta a la misma red Wi-Fi del restaurante.
-2. Abre Google Chrome y escribe la IP de la caja principal (ej. `http://192.168.1.50:3000`).
-3. Toca los tres puntos `(⋮)` arriba a la derecha en Chrome y selecciona **"Instalar Aplicación"** o **"Agregar a pantalla principal"**.
-4. Ábrela desde el Escritorio de Android: se ejecutará en **Modo Kiosco 100% Pantalla Completa** sin barras de navegador.
+### B. Instalación de Estaciones Secundarias (Cocina KDS, Bar, Photo Hub, TV, Runner, Hostess, Caja 2)
+En cualquier computadora secundaria conectada a la misma red Wi-Fi o cable Ethernet:
+1. Abre Google Chrome o Microsoft Edge y entra a:
+   `http://<IP_SERVIDOR>:3000/kiosco.html`
+   *(O haz clic en " Centro de Kioscos" en la ventana de Vincular Dispositivos del POS).*
+2. Haz clic en **" Instalar Kiosco en este equipo"** en la estación que deseas instalar.
+3. Abre el archivo `.bat` descargado. El instalador detectará automáticamente Edge o Chrome, descargará el icono oficial `.ico` y creará un **Acceso Directo en el Escritorio en Modo Kiosco (Pantalla Completa)**, sin barras de navegador ni la letra 'E' de Microsoft Edge.
+4. Alternativamente, puedes copiar la carpeta `Descargar Acceso Directo Kiosco` desde `C:\ImpossiblePOS` mediante una memoria USB y ejecutar el archivo `.bat` directamente en el equipo secundario.
+
+### C. Terminales Sunmi, Celulares de Meseros (BYOD) y Tablets (Cero Instalación de Apps)
+1. Conecta el dispositivo móvil o tableta a la red Wi-Fi del restaurante.
+2. En la cabecera de la Caja Registradora principal, pulsa el botón verde **" Link Devices"**.
+3. Apunta la cámara del celular o el escáner del Sunmi al código QR correspondiente (Meseros, Cocina o Reportes).
+4. La aplicación de comandas táctil abrirá de inmediato a pantalla completa sin necesidad de instalar archivos APK ni entrar a la Play Store.
 
 ---
 
