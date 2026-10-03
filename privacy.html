@@ -95,17 +95,17 @@
         <!-- Privacy Pillars (Quick Summary Cards) -->
         <div class="grid sm:grid-cols-3 gap-4 mb-10">
             <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-                <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-3">🛡️</div>
+                <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
                 <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar1_title">Zero Card Data Stored</h3>
                 <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar1_desc">Full PCI-DSS compliance. We never capture, view, store, or transmit credit card numbers or CVVs.</p>
             </div>
             <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-3">🤖</div>
+                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm mb-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
                 <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar2_title">Transparent AI Usage</h3>
                 <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar2_desc">AI voice ordering is strictly transactional and includes mandatory audible recording notifications.</p>
             </div>
             <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-                <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg mb-3">🗑️</div>
+                <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm mb-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></div>
                 <h3 class="font-bold text-slate-900 text-sm mb-1" data-i18n="pillar3_title">Right to Erasure</h3>
                 <p class="text-slate-500 text-xs leading-relaxed" data-i18n="pillar3_desc">You own 100% of your local database and can request permanent cloud deletion anytime.</p>
             </div>
@@ -124,7 +124,7 @@
                     <strong>B. Local Operational Database (Stored On-Premise):</strong> Impossible POS is architected as an <em>Offline-First, Local-First</em> operating system. Your menu items, pricing, inventory balances, employee PIN codes, kitchen modifiers, and sales transaction logs are stored locally on your physical Windows terminal inside a local SQLite database (<code>pos.db</code>). IT Cyber Work LLC does not sell, broker, or monetize your store's sales records.
                 </p>
                 <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
-                    <strong>⚠️ STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
+                    <strong>[PCI-DSS NOTICE] STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
                     Impossible POS <strong>DOES NOT</strong> collect, inspect, process, or store raw credit or debit card Primary Account Numbers (PAN), CVV/CVC codes, expiration dates, magnetic stripe track data, or debit PIN blocks. All credit card processing occurs in strict tokenized isolation via certified third-party merchant terminals (such as Stripe, Square, PAX Technology, Clover, or your independent acquiring bank).
                 </div>
             </div>
@@ -147,7 +147,7 @@
                     <li><strong>Conversational Menu Navigation & Text Processing:</strong> Parsing complex spoken food requests and dietary modifiers into structured ticket items.</li>
                 </ul>
                 <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
-                    <p class="font-bold text-slate-900">🛡️ AI Processing Boundaries & Ethical Protections:</p>
+                    <p class="font-bold text-slate-900">[SECURITY] AI Processing Boundaries & Ethical Protections:</p>
                     <p>• <strong>No Automated Financial Charges:</strong> AI models never initiate or finalize financial charges or bank debits autonomously. All charges require cashier or in-person payment confirmation.</p>
                     <p>• <strong>No Model Training with Private Proprietary Data:</strong> Audio and transcript data processed during food orders are processed ephemerally for order fulfillment and are <strong>NOT</strong> used by IT Cyber Work LLC or third-party providers to train public foundation models without consent.</p>
                     <p>• <strong>Mandatory Audio Call Recording Disclosure:</strong> To comply with federal and state wiretapping and two-party consent laws, the system plays an automated audible notice to callers: <em>"This call is recorded and assisted by AI"</em> prior to conversational engagement.</p>
@@ -237,7 +237,7 @@
                     </div>
                 </div>
                 <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
-                    <strong>📧 How to Request Account & Data Deletion:</strong><br>
+                    <strong>[CONTACT] How to Request Account & Data Deletion:</strong><br>
                     Send an email to <strong>support@impossiblepos.com</strong> or <strong>itcyberwork@gmail.com</strong> with the subject line <em>"Data Erasure Request"</em> including your restaurant name or License Key. Our technical privacy compliance officer will execute a permanent purge of your cloud records within <strong>48 to 72 business hours</strong> and return a signed digital Certificate of Deletion.
                 </div>
             </div>
@@ -250,11 +250,20 @@
             </h2>
             <div class="text-slate-600 text-sm leading-relaxed space-y-3" data-i18n="sec5_body">
                 <p>
-                    <strong>Biometric Fingerprint Authentication:</strong> Impossible POS supports optional USB optical fingerprint scanners for rapid cashier clock-in and drawer authorization. All fingerprint templates are hashed into mathematical checksums locally on the physical terminal. <strong>Raw biometric fingerprint images are never saved to disk and are never uploaded to the internet or cloud servers.</strong>
-                </p>
-                <p>
-                    <strong>CCTV / NVR Video Integration:</strong> Where licensed, Impossible POS provides real-time POS transaction text overlay onto local restaurant security cameras (via RTSP). Video streams remain entirely within your private local network and are not transmitted to or hosted by IT Cyber Work LLC.
-                </p>
+    <strong>Biometric Fingerprint Authentication & Multi-State Compliance (Illinois BIPA & Texas CUBI):</strong> Impossible POS provides optional USB optical fingerprint scanning designed exclusively for rapid cashier clock-in, shift management, and cash drawer security.
+</p>
+<ul class="list-disc pl-5 space-y-2 mt-2">
+    <li><strong>Zero Cloud Transmission & Local Irreversible Hashing:</strong> Raw fingerprint images are NEVER captured or saved. The hardware driver extracts mathematical coordinate points converted into an irreversible binary hash checksum stored exclusively in the local database file on the merchant's physical terminal. Biometric templates are never uploaded to the cloud, never synced across the internet, and never sold, leased, or disclosed to third parties.</li>
+    <li><strong>Biometric Retention & Deletion Schedule (BIPA 740 ILCS 14/ & Texas CUBI):</strong> Biometric identifiers are retained only during the active employment of the registered staff member. Upon termination of employment or upon the written request of the employee, the merchant must delete the employee profile via the 1-click 'Delete Biometric Profile' button in Staff Settings. All inactive biometric records are permanently purged after three (3) years of inactivity.</li>
+    <li><strong>Merchant Written Consent Obligation:</strong> Merchants operating in jurisdictions with statutory biometric laws (including Illinois under BIPA 740 ILCS 14/15, Texas under Tex. Bus. & Com. Code § 503.001, and Washington under RCW 19.375) are legally required to obtain written employee consent prior to collecting biometric identifiers. Merchants agree to obtain signed employee consent before enrolling staff members into the biometric scanner.</li>
+    <li><strong>Non-Biometric Alternative:</strong> Impossible POS provides a full-featured, secure 4-digit numeric PIN authentication alternative for all clock-in and drawer functions. No employee is required to provide biometric data if they opt out or if the merchant elects not to deploy biometric hardware.</li>
+</ul>
+<p class="mt-3">
+    <strong>California Consumer Privacy Act (CCPA / CPRA) & 'Do Not Sell' Disclosure:</strong> Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents have the right to know what personal information is collected, request deletion, and opt out of the sale or sharing of personal data. <strong>IT Cyber Work LLC certifies that we DO NOT sell, rent, monetize, or share personal consumer or merchant information with data brokers or third-party advertisers.</strong> Customer contact numbers captured during online ordering or SMS waitlist notifications are used strictly to complete restaurant order fulfillment and dining alerts.
+</p>
+<p class="mt-3">
+    <strong>CCTV / NVR Video Surveillance Disclaimer:</strong> Where licensed, Impossible POS provides real-time transaction text overlay onto local restaurant security cameras via RTSP. All video feeds and security recordings remain 100% within the restaurant's local network and are never hosted or accessed by IT Cyber Work LLC.
+</p>
             </div>
         </div>
 
@@ -309,7 +318,7 @@
                 sec1_body: `<p><strong>A. Information Collected for Licensing & Support:</strong> When you register or purchase an Impossible POS license, IT Cyber Work LLC collects essential merchant credentials including business legal name, primary contact name, email address, physical restaurant address, phone number (WhatsApp or mobile for technical setup), and Hardware Machine ID. This information is utilized strictly to issue encrypted license keys, deliver critical security updates, and conduct remote onboarding sessions.</p>
                 <p><strong>B. Local Operational Database (Stored On-Premise):</strong> Impossible POS is architected as an <em>Offline-First, Local-First</em> operating system. Your menu items, pricing, inventory balances, employee PIN codes, kitchen modifiers, and sales transaction logs are stored locally on your physical Windows terminal inside a local SQLite database (<code>pos.db</code>). IT Cyber Work LLC does not sell, broker, or monetize your store's sales records.</p>
                 <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
-                    <strong>⚠️ STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
+                    <strong>[PCI-DSS NOTICE] STRICT ZERO FINANCIAL DATA HARVESTING (PCI-DSS):</strong><br>
                     Impossible POS <strong>DOES NOT</strong> collect, inspect, process, or store raw credit or debit card Primary Account Numbers (PAN), CVV/CVC codes, expiration dates, magnetic stripe track data, or debit PIN blocks. All credit card processing occurs in strict tokenized isolation via certified third-party merchant terminals (such as Stripe, Square, PAX Technology, Clover, or your independent acquiring bank).
                 </div>`,
                 sec2_title: "2. Artificial Intelligence (AI) Usage & Transparency",
@@ -319,7 +328,7 @@
                     <li><strong>Conversational Menu Navigation & Text Processing:</strong> Parsing complex spoken food requests and dietary modifiers into structured ticket items.</li>
                 </ul>
                 <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
-                    <p class="font-bold text-slate-900">🛡️ AI Processing Boundaries & Ethical Protections:</p>
+                    <p class="font-bold text-slate-900">[SECURITY] AI Processing Boundaries & Ethical Protections:</p>
                     <p>• <strong>No Automated Financial Charges:</strong> AI models never initiate or finalize financial charges or bank debits autonomously. All charges require cashier or in-person payment confirmation.</p>
                     <p>• <strong>No Model Training with Private Proprietary Data:</strong> Audio and transcript data processed during food orders are processed ephemerally for order fulfillment and are <strong>NOT</strong> used by IT Cyber Work LLC or third-party providers to train public foundation models without consent.</p>
                     <p>• <strong>Mandatory Audio Call Recording Disclosure:</strong> To comply with federal and state wiretapping and two-party consent laws, the system plays an automated audible notice to callers: <em>"This call is recorded and assisted by AI"</em> prior to conversational engagement.</p>
@@ -339,12 +348,25 @@
                     </div>
                 </div>
                 <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
-                    <strong>📧 How to Request Account & Data Deletion:</strong><br>
+                    <strong>[CONTACT] How to Request Account & Data Deletion:</strong><br>
                     Send an email to <strong>support@impossiblepos.com</strong> or <strong>itcyberwork@gmail.com</strong> with the subject line <em>"Data Erasure Request"</em> including your restaurant name or License Key. Our technical privacy compliance officer will execute a permanent purge of your cloud records within <strong>48 to 72 business hours</strong> and return a signed digital Certificate of Deletion.
                 </div>`,
                 sec5_title: "5. Biometric Authentication & Video Surveillance Disclaimers",
-                sec5_body: `<p><strong>Biometric Fingerprint Authentication:</strong> Impossible POS supports optional USB optical fingerprint scanners for rapid cashier clock-in and drawer authorization. All fingerprint templates are hashed into mathematical checksums locally on the physical terminal. <strong>Raw biometric fingerprint images are never saved to disk and are never uploaded to the internet or cloud servers.</strong></p>
-                <p><strong>CCTV / NVR Video Integration:</strong> Where licensed, Impossible POS provides real-time POS transaction text overlay onto local restaurant security cameras (via RTSP). Video streams remain entirely within your private local network and are not transmitted to or hosted by IT Cyber Work LLC.</p>`,
+                sec5_body: `<p>
+    <strong>Biometric Fingerprint Authentication & Multi-State Compliance (Illinois BIPA & Texas CUBI):</strong> Impossible POS provides optional USB optical fingerprint scanning designed exclusively for rapid cashier clock-in, shift management, and cash drawer security.
+</p>
+<ul class="list-disc pl-5 space-y-2 mt-2">
+    <li><strong>Zero Cloud Transmission & Local Irreversible Hashing:</strong> Raw fingerprint images are NEVER captured or saved. The hardware driver extracts mathematical coordinate points converted into an irreversible binary hash checksum stored exclusively in the local database file on the merchant's physical terminal. Biometric templates are never uploaded to the cloud, never synced across the internet, and never sold, leased, or disclosed to third parties.</li>
+    <li><strong>Biometric Retention & Deletion Schedule (BIPA 740 ILCS 14/ & Texas CUBI):</strong> Biometric identifiers are retained only during the active employment of the registered staff member. Upon termination of employment or upon the written request of the employee, the merchant must delete the employee profile via the 1-click 'Delete Biometric Profile' button in Staff Settings. All inactive biometric records are permanently purged after three (3) years of inactivity.</li>
+    <li><strong>Merchant Written Consent Obligation:</strong> Merchants operating in jurisdictions with statutory biometric laws (including Illinois under BIPA 740 ILCS 14/15, Texas under Tex. Bus. & Com. Code § 503.001, and Washington under RCW 19.375) are legally required to obtain written employee consent prior to collecting biometric identifiers. Merchants agree to obtain signed employee consent before enrolling staff members into the biometric scanner.</li>
+    <li><strong>Non-Biometric Alternative:</strong> Impossible POS provides a full-featured, secure 4-digit numeric PIN authentication alternative for all clock-in and drawer functions. No employee is required to provide biometric data if they opt out or if the merchant elects not to deploy biometric hardware.</li>
+</ul>
+<p class="mt-3">
+    <strong>California Consumer Privacy Act (CCPA / CPRA) & 'Do Not Sell' Disclosure:</strong> Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents have the right to know what personal information is collected, request deletion, and opt out of the sale or sharing of personal data. <strong>IT Cyber Work LLC certifies that we DO NOT sell, rent, monetize, or share personal consumer or merchant information with data brokers or third-party advertisers.</strong> Customer contact numbers captured during online ordering or SMS waitlist notifications are used strictly to complete restaurant order fulfillment and dining alerts.
+</p>
+<p class="mt-3">
+    <strong>CCTV / NVR Video Surveillance Disclaimer:</strong> Where licensed, Impossible POS provides real-time transaction text overlay onto local restaurant security cameras via RTSP. All video feeds and security recordings remain 100% within the restaurant's local network and are never hosted or accessed by IT Cyber Work LLC.
+</p>`,
                 sec6_title: "Questions or Privacy Inquiries?",
                 sec6_desc: "If you have questions regarding this Privacy Policy, your rights under CCPA/GDPR, or our AI data protection standards, our dedicated compliance team is ready to assist:"
             },
@@ -364,7 +386,7 @@
                 sec1_body: `<p><strong>A. Datos Recopilados para Licenciamiento y Soporte:</strong> Al registrarte o adquirir una licencia de Impossible POS, IT Cyber Work LLC recopila datos indispensables para el servicio: nombre comercial del negocio, nombre del propietario o encargado, correo electrónico, dirección física del restaurante, teléfono (WhatsApp o móvil para asistencia remota) y el Identificador de Máquina (Hardware ID). Esta información se utiliza exclusivamente para emitir llaves de activación cifradas, enviar actualizaciones críticas y brindar soporte técnico.</p>
                 <p><strong>B. Base de Datos Operativa Local (En tu Computadora):</strong> Impossible POS está diseñado con arquitectura <em>Local-First / Fuera de Línea</em>. Tu menú, platillos, inventario, contraseñas PIN de cajeros, modificadores y registros de ventas se guardan localmente en tu propia computadora con Windows en una base de datos SQLite (<code>pos.db</code>). IT Cyber Work LLC no vende, comercializa ni lucra con tus ventas.</p>
                 <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
-                    <strong>⚠️ DESLINDE ESTRICTO Y CERO ALMACENAMIENTO FINANCIERO (PCI-DSS):</strong><br>
+                    <strong>[AVISO PCI-DSS] DESLINDE ESTRICTO Y CERO ALMACENAMIENTO FINANCIERO (PCI-DSS):</strong><br>
                     Impossible POS <strong>NO RECOPILA</strong>, no inspecciona ni almacena números de tarjeta de crédito o débito (PAN), códigos de seguridad CVV/CVC, fechas de vencimiento ni datos de banda magnética o PIN. Todo el procesamiento de tarjetas se realiza de forma aislada y encriptada en terminales bancarias certificadas de terceros (como Stripe, Square, PAX Technology, Clover o tu banco adquirente independiente).
                 </div>`,
                 sec2_title: "2. Declaración de Uso de Inteligencia Artificial (IA) y Ética",
@@ -374,7 +396,7 @@
                     <li><strong>Procesamiento Inteligente de Lenguaje:</strong> Comprensión de peticiones orales complejas y notas de platillos en comandas estructuradas.</li>
                 </ul>
                 <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-slate-700 text-xs leading-relaxed space-y-2">
-                    <p class="font-bold text-slate-900">🛡️ Límites y Protecciones Éticas del Uso de IA:</p>
+                    <p class="font-bold text-slate-900">[SEGURIDAD] Límites y Protecciones Éticas del Uso de IA:</p>
                     <p>• <strong>Cero Cobros Financieros Autónomos:</strong> La IA jamás realiza cargos monetarios ni retiros bancarios por su cuenta. Todo cobro requiere validación del cajero o pago presencial del cliente.</p>
                     <p>• <strong>No Entrenamiento de Modelos con Datos Privados:</strong> El audio y las transcripciones de pedidos se procesan de manera efímera para despachar la comida y <strong>NO</strong> se utilizan para entrenar modelos públicos de inteligencia artificial.</p>
                     <p>• <strong>Aviso Sonoro Obligatorio de Grabación Telefónica:</strong> Para cumplir con las leyes federales y estatales de consentimiento de grabación telefónica, el sistema reproduce un aviso sonoro obligatorio al contestar: <em>"Esta llamada está siendo grabada y asistida por Inteligencia Artificial"</em> antes de iniciar el diálogo.</p>
@@ -394,7 +416,7 @@
                     </div>
                 </div>
                 <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs leading-relaxed">
-                    <strong>📧 Cómo Solicitar el Borrado Permanente de Datos:</strong><br>
+                    <strong>[CONTACTO] Cómo Solicitar el Borrado Permanente de Datos:</strong><br>
                     Envía un correo a <strong>support@impossiblepos.com</strong> o <strong>itcyberwork@gmail.com</strong> con el asunto <em>"Solicitud de Eliminación de Datos"</em> indicando el nombre de tu restaurante o tu llave de licencia. Nuestro oficial de cumplimiento ejecutará el borrado total de tus registros en un plazo máximo de <strong>48 a 72 horas hábiles</strong> y te enviará un Certificado Digital de Borrado.
                 </div>`,
                 sec5_title: "5. Autenticación Biométrica y Cámaras de Seguridad",
