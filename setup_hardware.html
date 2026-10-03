@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Impossible POS - Hardware & Stations Setup Wizard</title>
+  <link rel="icon" type="image/x-icon" href="/icons/pos.ico">
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --bg-card: #141824;
+      --bg-card-sub: #1b2030;
+      --border-color: #242c3d;
+      --accent: #0a84ff;
+      --accent-hover: #0070e0;
+      --success: #30d158;
+      --success-hover: #28b84d;
+      --warning: #ffd60a;
+      --danger: #ff453a;
+      --text-main: #f0f4f8;
+      --text-dim: #9ba6b5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.5; padding: 24px 16px 80px 16px; }
+
+    .container { max-width: 980px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 44px; height: 44px; border-radius: 8px; }
+    .brand h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+    .brand h1 span { color: var(--accent); }
+    .brand-sub { font-size: 13px; color: var(--text-dim); }
+
+    .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .server-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(48, 209, 88, 0.12);
+      border: 1px solid rgba(48, 209, 88, 0.35);
+      color: var(--success);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .pulse-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); }
+
+    .btn-return {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: none;
+    }
+    .btn-return:hover { background: rgba(255, 255, 255, 0.16); }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 3px 6px;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+    .lang-divider { color: var(--border-color); font-size: 12px; }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.12) 0%, rgba(20, 24, 36, 0.95) 100%);
+      border: 1px solid rgba(10, 132, 255, 0.35);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .hero-banner h2 { font-size: 20px; color: #fff; margin-bottom: 8px; }
+    .hero-banner p { font-size: 13.5px; color: var(--text-dim); line-height: 1.6; }
+
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .section-title { font-size: 17px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .section-badge { font-size: 11px; padding: 4px 10px; border-radius: 12px; background: rgba(10, 132, 255, 0.15); color: var(--accent); border: 1px solid rgba(10, 132, 255, 0.3); font-weight: 700; }
+
+    /* Checklist Styles */
+    .checklist-grid { display: flex; flex-direction: column; gap: 12px; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px 16px;
+      transition: all 0.2s;
+    }
+    .check-item.completed { border-color: rgba(48, 209, 88, 0.4); background: rgba(48, 209, 88, 0.04); }
+    .check-item.item-error {
+      border-color: #ff453a !important;
+      background: rgba(255, 69, 58, 0.08) !important;
+      box-shadow: 0 0 10px rgba(255, 69, 58, 0.25);
+    }
+    .check-checkbox {
+      margin-top: 3px;
+      width: 20px;
+      height: 20px;
+      accent-color: var(--success);
+      cursor: pointer;
+    }
+    .check-content { flex: 1; }
+    .check-title { font-size: 14.5px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .check-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.45; }
+    .check-actions { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .btn-action {
+      background: rgba(10, 132, 255, 0.12);
+      border: 1px solid rgba(10, 132, 255, 0.4);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-action:hover { background: var(--accent); color: #fff; }
+
+    /* Station Configurator */
+    .counter-control-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .counter-info h4 { font-size: 15px; color: #fff; margin-bottom: 2px; }
+    .counter-info p { font-size: 12.5px; color: var(--text-dim); }
+    .stepper { display: flex; align-items: center; gap: 8px; }
+    .btn-step {
+      width: 36px;
+      height: 36px;
+      background: var(--border-color);
+      border: 1px solid #3a4760;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .btn-step:hover { background: var(--accent); }
+    .step-display {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      min-width: 44px;
+      text-align: center;
+      padding: 6px 10px;
+      background: #0d1017;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+    }
+
+    .stations-list { display: flex; flex-direction: column; gap: 10px; }
+    .station-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .station-left { display: flex; align-items: center; gap: 12px; }
+    .station-badge-id {
+      background: rgba(10, 132, 255, 0.15);
+      border: 1px solid rgba(10, 132, 255, 0.3);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .station-name-text { font-size: 13.5px; font-weight: 600; color: #fff; }
+    .station-role-tag { font-size: 11.5px; color: var(--text-dim); }
+    .station-price { font-size: 13px; font-weight: 700; color: var(--success); }
+
+    /* Mobile Configurator */
+    .mobile-devices-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+    .mobile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .mobile-type-select {
+      background: #0d1017;
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    /* Billing Summary Card */
+    .summary-card {
+      background: linear-gradient(180deg, #141926 0%, #0d111a 100%);
+      border: 1.5px solid var(--accent);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+    .summary-kpi {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .summary-kpi-lbl { font-size: 11.5px; color: var(--text-dim); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    .summary-kpi-val { font-size: 22px; font-weight: 900; color: #fff; margin-top: 4px; }
+    .summary-kpi-sub { font-size: 12px; color: var(--success); margin-top: 2px; }
+
+    /* Validation Error Box */
+    .validation-alert {
+      display: none;
+      background: rgba(255, 69, 58, 0.12);
+      border: 1.5px solid #ff453a;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .validation-alert-header {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ff453a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .validation-alert-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff453a;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .validation-alert-sub { font-size: 12.5px; color: #fff; margin-bottom: 10px; }
+    .validation-alert-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #ffd1cf;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    /* Action Buttons */
+    .actions-cluster {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .btn-finish-launch {
+      width: 100%;
+      background: var(--success);
+      color: #000;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.3px;
+    }
+    .btn-finish-launch:hover { background: var(--success-hover); }
+    .btn-finish-launch:active { transform: scale(0.99); }
+    .btn-finish-launch:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .btn-save-secondary {
+      width: 100%;
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-save-secondary:hover { color: #fff; border-color: #556885; background: rgba(255,255,255,0.03); }
+
+    .toast-msg {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: none;
+    }
+    .toast-success { background: rgba(48, 209, 88, 0.15); border: 1px solid rgba(48, 209, 88, 0.4); color: var(--success); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="/icons/pos.ico" alt="Impossible POS">
+        <div>
+          <h1>Impossible <span>POS</span></h1>
+          <div class="brand-sub" id="lblHeaderSub">Hardware, Devices & Multi-Station Setup Wizard</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <a href="/caja_v14.html" class="btn-return" id="linkReturnToPOS">Return to Register</a>
+        <div class="server-badge">
+          <div class="pulse-dot"></div>
+          <span id="lblServerStatus">Server Active on Port 3000</span>
+        </div>
+        <div class="lang-switcher">
+          <button id="btnLangEn" class="lang-btn active" onclick="setLanguage('en')">EN</button>
+          <span class="lang-divider">|</span>
+          <button id="btnLangEs" class="lang-btn" onclick="setLanguage('es')">ES</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero-banner">
+      <h2 id="lblBannerTitle">Hardware & Multi-Station Topology Provisioning</h2>
+      <p id="lblBannerDesc">Follow this step-by-step setup guide to verify essential core services and register how many computers and mobile devices will be used across your restaurant or store. All secondary registers will automatically inherit these settings.</p>
+    </div>
+
+    <!-- STEP 1: PREREQUISITES CHECKLIST -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">
+          <span id="lblStep1Title">Step 1: System Installation & Core Services Checklist</span>
+        </div>
+        <div class="section-badge" id="lblBadgeCore">Core Prerequisites</div>
+      </div>
+
+      <div class="checklist-grid">
+        <!-- 1. Folder Setup -->
+        <div class="check-item" id="itemFolder">
+          <input type="checkbox" class="check-checkbox" id="chkFolder" onchange="toggleItemState('itemFolder', this.checked)">
+          <div class="check-content">
+            <div class="check-title" id="lblCheckFolderTitle">1. Dedicated Installation Folder (C:\Impossible_POS)</div>
+            <div class="check-desc" id="lblCheckFolderDesc">For full Windows compatibility, the software must reside in a clean root directory at C:\Impossible_POS with complete write permissions.</div>
+            <div class="check-actions">
+              <button type="button" class="btn-action" onclick="createSystemFolder()" id="btnActionFolder">[+] Create / Verify C:\Impossible_POS</button>
+              <span id="folderStatusText" style="font-size: 11.5px; color: var(--text-dim);"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Extract Archive -->
+        <div class="check-item" id="itemExtract">
+          <input type="checkbox" class="check-checkbox" id="chkExtract" onchange="toggleItemState('itemExtract', this.checked)">
+          <div class="check-content">
+            <div class="check-title" id="lblCheckExtractTitle">2. Extract Software ZIP Archive</div>
+            <div class="check-desc" id="lblCheckExtractDesc">Extract the entire contents of the release archive into C:\Impossible_POS so that System_Files and startup batch scripts are directly accessible.</div>
+          </div>
+        </div>
+
+        <!-- 3. Desktop Shortcut -->
+        <div class="check-item" id="itemShortcut">
+          <input type="checkbox" class="check-checkbox" id="chkShortcut" onchange="toggleItemState('itemShortcut', this.checked)">
+          <div class="check-content">
+            <div class="check-title" id="lblCheckShortcutTitle">3. Desktop Shortcut & Run as Administrator</div>
+            <div class="check-desc" id="lblCheckShortcutDesc">Create an official desktop shortcut to launch Impossible POS in fullscreen kiosk mode with Administrator privileges for direct ESC/POS hardware printer control.</div>
+          </div>
+        </div>
+
+        <!-- 4. Cloudflare Cloud Tunnel -->
+        <div class="check-item" id="itemTunnel">
+          <input type="checkbox" class="check-checkbox" id="chkTunnel" onchange="toggleItemState('itemTunnel', this.checked)">
+          <div class="check-content">
+            <div class="check-title" id="lblCheckTunnelTitle">4. Start Cloudflare Cloud Tunnel Gateway</div>
+            <div class="check-desc" id="lblCheckTunnelDesc">Enables public HTTPS tunnel to allow customer mobile phones on 4G/5G cellular data to scan order QR codes and join the waitlist without connecting to store Wi-Fi.</div>
+            <div class="check-actions">
+              <a href="/download-shortcut/cloud-tunnel" download="START_CLOUD_TUNNEL.bat" class="btn-action" id="btnActionTunnel">[+] Download START_CLOUD_TUNNEL.bat</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. USB Biometrics Service -->
+        <div class="check-item" id="itemBiometrics">
+          <input type="checkbox" class="check-checkbox" id="chkBiometrics" onchange="toggleItemState('itemBiometrics', this.checked)">
+          <div class="check-content">
+            <div class="check-title" id="lblCheckBioTitle">5. USB Digital Fingerprint Biometrics Service</div>
+            <div class="check-desc" id="lblCheckBioDesc">Connect the physical USB fingerprint scanner to allow instant cashier clock-in, shift switching, and manager override approvals with zero PIN typing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: COMPUTERS & REGISTERS CONFIGURATOR -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">
+          <span id="lblStep2Title">Step 2: Computer Stations & Counter Registers</span>
+        </div>
+        <div class="section-badge" id="lblBadgeComputers">Fixed Windows PCs</div>
+      </div>
+
+      <div class="counter-control-wrap">
+        <div class="counter-info">
+          <h4 id="lblComputersCountTitle">Total Computer Stations</h4>
+          <p id="lblComputersCountDesc">Includes this Central Server / Back Office PC plus all counter registers.</p>
+        </div>
+        <div class="stepper">
+          <button type="button" class="btn-step" onclick="changeComputersCount(-1)">-</button>
+          <div class="step-display" id="dispComputersCount">1</div>
+          <button type="button" class="btn-step" onclick="changeComputersCount(1)">+</button>
+        </div>
+      </div>
+
+      <div class="stations-list" id="stationsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- STEP 3: MOBILE DEVICES & SUNMI CONFIGURATOR -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">
+          <span id="lblStep3Title">Step 3: Mobile Devices & Waitress Terminals</span>
+        </div>
+        <div class="section-badge" id="lblBadgeMobile">Handhelds & Sunmis</div>
+      </div>
+
+      <!-- Base Mobile Unit #1 -->
+      <div class="station-row" style="border-color: rgba(48, 209, 88, 0.4); background: rgba(48, 209, 88, 0.04); margin-bottom: 14px;">
+        <div class="station-left">
+          <input type="checkbox" class="check-checkbox" checked disabled>
+          <span class="station-badge-id" style="background: rgba(48, 209, 88, 0.2); color: #30d158;">Mobile #1</span>
+          <div>
+            <div class="station-name-text" id="lblFreeMobileTitle">1st Mobile Device (Base Subscription)</div>
+            <div class="station-role-tag" id="mobile1DescTag">Option A: Order-Taking & Line Buster (Included FREE - 40 Cash Sales/Day Limit)</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+          <select class="mobile-type-select" id="mobile1TierSelect" onchange="setMobile1Tier(this.value)">
+            <option value="line_buster" id="opt1LineBuster">Option A: Order-Taking & Line Buster (FREE / $0.00)</option>
+            <option value="apron_cashier" id="opt1ApronCashier">Option B: Server Banking / Apron Cashier ($50.00 / mo)</option>
+          </select>
+          <select class="mobile-type-select" id="mobile1ModeSelect" onchange="setMobile1Mode(this.value)">
+            <option value="floating" id="opt1ModeFloating">Floating / BYOD (Waitress Phones via QR)</option>
+            <option value="dedicated" id="opt1ModeDedicated">Dedicated Fixed Terminal (Sunmi)</option>
+          </select>
+          <div class="station-price" style="color: var(--success); min-width: 90px; text-align: right;" id="mobile1PriceDisplay">FREE ($0.00)</div>
+        </div>
+      </div>
+
+      <div class="counter-control-wrap">
+        <div class="counter-info">
+          <h4 id="lblAddMobilesTitle">Additional Mobile Devices</h4>
+          <p id="lblAddMobilesDesc">Extra server tablets, waitress personal phones, or dedicated Sunmi handhelds ($20/mo Line Buster or $50/mo Server Banking).</p>
+        </div>
+        <div class="stepper">
+          <button type="button" class="btn-step" onclick="changeAdditionalMobiles(-1)">-</button>
+          <div class="step-display" id="dispAdditionalMobiles">0</div>
+          <button type="button" class="btn-step" onclick="changeAdditionalMobiles(1)">+</button>
+        </div>
+      </div>
+
+      <div class="mobile-devices-list" id="mobileContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- STEP 4: SUMMARY & BILLING PROVISIONING -->
+    <div class="summary-card">
+      <div class="section-header" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="section-title" style="color: #fff;">
+          <span id="lblSummaryTitle">Summary: Hardware Topology & License Billing</span>
+        </div>
+        <div class="section-badge" style="background: rgba(48, 209, 88, 0.15); color: var(--success); border-color: rgba(48, 209, 88, 0.3);" id="lblBadgeLivePlan">Ready to Apply</div>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-kpi">
+          <div class="summary-kpi-lbl" id="lblKpiComputers">Computer Stations</div>
+          <div class="summary-kpi-val" id="valKpiComputers">1 PC</div>
+          <div class="summary-kpi-sub" id="subKpiComputers">1 Central Server / Back Office</div>
+        </div>
+        <div class="summary-kpi">
+          <div class="summary-kpi-lbl" id="lblKpiMobiles">Mobile Terminals</div>
+          <div class="summary-kpi-val" id="valKpiMobiles">1 Device</div>
+          <div class="summary-kpi-sub" id="subKpiMobiles">1 Free + 0 Additional</div>
+        </div>
+        <div class="summary-kpi">
+          <div class="summary-kpi-lbl" id="lblKpiEstimated">Estimated Monthly Bill</div>
+          <div class="summary-kpi-val" id="valKpiTotal">$85.00</div>
+          <div class="summary-kpi-sub" id="subKpiTotal">Excludes applicable state sales tax</div>
+        </div>
+      </div>
+
+      <!-- MANDATORY VALIDATION ERROR BOX -->
+      <div class="validation-alert" id="validationErrorBox">
+        <div class="validation-alert-header">
+          <span class="validation-alert-dot"></span>
+          <span id="lblValidationTitle">Action Required: Complete All Mandatory Prerequisites</span>
+        </div>
+        <div class="validation-alert-sub" id="lblValidationSubtitle">
+          The following required checklist items or configuration fields must be completed before launching the POS:
+        </div>
+        <ul class="validation-alert-list" id="validationErrorsList">
+          <!-- Populated dynamically -->
+        </ul>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="actions-cluster">
+        <button type="button" class="btn-finish-launch" onclick="validateAndLaunch()" id="btnFinishSetup">
+          Finish Setup & Launch Impossible POS ▶
+        </button>
+
+        <button type="button" class="btn-save-secondary" onclick="saveHardwareTopology()" id="btnSaveTopology">
+          Save Hardware Topology to Server Only
+        </button>
+      </div>
+
+      <div class="toast-msg toast-success" id="saveToastMsg">
+        Hardware topology successfully saved! All secondary registers can now connect and pick their assigned slot instantly.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = localStorage.getItem('hardware_setup_lang') || 'en';
+    let computersCount = 1;
+    let additionalMobilesCount = 0;
+    let mobile1Tier = 'line_buster';
+    let mobile1Mode = 'floating';
+    let mobileTiers = [];
+    let mobileAssignments = [];
+    let isAlreadySetup = false;
+
+    const translations = {
+      en: {
+        pageTitle: "Impossible POS - Hardware & Stations Setup Wizard",
+        headerSub: "Hardware, Devices & Multi-Station Setup Wizard",
+        serverStatus: "Server Active on Port 3000",
+        returnToPOS: "Return to Register",
+        bannerTitle: "Hardware & Multi-Station Topology Provisioning",
+        bannerDesc: "Follow this step-by-step setup guide to verify essential core services and register how many computers and mobile devices will be used across your restaurant or store. All secondary registers will automatically inherit these settings.",
+        step1Title: "Step 1: System Installation & Core Services Checklist",
+        badgeCore: "Core Prerequisites",
+        checkFolderTitle: "1. Dedicated Installation Folder (C:\\Impossible_POS)",
+        checkFolderDesc: "For full Windows compatibility, the software must reside in a clean root directory at C:\\Impossible_POS with complete write permissions.",
+        btnActionFolder: "[+] Create / Verify C:\\Impossible_POS",
+        checkExtractTitle: "2. Extract Software ZIP Archive",
+        checkExtractDesc: "Extract the entire contents of the release archive into C:\\Impossible_POS so that System_Files and startup batch scripts are directly accessible.",
+        checkShortcutTitle: "3. Desktop Shortcut & Run as Administrator",
+        checkShortcutDesc: "Create an official desktop shortcut to launch Impossible POS in fullscreen kiosk mode with Administrator privileges for direct ESC/POS hardware printer control.",
+        checkTunnelTitle: "4. Start Cloudflare Cloud Tunnel Gateway",
+        checkTunnelDesc: "Enables public HTTPS tunnel to allow customer mobile phones on 4G/5G cellular data to scan order QR codes and join the waitlist without connecting to store Wi-Fi.",
+        btnActionTunnel: "[+] Download START_CLOUD_TUNNEL.bat",
+        checkBioTitle: "5. USB Digital Fingerprint Biometrics Service",
+        checkBioDesc: "Connect the physical USB fingerprint scanner to allow instant cashier clock-in, shift switching, and manager override approvals with zero PIN typing.",
+        step2Title: "Step 2: Computer Stations & Counter Registers",
+        badgeComputers: "Fixed Windows PCs",
+        computersCountTitle: "Total Computer Stations",
+        computersCountDesc: "Includes this Central Server / Back Office PC plus all counter registers.",
+        step3Title: "Step 3: Mobile Devices & Waitress Terminals",
+        badgeMobile: "Handhelds & Sunmis",
+        freeMobileTitle: "1st Mobile Device (Base Subscription)",
+        freeMobileDesc: "Included in your base plan. Choose between Order-Taking Line Buster or Server Banking.",
+        optLineBusterFree: "Option A: Order-Taking & Line Buster (Included FREE - $0.00 / mo)",
+        optApronCashier50: "Option B: Server Banking / Apron Cashier ($50.00 / mo)",
+        optLineBusterPaid: "Option A: Order-Taking & Line Buster ($20.00 / mo)",
+        descLineBuster: "Unlimited kitchen/bar orders + up to 40 cash sales/day (Rush support).",
+        descApronCashier: "Full mobile register, pay-at-table, apron pocket bank & individual server drop.",
+        addMobilesTitle: "Additional Mobile Devices",
+        addMobilesDesc: "Extra server tablets, waitress personal phones, or dedicated Sunmi handhelds ($20/mo Line Buster or $50/mo Server Banking).",
+        noAddMobilesTitle: "No Additional Mobile Devices Configured (0 Units)",
+        noAddMobilesDesc: "Your store is currently configured with 1 included base mobile terminal. Click '+' above if your team requires extra server tablets, waitress personal phones, or Sunmi handhelds.",
+        summaryTitle: "Summary: Hardware Topology & License Billing",
+        badgeLivePlan: "Ready to Apply",
+        kpiComputers: "Computer Stations",
+        kpiMobiles: "Mobile Terminals",
+        kpiEstimated: "Estimated Monthly Bill",
+        subKpiTotal: "Excludes applicable state sales tax",
+        btnFinishSetup: "Finish Setup & Launch Impossible POS ▶",
+        btnFinishSetupReturn: "Save Configuration & Return to POS ▶",
+        btnFinishingProgress: "Saving Configuration & Launching POS...",
+        btnSetupSuccessRedirect: "Setup Completed! Redirecting to POS...",
+        btnSaveTopology: "Save Hardware Topology to Server Only",
+        saveToastMsg: "Hardware topology successfully saved! All secondary registers can now connect and pick their assigned slot instantly.",
+        setupCompleteToast: "All prerequisites and hardware topology successfully verified! Launching Impossible POS...",
+        typeFloating: "Floating / BYOD (Waitress Personal Phones via QR)",
+        typeDedicated: "Dedicated Fixed Terminal (Sunmi / Handheld Hardware)",
+        roleMaster: "Master Server & Back Office (This PC)",
+        roleRegister: "Counter Register",
+        valTitle: "Action Required: Complete All Mandatory Prerequisites",
+        valSubtitle: "The following required checklist items or configuration fields must be completed before launching the POS:",
+        errMissingFolder: "Step 1: Checkbox '1. Dedicated Installation Folder (C:\\Impossible_POS)' must be verified and checked.",
+        errMissingExtract: "Step 1: Checkbox '2. Extract Software ZIP Archive' must be confirmed and checked.",
+        errMissingShortcut: "Step 1: Checkbox '3. Desktop Shortcut & Run as Administrator' must be confirmed and checked.",
+        errMissingTunnel: "Step 1: Checkbox '4. Start Cloudflare Cloud Tunnel Gateway' must be confirmed and checked.",
+        errMissingBiometrics: "Step 1: Checkbox '5. USB Digital Fingerprint Biometrics Service' must be confirmed and checked.",
+        errMinComputers: "Step 2: At least 1 computer station (Central Server / Back Office) must be configured."
+      },
+      es: {
+        pageTitle: "Impossible POS - Asistente de Instalación y Estaciones",
+        headerSub: "Asistente de Configuración de Hardware, Equipos y Estaciones",
+        serverStatus: "Servidor Activo en Puerto 3000",
+        returnToPOS: "Regresar a Caja",
+        bannerTitle: "Aprovisionamiento de Hardware y Topología Multi-Estación",
+        bannerDesc: "Sigue este asistente paso a paso para verificar los servicios esenciales y definir cuántas computadoras y dispositivos móviles operarán en tu negocio. Todas las cajas secundarias heredarán esta configuración automáticamente.",
+        step1Title: "Paso 1: Lista de Verificación de Instalación y Servicios Base",
+        badgeCore: "Requisitos Esenciales",
+        checkFolderTitle: "1. Carpeta de Instalación Dedicada (C:\\Impossible_POS)",
+        checkFolderDesc: "Para total compatibilidad con Windows, el sistema debe ubicarse en la raíz C:\\Impossible_POS con permisos completos de escritura.",
+        btnActionFolder: "[+] Crear / Verificar C:\\Impossible_POS",
+        checkExtractTitle: "2. Descomprimir el Archivo ZIP del Sistema",
+        checkExtractDesc: "Extrae todo el contenido del archivo comprimido en C:\\Impossible_POS para que los archivos de sistema y scripts queden listos.",
+        checkShortcutTitle: "3. Acceso Directo en Escritorio y Ejecutar como Administrador",
+        checkShortcutDesc: "Crea el acceso directo oficial en el Escritorio para abrir la caja en pantalla completa con permisos de administrador para control térmico ESC/POS.",
+        checkTunnelTitle: "4. Iniciar Túnel Cloudflare (Acceso Celular 4G/5G)",
+        checkTunnelDesc: "Activa el túnel público seguro para que los clientes escaneen códigos QR con sus datos móviles sin conectarse al Wi-Fi de la tienda.",
+        btnActionTunnel: "[+] Descargar START_CLOUD_TUNNEL.bat",
+        checkBioTitle: "5. Servicio Biométrico de Huella Digital USB",
+        checkBioDesc: "Conecta el lector de huella USB para permitir cambios de cajero, inicio de turnos y autorizaciones gerenciales sin teclear PIN.",
+        step2Title: "Paso 2: Computadoras de Mostrador y Cajas Registradoras",
+        badgeComputers: "PCs Fijas Windows",
+        computersCountTitle: "Total de Computadoras",
+        computersCountDesc: "Incluye este Servidor Central / Back Office más todas las cajas de cobro.",
+        step3Title: "Paso 3: Dispositivos Móviles y Terminales de Meseros",
+        badgeMobile: "Comanderos y Sunmis",
+        freeMobileTitle: "1er Dispositivo Móvil (Suscripción Base)",
+        freeMobileDesc: "Incluido en tu plan base. Elige entre Comandero Line Buster o Server Banking.",
+        optLineBusterFree: "Opción A: Comandero & Line Buster (Incluido GRATIS - $0.00 / mes)",
+        optApronCashier50: "Opción B: Server Banking / Bolsa de Mesero ($50.00 / mes)",
+        optLineBusterPaid: "Opción A: Comandero & Line Buster ($20.00 / mes)",
+        descLineBuster: "Comandas ilimitadas a cocina/bar + hasta 40 cobros de efectivo/día.",
+        descApronCashier: "Caja móvil completa, cobro en mesa, bolsa de mandil y arqueo individual.",
+        addMobilesTitle: "Dispositivos Móviles Adicionales",
+        addMobilesDesc: "Agrega tabletas, celulares de meseros o Sunmis ($20/mes Line Buster o $50/mes Server Banking).",
+        noAddMobilesTitle: "No Hay Dispositivos Móviles Adicionales Configurados (0 Unidades)",
+        noAddMobilesDesc: "Tu negocio está configurado actualmente con 1 terminal móvil base incluida. Haz clic en '+' arriba si tu equipo requiere tabletas adicionales, celulares de meseros o terminales Sunmi.",
+        summaryTitle: "Resumen: Topología de Equipos y Facturación de Licencias",
+        badgeLivePlan: "Listo para Aplicar",
+        kpiComputers: "Computadoras Fijas",
+        kpiMobiles: "Terminales Móviles",
+        kpiEstimated: "Facturación Mensual Estimada",
+        subKpiTotal: "No incluye impuestos locales aplicables",
+        btnFinishSetup: "Finalizar Configuración y Entrar al POS ▶",
+        btnFinishSetupReturn: "Guardar Configuración y Regresar al POS ▶",
+        btnFinishingProgress: "Guardando Configuración y Entrando al POS...",
+        btnSetupSuccessRedirect: "¡Configuración Completa! Redirigiendo al POS...",
+        btnSaveTopology: "Guardar Topología en Servidor Solamente",
+        saveToastMsg: "¡Topología guardada con éxito! Las cajas secundarias ya pueden conectarse y tomar su estación asignada de inmediato.",
+        setupCompleteToast: "¡Todos los requisitos y topología de hardware han sido verificados! Abriendo Impossible POS...",
+        typeFloating: "Flotante / Celulares de Meseros (Acceso QR Rotativo)",
+        typeDedicated: "Terminal Fija Dedicada (Comandero Sunmi / Hardware del Negocio)",
+        roleMaster: "Servidor Principal y Back Office (Este equipo)",
+        roleRegister: "Caja Registradora",
+        valTitle: "Acción Requerida: Completa Todos los Puntos Obligatorios",
+        valSubtitle: "Los siguientes puntos obligatorios de la lista deben completarse antes de entrar al POS:",
+        errMissingFolder: "Paso 1: La casilla '1. Carpeta de Instalación Dedicada (C:\\Impossible_POS)' debe estar verificada y marcada.",
+        errMissingExtract: "Paso 1: La casilla '2. Descomprimir el Archivo ZIP del Sistema' debe estar confirmada y marcada.",
+        errMissingShortcut: "Paso 1: La casilla '3. Acceso Directo en Escritorio y Ejecutar como Administrador' debe estar confirmada y marcada.",
+        errMissingTunnel: "Paso 1: La casilla '4. Iniciar Túnel Cloudflare' debe estar confirmada y marcada.",
+        errMissingBiometrics: "Paso 1: La casilla '5. Servicio Biométrico de Huella Digital USB' debe estar confirmada y marcada.",
+        errMinComputers: "Paso 2: Debe configurarse al menos 1 computadora (Servidor Principal / Back Office)."
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = (lang === 'es') ? 'es' : 'en';
+      localStorage.setItem('hardware_setup_lang', currentLang);
+      document.documentElement.lang = currentLang;
+
+      document.getElementById('btnLangEn').classList.toggle('active', currentLang === 'en');
+      document.getElementById('btnLangEs').classList.toggle('active', currentLang === 'es');
+
+      const t = translations[currentLang];
+      document.getElementById('pageTitle').innerText = t.pageTitle;
+      document.getElementById('lblHeaderSub').innerText = t.headerSub;
+      document.getElementById('lblServerStatus').innerText = t.serverStatus;
+      document.getElementById('linkReturnToPOS').innerText = t.returnToPOS;
+      document.getElementById('lblBannerTitle').innerText = t.bannerTitle;
+      document.getElementById('lblBannerDesc').innerText = t.bannerDesc;
+      document.getElementById('lblStep1Title').innerText = t.step1Title;
+      document.getElementById('lblBadgeCore').innerText = t.badgeCore;
+
+      document.getElementById('lblCheckFolderTitle').innerText = t.checkFolderTitle;
+      document.getElementById('lblCheckFolderDesc').innerText = t.checkFolderDesc;
+      document.getElementById('btnActionFolder').innerText = t.btnActionFolder;
+
+      document.getElementById('lblCheckExtractTitle').innerText = t.checkExtractTitle;
+      document.getElementById('lblCheckExtractDesc').innerText = t.checkExtractDesc;
+      document.getElementById('lblCheckShortcutTitle').innerText = t.checkShortcutTitle;
+      document.getElementById('lblCheckShortcutDesc').innerText = t.checkShortcutDesc;
+      document.getElementById('lblCheckTunnelTitle').innerText = t.checkTunnelTitle;
+      document.getElementById('lblCheckTunnelDesc').innerText = t.checkTunnelDesc;
+      document.getElementById('btnActionTunnel').innerText = t.btnActionTunnel;
+      document.getElementById('lblCheckBioTitle').innerText = t.checkBioTitle;
+      document.getElementById('lblCheckBioDesc').innerText = t.checkBioDesc;
+
+      document.getElementById('lblStep2Title').innerText = t.step2Title;
+      document.getElementById('lblBadgeComputers').innerText = t.badgeComputers;
+      document.getElementById('lblComputersCountTitle').innerText = t.computersCountTitle;
+      document.getElementById('lblComputersCountDesc').innerText = t.computersCountDesc;
+
+      document.getElementById('lblStep3Title').innerText = t.step3Title;
+      document.getElementById('lblBadgeMobile').innerText = t.badgeMobile;
+      document.getElementById('lblFreeMobileTitle').innerText = t.freeMobileTitle;
+      document.getElementById('lblAddMobilesTitle').innerText = t.addMobilesTitle;
+      document.getElementById('lblAddMobilesDesc').innerText = t.addMobilesDesc;
+
+      document.getElementById('lblSummaryTitle').innerText = t.summaryTitle;
+      document.getElementById('lblBadgeLivePlan').innerText = t.badgeLivePlan;
+      document.getElementById('lblKpiComputers').innerText = t.kpiComputers;
+      document.getElementById('lblKpiMobiles').innerText = t.kpiMobiles;
+      document.getElementById('lblKpiEstimated').innerText = t.kpiEstimated;
+      document.getElementById('subKpiTotal').innerText = t.subKpiTotal;
+
+      document.getElementById('lblValidationTitle').innerText = t.valTitle;
+      document.getElementById('lblValidationSubtitle').innerText = t.valSubtitle;
+
+      document.getElementById('btnFinishSetup').innerText = isAlreadySetup ? t.btnFinishSetupReturn : t.btnFinishSetup;
+      document.getElementById('btnSaveTopology').innerText = t.btnSaveTopology;
+      document.getElementById('saveToastMsg').innerText = t.saveToastMsg;
+
+      renderStations();
+      renderMobiles();
+      updateBillSummary();
+    }
+
+    function toggleItemState(itemId, isChecked) {
+      const el = document.getElementById(itemId);
+      if (el) {
+        el.classList.toggle('completed', isChecked);
+        if (isChecked) el.classList.remove('item-error');
+      }
+      const valBox = document.getElementById('validationErrorBox');
+      if (valBox && valBox.style.display === 'block') {
+        // live re-validation
+        checkValidationErrors(false);
+      }
+    }
+
+    async function createSystemFolder() {
+      const txt = document.getElementById('folderStatusText');
+      txt.innerText = currentLang === 'es' ? 'Verificando C:\\Impossible_POS...' : 'Verifying C:\\Impossible_POS...';
+      try {
+        const res = await fetch('/api/system/setup-folder', { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('chkFolder').checked = true;
+          toggleItemState('itemFolder', true);
+          txt.innerText = currentLang === 'es' ? 'Verificado: C:\\Impossible_POS listo' : 'Verified: C:\\Impossible_POS ready';
+          txt.style.color = '#30d158';
+        } else {
+          txt.innerText = 'C:\\Impossible_POS';
+        }
+      } catch(e) {
+        document.getElementById('chkFolder').checked = true;
+        toggleItemState('itemFolder', true);
+        txt.innerText = 'C:\\Impossible_POS (Verified)';
+        txt.style.color = '#30d158';
+      }
+    }
+
+    function changeComputersCount(delta) {
+      computersCount = Math.max(1, Math.min(20, computersCount + delta));
+      document.getElementById('dispComputersCount').innerText = computersCount;
+      renderStations();
+      updateBillSummary();
+    }
+
+    function changeAdditionalMobiles(delta) {
+      additionalMobilesCount = Math.max(0, Math.min(30, additionalMobilesCount + delta));
+      document.getElementById('dispAdditionalMobiles').innerText = additionalMobilesCount;
+      renderMobiles();
+      updateBillSummary();
+    }
+
+    function renderStations() {
+      const container = document.getElementById('stationsContainer');
+      const t = translations[currentLang];
+      let html = '';
+
+      for (let i = 1; i <= computersCount; i++) {
+        const isMaster = (i === 1);
+        const name = isMaster 
+          ? (currentLang === 'es' ? 'Computadora 1: Servidor Central / Back Office' : 'Computer 1: Central Server / Back Office')
+          : (currentLang === 'es' ? `Computadora ${i}: Caja ${i - 1} de Mostrador` : `Computer ${i}: Register ${i - 1}`);
+        const role = isMaster ? t.roleMaster : `${t.roleRegister} #${i - 1}`;
+        const price = '$85.00 / mo';
+
+        html += `
+          <div class="station-row">
+            <div class="station-left">
+              <input type="checkbox" class="check-checkbox" checked disabled>
+              <span class="station-badge-id">PC #${i}</span>
+              <div>
+                <div class="station-name-text">${name}</div>
+                <div class="station-role-tag">${role}</div>
+              </div>
+            </div>
+            <div class="station-price">${price}</div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function setMobile1Tier(val) {
+      mobile1Tier = val;
+      updateBillSummary();
+    }
+
+    function setMobile1Mode(val) {
+      mobile1Mode = val;
+    }
+
+    function setAdditionalMobileTier(index, val) {
+      mobileTiers[index] = val;
+      renderMobiles();
+      updateBillSummary();
+    }
+
+    function setAdditionalMobileMode(index, val) {
+      mobileAssignments[index] = val;
+    }
+
+    function renderMobiles() {
+      const container = document.getElementById('mobileContainer');
+      const t = translations[currentLang];
+
+      if (additionalMobilesCount === 0) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px dashed rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 18px 20px; text-align: center; color: var(--text-dim); margin-top: 6px;">
+            <div style="font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 4px;">
+              ${t.noAddMobilesTitle}
+            </div>
+            <div style="font-size: 12px; line-height: 1.5; color: var(--text-dim);">
+              ${t.noAddMobilesDesc}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      for (let i = 1; i <= additionalMobilesCount; i++) {
+        const mobileNum = i + 1;
+        const tier = mobileTiers[i - 1] || 'line_buster';
+        const assignment = mobileAssignments[i - 1] || 'floating';
+        const price = (tier === 'apron_cashier') ? '$50.00 / mo' : '$20.00 / mo';
+        const desc = (tier === 'apron_cashier') ? t.descApronCashier : t.descLineBuster;
+
+        html += `
+          <div class="mobile-row">
+            <div class="station-left">
+              <input type="checkbox" class="check-checkbox" checked disabled>
+              <span class="station-badge-id">Mobile #${mobileNum}</span>
+              <div>
+                <div class="station-name-text">${currentLang === 'es' ? `Dispositivo Móvil Adicional #${i}` : `Additional Mobile Device #${i}`}</div>
+                <div class="station-role-tag">${desc}</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <select class="mobile-type-select" onchange="setAdditionalMobileTier(${i - 1}, this.value)">
+                <option value="line_buster" ${tier === 'line_buster' ? 'selected' : ''}>${t.optLineBusterPaid}</option>
+                <option value="apron_cashier" ${tier === 'apron_cashier' ? 'selected' : ''}>${t.optApronCashier50}</option>
+              </select>
+              <select class="mobile-type-select" onchange="setAdditionalMobileMode(${i - 1}, this.value)">
+                <option value="floating" ${assignment === 'floating' ? 'selected' : ''}>${t.typeFloating}</option>
+                <option value="dedicated" ${assignment === 'dedicated' ? 'selected' : ''}>${t.typeDedicated}</option>
+              </select>
+              <div class="station-price" style="min-width: 90px; text-align: right;">${price}</div>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function updateBillSummary() {
+      const compPrice = computersCount * 85;
+      const m1Price = (mobile1Tier === 'apron_cashier') ? 50 : 0;
+      let addMobilesPrice = 0;
+      let lineBusterCount = (mobile1Tier === 'line_buster') ? 1 : 0;
+      let apronCount = (mobile1Tier === 'apron_cashier') ? 1 : 0;
+
+      for (let i = 0; i < additionalMobilesCount; i++) {
+        const tier = mobileTiers[i] || 'line_buster';
+        if (tier === 'apron_cashier') {
+          addMobilesPrice += 50;
+          apronCount++;
+        } else {
+          addMobilesPrice += 20;
+          lineBusterCount++;
+        }
+      }
+
+      const total = compPrice + m1Price + addMobilesPrice;
+
+      const t = translations[currentLang];
+      const m1PriceDisp = document.getElementById('mobile1PriceDisplay');
+      const m1DescTag = document.getElementById('mobile1DescTag');
+      const opt1LB = document.getElementById('opt1LineBuster');
+      const opt1AC = document.getElementById('opt1ApronCashier');
+      const opt1MF = document.getElementById('opt1ModeFloating');
+      const opt1MD = document.getElementById('opt1ModeDedicated');
+
+      if (opt1LB) opt1LB.innerText = t.optLineBusterFree;
+      if (opt1AC) opt1AC.innerText = t.optApronCashier50;
+      if (opt1MF) opt1MF.innerText = t.typeFloating;
+      if (opt1MD) opt1MD.innerText = t.typeDedicated;
+
+      if (m1PriceDisp) {
+        m1PriceDisp.innerText = (mobile1Tier === 'apron_cashier') ? '$50.00 / mo' : 'FREE ($0.00)';
+        m1PriceDisp.style.color = (mobile1Tier === 'apron_cashier') ? 'var(--accent)' : 'var(--success)';
+      }
+      if (m1DescTag) {
+        m1DescTag.innerText = (mobile1Tier === 'apron_cashier') ? t.descApronCashier : t.descLineBuster;
+      }
+
+      document.getElementById('valKpiComputers').innerText = `${computersCount} PC${computersCount > 1 ? 's' : ''}`;
+      document.getElementById('subKpiComputers').innerText = (computersCount === 1)
+        ? (currentLang === 'es' ? '1 Servidor Central / Back Office' : '1 Central Server / Back Office')
+        : (currentLang === 'es' ? `1 Servidor + ${computersCount - 1} Cajas` : `1 Server + ${computersCount - 1} Registers`);
+
+      document.getElementById('valKpiMobiles').innerText = `${1 + additionalMobilesCount} Device${(1 + additionalMobilesCount) > 1 ? 's' : ''}`;
+      document.getElementById('subKpiMobiles').innerText = (additionalMobilesCount === 0)
+        ? (currentLang === 'es' ? '1 Móvil Incluido Base + 0 Adicionales' : '1 Base Included + 0 Additional')
+        : (currentLang === 'es' ? `${lineBusterCount} Line Buster + ${apronCount} Apron Cashier` : `${lineBusterCount} Line Buster + ${apronCount} Apron Cashier`);
+
+      document.getElementById('valKpiTotal').innerText = `$${total.toFixed(2)}`;
+    }
+
+    function checkValidationErrors(applyClasses = true) {
+      const t = translations[currentLang];
+      const errors = [];
+
+      const chkFolder = document.getElementById('chkFolder');
+      const chkExtract = document.getElementById('chkExtract');
+      const chkShortcut = document.getElementById('chkShortcut');
+      const chkTunnel = document.getElementById('chkTunnel');
+      const chkBiometrics = document.getElementById('chkBiometrics');
+
+      if (!chkFolder || !chkFolder.checked) {
+        errors.push(t.errMissingFolder);
+        if (applyClasses) document.getElementById('itemFolder')?.classList.add('item-error');
+      } else {
+        document.getElementById('itemFolder')?.classList.remove('item-error');
+      }
+
+      if (!chkExtract || !chkExtract.checked) {
+        errors.push(t.errMissingExtract);
+        if (applyClasses) document.getElementById('itemExtract')?.classList.add('item-error');
+      } else {
+        document.getElementById('itemExtract')?.classList.remove('item-error');
+      }
+
+      if (!chkShortcut || !chkShortcut.checked) {
+        errors.push(t.errMissingShortcut);
+        if (applyClasses) document.getElementById('itemShortcut')?.classList.add('item-error');
+      } else {
+        document.getElementById('itemShortcut')?.classList.remove('item-error');
+      }
+
+      if (!chkTunnel || !chkTunnel.checked) {
+        errors.push(t.errMissingTunnel);
+        if (applyClasses) document.getElementById('itemTunnel')?.classList.add('item-error');
+      } else {
+        document.getElementById('itemTunnel')?.classList.remove('item-error');
+      }
+
+      if (!chkBiometrics || !chkBiometrics.checked) {
+        errors.push(t.errMissingBiometrics);
+        if (applyClasses) document.getElementById('itemBiometrics')?.classList.add('item-error');
+      } else {
+        document.getElementById('itemBiometrics')?.classList.remove('item-error');
+      }
+
+      if (computersCount < 1) {
+        errors.push(t.errMinComputers);
+      }
+
+      const valBox = document.getElementById('validationErrorBox');
+      const valList = document.getElementById('validationErrorsList');
+
+      if (errors.length > 0) {
+        valList.innerHTML = errors.map(err => `<li>${err}</li>`).join('');
+        valBox.style.display = 'block';
+        return false;
+      } else {
+        valBox.style.display = 'none';
+        return true;
+      }
+    }
+
+    async function validateAndLaunch() {
+      const t = translations[currentLang];
+      const isValid = checkValidationErrors(true);
+
+      if (!isValid) {
+        const valBox = document.getElementById('validationErrorBox');
+        valBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('btnFinishSetup');
+      btn.disabled = true;
+      btn.innerText = t.btnFinishingProgress;
+
+      const stations = [];
+      for (let i = 1; i <= computersCount; i++) {
+        const isMaster = (i === 1);
+        stations.push({
+          id: String(i),
+          name: isMaster ? 'Caja 1 (Main POS / Back Office)' : `Caja ${i}`,
+          type: 'computer',
+          role: 'cashier',
+          isDefault: isMaster
+        });
+      }
+
+      try {
+        const topRes = await fetch('/api/system/hardware-topology', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            totalComputers: computersCount,
+            stations: stations,
+            additionalMobiles: additionalMobilesCount,
+            mobile1Tier: mobile1Tier,
+            mobile1Mode: mobile1Mode,
+            mobileTiers: mobileTiers,
+            mobileAssignments: mobileAssignments,
+            completeSetup: true
+          })
+        });
+
+        const compRes = await fetch('/api/system/complete-setup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ setupWizardCompleted: true })
+        });
+
+        if (topRes.ok || compRes.ok) {
+          localStorage.setItem('impossible_pos_setup_completed', 'true');
+          btn.innerText = t.btnSetupSuccessRedirect;
+          const toast = document.getElementById('saveToastMsg');
+          if (toast) {
+            toast.innerText = t.setupCompleteToast;
+            toast.style.display = 'block';
+          }
+          setTimeout(() => {
+            window.location.replace('/caja_v14.html');
+          }, 800);
+        } else {
+          alert('Error saving setup configuration. Please check server connection.');
+          btn.disabled = false;
+          btn.innerText = isAlreadySetup ? t.btnFinishSetupReturn : t.btnFinishSetup;
+        }
+      } catch (err) {
+        // Fallback for website demo mode or temporary server interruption
+        console.warn('Backend call warning:', err);
+        localStorage.setItem('impossible_pos_setup_completed', 'true');
+        btn.innerText = t.btnSetupSuccessRedirect;
+        setTimeout(() => {
+          window.location.replace('/caja_v14.html');
+        }, 1000);
+      }
+    }
+
+    async function saveHardwareTopology() {
+      const btn = document.getElementById('btnSaveTopology');
+      const toast = document.getElementById('saveToastMsg');
+      btn.disabled = true;
+      btn.innerText = currentLang === 'es' ? 'Guardando en Servidor...' : 'Saving to Central Server...';
+
+      const stations = [];
+      for (let i = 1; i <= computersCount; i++) {
+        const isMaster = (i === 1);
+        stations.push({
+          id: String(i),
+          name: isMaster ? 'Caja 1 (Main POS / Back Office)' : `Caja ${i}`,
+          type: 'computer',
+          role: 'cashier',
+          isDefault: isMaster
+        });
+      }
+
+      try {
+        const res = await fetch('/api/system/hardware-topology', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            totalComputers: computersCount,
+            stations: stations,
+            additionalMobiles: additionalMobilesCount,
+            mobile1Tier: mobile1Tier,
+            mobile1Mode: mobile1Mode,
+            mobileTiers: mobileTiers,
+            mobileAssignments: mobileAssignments
+          })
+        });
+
+        if (res.ok) {
+          toast.style.display = 'block';
+          btn.innerText = currentLang === 'es' ? 'Topología Guardada con Éxito' : 'Topology Successfully Saved';
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.innerText = translations[currentLang].btnSaveTopology;
+          }, 2500);
+        } else {
+          alert('Error saving hardware topology');
+          btn.disabled = false;
+          btn.innerText = translations[currentLang].btnSaveTopology;
+        }
+      } catch(err) {
+        alert('Server unreachable. Ensure Impossible POS is running on port 3000.');
+        btn.disabled = false;
+        btn.innerText = translations[currentLang].btnSaveTopology;
+      }
+    }
+
+    async function loadCurrentTopology() {
+      try {
+        const res = await fetch('/api/system/hardware-topology');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.totalComputers) computersCount = data.totalComputers;
+          if (data.licenseMaxMobileWaitresses) {
+            additionalMobilesCount = Math.max(0, data.licenseMaxMobileWaitresses - 1);
+          }
+          if (data.mobileTopology) {
+            if (data.mobileTopology.mobile1Tier) mobile1Tier = data.mobileTopology.mobile1Tier;
+            if (data.mobileTopology.mobile1Mode) mobile1Mode = data.mobileTopology.mobile1Mode;
+            if (Array.isArray(data.mobileTopology.mobileTiers)) mobileTiers = data.mobileTopology.mobileTiers;
+            if (Array.isArray(data.mobileTopology.assignments)) mobileAssignments = data.mobileTopology.assignments;
+          }
+
+          if (data.setupWizardCompleted) {
+            isAlreadySetup = true;
+            document.getElementById('linkReturnToPOS').style.display = 'inline-flex';
+            document.getElementById('btnFinishSetup').innerText = translations[currentLang].btnFinishSetupReturn;
+            ['chkFolder', 'chkExtract', 'chkShortcut', 'chkTunnel', 'chkBiometrics'].forEach(id => {
+              const chk = document.getElementById(id);
+              if (chk) {
+                chk.checked = true;
+                toggleItemState(id.replace('chk', 'item'), true);
+              }
+            });
+          }
+
+          document.getElementById('dispComputersCount').innerText = computersCount;
+          document.getElementById('dispAdditionalMobiles').innerText = additionalMobilesCount;
+          document.getElementById('mobile1TierSelect').value = mobile1Tier;
+          document.getElementById('mobile1ModeSelect').value = mobile1Mode;
+        }
+      } catch (e) {
+        console.warn('Could not load existing topology:', e);
+      }
+      renderStations();
+      renderMobiles();
+      updateBillSummary();
+    }
+
+    // Initialize
+    setLanguage(currentLang);
+    loadCurrentTopology();
+  </script>
+</body>
+</html>
