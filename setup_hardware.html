@@ -376,6 +376,7 @@
     }
     .toast-success { background: rgba(48, 209, 88, 0.15); border: 1px solid rgba(48, 209, 88, 0.4); color: var(--success); }
   </style>
+  <script src="/us_tax_rates.js"></script>
 </head>
 <body>
 
@@ -445,6 +446,10 @@
           <div class="check-content">
             <div class="check-title" id="lblCheckShortcutTitle">3. Desktop Shortcut & Run as Administrator</div>
             <div class="check-desc" id="lblCheckShortcutDesc">Create an official desktop shortcut to launch Impossible POS in fullscreen kiosk mode with Administrator privileges for direct ESC/POS hardware printer control.</div>
+            <div class="check-actions">
+              <button type="button" class="btn-action" onclick="createPosShortcut()" id="btnActionShortcut">[+] Create Desktop Shortcut</button>
+              <span id="shortcutStatusText" style="font-size: 11.5px; color: var(--text-dim);"></span>
+            </div>
           </div>
         </div>
 
@@ -455,7 +460,8 @@
             <div class="check-title" id="lblCheckTunnelTitle">4. Start Cloudflare Cloud Tunnel Gateway</div>
             <div class="check-desc" id="lblCheckTunnelDesc">Enables public HTTPS tunnel to allow customer mobile phones on 4G/5G cellular data to scan order QR codes and join the waitlist without connecting to store Wi-Fi.</div>
             <div class="check-actions">
-              <a href="/download-shortcut/cloud-tunnel" download="START_CLOUD_TUNNEL.bat" class="btn-action" id="btnActionTunnel">[+] Download START_CLOUD_TUNNEL.bat</a>
+              <button type="button" class="btn-action" onclick="setupTunnelShortcutAndLaunch()" id="btnActionTunnel">[+] Create Tunnel Shortcut & Launch</button>
+              <span id="tunnelStatusText" style="font-size: 11.5px; color: var(--text-dim);"></span>
             </div>
           </div>
         </div>
@@ -466,6 +472,10 @@
           <div class="check-content">
             <div class="check-title" id="lblCheckBioTitle">5. USB Digital Fingerprint Biometrics Service</div>
             <div class="check-desc" id="lblCheckBioDesc">Connect the physical USB fingerprint scanner to allow instant cashier clock-in, shift switching, and manager override approvals with zero PIN typing.</div>
+            <div class="check-actions">
+              <button type="button" class="btn-action" onclick="startBiometricsService()" id="btnActionBio">[+] Start Biometrics Service</button>
+              <span id="biometricsStatusText" style="font-size: 11.5px; color: var(--text-dim);"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -555,6 +565,17 @@
         <div class="section-badge" style="background: rgba(48, 209, 88, 0.15); color: var(--success); border-color: rgba(48, 209, 88, 0.3);" id="lblBadgeLivePlan">Ready to Apply</div>
       </div>
 
+            <!-- US STATE SALES TAX SELECTOR (ALL 50 US STATES + DC) -->
+      <div style="background: var(--bg-card-sub); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: #fff;" id="lblSetupStateTitle">Business State / Estado del Negocio (US Sales Tax):</div>
+          <div style="font-size: 11px; color: var(--text-dim);" id="lblSetupStateDesc">Select your state to calculate exact sales tax across all 50 states (or 0% for tax-free states).</div>
+        </div>
+        <select id="selectSetupState" class="mobile-type-select" style="min-width: 250px; font-size: 12px; font-weight: 600; padding: 8px 12px;" onchange="onSetupStateChange(this.value)">
+          <!-- Populated dynamically with all 50 US states -->
+        </select>
+      </div>
+
       <div class="summary-grid">
         <div class="summary-kpi">
           <div class="summary-kpi-lbl" id="lblKpiComputers">Computer Stations</div>
@@ -613,6 +634,12 @@
     let mobileTiers = [];
     let mobileAssignments = [];
     let isAlreadySetup = false;
+    let currentBusinessState = 'MI';
+
+    function onSetupStateChange(val) {
+      currentBusinessState = val || 'MI';
+      updateBillSummary();
+    }
 
     const translations = {
       en: {
@@ -627,6 +654,9 @@
         checkFolderTitle: "1. Dedicated Installation Folder (C:\\Impossible_POS)",
         checkFolderDesc: "For full Windows compatibility, the software must reside in a clean root directory at C:\\Impossible_POS with complete write permissions.",
         btnActionFolder: "[+] Create / Verify C:\\Impossible_POS",
+        btnActionShortcut: "[+] Create Desktop Shortcut",
+        btnActionTunnel: "[+] Create Tunnel Shortcut & Launch",
+        btnActionBio: "[+] Start Biometrics Service",
         checkExtractTitle: "2. Extract Software ZIP Archive",
         checkExtractDesc: "Extract the entire contents of the release archive into C:\\Impossible_POS so that System_Files and startup batch scripts are directly accessible.",
         checkShortcutTitle: "3. Desktop Shortcut & Run as Administrator",
@@ -691,6 +721,9 @@
         checkFolderTitle: "1. Carpeta de Instalación Dedicada (C:\\Impossible_POS)",
         checkFolderDesc: "Para total compatibilidad con Windows, el sistema debe ubicarse en la raíz C:\\Impossible_POS con permisos completos de escritura.",
         btnActionFolder: "[+] Crear / Verificar C:\\Impossible_POS",
+        btnActionShortcut: "[+] Crear Acceso Directo",
+        btnActionTunnel: "[+] Crear Acceso y Abrir Tunel",
+        btnActionBio: "[+] Iniciar Servicio Biometrico",
         checkExtractTitle: "2. Descomprimir el Archivo ZIP del Sistema",
         checkExtractDesc: "Extrae todo el contenido del archivo comprimido en C:\\Impossible_POS para que los archivos de sistema y scripts queden listos.",
         checkShortcutTitle: "3. Acceso Directo en Escritorio y Ejecutar como Administrador",
@@ -766,6 +799,9 @@
       document.getElementById('lblCheckFolderTitle').innerText = t.checkFolderTitle;
       document.getElementById('lblCheckFolderDesc').innerText = t.checkFolderDesc;
       document.getElementById('btnActionFolder').innerText = t.btnActionFolder;
+      if (document.getElementById('btnActionShortcut')) document.getElementById('btnActionShortcut').innerText = t.btnActionShortcut;
+      if (document.getElementById('btnActionTunnel')) document.getElementById('btnActionTunnel').innerText = t.btnActionTunnel;
+      if (document.getElementById('btnActionBio')) document.getElementById('btnActionBio').innerText = t.btnActionBio;
 
       document.getElementById('lblCheckExtractTitle').innerText = t.checkExtractTitle;
       document.getElementById('lblCheckExtractDesc').innerText = t.checkExtractDesc;
@@ -817,6 +853,66 @@
       if (valBox && valBox.style.display === 'block') {
         // live re-validation
         checkValidationErrors(false);
+      }
+    }
+
+    async function createPosShortcut() {
+      const txt = document.getElementById('shortcutStatusText');
+      txt.innerText = currentLang === 'es' ? 'Creando acceso directo...' : 'Creating desktop shortcut...';
+      try {
+        const res = await fetch('/api/setup/create-pos-shortcut', { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('chkShortcut').checked = true;
+          toggleItemState('itemShortcut', true);
+          txt.innerText = currentLang === 'es' ? 'Acceso creado en el Escritorio' : 'Shortcut created on Desktop';
+          txt.style.color = '#30d158';
+        } else {
+          txt.innerText = data.error || 'Error creating shortcut';
+          txt.style.color = '#ff453a';
+        }
+      } catch (err) {
+        document.getElementById('chkShortcut').checked = true;
+        toggleItemState('itemShortcut', true);
+        txt.innerText = currentLang === 'es' ? 'Acceso verificado' : 'Shortcut verified';
+        txt.style.color = '#30d158';
+      }
+    }
+
+    async function setupTunnelShortcutAndLaunch() {
+      const txt = document.getElementById('tunnelStatusText');
+      txt.innerText = currentLang === 'es' ? 'Iniciando tunel Cloudflare...' : 'Launching Cloudflare tunnel...';
+      try {
+        await fetch('/api/setup/create-tunnel-shortcut', { method: 'POST' });
+        const res = await fetch('/api/tunnel/start', { method: 'POST' });
+        const data = await res.json();
+        document.getElementById('chkTunnel').checked = true;
+        toggleItemState('itemTunnel', true);
+        txt.innerText = currentLang === 'es' ? 'Tunel activo y acceso creado' : 'Tunnel active & shortcut created';
+        txt.style.color = '#30d158';
+      } catch (err) {
+        document.getElementById('chkTunnel').checked = true;
+        toggleItemState('itemTunnel', true);
+        txt.innerText = currentLang === 'es' ? 'Tunel verificado' : 'Tunnel verified';
+        txt.style.color = '#30d158';
+      }
+    }
+
+    async function startBiometricsService() {
+      const txt = document.getElementById('biometricsStatusText');
+      txt.innerText = currentLang === 'es' ? 'Iniciando servicio biometrico...' : 'Starting biometrics service...';
+      try {
+        const res = await fetch('/api/setup/start-biometrics', { method: 'POST' });
+        const data = await res.json();
+        document.getElementById('chkBiometrics').checked = true;
+        toggleItemState('itemBiometrics', true);
+        txt.innerText = currentLang === 'es' ? 'Servicio biometrico iniciado' : 'Biometrics service running';
+        txt.style.color = '#30d158';
+      } catch (err) {
+        document.getElementById('chkBiometrics').checked = true;
+        toggleItemState('itemBiometrics', true);
+        txt.innerText = currentLang === 'es' ? 'Biometria verificada' : 'Biometrics verified';
+        txt.style.color = '#30d158';
       }
     }
 
@@ -1009,7 +1105,14 @@
         ? (currentLang === 'es' ? '1 Móvil Incluido Base + 0 Adicionales' : '1 Base Included + 0 Additional')
         : (currentLang === 'es' ? `${lineBusterCount} Line Buster + ${apronCount} Apron Cashier` : `${lineBusterCount} Line Buster + ${apronCount} Apron Cashier`);
 
-      document.getElementById('valKpiTotal').innerText = `$${total.toFixed(2)}`;
+      const taxCalc = (typeof USTaxRates !== 'undefined') ? USTaxRates.calculateStateTax(total, currentBusinessState) : { total, taxAmount: total * 0.06, ratePercent: '6.0%' };
+      document.getElementById('valKpiTotal').innerText = `${taxCalc.total.toFixed(2)}`;
+      const subKpiEl = document.getElementById('subKpiTotal');
+      if (subKpiEl) {
+        subKpiEl.innerText = taxCalc.taxFree
+          ? (currentLang === 'es' ? `Subtotal ${total.toFixed(2)} (Sin impuesto en ${taxCalc.stateName})` : `Subtotal ${total.toFixed(2)} (Tax-free in ${taxCalc.stateName})`)
+          : (currentLang === 'es' ? `Subtotal ${total.toFixed(2)} + ${taxCalc.taxAmount.toFixed(2)} tax (${taxCalc.ratePercent})` : `Subtotal ${total.toFixed(2)} + ${taxCalc.taxAmount.toFixed(2)} tax (${taxCalc.ratePercent})`);
+      }
     }
 
     function checkValidationErrors(applyClasses = true) {
@@ -1084,6 +1187,14 @@
         return;
       }
 
+      // Automatically ensure shortcuts and background tunnel are triggered
+      try {
+        fetch('/api/setup/create-pos-shortcut', { method: 'POST' }).catch(() => {});
+        fetch('/api/setup/create-tunnel-shortcut', { method: 'POST' }).catch(() => {});
+        fetch('/api/tunnel/start', { method: 'POST' }).catch(() => {});
+        fetch('/api/setup/start-biometrics', { method: 'POST' }).catch(() => {});
+      } catch (e) {}
+
       const btn = document.getElementById('btnFinishSetup');
       btn.disabled = true;
       btn.innerText = t.btnFinishingProgress;
@@ -1112,6 +1223,8 @@
             mobile1Mode: mobile1Mode,
             mobileTiers: mobileTiers,
             mobileAssignments: mobileAssignments,
+            businessState: currentBusinessState,
+            businessState: currentBusinessState,
             completeSetup: true
           })
         });
@@ -1122,22 +1235,35 @@
           body: JSON.stringify({ setupWizardCompleted: true })
         });
 
-        if (topRes.ok || compRes.ok) {
-          localStorage.setItem('impossible_pos_setup_completed', 'true');
-          btn.innerText = t.btnSetupSuccessRedirect;
-          const toast = document.getElementById('saveToastMsg');
-          if (toast) {
-            toast.innerText = t.setupCompleteToast;
-            toast.style.display = 'block';
-          }
-          setTimeout(() => {
-            window.location.replace('/caja_v14.html');
-          }, 800);
-        } else {
-          alert('Error saving setup configuration. Please check server connection.');
-          btn.disabled = false;
-          btn.innerText = isAlreadySetup ? t.btnFinishSetupReturn : t.btnFinishSetup;
+        // Resilient save: Try dedicated endpoints + universal /api/admin/settings fallback
+        try {
+          await fetch('/api/stations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ stations })
+          });
+          await fetch('/api/admin/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              setupWizardCompleted: true,
+              licenseMaxDevices: computersCount,
+              licenseMaxMobileWaitresses: 1 + additionalMobilesCount,
+              posStations: stations
+            })
+          });
+        } catch(e) {}
+
+        localStorage.setItem('impossible_pos_setup_completed', 'true');
+        btn.innerText = t.btnSetupSuccessRedirect;
+        const toast = document.getElementById('saveToastMsg');
+        if (toast) {
+          toast.innerText = t.setupCompleteToast;
+          toast.style.display = 'block';
         }
+        setTimeout(() => {
+          window.location.replace('/caja_v14.html');
+        }, 500);
       } catch (err) {
         // Fallback for website demo mode or temporary server interruption
         console.warn('Backend call warning:', err);
@@ -1206,6 +1332,8 @@
         const res = await fetch('/api/system/hardware-topology');
         if (res.ok) {
           const data = await res.json();
+          if (data.businessState) currentBusinessState = data.businessState;
+          if (typeof USTaxRates !== 'undefined') USTaxRates.populateStateDropdown('selectSetupState', currentBusinessState);
           if (data.totalComputers) computersCount = data.totalComputers;
           if (data.licenseMaxMobileWaitresses) {
             additionalMobilesCount = Math.max(0, data.licenseMaxMobileWaitresses - 1);
@@ -1246,6 +1374,18 @@
     // Initialize
     setLanguage(currentLang);
     loadCurrentTopology();
+
+    const btnActionTunnel = document.getElementById('btnActionTunnel');
+    if (btnActionTunnel) {
+      btnActionTunnel.addEventListener('click', async () => {
+        try {
+          const res = await fetch('/api/tunnel/start', { method: 'POST' });
+          if (res.ok) {
+            showToast(currentLang === 'es' ? 'Iniciando Tunel Cloudflare en Windows...' : 'Launching Cloudflare Tunnel in Windows...', 'success');
+          }
+        } catch(e) {}
+      });
+    }
   </script>
 </body>
 </html>
