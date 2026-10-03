@@ -25,18 +25,29 @@
 
 Impossible POS is built for immediate deployment in under 60 seconds with zero technical complexity.
 
-### A. Windows Setup (Native .exe Application)
-1. Download the `Impossible_POS_v1.0.zip` package.
-2. Right-click and choose **Extract All** to `C:\Impossible_POS`.
-3. Double-click `2_CREATE_DESKTOP_SHORTCUT.bat` to place official high-resolution shortcuts on your desktop.
-4. Run `OPEN_FIREWALL_PORTS.bat` as Administrator once to permit local Wi-Fi communication with waiter tablets and kitchen displays.
-5. Launch the POS by double-clicking **Impossible_POS.exe**. The register opens immediately in full screen!
+### A. Windows Setup (Main Master Server)
+1. Create a dedicated folder directly on your C: Drive: `C:\ImpossiblePOS` (or `C:\Impossible_POS`).
+2. Download the `Impossible_POS_v1.3.4.zip` package.
+3. Right-click and choose **Extract All** into `C:\ImpossiblePOS`.
+4. Double-click `1_INSTALL_NODEJS_REQUIREMENT.bat` if Node.js is not yet installed on this PC.
+5. Double-click `2_CREATE_DESKTOP_SHORTCUT.bat` to place the official high-resolution cashier icon on your desktop.
+6. Right-click `OPEN_FIREWALL_PORTS.bat` and select **Run as Administrator** to permit local Wi-Fi communication with waiter tablets and kitchen displays.
+7. Launch the POS by double-clicking **Impossible_POS.exe**. The register opens immediately in full screen!
 
-### B. Android Tablets & iPads (Kiosk Mode)
-1. Connect the tablet to the restaurant's local Wi-Fi router.
-2. Open Google Chrome and navigate to the Main Server IP (e.g. `http://192.168.1.50:3000`).
-3. Tap the Chrome menu icon `(⋮)` in the upper-right corner and choose **"Install App"** (or "Add to Home Screen").
-4. Launch it from the Android home screen: it opens in **100% Full-Screen Kiosk Mode** without browser navigation bars.
+### B. Installing Secondary Workstations (Kitchen KDS, Bar, Photo Hub, TV, Runner, Hostess, Cashier 2)
+On any secondary computer (connected to the same Wi-Fi/Ethernet network):
+1. Open Google Chrome or Microsoft Edge and navigate to:
+   `http://<SERVER_IP>:3000/kiosco.html`
+   *(Or click " Kiosk Shortcuts" inside the POS register's Link Devices / Back Office window).*
+2. Click **" Install Kiosk on this PC"** for the station you need.
+3. Run the downloaded `.bat` installer. It will automatically detect Edge or Chrome, copy the official station `.ico` icon, and create a **fullscreen Kiosk Desktop Shortcut** with zero browser borders and no Microsoft Edge 'E' icon!
+4. Alternatively, copy the folder `Descargar Acceso Directo Kiosco` via USB flash drive from `C:\ImpossiblePOS` and run the station script directly.
+
+### C. Android Tablets, Sunmi Handhelds & iPads (Zero App Installs)
+1. Connect the mobile device to the restaurant's local Wi-Fi router.
+2. In the Main POS register header, tap the green button **" Link Devices"**.
+3. Point the Sunmi barcode scanner or smartphone camera at the assigned QR code (Waiters, Kitchen, or Reports).
+4. The live ordering application opens instantly in full screen with zero app store downloads needed!
 
 ---
 
