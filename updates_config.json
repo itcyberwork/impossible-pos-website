@@ -3,5 +3,5 @@
   "releaseNotes": "Actualizacion Oficial v1.3.6:\n- Modulo Fiscal para los 50 Estados de EE.UU. (calculo exacto de sales tax en licencias y suscripciones).\n- Sincronizacion bidireccional de Hardware Topology entre asistente inicial y ajustes de caja.\n- Desglose dinamico de estaciones y facturacion por Zelle adaptado a la topologia de la tienda.\n- Sistema de rondas consecutivas de cocina para mesas (1007-A, 1007-B) con auditoria de origen.\n- Acceso directo con auto-arranque silencioso de tunel Cloudflare y biometria USB.",
   "mandatory": false,
   "patchFileName": "patch-1.3.6.zip",
-  "updatedAt": "2026-10-03T21:27:08.780Z"
+  "updatedAt": "2026-10-03T21:37:08.970Z"
 }
