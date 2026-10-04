@@ -420,7 +420,7 @@
       <div class="checklist-grid">
         <!-- 1. Folder Setup -->
         <div class="check-item" id="itemFolder">
-          <input type="checkbox" class="check-checkbox" id="chkFolder" onchange="toggleItemState('itemFolder', this.checked)">
+          <input type="checkbox" class="check-checkbox" id="chkFolder" onchange="onToggleFolder(this.checked)">
           <div class="check-content">
             <div class="check-title" id="lblCheckFolderTitle">1. Dedicated Installation Folder (C:\Impossible_POS)</div>
             <div class="check-desc" id="lblCheckFolderDesc">For full Windows compatibility, the software must reside in a clean root directory at C:\Impossible_POS with complete write permissions.</div>
@@ -442,7 +442,7 @@
 
         <!-- 3. Desktop Shortcut -->
         <div class="check-item" id="itemShortcut">
-          <input type="checkbox" class="check-checkbox" id="chkShortcut" onchange="toggleItemState('itemShortcut', this.checked)">
+          <input type="checkbox" class="check-checkbox" id="chkShortcut" onchange="onToggleShortcut(this.checked)">
           <div class="check-content">
             <div class="check-title" id="lblCheckShortcutTitle">3. Desktop Shortcut & Run as Administrator</div>
             <div class="check-desc" id="lblCheckShortcutDesc">Create an official desktop shortcut to launch Impossible POS in fullscreen kiosk mode with Administrator privileges for direct ESC/POS hardware printer control.</div>
@@ -455,7 +455,7 @@
 
         <!-- 4. Cloudflare Cloud Tunnel -->
         <div class="check-item" id="itemTunnel">
-          <input type="checkbox" class="check-checkbox" id="chkTunnel" onchange="toggleItemState('itemTunnel', this.checked)">
+          <input type="checkbox" class="check-checkbox" id="chkTunnel" onchange="onToggleTunnel(this.checked)">
           <div class="check-content">
             <div class="check-title" id="lblCheckTunnelTitle">4. Start Cloudflare Cloud Tunnel Gateway</div>
             <div class="check-desc" id="lblCheckTunnelDesc">Enables public HTTPS tunnel to allow customer mobile phones on 4G/5G cellular data to scan order QR codes and join the waitlist without connecting to store Wi-Fi.</div>
@@ -468,7 +468,7 @@
 
         <!-- 5. USB Biometrics Service -->
         <div class="check-item" id="itemBiometrics">
-          <input type="checkbox" class="check-checkbox" id="chkBiometrics" onchange="toggleItemState('itemBiometrics', this.checked)">
+          <input type="checkbox" class="check-checkbox" id="chkBiometrics" onchange="onToggleBiometrics(this.checked)">
           <div class="check-content">
             <div class="check-title" id="lblCheckBioTitle">5. USB Digital Fingerprint Biometrics Service</div>
             <div class="check-desc" id="lblCheckBioDesc">Connect the physical USB fingerprint scanner to allow instant cashier clock-in, shift switching, and manager override approvals with zero PIN typing.</div>
@@ -663,7 +663,6 @@
         checkShortcutDesc: "Create an official desktop shortcut to launch Impossible POS in fullscreen kiosk mode with Administrator privileges for direct ESC/POS hardware printer control.",
         checkTunnelTitle: "4. Start Cloudflare Cloud Tunnel Gateway",
         checkTunnelDesc: "Enables public HTTPS tunnel to allow customer mobile phones on 4G/5G cellular data to scan order QR codes and join the waitlist without connecting to store Wi-Fi.",
-        btnActionTunnel: "[+] Download START_CLOUD_TUNNEL.bat",
         checkBioTitle: "5. USB Digital Fingerprint Biometrics Service",
         checkBioDesc: "Connect the physical USB fingerprint scanner to allow instant cashier clock-in, shift switching, and manager override approvals with zero PIN typing.",
         step2Title: "Step 2: Computer Stations & Counter Registers",
@@ -730,7 +729,6 @@
         checkShortcutDesc: "Crea el acceso directo oficial en el Escritorio para abrir la caja en pantalla completa con permisos de administrador para control térmico ESC/POS.",
         checkTunnelTitle: "4. Iniciar Túnel Cloudflare (Acceso Celular 4G/5G)",
         checkTunnelDesc: "Activa el túnel público seguro para que los clientes escaneen códigos QR con sus datos móviles sin conectarse al Wi-Fi de la tienda.",
-        btnActionTunnel: "[+] Descargar START_CLOUD_TUNNEL.bat",
         checkBioTitle: "5. Servicio Biométrico de Huella Digital USB",
         checkBioDesc: "Conecta el lector de huella USB para permitir cambios de cajero, inicio de turnos y autorizaciones gerenciales sin teclear PIN.",
         step2Title: "Paso 2: Computadoras de Mostrador y Cajas Registradoras",
@@ -841,6 +839,34 @@
       renderStations();
       renderMobiles();
       updateBillSummary();
+    }
+
+    async function onToggleFolder(checked) {
+      toggleItemState('itemFolder', checked);
+      if (checked) {
+        await createSystemFolder();
+      }
+    }
+
+    async function onToggleShortcut(checked) {
+      toggleItemState('itemShortcut', checked);
+      if (checked) {
+        await createPosShortcut();
+      }
+    }
+
+    async function onToggleTunnel(checked) {
+      toggleItemState('itemTunnel', checked);
+      if (checked) {
+        await setupTunnelShortcutAndLaunch();
+      }
+    }
+
+    async function onToggleBiometrics(checked) {
+      toggleItemState('itemBiometrics', checked);
+      if (checked) {
+        await startBiometricsService();
+      }
     }
 
     function toggleItemState(itemId, isChecked) {
@@ -1187,16 +1213,25 @@
         return;
       }
 
-      // Automatically ensure shortcuts and background tunnel are triggered
-      try {
-        fetch('/api/setup/create-pos-shortcut', { method: 'POST' }).catch(() => {});
-        fetch('/api/setup/create-tunnel-shortcut', { method: 'POST' }).catch(() => {});
-        fetch('/api/tunnel/start', { method: 'POST' }).catch(() => {});
-        fetch('/api/setup/start-biometrics', { method: 'POST' }).catch(() => {});
-      } catch (e) {}
-
       const btn = document.getElementById('btnFinishSetup');
       btn.disabled = true;
+      btn.innerText = currentLang === 'es' 
+        ? 'Creando accesos directos e iniciando servicios...' 
+        : 'Creating desktop shortcuts & launching services...';
+
+      // Automatically ensure shortcuts and background tunnel/biometrics are triggered and confirmed
+      try {
+        await Promise.allSettled([
+          fetch('/api/setup/create-pos-shortcut', { method: 'POST', keepalive: true }),
+          fetch('/api/setup/create-tunnel-shortcut', { method: 'POST', keepalive: true }),
+          fetch('/api/setup/create-all-shortcuts', { method: 'POST', keepalive: true }),
+          fetch('/api/tunnel/start', { method: 'POST', keepalive: true }),
+          fetch('/api/setup/start-biometrics', { method: 'POST', keepalive: true })
+        ]);
+      } catch (e) {
+        console.warn('Setup shortcut batch execution warning:', e);
+      }
+
       btn.innerText = t.btnFinishingProgress;
 
       const stations = [];
@@ -1223,7 +1258,6 @@
             mobile1Mode: mobile1Mode,
             mobileTiers: mobileTiers,
             mobileAssignments: mobileAssignments,
-            businessState: currentBusinessState,
             businessState: currentBusinessState,
             completeSetup: true
           })
