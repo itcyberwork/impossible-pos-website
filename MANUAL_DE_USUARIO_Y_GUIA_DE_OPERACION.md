@@ -29,9 +29,9 @@ Impossible POS está diseñado para comenzar a operar en menos de 60 segundos si
 1. Crea una carpeta directamente en tu Disco C:: `C:\ImpossiblePOS` (o `C:\Impossible_POS`).
 2. Descarga el paquete `Impossible_POS_v1.3.4.zip`.
 3. Haz clic derecho y selecciona **Extraer Todo** dentro de `C:\ImpossiblePOS`.
-4. Haz doble clic en `1_INSTALAR_REQUISITO_NODEJS.bat` si la PC no tiene Node.js instalado.
-5. Haz doble clic en `2_CREAR_ACCESO_DIRECTO.bat` para generar el acceso directo oficial en el Escritorio.
-6. Haz clic derecho en `ABRIR_PUERTOS_FIREWALL.bat` y selecciona **Ejecutar como Administrador** para habilitar la comunicación de red local con tabletas y pantallas de cocina.
+4. Haz doble clic en `1_INSTALL_NODEJS_REQUIREMENT.bat` si la PC no tiene Node.js instalado.
+5. Haz doble clic en `2_CREATE_DESKTOP_SHORTCUT.bat` para generar el acceso directo oficial en el Escritorio.
+6. Haz clic derecho en `OPEN_FIREWALL_PORTS.bat` y selecciona **Ejecutar como Administrador** para habilitar la comunicación de red local con tabletas y pantallas de cocina.
 7. Abre el sistema haciendo doble clic en **Impossible_POS.exe**. ¡La caja registradora arranca inmediatamente en pantalla completa!
 
 ### B. Instalación de Estaciones Secundarias (Cocina KDS, Bar, Photo Hub, TV, Runner, Hostess, Caja 2)
@@ -41,7 +41,7 @@ En cualquier computadora secundaria conectada a la misma red Wi-Fi o cable Ether
    *(O haz clic en " Centro de Kioscos" en la ventana de Vincular Dispositivos del POS).*
 2. Haz clic en **" Instalar Kiosco en este equipo"** en la estación que deseas instalar.
 3. Abre el archivo `.bat` descargado. El instalador detectará automáticamente Edge o Chrome, descargará el icono oficial `.ico` y creará un **Acceso Directo en el Escritorio en Modo Kiosco (Pantalla Completa)**, sin barras de navegador ni la letra 'E' de Microsoft Edge.
-4. Alternativamente, puedes copiar la carpeta `Descargar Acceso Directo Kiosco` desde `C:\ImpossiblePOS` mediante una memoria USB y ejecutar el archivo `.bat` directamente en el equipo secundario.
+4. Alternativamente, puedes copiar la carpeta `Download Kiosk Shortcuts` desde `C:\ImpossiblePOS` mediante una memoria USB y ejecutar el archivo `.bat` directamente en el equipo secundario.
 
 ### C. Terminales Sunmi, Celulares de Meseros (BYOD) y Tablets (Cero Instalación de Apps)
 1. Conecta el dispositivo móvil o tableta a la red Wi-Fi del restaurante.
@@ -166,6 +166,12 @@ Impossible POS ofrece máxima flexibilidad para avisar a clientes de pedidos par
 * Si tu clientela prefiere recibir SMS directos a su línea celular:
 * En `Setup > Hardware > Food Hub` ingresa tu **Account SID**, **Auth Token** y **Número de Twilio**.
 * Sujeto a tarifas directas de telefonía cobradas por Twilio.
+
+### C. Identificador de Llamadas (Caller ID) y Pedidos por Teléfono
+* **Ventana Emergente de Llamada Entrante:** En cuanto suena el teléfono del restaurante, aparece una alerta en pantalla con el nombre del cliente, teléfono, dirección y puntos acumulados antes de descolgar la bocina.
+* **Vincular a Orden en 1 Clic:** Presiona `Link to Order` en la alerta para asignar al cliente y sus datos directamente a la comanda activa sin escribir nada a mano.
+* **Botón de Pedidos por Teléfono:** Ubicado en la barra inferior debajo de la comanda con la etiqueta morada `Phone (0)`. Al presionarlo abre la lista de llamadas activas para revisar productos, mandar a cocina (KDS) o cobrar. Se activa en `Opciones > Botones`.
+* **Toma de Pedidos con Inteligencia Artificial (Twilio / Vapi):** Soporta integración con asistentes de voz 24/7 para contestar llamadas en horas pico con voz humana natural, capturar órdenes para llevar y mandarlas directo a cocina sin perder clientes.
 
 ---
 
