@@ -41,7 +41,7 @@ On any secondary computer (connected to the same Wi-Fi/Ethernet network):
    *(Or click " Kiosk Shortcuts" inside the POS register's Link Devices / Back Office window).*
 2. Click **" Install Kiosk on this PC"** for the station you need.
 3. Run the downloaded `.bat` installer. It will automatically detect Edge or Chrome, copy the official station `.ico` icon, and create a **fullscreen Kiosk Desktop Shortcut** with zero browser borders and no Microsoft Edge 'E' icon!
-4. Alternatively, copy the folder `Descargar Acceso Directo Kiosco` via USB flash drive from `C:\ImpossiblePOS` and run the station script directly.
+4. Alternatively, copy the folder `Download Kiosk Shortcuts` via USB flash drive from `C:\ImpossiblePOS` and run the station script directly.
 
 ### C. Android Tablets, Sunmi Handhelds & iPads (Zero App Installs)
 1. Connect the mobile device to the restaurant's local Wi-Fi router.
@@ -166,6 +166,12 @@ Impossible POS gives you complete autonomy over customer order-ready alerts for 
 * For customers who prefer traditional SMS carrier text messages:
 * In `Setup > Hardware > Food Hub`, input your **Account SID**, **Auth Token**, and **Twilio Phone Number**.
 * Standard per-message telco rates and carrier compliance policies apply.
+
+### C. Hardware Caller ID & Phone Orders Management
+* **Instant Caller Popup:** The moment the restaurant phone rings, a live popup displays the caller's name, phone number, delivery address, and loyalty point balance before picking up the handset.
+* **1-Click Link to Order:** Tap `Link to Order` on the popup to bind the customer and their contact information directly to the active cart with zero manual typing.
+* **Phone Orders Status Button:** Located on the bottom status toolbar directly beneath the cart (`Phone (0)`). Tapping it opens the phone order queue to recall tickets, route items to kitchen KDS, or checkout. Toggle this button in `Options > Buttons`.
+* **AI Voice Phone Ordering (Twilio / Vapi):** Supports automated 24/7 phone attendant integration via webhooks to answer incoming calls with human-like voice, take takeout orders, and dispatch them directly to kitchen KDS screens during rush hours.
 
 ---
 
