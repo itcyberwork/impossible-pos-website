@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.3.9",
-  "releaseNotes": "Official Update v1.3.9:\n- Automatic printer detection: lists every Windows printer, scans the LAN for network printers and adds them to Windows in one click (Options > Hardware).\n- Kitchen display: Bump Bar numeric keypad support, custom cakes excluded from the hot kitchen, and a Kitchen KDS installer button on the kiosk page.\n- DHCP auto-discovery launcher for kitchen and station installers (server and stations found automatically).\n- Receipt printing: the Master prints through the server, secondary stations print locally (no duplicates).\n- Chatbot and FAQ guides for Kitchen Display installation and printer detection.\n- Database: added table name and last-updated columns to orders (safe migration).",
+  "latestVersion": "1.3.10",
+  "releaseNotes": "Official Update v1.3.10:\n- English by default: all kiosk and station installers, their file names and their messages are now in English (for example 1_INSTALL_KITCHEN_KDS.bat). Spanish stays available only as the optional language in the software.\n- Root scripts (Node.js requirement, desktop shortcut, firewall ports) are English only; duplicate Spanish copies removed.\n- Server messages and Telegram customer-link messages follow the language setting, English by default.\n- FAQ, website bot and software chatbot updated with the new installer names.\n- Includes v1.3.10: automatic printer detection, Kitchen Display installer with DHCP auto-discovery and Bump Bar keypad.",
   "mandatory": false,
-  "patchFileName": "patch-1.3.9.zip",
-  "updatedAt": "2026-10-07T07:00:38.662Z"
+  "patchFileName": "patch-1.3.10.zip",
+  "updatedAt": "2026-10-07T16:17:18.552Z"
 }
