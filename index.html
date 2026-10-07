@@ -743,6 +743,11 @@
                     <h3 data-i18n="faq_delivery_q" class="text-lg font-bold text-slate-900 mb-2">How does Impossible POS integrate DoorDash, Uber Eats, and Grubhub without tablets?</h3>
                     <p data-i18n="faq_delivery_a" class="text-slate-600">All incoming orders from DoorDash, Uber Eats, Grubhub, and your online web store route directly into Impossible POS and kitchen KDS screens with official color coding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue). When the delivery driver arrives, the cashier simply scans the QR code or barcode on the driver's phone with a USB barcode scanner to instantly verify and dispatch the order—zero counter clutter and zero third-party hardware tablets.</p>
                 </div>
+                <!-- FAQ Phone Orders, Caller ID & Twilio -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <h3 data-i18n="faq_phone_q" class="text-lg font-bold text-slate-900 mb-2">How does Phone Ordering, Caller ID, and Twilio integration work?</h3>
+                    <p data-i18n="faq_phone_a" class="text-slate-600">Impossible POS includes native Hardware Caller ID support and a dedicated Phone Orders queue directly beneath the cart (purple Phone button). When a customer calls, an automatic popup appears with their name, address, and past orders, featuring a 1-click 'Link to Order' button. With Twilio integration, the POS sends automated SMS notifications when orders are cooking or ready, and can connect with 24/7 AI voice webhooks (Twilio/Vapi) to capture call-in orders and dispatch them straight to kitchen KDS screens with zero busy signals.</p>
+                </div>
                 <!-- FAQ Telegram Alerts -->
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                     <h3 data-i18n="faq_telegram_q" class="text-lg font-bold text-slate-900 mb-2">Does Impossible POS support free customer notifications via Telegram instead of paid SMS?</h3>
@@ -924,8 +929,8 @@
             <!-- Direct 1-Click Instant Download Banner for customers who want immediate trial -->
             <div style="background: rgba(48,209,88,0.08); border: 1px solid #30d158; border-radius: 12px; padding: 12px; margin-bottom: 14px; text-align: center;">
                 <div style="font-size: 12px; font-weight: bold; color: #166534; margin-bottom: 4px;">Descarga Directa Inmediata / Instant Direct Download:</div>
-                <a href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.11/Impossible_POS_v1.3.11.zip" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm shadow transition-all">
-                    Descargar Impossible_POS_v1.3.11.zip Directo (400 MB)
+                <a href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.13/Impossible_POS_v1.3.13.zip" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm shadow transition-all">
+                    Descargar Impossible_POS_v1.3.13.zip Directo (400 MB)
                 </a>
             </div>
             
@@ -1010,9 +1015,9 @@
                 
                 <!-- Direct Download Button -->
                 <div id="lead-download-btn-container" class="pt-2 hidden">
-                    <a id="lead-download-direct-btn" href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.11/Impossible_POS_v1.3.11.zip" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-2xl text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
+                    <a id="lead-download-direct-btn" href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.13/Impossible_POS_v1.3.13.zip" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-2xl text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
                         <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span data-i18n="lead_success_btn_download">Download Impossible_POS_v1.3.11.zip</span>
+                        <span data-i18n="lead_success_btn_download">Download Impossible_POS_v1.3.13.zip</span>
                     </a>
                 </div>
                 
@@ -1031,7 +1036,7 @@
                     <div class="space-y-2.5">
                         <div class="flex items-start gap-2.5">
                             <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">1</span>
-                            <span data-i18n="install_step1"><strong>Create Folder & Extract:</strong> Create a folder named <code>C:\ImpossiblePOS</code> (or <code>C:\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.11.zip</code> into this folder.</span>
+                            <span data-i18n="install_step1"><strong>Create Folder & Extract:</strong> Create a folder named <code>C:\ImpossiblePOS</code> (or <code>C:\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.13.zip</code> into this folder.</span>
                         </div>
                         <div class="flex items-start gap-2.5">
                             <span class="bg-emerald-600 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">2</span>
@@ -1136,7 +1141,7 @@
     <script>
     const TG_TOKEN = "8883667960:AAFVCTqMwI75fGFZ76LCb5ektTVkduv878s";
     const TG_CHAT = "8681270663";
-    const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.11/Impossible_POS_v1.3.11.zip";
+    const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.13/Impossible_POS_v1.3.13.zip";
     const ANDROID_DEMO_URL = "https://demo.impossiblepos.com";
 
     // --- Complete Translations Dictionary ---
@@ -1341,6 +1346,8 @@
             faq_qrsign_a: "If your counter terminals use a single monitor without a customer-facing secondary display, go to Setup &gt; Hardware &gt; Caja and click 'Print Customer QR Sign'. Choose your terminal (Station 1, Station 2, etc.) to print a professional, high-resolution QR pairing sign on 80mm thermal paper or standard letter paper. Laminate it and mount it on the back of the monitor facing the guest. Each station prints a unique QR code so the customer connects directly to the cashier serving them.",
             faq_delivery_q: "How does Impossible POS integrate DoorDash, Uber Eats, and Grubhub without counter tablets?",
             faq_delivery_a: "All online orders from DoorDash, Uber Eats, Grubhub, and your web storefront route directly into Impossible POS and kitchen KDS displays with official brand color coding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue) and automated kitchen chime alerts. When the delivery driver arrives, the cashier simply scans the QR code or barcode on the driver's phone with a USB scanner to instantly verify and dispatch the order—zero counter clutter and zero extra tablet rentals.",
+            faq_phone_q: "How does Phone Ordering, Caller ID, and Twilio integration work?",
+            faq_phone_a: "Impossible POS includes native Hardware Caller ID support and a dedicated Phone Orders queue directly beneath the cart (purple Phone button). When a customer calls, an automatic popup appears with their name, address, and past orders, featuring a 1-click 'Link to Order' button. With Twilio integration, the POS sends automated SMS notifications when orders are cooking or ready, and can connect with 24/7 AI voice webhooks (Twilio/Vapi) to capture call-in orders and dispatch them straight to kitchen KDS screens with zero busy signals.",
             faq_telegram_q: "Does Impossible POS support free customer notifications via Telegram instead of paid SMS?",
             faq_telegram_a: "Yes! Restaurant owners can choose between 100% Free Telegram Bot notifications (unlimited messages, zero carrier fees) and traditional Twilio SMS. In Setup &gt; Hardware &gt; Food Hub, enter your Telegram bot token created in 2 minutes via @BotFather. Customers scan the QR on their receipt, tap 'Start' on Telegram, and receive automated live updates when their food is cooking or ready for pickup—with zero monthly costs to the restaurant.",
 
@@ -1403,9 +1410,9 @@
             lead_btn_sales: "Request Consultation",
             lead_success_title: "Welcome to Impossible POS!",
             lead_success_btn_close: "Close",
-            lead_success_btn_download: "Download Impossible_POS_v1.3.11.zip Now",
+            lead_success_btn_download: "Download Impossible_POS_v1.3.13.zip Now",
             install_guide_title: "Quick 1-Minute Windows Setup:",
-            install_step1: "<strong>Create Folder & Extract:</strong> Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.11.zip</code> into this folder.",
+            install_step1: "<strong>Create Folder & Extract:</strong> Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.13.zip</code> into this folder.",
             install_step2: "<strong>Node.js Pre-requisite & App:</strong> Run <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (if Node.js is not on your PC), or double-click <strong>Impossible_POS.exe</strong> directly to launch the system.",
             install_step3: "<strong>Desktop Shortcut:</strong> Double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official cashier icon on your Desktop.",
             install_step4: "<strong>Open Windows Firewall:</strong> Right-click <strong>OPEN_FIREWALL_PORTS.bat</strong> and select <strong>'Run as Administrator'</strong> so kitchen screens, bar terminals, and tablets on Wi-Fi can connect.",
@@ -1647,6 +1654,8 @@
             faq_qrsign_a: "Si tus cajas cuentan con un solo monitor para la cajera, ve a Setup &gt; Hardware &gt; Caja y presiona 'Print Customer QR Sign'. Selecciona el número de caja (Caja 1, Caja 2, etc.) para imprimir un letrero profesional de alta resolución en papel térmico de 80mm o en hoja normal. Lamínalo / enmícalo y colócalo en el reverso del monitor de cara al cliente. Cada caja genera un QR único para que el cliente se enlace exactamente con la cajera que lo está atendiendo.",
             faq_delivery_q: "¿Cómo se integra DoorDash, Uber Eats y Grubhub sin tener tabletas en el mostrador?",
             faq_delivery_a: "Todos los pedidos de DoorDash, Uber Eats, Grubhub y tu tienda online entran directo a Impossible POS y a las pantallas de cocina KDS con sus colores oficiales (DoorDash en rojo, Uber Eats en verde, Grubhub en naranja y Menú Web en azul) y timbres sonoros automáticos. Cuando el repartidor llega al restaurante, la cajera solo escanea el código de barras o QR en el teléfono del chofer con un lector USB para verificar y entregar la comanda en 1 segundo—sin desorden de 5 tabletas en tu mostrador.",
+            faq_phone_q: "¿Cómo funciona la toma de pedidos por teléfono, el identificador de llamadas (Caller ID) y Twilio?",
+            faq_phone_a: "Impossible POS incluye soporte nativo para Identificador de Llamadas por Hardware y una barra dedicada de pedidos por teléfono (botón morado 'Phone') debajo de la comanda. En cuanto suena el teléfono, aparece una ventana flotante con el nombre, dirección y puntos del cliente, con un botón para vincularlo a la orden en 1 clic. Con la integración de Twilio, el sistema envía mensajes de texto SMS automáticos cuando el pedido está listo y permite conectar asistentes de Inteligencia Artificial para levantar pedidos telefónicos 24/7 directo a la cocina sin llamadas perdidas.",
             faq_telegram_q: "¿Impossible POS permite enviar notificaciones a clientes gratis con Telegram en lugar de SMS de pago?",
             faq_telegram_a: "¡Sí! Puedes elegir libremente entre Telegram Bot (100% gratuito, sin límites de mensajes y con $0 costo mensual de telefonía) o mensajes de texto tradicionales por Twilio SMS. En Setup &gt; Hardware &gt; Food Hub, solo ingresas el Token de tu bot de Telegram creado en 2 minutos con @BotFather. El cliente escanea el QR de su ticket, presiona 'Start' en Telegram y recibe alertas en vivo cuando su comida se cocina o está lista, con costo cero para el restaurante.",
 
@@ -1679,9 +1688,9 @@
             lead_btn_sales: "Solicitar Asesoría",
             lead_success_title: "¡Bienvenido a Impossible POS!",
             lead_success_btn_close: "Cerrar",
-            lead_success_btn_download: "Descargar Impossible_POS_v1.3.11.zip Ahora",
+            lead_success_btn_download: "Descargar Impossible_POS_v1.3.13.zip Ahora",
             install_guide_title: "Guía Rápida de Inicio (1 Minuto):",
-            install_step1: "<strong>Crear Carpeta y Descomprimir:</strong> Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en tu disco C:. Descomprime todo el contenido de <code>Impossible_POS_v1.3.11.zip</code> dentro de esa carpeta.",
+            install_step1: "<strong>Crear Carpeta y Descomprimir:</strong> Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en tu disco C:. Descomprime todo el contenido de <code>Impossible_POS_v1.3.13.zip</code> dentro de esa carpeta.",
             install_step2: "<strong>Requisito Node.js y Programa:</strong> Ejecuta <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (si la PC no tiene Node.js), o abre directamente <strong>Impossible_POS.exe</strong> para iniciar el sistema.",
             install_step3: "<strong>Crear Acceso Directo:</strong> Ejecuta <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> para colocar el icono oficial de la caja registradora en tu Escritorio.",
             install_step4: "<strong>Abrir Firewall de Windows:</strong> Haz clic derecho en <code>OPEN_FIREWALL_PORTS.bat</code> y elige <strong>'Ejecutar como Administrador'</strong> para que las pantallas de cocina, barra y tabletas en la red Wi-Fi puedan comunicarse.",
@@ -1924,7 +1933,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                 try {
                     const dlLink = document.createElement('a');
                     dlLink.href = WINDOWS_DOWNLOAD_URL;
-                    dlLink.setAttribute('download', 'Impossible_POS_v1.3.11.zip');
+                    dlLink.setAttribute('download', 'Impossible_POS_v1.3.13.zip');
                     document.body.appendChild(dlLink);
                     dlLink.click();
                     document.body.removeChild(dlLink);
@@ -2126,8 +2135,8 @@ ${notes ? notes : 'Ninguno especificado.'}
                 addChatMessage('bot', ans);
             } else if (lower.includes('virgen') || lower.includes('taco') || lower.includes('limpiar menu') || lower.includes('borrar menu') || lower.includes('menu vacio') || lower.includes('base de datos limpia')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Base de Datos Limpia y Creación de Menú:</strong><br>• El sistema Impossible POS v1.3.11 se descarga 100% virgen para que ingreses tu propio menú de cafetería, panadería o restaurante.<br>• <strong>Administrar Productos:</strong> Entra a <strong>Manager (M)</strong> con PIN <code>1234</code> o <code>2026</code> y ve a <strong>Products / Menu</strong> para crear o borrar platillos.<br>• <strong>Importar Catálogo CSV:</strong> En <em>Options ➔ Database</em> puedes cargar tu lista completa desde Excel en un segundo.`
-                    : `<strong>Clean Database & Custom Menu Setup:</strong><br>• Impossible POS v1.3.11 downloads completely virgin so you can add your own custom food items and categories.<br>• <strong>Manage Menu:</strong> Go to <strong>Manager (M)</strong> (PIN <code>1234</code> or <code>2026</code>) and tap <strong>Products / Menu</strong> to create items.<br>• <strong>CSV Menu Import:</strong> In <em>Options ➔ Database</em>, upload your entire spreadsheet in seconds.`;
+                    ? `<strong>Base de Datos Limpia y Creación de Menú:</strong><br>• El sistema Impossible POS v1.3.13 se descarga 100% virgen para que ingreses tu propio menú de cafetería, panadería o restaurante.<br>• <strong>Administrar Productos:</strong> Entra a <strong>Manager (M)</strong> con PIN <code>1234</code> o <code>2026</code> y ve a <strong>Products / Menu</strong> para crear o borrar platillos.<br>• <strong>Importar Catálogo CSV:</strong> En <em>Options ➔ Database</em> puedes cargar tu lista completa desde Excel en un segundo.`
+                    : `<strong>Clean Database & Custom Menu Setup:</strong><br>• Impossible POS v1.3.13 downloads completely virgin so you can add your own custom food items and categories.<br>• <strong>Manage Menu:</strong> Go to <strong>Manager (M)</strong> (PIN <code>1234</code> or <code>2026</code>) and tap <strong>Products / Menu</strong> to create items.<br>• <strong>CSV Menu Import:</strong> In <em>Options ➔ Database</em>, upload your entire spreadsheet in seconds.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('line buster') || lower.includes('linebuster') || lower.includes('apron cashier') || lower.includes('apron') || lower.includes('server banking') || lower.includes('bolsa de mesero') || lower.includes('mesero cajero') || lower.includes('40 transacciones') || lower.includes('40 transactions') || lower.includes('taking order')) {
                 const ans = currentLang === 'es'
@@ -2176,7 +2185,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>Guía Completa de Instalación y Conexión de Todas las Estaciones:</strong><br><br>` +
                       `<strong>1. Servidor Principal (Computadora de Caja / Master):</strong><br>` +
                       `• Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en el disco C:.<br>` +
-                      `• Descomprime <code>Impossible_POS_v1.3.11.zip</code> dentro de esa carpeta.<br>` +
+                      `• Descomprime <code>Impossible_POS_v1.3.13.zip</code> dentro de esa carpeta.<br>` +
                       `• Ejecuta <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (si la PC no tiene Node.js) o abre <strong>Impossible_POS.exe</strong>.<br>` +
                       `• Ejecuta <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> para colocar el icono oficial en el Escritorio.<br>` +
                       `• Haz clic derecho en <code>OPEN_FIREWALL_PORTS.bat</code> y selecciona <em>'Ejecutar como Administrador'</em> para habilitar la comunicación en red Wi-Fi.<br><br>` +
@@ -2193,7 +2202,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                     : `<strong>Comprehensive Installation & Multi-Station Hardware Guide:</strong><br><br>` +
                       `<strong>1. Main Master Server (Cashier / Back Office PC):</strong><br>` +
                       `• Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive.<br>` +
-                      `• Extract all files from <code>Impossible_POS_v1.3.11.zip</code> into this folder.<br>` +
+                      `• Extract all files from <code>Impossible_POS_v1.3.13.zip</code> into this folder.<br>` +
                       `• Run <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (if Node.js is not on your PC), or double-click <strong>Impossible_POS.exe</strong> directly.<br>` +
                       `• Double-click <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> to place the official cashier icon on your Desktop.<br>` +
                       `• Right-click <code>OPEN_FIREWALL_PORTS.bat</code> and select <em>'Run as Administrator'</em> so kitchen monitors, bar screens, and tablets on Wi-Fi can connect.<br><br>` +
@@ -2218,10 +2227,28 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>Básculas Digitales USB (Supermercados, Carnicerías y Delis):</strong><br>• <strong>100% Opcional:</strong> Si tienes un bar o restaurante, el módulo se mantiene oculto. En carnicerías y abarrotes, se activa con un clic.<br>• <strong>Conexión Directa USB / Serial:</strong> Compatible con básculas Toledo/NCI, CAS, Fairbanks y Dymo.<br>• <strong>Botón Inteligente [Pesar]:</strong> Aparece en la caja y abre una pantalla digital LCD con función de tarado (0.00 Tare), lectura en vivo por libra (lb) o kilo (kg), y cálculo automático de precio por peso.<br>• <strong>Desglose en Ticket:</strong> Muestra claramente el peso, precio por unidad y total calculado sin margen de error para el cajero.`
                     : `<strong>USB Digital Scales (Supermarkets, Carnicerías & Delis):</strong><br>• <strong>100% Optional:</strong> If you operate a bar or taco truck, the scale module stays completely hidden. Supermarkets enable it in 1 click.<br>• <strong>Plug-and-Play USB / Serial:</strong> Supports Toledo/NCI, CAS, Fairbanks, and Dymo scales.<br>• <strong>Smart [Weigh] Button:</strong> Appears directly in the register, featuring a digital LCD screen, Tare to 0.00, live weight in pounds (lb) or kilos (kg), and automatic price computation.<br>• <strong>Clear Receipt Breakdown:</strong> Explicitly logs unit weight, price per pound, and total cost with zero cashier math errors.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('aivoice') || lower.includes('telefono') || lower.includes('teléfono') || lower.includes('llamada') || lower.includes('voice') || lower.includes('twilio') || lower.includes('vapi') || lower.includes('pedidos por telefono') || lower.includes('call center')) {
+            } else if (
+                lower.includes('phone') || 
+                lower.includes('call') || 
+                lower.includes('calls') || 
+                lower.includes('caller') || 
+                lower.includes('callerid') || 
+                lower.includes('identificador') || 
+                lower.includes('telefono') || 
+                lower.includes('teléfono') || 
+                lower.includes('llamada') || 
+                lower.includes('llamadas') || 
+                lower.includes('twilio') || 
+                lower.includes('vapi') || 
+                lower.includes('voice') || 
+                lower.includes('aivoice') || 
+                lower.includes('sms') || 
+                lower.includes('quien llama') || 
+                lower.includes('quién llama')
+            ) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Toma de Pedidos Telefónicos con Inteligencia Artificial (24/7):</strong><br>• <strong>Asistente Virtual Telefónico:</strong> Se integra con webhooks de Twilio y Vapi para responder las llamadas entrantes de tu restaurante con voz natural humana.<br>• <strong>Toma la Orden Completa:</strong> Escucha lo que pide el cliente (términos de carne, extras, refrescos), calcula el total y despacha la comanda directo a la pantalla de cocina (KDS) y al POS.<br>• <strong>Cero Meseros Ocupados:</strong> Tu personal atiende a los comensales presentes mientras la IA levanta los pedidos telefónicos para llevar sin dejar a nadie esperando en la línea.`
-                    : `<strong>AI Voice Phone Ordering (24/7 Automated Phone Attendant):</strong><br>• <strong>Conversational Voice AI:</strong> Integrates with Twilio and Vapi webhooks to answer incoming phone calls with ultra-natural voice.<br>• <strong>End-to-End Order Entry:</strong> Understands food modifications, sides, and drinks, computes totals, and injects tickets directly into the kitchen KDS and POS.<br>• <strong>Zero Busy Signals:</strong> Your floor staff focuses on in-person guests while AI captures to-go phone orders seamlessly with zero dropped calls.`;
+                    ? `<strong>Identificador de Llamadas (Caller ID), Pedidos por Teléfono y Twilio:</strong><br>• <strong>Identificador de Llamadas por Hardware:</strong> En cuanto suena el teléfono del restaurante, aparece una ventana emergente en la caja con el nombre del cliente, dirección y puntos acumulados, con un botón 'Vincular a Orden' para tomar el pedido en 1 segundo sin escribir nada a mano.<br>• <strong>Botón de Pedidos por Teléfono:</strong> Botón dedicado 'Phone (0)' en la barra inferior debajo de la comanda para gestionar llamadas activas, mandarlas a cocina (KDS) o cobrarlas.<br>• <strong>Inteligencia Artificial y Twilio (24/7):</strong> Contesta llamadas automáticamente con voz natural humana mediante webhooks de Twilio y Vapi, levanta la orden y la inyecta directo a la cocina sin perder clientes en hora pico.<br>• <strong>Notificaciones SMS Automáticas:</strong> Envía mensajes de texto automáticos al cliente cuando su comida se está preparando o está lista para entrega.`
+                    : `<strong>Caller ID, Phone Orders & Twilio AI Integration:</strong><br>• <strong>Hardware Caller ID Integration:</strong> Automatic popup appears on the POS register the moment the phone rings, displaying customer name, delivery address, and loyalty points with a 1-click 'Link to Order' button.<br>• <strong>Phone Orders Management:</strong> Dedicated 'Phone (0)' status button beneath the cart to track active call-in tickets and route them directly to kitchen KDS.<br>• <strong>Conversational Voice AI & Twilio (24/7):</strong> Integrates with Twilio and Vapi webhooks to answer incoming calls with natural human voice, capturing orders and injecting them into the kitchen with zero busy signals.<br>• <strong>Automated SMS Alerts:</strong> Sends real-time SMS notifications to guests when food is cooking or ready for pickup.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('cctv') || lower.includes('camara') || lower.includes('cámara') || lower.includes('camera') || lower.includes('nvr') || lower.includes('grabar') || lower.includes('screen rec') || lower.includes('pantalla') || lower.includes('overlay') || lower.includes('robo') || lower.includes('seguridad') || lower.includes('rtsp')) {
                 const ans = currentLang === 'es'
@@ -2238,11 +2265,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>Doble Cajón de Dinero (Dual Cash Drawer):</strong><br>• <strong>Dos Cajeros en Una Computadora:</strong> Controla 2 cajones de dinero independientes conectándolos a una sola impresora térmica.<br>• <strong>Apertura Inteligente por Pin:</strong> El Cajón 1 responde al Pin 2 y el Cajón 2 al Pin 5 del conector RJ11. Cada cajero maneja su propio fondo y corte de caja sin mezclar el dinero.`
                     : `<strong>Dual Cash Drawer Integration:</strong><br>• <strong>Two Cashiers on One Terminal:</strong> Controls two independent cash drawers connected through a single thermal printer RJ11 port.<br>• <strong>Pin-Level Triggering:</strong> Drawer 1 opens on Pin 2 and Drawer 2 opens on Pin 5. Each cashier maintains their own drawer bank and shift closeout with zero cash mingling.`;
                 addChatMessage('bot', ans);
-            } else if (lower.includes('caller') || lower.includes('identificador') || lower.includes('quien llama') || lower.includes('quién llama')) {
-                const ans = currentLang === 'es'
-                    ? `<strong>Identificador de Llamadas por Hardware (Caller ID):</strong><br>• Ventana emergente automática en cuanto suena el teléfono del restaurante.<br>• Despliega al instante el nombre del cliente, dirección de entrega y su historial de pedidos antes de descolgar la bocina.`
-                    : `<strong>Hardware Caller ID Integration:</strong><br>• Automatic popup appears on the POS register the moment the phone rings.<br>• Displays customer name, delivery address, and past favorite orders before staff picks up the handset.`;
-                addChatMessage('bot', ans);
+            
             } else if (lower.includes('mapa') || lower.includes('mesa') || lower.includes('croquis') || lower.includes('hostess') || lower.includes('plano') || lower.includes('reservacion') || lower.includes('reservación') || lower.includes('floor')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Mapa de Mesas Gráfico, Reservaciones y Hostess:</strong><br>• <strong>Diseñador de Salón:</strong> Arrastra y acomoda mesas circulares o cuadradas, barras y terrazas para que coincidan con la distribución física de tu local.<br>• <strong>Control de Sillas y Cuentas:</strong> Asigna comensales por asiento (C1, C2, C3) y divide cuentas en 1 clic.<br>• <strong>Pantalla de Hostess y TV de Espera:</strong> Módulo para organizar reservaciones y pantalla pública para que los clientes vean su turno en la sala de espera.`
@@ -2285,8 +2308,8 @@ ${notes ? notes : 'Ninguno especificado.'}
                 addChatMessage('bot', ans);
             } else if (lower.includes('trial') || lower.includes('prueba') || lower.includes('30') || lower.includes('15') || lower.includes('dias') || lower.includes('free trial') || lower.includes('demo') || lower.includes('exe') || lower.includes('instalar') || lower.includes('abrir')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Prueba Gratuita de 30 Días e Instalación en 1 Clic:</strong><br>• <strong>30 Días Completos sin Compromiso:</strong> Descarga el sistema y úsalo con todas las funciones activadas. Un contador visible te indica los días restantes.<br>• <strong>Instalación Nativa en 1 Clic con Impossible_POS.exe:</strong> No necesitas comandos complicados ni instalar Node.js. Descomprimes <code>Impossible_POS_v1.3.11.zip</code> y abres <strong>Impossible_POS.exe</strong> directamente.<br>• <strong>Asistente de Bienvenida:</strong> Escribe el nombre de tu negocio, acepta los términos y comienza a cobrar en menos de 60 segundos.`
-                    : `<strong>30-Day Free Trial & Native 1-Click App:</strong><br>• <strong>Full 30-Day Free Trial:</strong> Download the system and experience every premium feature for 30 full days with zero commitments. A live counter displays days remaining.<br>• <strong>Native App (Impossible_POS.exe):</strong> No complex setup or command lines. Just extract <code>Impossible_POS_v1.3.11.zip</code> and double-click <strong>Impossible_POS.exe</strong> to open the full register.<br>• <strong>Welcome Wizard:</strong> Set your store name, accept terms, and start taking orders in under 60 seconds.`;
+                    ? `<strong>Prueba Gratuita de 30 Días e Instalación en 1 Clic:</strong><br>• <strong>30 Días Completos sin Compromiso:</strong> Descarga el sistema y úsalo con todas las funciones activadas. Un contador visible te indica los días restantes.<br>• <strong>Instalación Nativa en 1 Clic con Impossible_POS.exe:</strong> No necesitas comandos complicados ni instalar Node.js. Descomprimes <code>Impossible_POS_v1.3.13.zip</code> y abres <strong>Impossible_POS.exe</strong> directamente.<br>• <strong>Asistente de Bienvenida:</strong> Escribe el nombre de tu negocio, acepta los términos y comienza a cobrar en menos de 60 segundos.`
+                    : `<strong>30-Day Free Trial & Native 1-Click App:</strong><br>• <strong>Full 30-Day Free Trial:</strong> Download the system and experience every premium feature for 30 full days with zero commitments. A live counter displays days remaining.<br>• <strong>Native App (Impossible_POS.exe):</strong> No complex setup or command lines. Just extract <code>Impossible_POS_v1.3.13.zip</code> and double-click <strong>Impossible_POS.exe</strong> to open the full register.<br>• <strong>Welcome Wizard:</strong> Set your store name, accept terms, and start taking orders in under 60 seconds.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('kds') || lower.includes('kitchen') || lower.includes('cocina')) {
                 const ans = currentLang === 'es'
