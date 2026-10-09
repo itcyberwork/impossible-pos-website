@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.3.13",
-  "releaseNotes": "Official Update v1.3.13:\n- Dedicated Service Management: Consolidated all order type controls into Business Profile & Services with Walk-In as the first default option.\n- Removed Duplicate Services Sub-Tab: POS Departments is now exclusively dedicated to category management, avoiding configuration conflicts.\n- 1-Click Held Tickets Combine: Cashiers can seamlessly merge held orders into active carts alongside newly scanned items.\n- Granular Loyalty Control: Disabling loyalty points completely hides reward points, QR autoregistration, and customer balances.\n- Temporary Support PIN: Emergency PIN 9111 configured with dual expiration (10 uses or 48 hours) and live usage counter in Admin Settings.\n- Clean virgin database setup with zero customer-specific data.",
+  "latestVersion": "1.3.15",
+  "releaseNotes": "Official Release v1.3.15:\n- Enhanced Kitchen Tickets: Cleaned header badges, removed redundant Hot Kitchen tag, eliminated individual [TO GO] tags on to-go orders, and double-height fonts preventing text clipping.\n- Spanish Kitchen KDS: Native full Spanish interface toggle (EN / ES) for Kitchen Displays and dedicated 1-click Spanish KDS installer.\n- 1-Click Cart Modification: Edit any active cart item directly without deleting.\n- Open Tabs Combine: Seamlessly combine existing tabs into active checkout cart.\n- Back Office Multi-Station Discovery: Automatic DHCP server rediscovery on port 38899.\n- Clean virgin database with zero preloaded mock data.",
   "mandatory": false,
-  "patchFileName": "patch-1.3.13.zip",
-  "updatedAt": "2026-10-08T01:05:15.479Z"
+  "patchFileName": "patch-1.3.15.zip",
+  "updatedAt": "2026-10-09T11:50:00.000Z"
 }
