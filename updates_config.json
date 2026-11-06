@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.3.18",
-  "releaseNotes": "Official Release v1.3.18:\n- Beer Option & Comanda Fix: Fully resolved beer selection modal hierarchy and display layering so tapping beers immediately displays serving options (Bottle, Can, Bucket) and adds to the order.\n- Modal Hierarchy & DOM Normalization: Perfectly balanced all HTML modal tags and ensured high z-index overlays across all stations.\n- Bar & Nightclub Bottle Setup: Streamlined catalog with immediate barcode scan, direct USB/COM scale weight capture for full/empty bottles, and Save & Next flow.\n- Unified Bottle Inventory: Single consolidated bottle + open ounces stock pool. Auto-deducts full bottles or shot volume without double ledgers.\n- Beer Bucket Mix & Match: Prompt for Bottle, Can, or Bucket (5 or 6 pack) with interactive beer counter and detailed comanda printing.\n- Printed Receipt Tender & Change: Accurate cash received and change due printed on customer and merchant receipts.\n- Product Card Visual Contain: Bottle and beverage product photos display fully contained and centered without clipping.\n- Split by Customer in Checkout: Instant access to Split Bill modal directly from Register Payment screen.\n- Station Setup KDS Routing: Native Kitchen Display and Bar Display station roles selectable directly in Impossible POS setup wizard.",
+  "latestVersion": "1.3.19",
+  "releaseNotes": "Official Release v1.3.19:\n- Unified Barcode Scanner Engine: Seamlessly distinguishes between physical product barcodes and order/ticket numbers. Eliminated false \"order not found\" error when scanning items into the comanda.\n- Multi-Source Barcode Resolution: Instant lookups across Products Inventory, Bar Alcohol Catalog, Order Recalls, and Delivery Hub Dispatches.\n- Beer Option & Comanda Fix: Fully resolved beer selection modal hierarchy and display layering so tapping or scanning beers immediately displays serving options and adds to the order.\n- Modal Hierarchy & DOM Normalization: Perfectly balanced all HTML modal tags and ensured high z-index overlays across all stations.\n- Automated Integrity Inspection: Native pre-flight quality verification on all builds.",
   "mandatory": false,
-  "patchFileName": "patch-1.3.18.zip",
-  "updatedAt": "2026-11-06T17:58:48.637Z"
+  "patchFileName": "patch-1.3.19.zip",
+  "updatedAt": "2026-11-06T20:12:46.059Z"
 }
