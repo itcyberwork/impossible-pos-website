@@ -34,14 +34,31 @@ Impossible POS is built for immediate deployment in under 60 seconds with zero t
 6. Right-click `OPEN_FIREWALL_PORTS.bat` and select **Run as Administrator** to permit local Wi-Fi communication with waiter tablets and kitchen displays.
 7. Launch the POS by double-clicking **Impossible_POS.exe**. The register opens immediately in full screen!
 
-### B. Installing Secondary Workstations (Kitchen KDS, Bar, Photo Hub, TV, Runner, Hostess, Cashier 2)
-On any secondary computer (connected to the same Wi-Fi/Ethernet network):
-1. Open Google Chrome or Microsoft Edge and navigate to:
-   `http://<SERVER_IP>:3000/kiosco.html`
-   *(Or click " Kiosk Shortcuts" inside the POS register's Link Devices / Back Office window).*
-2. Click **" Install Kiosk on this PC"** for the station you need.
-3. Run the downloaded `.bat` installer. It will automatically detect Edge or Chrome, copy the official station `.ico` icon, and create a **fullscreen Kiosk Desktop Shortcut** with zero browser borders and no Microsoft Edge 'E' icon!
-4. Alternatively, copy the folder `Download Kiosk Shortcuts` via USB flash drive from `C:\ImpossiblePOS` and run the station script directly.
+### B. Installing Secondary Hardware (Kitchen KDS, Bar, Photo Hub, TV, Runner, Hostess, Kiosks & Printers)
+You have two frictionless methods without complex folder navigation or USB drives:
+
+#### Method 1: Smart TV 4-Digit Code Pairing (Fastest)
+1. On your kitchen screen or tablet, open Chrome or Edge and go to: `http://<SERVER_IP>:3000/pair.html`
+2. The screen displays a large 4-digit code (e.g. 7421).
+3. On your Main Cash Register, an instant popup appears: "New Screen Detected. Accept & Connect?".
+4. Tap **Accept and Connect**. The kitchen display unlocks instantly and transitions to full screen!
+
+#### Method 2: Universal Hardware Setup Installer (.bat)
+1. On your kitchen, bar, or kiosk computer, download **Hardware Stations Setup** (`Impossible_POS_Hardware_Setup.bat`) directly from the website or from `http://<SERVER_IP>:3000/download-hardware-setup`.
+2. Run `Impossible_POS_Hardware_Setup.bat`.
+3. Choose your station number:
+   - [1] Kitchen Display 1 (Hot Food / Grill KDS)
+   - [2] Kitchen Display 2 (Cold Prep / Bakery KDS)
+   - [3] Bar Display (Cocktails & Beverages)
+   - [4] Special Orders Display (Cakes & Catering)
+   - [5] Photo Hub (Cake & Custom Order Photos)
+   - [6] Lobby TV (Customer Queue & Waitlist)
+   - [7] Runner Hub (Order Expediter & Dispatch)
+   - [8] Hostess Hub (Table Seating & Reception)
+   - [9] Self-Ordering Kiosk (Customer Ordering Station)
+   - [10] Secondary Register (Cashier POS Terminal 2)
+   - [11] Setup Thermal Printers and Cash Drawer Service
+4. The installer automatically discovers the central server via UDP (<20ms), creates the desktop shortcut with the official high-resolution icon, and enables auto-start on boot.
 
 ### C. Android Tablets, Sunmi Handhelds & iPads (Zero App Installs)
 1. Connect the mobile device to the restaurant's local Wi-Fi router.
