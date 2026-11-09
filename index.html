@@ -1159,6 +1159,7 @@
             hero_title: 'The restaurant OS built for <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">relentless speed.</span>',
             hero_subtitle: "Unify your front-of-house, smart kitchen displays, and AI phone orders in one blazing-fast platform. Scale your operations without the extra hardware fees.",
             hero_btn_windows: "Download Windows App",
+            hero_btn_hardware: "Hardware Stations Setup",
             hero_btn_video: "Watch Commercial (40s)",
             commercial_badge: "REAL RESTAURANT RUNTIME • 40s",
             commercial_title: "See Impossible POS in Action",
@@ -1376,6 +1377,7 @@
             hero_title_2: "Zero Monthly Gouging.",
             hero_desc: "Engineered for high-volume restaurants, taquerías, bars, and retail. Ultra-fast touchscreen cash registers, unlimited free kitchen displays, offline-first reliability, and hybrid cloud management.",
             hero_btn_windows: "Download Windows POS",
+            hero_btn_hardware: "Hardware Stations Setup (KDS/Hubs)",
             hero_btn_android: "Launch Android Demo",
             hero_trial_note: "✓ 30-Day Full Free Trial &nbsp;•&nbsp; ✓ No Credit Card Required &nbsp;•&nbsp; ✓ Instant 60-Second Setup",
             
@@ -1467,6 +1469,7 @@
             hero_title: 'El sistema para restaurantes diseñado para <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-400">máxima velocidad.</span>',
             hero_subtitle: "Unifica tus cajas registradoras, pantallas de cocina inteligentes y pedidos telefónicos por IA en una plataforma ultra veloz. Crece sin pagar licencias abusivas por pantalla.",
             hero_btn_windows: "Descargar App para Windows",
+            hero_btn_hardware: "Instalador de Pantallas Hardware",
             hero_btn_video: "Ver Comercial (40s)",
             commercial_badge: "RESTAURANTE REAL EN VIVO • 40s",
             commercial_title: "Mira Impossible POS en Acción",
@@ -2055,8 +2058,8 @@ ${notes ? notes : 'Ninguno especificado.'}
 
             if (lower === 'zip' || lower === 'download' || lower === 'descargar' || lower === 'install' || lower === 'instalar' || lower === 'setup' || lower === 'installer' || lower.includes('download pos') || lower.includes('descargar pos') || lower.includes('download zip') || lower.includes('descargar zip') || lower.includes('how to install')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Instalación de Impossible POS (ZIP e Instalador):</strong><br>• <strong>Descarga:</strong> Descarga el archivo oficial <strong>Impossible_POS.zip</strong> o el Instalador Windows Setup (.exe) desde este sitio web.<br>• <strong>Descomprimir:</strong> Extrae la carpeta en la raíz <code>C:\\Impossible_POS</code>.<br>• <strong>Primer Inicio:</strong> Abre la carpeta y ejecuta <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> como Administrador.<br>• <strong>Base Limpia:</strong> El sistema arranca completamente virgen sin datos de prueba. Elige tu tipo de negocio para generar tus departamentos base.<br>• <strong>Red Local:</strong> Una vez iniciado, todas las demás PCs de tu negocio se conectan en segundos abriendo <code>http://IP_SERVIDOR:3000/kiosco.html</code>.`
-                    : `<strong>Impossible POS Installation (ZIP & Installer):</strong><br>• <strong>Download:</strong> Download the official <strong>Impossible_POS.zip</strong> package or Windows Setup (.exe) from this website.<br>• <strong>Extract:</strong> Extract files directly to <code>C:\\Impossible_POS</code> on your C: drive.<br>• <strong>First-Run:</strong> Open the folder and run <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> as Administrator.<br>• <strong>Clean Virgin Database:</strong> The software ships virgin with zero preloaded mock data. Pick your business type to generate default departments.<br>• <strong>Local Network:</strong> Once started, all other PCs and tablets in your shop connect in seconds via <code>http://SERVER_IP:3000/kiosco.html</code>.`;
+                    ? `<strong>Dos Descargas Sencillas en Impossible POS:</strong><br>• <strong>1. Servidor de Caja Principal (Master):</strong> Descarga <strong>Download Windows App</strong> (Impossible_POS_v1.3.25.zip) en la computadora de cobro. Descomprime en <code>C:\\Impossible_POS</code> y abre <strong>Impossible_POS.exe</strong>. Selecciona tus tipos de negocio para generar departamentos base.<br>• <strong>2. Pantallas de Cocina, Bar, Kioscos e Impresoras:</strong> NO descargues todo el sistema. En la pantalla secundaria descarga directamente <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) desde este sitio web. Elige el número de estación y se conecta sola por la red con reconexión automática.<br>• <strong>Emparejamiento por Código:</strong> Si usas navegador o tableta, abre <code>/pair.html</code> para vincularla con código de 4 dígitos estilo Smart TV.`
+                    : `<strong>Two Clean Downloads in Impossible POS:</strong><br>• <strong>1. Main Cash Register PC (Master Server):</strong> Download <strong>Download Windows App</strong> (Impossible_POS_v1.3.25.zip) on your front-counter PC. Extract to <code>C:\\Impossible_POS</code> and run <strong>Impossible_POS.exe</strong>. Select your business type to auto-generate default departments.<br>• <strong>2. Kitchen Displays, Bar, Kiosks & Printers:</strong> Do NOT download the whole system. On the secondary screen, download <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) directly from this website. Select your station number and it configures the desktop shortcut automatically.<br>• <strong>Smart TV Code Pairing:</strong> If using a tablet or browser, open <code>/pair.html</code> on the screen to link with a 4-digit code in seconds.`;
                 addChatMessage('bot', ans);
                 return;
             }
@@ -2069,7 +2072,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                 return;
             }
 
-            if (lower.includes('kitchen') || lower.includes('kds') || lower.includes('cocina') || lower.includes('dhcp') || lower.includes('bump bar')) {
+            if (lower.includes('kitchen') || lower.includes('kds') || lower.includes('cocina') || lower.includes('dhcp') || lower.includes('bump bar') || lower.includes('pair') || lower.includes('emparejar') || lower.includes('codigo') || lower.includes('smart tv')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Pantalla de Cocina (KDS) en 3 pasos:</strong><br>• En la PC de cocina abre <code>http://IP_DEL_SERVIDOR:3000/kiosco.html</code> y presiona <strong>Download Kitchen KDS Installer (.bat)</strong>.<br>• Ejecuta <code>1_INSTALL_KITCHEN_KDS.bat</code>. Crea el icono <strong>Impossible POS - Kitchen KDS</strong> en el escritorio (modo quiosco a pantalla completa).<br>• <strong>Descubrimiento DHCP automático:</strong> el lanzador encuentra el servidor y las estaciones solo, aunque el router cambie sus direcciones IP. No hay que escribir IPs.<br>• <strong>Teclado numérico como Bump Bar:</strong> 1-9 y 0 seleccionan un ticket, + y - se mueven, Del despacha, Enter abre el ticket, Tab cambia de página.<br>• Los pasteles personalizados solo aparecen en la pantalla de repostería, no en cocina caliente.<br>Las pantallas KDS son ilimitadas y gratis.`
                     : `<strong>Kitchen Display (KDS) in 3 steps:</strong><br>• On the kitchen PC open <code>http://SERVER_IP:3000/kiosco.html</code> and click <strong>Download Kitchen KDS Installer (.bat)</strong>.<br>• Run <code>1_INSTALL_KITCHEN_KDS.bat</code>. It creates the desktop icon <strong>Impossible POS - Kitchen KDS</strong> (full-screen kiosk).<br>• <strong>Automatic DHCP discovery:</strong> the launcher finds the server and the stations by itself, even if the router changes their IP addresses. No manual IP typing.<br>• <strong>Bump Bar numeric keypad:</strong> 1-9 and 0 select a ticket, + and - move, Del bumps, Enter opens the ticket, Tab changes page.<br>• Custom cakes are shown only on the bakery screen, not on the hot kitchen.<br>KDS screens are unlimited and free.`;
