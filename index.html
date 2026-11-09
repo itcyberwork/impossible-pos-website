@@ -467,6 +467,8 @@
                         <li class="flex items-start gap-2">• <span data-i18n="mod7_item2"><strong>Station Routing:</strong> Bar drinks print only to bar printer; kitchen items print to kitchen printer.</span></li>
                         <li class="flex items-start gap-2">• <span data-i18n="mod7_item3"><strong>Automatic Kick Drawers:</strong> Compatible with all standard RJ11 24V cash drawers.</span></li>
                         <li class="flex items-start gap-2">• <span data-i18n="mod7_item4"><strong>Cross-Platform:</strong> Runs natively on Windows 10/11 and Android 10+ tablets / Sunmi.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item5"><strong>Smart Screen Pairing:</strong> Link kitchen displays, bar screens, and lobby TVs with a 4-digit code and password.</span></li>
+                        <li class="flex items-start gap-2">• <span data-i18n="mod7_item6"><strong>AI Smart Floor Plan:</strong> Convert dining room sketches and photos into live interactive tables in seconds.</span></li>
                     </ul>
                 </div>
 
@@ -930,8 +932,8 @@
             <!-- Direct 1-Click Instant Download Banner for customers who want immediate trial -->
             <div style="background: rgba(48,209,88,0.08); border: 1px solid #30d158; border-radius: 12px; padding: 12px; margin-bottom: 14px; text-align: center;">
                 <div style="font-size: 12px; font-weight: bold; color: #166534; margin-bottom: 4px;">Descarga Directa Inmediata / Instant Direct Download:</div>
-                <a href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.25/Impossible_POS_v1.3.25.zip" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm shadow transition-all">
-                    Descargar Impossible_POS_v1.3.25.zip Directo (400 MB)
+                <a href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.27/Impossible_POS_v1.3.27.zip" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm shadow transition-all">
+                    Descargar Impossible_POS_v1.3.27.zip Directo (400 MB)
                 </a>
             </div>
             
@@ -1006,22 +1008,41 @@
                 <h4 id="lead-success-title" data-i18n="lead_success_title" class="text-2xl font-black text-slate-900">Welcome to Impossible POS!</h4>
                 <p id="lead-success-msg" class="text-sm text-slate-600 max-w-sm mx-auto">Your trial has been registered. Your download is starting right now...</p>
                 
-                <!-- Proceed to Hardware & Stations Setup Wizard Button -->
-                <div class="pt-2">
-                    <a href="setup_hardware.html" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-2xl text-sm shadow-lg border border-slate-700 transition-all hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
-                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-                        <span data-i18n="btn_proceed_hardware_wizard">Proceed to Hardware & Stations Setup Wizard</span>
-                    </a>
+                <!-- Two Distinct Download Options -->
+                <div id="lead-download-options" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left pt-2">
+                    <!-- Option 1: Main Register (Full ZIP) -->
+                    <div class="bg-gradient-to-br from-brand-50 to-white border-2 border-brand-500/30 rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:border-brand-500 transition-all">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-[11px] font-black uppercase tracking-wider bg-brand-500 text-white px-2.5 py-0.5 rounded-full" data-i18n="dl_card1_badge">Main Cash Register</span>
+                                <span class="text-xs font-semibold text-slate-500">~399 MB</span>
+                            </div>
+                            <h5 class="text-base font-black text-slate-900 mb-1" data-i18n="dl_card1_title">Full Master System (ZIP)</h5>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4" data-i18n="dl_card1_desc">Complete cashier station, local offline database engine, back office administration & license management. Install on your primary Windows PC.</p>
+                        </div>
+                        <a id="lead-download-direct-btn" href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.27/Impossible_POS_v1.3.27.zip" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-sm shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] w-full text-center">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            <span data-i18n="dl_card1_btn">Download Full System ZIP</span>
+                        </a>
+                    </div>
+
+                    <!-- Option 2: Hardware Stations & Screens (Setup Script) -->
+                    <div class="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-300 rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:border-slate-500 transition-all">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-[11px] font-black uppercase tracking-wider bg-slate-800 text-white px-2.5 py-0.5 rounded-full" data-i18n="dl_card2_badge">Kitchen / Bar / TV / Kiosk</span>
+                                <span class="text-xs font-semibold text-emerald-600 font-bold">15 KB</span>
+                            </div>
+                            <h5 class="text-base font-black text-slate-900 mb-1" data-i18n="dl_card2_title">Hardware Stations Setup (.bat)</h5>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4" data-i18n="dl_card2_desc">For secondary screens only: Kitchen KDS, Bar KDS, Lobby TV, Runner Hub, Self-Order Kiosks & ESC/POS Printers. Single lightweight file, zero full software install needed.</p>
+                        </div>
+                        <a href="Impossible_POS_Hardware_Setup.bat" download="Impossible_POS_Hardware_Setup.bat" class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-sm shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] w-full text-center">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <span data-i18n="dl_card2_btn">Download Hardware Setup (.bat)</span>
+                        </a>
+                    </div>
                 </div>
-                
-                <!-- Direct Download Button -->
-                <div id="lead-download-btn-container" class="pt-2 hidden">
-                    <a id="lead-download-direct-btn" href="https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.25/Impossible_POS_v1.3.25.zip" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-2xl text-base shadow-xl shadow-brand-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
-                        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span data-i18n="lead_success_btn_download">Download Impossible_POS_v1.3.25.zip</span>
-                    </a>
-                </div>
-                
+
                 <!-- Step-by-Step Installation Instructions Box -->
                 <div id="lead-install-guide" class="text-left bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mt-4 space-y-3 text-xs text-slate-700 hidden shadow-sm">
                     <div class="flex items-center justify-between border-b border-slate-200 pb-2">
@@ -1037,7 +1058,7 @@
                     <div class="space-y-2.5">
                         <div class="flex items-start gap-2.5">
                             <span class="bg-brand-500 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">1</span>
-                            <span data-i18n="install_step1"><strong>Create Folder & Extract:</strong> Create a folder named <code>C:\ImpossiblePOS</code> (or <code>C:\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.25.zip</code> into this folder.</span>
+                            <span data-i18n="install_step1"><strong>Create Folder & Extract:</strong> Create a folder named <code>C:\ImpossiblePOS</code> (or <code>C:\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.27.zip</code> into this folder.</span>
                         </div>
                         <div class="flex items-start gap-2.5">
                             <span class="bg-emerald-600 text-white font-bold rounded-full w-5 h-5 flex items-center justify-center text-[11px] shrink-0 mt-0.5 shadow-sm">2</span>
@@ -1142,7 +1163,7 @@
     <script>
     const TG_TOKEN = "8883667960:AAFVCTqMwI75fGFZ76LCb5ektTVkduv878s";
     const TG_CHAT = "8681270663";
-    const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.25/Impossible_POS_v1.3.25.zip";
+    const WINDOWS_DOWNLOAD_URL = "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.27/Impossible_POS_v1.3.27.zip";
     const ANDROID_DEMO_URL = "https://demo.impossiblepos.com";
 
     // --- Complete Translations Dictionary ---
@@ -1413,9 +1434,9 @@
             lead_btn_sales: "Request Consultation",
             lead_success_title: "Welcome to Impossible POS!",
             lead_success_btn_close: "Close",
-            lead_success_btn_download: "Download Impossible_POS_v1.3.25.zip Now",
+            lead_success_btn_download: "Download Impossible_POS_v1.3.27.zip Now",
             install_guide_title: "Quick 1-Minute Windows Setup:",
-            install_step1: "<strong>Create Folder & Extract:</strong> Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.25.zip</code> into this folder.",
+            install_step1: "<strong>Create Folder & Extract:</strong> Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive. Unzip / extract all files from <code>Impossible_POS_v1.3.27.zip</code> into this folder.",
             install_step2: "<strong>Node.js Pre-requisite & App:</strong> Run <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (if Node.js is not on your PC), or double-click <strong>Impossible_POS.exe</strong> directly to launch the system.",
             install_step3: "<strong>Desktop Shortcut:</strong> Double-click <strong>2_CREATE_DESKTOP_SHORTCUT.bat</strong> to place the official cashier icon on your Desktop.",
             install_step4: "<strong>Open Windows Firewall:</strong> Right-click <strong>OPEN_FIREWALL_PORTS.bat</strong> and select <strong>'Run as Administrator'</strong> so kitchen screens, bar terminals, and tablets on Wi-Fi can connect.",
@@ -1692,9 +1713,9 @@
             lead_btn_sales: "Solicitar Asesoría",
             lead_success_title: "¡Bienvenido a Impossible POS!",
             lead_success_btn_close: "Cerrar",
-            lead_success_btn_download: "Descargar Impossible_POS_v1.3.25.zip Ahora",
+            lead_success_btn_download: "Descargar Impossible_POS_v1.3.27.zip Ahora",
             install_guide_title: "Guía Rápida de Inicio (1 Minuto):",
-            install_step1: "<strong>Crear Carpeta y Descomprimir:</strong> Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en tu disco C:. Descomprime todo el contenido de <code>Impossible_POS_v1.3.25.zip</code> dentro de esa carpeta.",
+            install_step1: "<strong>Crear Carpeta y Descomprimir:</strong> Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en tu disco C:. Descomprime todo el contenido de <code>Impossible_POS_v1.3.27.zip</code> dentro de esa carpeta.",
             install_step2: "<strong>Requisito Node.js y Programa:</strong> Ejecuta <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (si la PC no tiene Node.js), o abre directamente <strong>Impossible_POS.exe</strong> para iniciar el sistema.",
             install_step3: "<strong>Crear Acceso Directo:</strong> Ejecuta <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> para colocar el icono oficial de la caja registradora en tu Escritorio.",
             install_step4: "<strong>Abrir Firewall de Windows:</strong> Haz clic derecho en <code>OPEN_FIREWALL_PORTS.bat</code> y elige <strong>'Ejecutar como Administrador'</strong> para que las pantallas de cocina, barra y tabletas en la red Wi-Fi puedan comunicarse.",
@@ -1712,6 +1733,18 @@
             ai_welcome: "¡Hola! Soy el especialista virtual de Impossible POS. Pregúntame sobre el precio de $85, pantallas de cocina gratis, modo sin internet o compatibilidad de tu equipo.",
             ai_chip_setupwizard: "Asistente de Hardware y Cajas",
             btn_proceed_hardware_wizard: "Proceder a Instalar Hardware y Estaciones",
+            dl_card1_badge: "Caja Registradora Principal",
+            dl_card1_title: "Sistema Maestro Completo (ZIP)",
+            dl_card1_desc: "Caja completa, base de datos local fuera de línea, panel de administración y control de licencias. Instalar en tu computadora principal de Windows.",
+            dl_card1_btn: "Descargar Sistema Completo ZIP",
+            dl_card2_badge: "Cocina / Bar / TV / Kiosco",
+            dl_card2_title: "Instalador de Hardware y Pantallas (.bat)",
+            dl_card2_desc: "Solo para pantallas secundarias: Pantallas de cocina KDS, Bar, TV de clientes, Kioscos e impresoras térmicas. Archivo ligero de 15 KB, sin instalar todo el software.",
+            dl_card2_btn: "Descargar Setup de Hardware (.bat)",
+            hard_item4: "<strong>Vinculación Rápida de Pantallas y TVs:</strong> Enlaza Smart TVs, pantallas de cocina y tabletas en 5 segundos con un código de 4 dígitos y contraseña—sin configurar direcciones IP del router.",
+            hard_item5: "<strong>Croquis Inteligente con IA:</strong> Dibuja tus mesas en un papel o servilleta, tómale una foto y la Inteligencia Artificial arma tu mapa interactivo en segundos; o crea patrones arquitectónicos fuera de línea en 1 clic.",
+            mod7_item5: "<strong>Vinculación por Código:</strong> Enlaza pantallas de cocina, bar y TVs de clientes con código de 4 dígitos y contraseña.",
+            mod7_item6: "<strong>Croquis con IA:</strong> Convierte fotos y dibujos de mesas en croquis interactivos en vivo al instante.",
             ai_chip_pricing: "Precios y Planes",
             ai_chip_shift: "Turno y Fondo de Caja",
             ai_chip_waiter: "Modo Mesero vs Caja",
@@ -1937,7 +1970,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                 try {
                     const dlLink = document.createElement('a');
                     dlLink.href = WINDOWS_DOWNLOAD_URL;
-                    dlLink.setAttribute('download', 'Impossible_POS_v1.3.25.zip');
+                    dlLink.setAttribute('download', 'Impossible_POS_v1.3.27.zip');
                     document.body.appendChild(dlLink);
                     dlLink.click();
                     document.body.removeChild(dlLink);
@@ -2059,8 +2092,8 @@ ${notes ? notes : 'Ninguno especificado.'}
 
             if (lower === 'zip' || lower === 'download' || lower === 'descargar' || lower === 'install' || lower === 'instalar' || lower === 'setup' || lower === 'installer' || lower.includes('download pos') || lower.includes('descargar pos') || lower.includes('download zip') || lower.includes('descargar zip') || lower.includes('how to install')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Dos Descargas Sencillas en Impossible POS:</strong><br>• <strong>1. Servidor de Caja Principal (Master):</strong> Descarga <strong>Download Windows App</strong> (Impossible_POS_v1.3.25.zip) en la computadora de cobro. Descomprime en <code>C:\\Impossible_POS</code> y abre <strong>Impossible_POS.exe</strong>. Selecciona tus tipos de negocio para generar departamentos base.<br>• <strong>2. Pantallas de Cocina, Bar, Kioscos e Impresoras:</strong> NO descargues todo el sistema. En la pantalla secundaria descarga directamente <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) desde este sitio web. Elige el número de estación y se conecta sola por la red con reconexión automática.<br>• <strong>Emparejamiento por Código:</strong> Si usas navegador o tableta, abre <code>/pair.html</code> para vincularla con código de 4 dígitos estilo Smart TV.`
-                    : `<strong>Two Clean Downloads in Impossible POS:</strong><br>• <strong>1. Main Cash Register PC (Master Server):</strong> Download <strong>Download Windows App</strong> (Impossible_POS_v1.3.25.zip) on your front-counter PC. Extract to <code>C:\\Impossible_POS</code> and run <strong>Impossible_POS.exe</strong>. Select your business type to auto-generate default departments.<br>• <strong>2. Kitchen Displays, Bar, Kiosks & Printers:</strong> Do NOT download the whole system. On the secondary screen, download <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) directly from this website. Select your station number and it configures the desktop shortcut automatically.<br>• <strong>Smart TV Code Pairing:</strong> If using a tablet or browser, open <code>/pair.html</code> on the screen to link with a 4-digit code in seconds.`;
+                    ? `<strong>Dos Descargas Sencillas en Impossible POS:</strong><br>• <strong>1. Servidor de Caja Principal (Master):</strong> Descarga <strong>Download Windows App</strong> (Impossible_POS_v1.3.27.zip) en la computadora de cobro. Descomprime en <code>C:\\Impossible_POS</code> y abre <strong>Impossible_POS.exe</strong>. Selecciona tus tipos de negocio para generar departamentos base.<br>• <strong>2. Pantallas de Cocina, Bar, Kioscos e Impresoras:</strong> NO descargues todo el sistema. En la pantalla secundaria descarga directamente <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) desde este sitio web. Elige el número de estación y se conecta sola por la red con reconexión automática.<br>• <strong>Emparejamiento por Código:</strong> Si usas navegador o tableta, abre <code>/pair.html</code> para vincularla con código de 4 dígitos estilo Smart TV.`
+                    : `<strong>Two Clean Downloads in Impossible POS:</strong><br>• <strong>1. Main Cash Register PC (Master Server):</strong> Download <strong>Download Windows App</strong> (Impossible_POS_v1.3.27.zip) on your front-counter PC. Extract to <code>C:\\Impossible_POS</code> and run <strong>Impossible_POS.exe</strong>. Select your business type to auto-generate default departments.<br>• <strong>2. Kitchen Displays, Bar, Kiosks & Printers:</strong> Do NOT download the whole system. On the secondary screen, download <strong>Hardware Stations Setup</strong> (<code>Impossible_POS_Hardware_Setup.bat</code>) directly from this website. Select your station number and it configures the desktop shortcut automatically.<br>• <strong>Smart TV Code Pairing:</strong> If using a tablet or browser, open <code>/pair.html</code> on the screen to link with a 4-digit code in seconds.`;
                 addChatMessage('bot', ans);
                 return;
             }
@@ -2205,7 +2238,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                     ? `<strong>Guía Completa de Instalación y Conexión de Todas las Estaciones:</strong><br><br>` +
                       `<strong>1. Servidor Principal (Computadora de Caja / Master):</strong><br>` +
                       `• Crea una carpeta llamada <code>C:\\ImpossiblePOS</code> (o <code>C:\\Impossible_POS</code>) en el disco C:.<br>` +
-                      `• Descomprime <code>Impossible_POS_v1.3.25.zip</code> dentro de esa carpeta.<br>` +
+                      `• Descomprime <code>Impossible_POS_v1.3.27.zip</code> dentro de esa carpeta.<br>` +
                       `• Ejecuta <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (si la PC no tiene Node.js) o abre <strong>Impossible_POS.exe</strong>.<br>` +
                       `• Ejecuta <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> para colocar el icono oficial en el Escritorio.<br>` +
                       `• Haz clic derecho en <code>OPEN_FIREWALL_PORTS.bat</code> y selecciona <em>'Ejecutar como Administrador'</em> para habilitar la comunicación en red Wi-Fi.<br><br>` +
@@ -2222,7 +2255,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                     : `<strong>Comprehensive Installation & Multi-Station Hardware Guide:</strong><br><br>` +
                       `<strong>1. Main Master Server (Cashier / Back Office PC):</strong><br>` +
                       `• Create a folder named <code>C:\\ImpossiblePOS</code> (or <code>C:\\Impossible_POS</code>) directly on your C: Drive.<br>` +
-                      `• Extract all files from <code>Impossible_POS_v1.3.25.zip</code> into this folder.<br>` +
+                      `• Extract all files from <code>Impossible_POS_v1.3.27.zip</code> into this folder.<br>` +
                       `• Run <code>1_INSTALL_NODEJS_REQUIREMENT.bat</code> (if Node.js is not on your PC), or double-click <strong>Impossible_POS.exe</strong> directly.<br>` +
                       `• Double-click <code>2_CREATE_DESKTOP_SHORTCUT.bat</code> to place the official cashier icon on your Desktop.<br>` +
                       `• Right-click <code>OPEN_FIREWALL_PORTS.bat</code> and select <em>'Run as Administrator'</em> so kitchen monitors, bar screens, and tablets on Wi-Fi can connect.<br><br>` +
@@ -2328,8 +2361,8 @@ ${notes ? notes : 'Ninguno especificado.'}
                 addChatMessage('bot', ans);
             } else if (lower.includes('trial') || lower.includes('prueba') || lower.includes('30') || lower.includes('15') || lower.includes('dias') || lower.includes('free trial') || lower.includes('demo') || lower.includes('exe') || lower.includes('instalar') || lower.includes('abrir')) {
                 const ans = currentLang === 'es'
-                    ? `<strong>Prueba Gratuita de 30 Días e Instalación en 1 Clic:</strong><br>• <strong>30 Días Completos sin Compromiso:</strong> Descarga el sistema y úsalo con todas las funciones activadas. Un contador visible te indica los días restantes.<br>• <strong>Instalación Nativa en 1 Clic con Impossible_POS.exe:</strong> No necesitas comandos complicados ni instalar Node.js. Descomprimes <code>Impossible_POS_v1.3.25.zip</code> y abres <strong>Impossible_POS.exe</strong> directamente.<br>• <strong>Asistente de Bienvenida:</strong> Escribe el nombre de tu negocio, acepta los términos y comienza a cobrar en menos de 60 segundos.`
-                    : `<strong>30-Day Free Trial & Native 1-Click App:</strong><br>• <strong>Full 30-Day Free Trial:</strong> Download the system and experience every premium feature for 30 full days with zero commitments. A live counter displays days remaining.<br>• <strong>Native App (Impossible_POS.exe):</strong> No complex setup or command lines. Just extract <code>Impossible_POS_v1.3.25.zip</code> and double-click <strong>Impossible_POS.exe</strong> to open the full register.<br>• <strong>Welcome Wizard:</strong> Set your store name, accept terms, and start taking orders in under 60 seconds.`;
+                    ? `<strong>Prueba Gratuita de 30 Días e Instalación en 1 Clic:</strong><br>• <strong>30 Días Completos sin Compromiso:</strong> Descarga el sistema y úsalo con todas las funciones activadas. Un contador visible te indica los días restantes.<br>• <strong>Instalación Nativa en 1 Clic con Impossible_POS.exe:</strong> No necesitas comandos complicados ni instalar Node.js. Descomprimes <code>Impossible_POS_v1.3.27.zip</code> y abres <strong>Impossible_POS.exe</strong> directamente.<br>• <strong>Asistente de Bienvenida:</strong> Escribe el nombre de tu negocio, acepta los términos y comienza a cobrar en menos de 60 segundos.`
+                    : `<strong>30-Day Free Trial & Native 1-Click App:</strong><br>• <strong>Full 30-Day Free Trial:</strong> Download the system and experience every premium feature for 30 full days with zero commitments. A live counter displays days remaining.<br>• <strong>Native App (Impossible_POS.exe):</strong> No complex setup or command lines. Just extract <code>Impossible_POS_v1.3.27.zip</code> and double-click <strong>Impossible_POS.exe</strong> to open the full register.<br>• <strong>Welcome Wizard:</strong> Set your store name, accept terms, and start taking orders in under 60 seconds.`;
                 addChatMessage('bot', ans);
             } else if (lower.includes('kds') || lower.includes('kitchen') || lower.includes('cocina')) {
                 const ans = currentLang === 'es'
