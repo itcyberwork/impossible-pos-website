@@ -34,14 +34,31 @@ Impossible POS está diseñado para comenzar a operar en menos de 60 segundos si
 6. Haz clic derecho en `OPEN_FIREWALL_PORTS.bat` y selecciona **Ejecutar como Administrador** para habilitar la comunicación de red local con tabletas y pantallas de cocina.
 7. Abre el sistema haciendo doble clic en **Impossible_POS.exe**. ¡La caja registradora arranca inmediatamente en pantalla completa!
 
-### B. Instalación de Estaciones Secundarias (Cocina KDS, Bar, Photo Hub, TV, Runner, Hostess, Caja 2)
-En cualquier computadora secundaria conectada a la misma red Wi-Fi o cable Ethernet:
-1. Abre Google Chrome o Microsoft Edge y entra a:
-   `http://<IP_SERVIDOR>:3000/kiosco.html`
-   *(O haz clic en " Centro de Kioscos" en la ventana de Vincular Dispositivos del POS).*
-2. Haz clic en **" Instalar Kiosco en este equipo"** en la estación que deseas instalar.
-3. Abre el archivo `.bat` descargado. El instalador detectará automáticamente Edge o Chrome, descargará el icono oficial `.ico` y creará un **Acceso Directo en el Escritorio en Modo Kiosco (Pantalla Completa)**, sin barras de navegador ni la letra 'E' de Microsoft Edge.
-4. Alternativamente, puedes copiar la carpeta `Download Kiosk Shortcuts` desde `C:\ImpossiblePOS` mediante una memoria USB y ejecutar el archivo `.bat` directamente en el equipo secundario.
+### B. Instalación de Pantallas y Hardware Secundario (Cocina, Bar, TV, Kioscos e Impresoras)
+Tienes dos métodos rápidos y sencillos sin necesidad de memorias USB ni configuraciones complicadas:
+
+#### Método 1: Emparejamiento por Código de 4 Dígitos (Estilo Smart TV / Recomendado)
+1. En tu pantalla de cocina, bar o tableta, abre Chrome o Edge y entra a: `http://<IP_SERVIDOR>:3000/pair.html`
+2. La pantalla te mostrará un código de 4 dígitos grande (ejemplo: 7421).
+3. En la Caja Principal aparecerá un aviso inmediato: "Nueva Pantalla Detectada en la Red. ¿Deseas Aceptar y Conectar?".
+4. Presiona **Aceptar y Conectar**. ¡La pantalla se desbloquea en ese mismo segundo y entra en pantalla completa lista para trabajar!
+
+#### Método 2: Instalador Universal de Hardware (.bat)
+1. En la pantalla secundaria, descarga **Hardware Stations Setup** (`Impossible_POS_Hardware_Setup.bat`) directamente desde el sitio web o desde `http://<IP_SERVIDOR>:3000/download-hardware-setup`.
+2. Ejecuta `Impossible_POS_Hardware_Setup.bat`.
+3. Elige el número de tu pantalla:
+   - [1] Pantalla de Cocina 1 (Platos Calientes / KDS)
+   - [2] Pantalla de Cocina 2 (Cocina Fría / Panadería)
+   - [3] Pantalla de Bar (Bebidas y Cócteles)
+   - [4] Pedidos Especiales (Pasteles Personalizados y Eventos)
+   - [5] Photo Hub (Visor de Fotos para Mostrador)
+   - [6] Lobby TV (Turnos y Sala de Espera para Clientes)
+   - [7] Runner Hub (Despacho y Entrega de Pedidos)
+   - [8] Hostess Hub (Asignación de Mesas y Recepción)
+   - [9] Kiosco de Autoservicio (Toma de Órdenes para Clientes)
+   - [10] Caja Registradora Secundaria (POS 2)
+   - [11] Configurar Servicio de Impresoras Térmicas y Cajón de Dinero
+4. El instalador localiza la caja principal por la red en menos de 20ms, crea el acceso directo en el Escritorio con su icono oficial y lo abre de inmediato.
 
 ### C. Terminales Sunmi, Celulares de Meseros (BYOD) y Tablets (Cero Instalación de Apps)
 1. Conecta el dispositivo móvil o tableta a la red Wi-Fi del restaurante.
