@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.3.24",
-  "releaseNotes": "Official Release v1.3.24:\n- Plug and Play Self-Healing KDS: Kitchen screens, bar displays, and secondary stations now feature automated self-healing LAN discovery. Secondary stations automatically discover host cash register IP on boot or network change without manual IP typing or re-running installers.\n- Ultra-Fast Network Discovery: Upgraded UDP broadcast discovery on port 38899 (<20ms response) with multithreaded subnet scan fallback for zero-configuration station pairing.\n- Pre-Generated Standalone Launchers: USB export writes self-contained launch scripts eliminating Windows command-line redirection fragility.\n- English Default Standard: Pristine English interfaces across all station setups with full automatic Spanish translation when chosen in settings.\n- Zero Regressions: Passed 100% pre-flight automated audit across all 72 modal dialogs with zero warnings.",
+  "latestVersion": "1.3.25",
+  "releaseNotes": "Official Release v1.3.25:\n- Smart TV / 4-Digit Code Screen Pairing: Connect kitchen screens, bar displays, lobby TVs, and kiosks instantly with zero USB drives. Secondary screens display a 4-digit code (e.g. 7421) and the Main Cash Register approves with 1 click.\n- Universal Hardware Setup: Standalone installer (Impossible_POS_Hardware_Setup.bat) available directly on the website and server, supporting all 10 hardware stations plus thermal printer and cash drawer service activation in one unified menu.\n- Conversational Chatbot Upgrade: Integrated guidance for smart pairing, hardware setup, thermal printers, and network discovery in both English and Spanish.\n- Updated Operations Manuals: Full step-by-step procedures for the new zero-friction hardware deployment.\n- Zero Regressions: Verified 100% integrity across all 72 modal dialogs with 0 warnings.",
   "mandatory": false,
-  "patchFileName": "patch-1.3.24.zip",
-  "updatedAt": "2026-11-09T16:11:16.211Z"
+  "patchFileName": "patch-1.3.25.zip",
+  "updatedAt": "2026-11-09T16:41:11.728Z"
 }
