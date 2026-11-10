@@ -1,7 +1,7 @@
 {
-  "latestVersion": "1.3.28",
-  "releaseNotes": "Official Release v1.3.28:\n- Direct Guest Check Printing: Pressing CHECK prints the guest check bill immediately to thermal receipt printers without opening the checkout tender dialog.\n- Automatic Sales Receipt on PAY: Opening drawer and completing cash or card tender prints the customer sales receipt instantly.\n- Universal Hardware Stations Setup: Official compiled native installer (Impossible_POS_Hardware_Setup.exe) with all 10 stations and dedicated official station icons (Kitchen, Bakery, Bar, Photo Hub, Runner, Lobby TV, Hostess, Secondary Register, Screen Pairing, and Kiosk Hub).\n- Real-Time Hardware Detection: Cash register chimes and alerts immediately upon any station connecting on the local network.\n- Bar KDS Instant Dispatch: Digital order routing for all beers, wines, spirits, cocktails, and soft drinks with zero paper waste on cashier printers.\n- Database Stability: Robust parameter validation and fault-tolerant order lookup across all stations.",
+  "latestVersion": "1.3.29",
+  "releaseNotes": "Official Release v1.3.29:\n- Hardware & Software Health Sentinel: Real-time dual diagnostic monitor located in Options -> Cashier tab (Card G) providing instant health thermometers, live telemetry, and actionable diagnostic guidance for all physical devices (Printers, Cash Drawer, Scales, Barcode Scanners, KDS Screens, Biometrics, Terminals, Network) and software components (Main Comanda Cart, Drink Selector, Cake Calendar, Database Engine, Bilingual Engine, Spooler).\n- Touch-Friendly Drinks & Beverages Modal: Smart category folders (Sodas/Refrescos, Juices & Waters, Hot Coffee/Drinks, Energy Drinks, Complete Catalog) with instant pop-up window (modalDrinksGroup) eliminating raw unorganized catalog lists.\n- Resilient Cake Calendar & Event Date Picker: Bulletproof event listener shield protecting mouse and touch date selection from Chromium thread collisions, pre-filling default delivery dates and adding a dedicated 1-click Date button.\n- 100% Quality Bottle Standard: Certified with 36 automated pre-flight vector tests passing at 100.0% zero defects.",
   "mandatory": false,
-  "patchFileName": "patch-1.3.28.zip",
-  "updatedAt": "2026-11-10T22:39:33.238Z"
+  "patchFileName": "patch-1.3.29.zip",
+  "updatedAt": "2026-11-10T23:58:00.267Z"
 }
