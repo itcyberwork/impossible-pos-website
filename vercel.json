@@ -1,0 +1,34 @@
+{
+  "redirects": [
+    {
+      "source": "/Impossible_POS_Setup_v1.3.99.exe",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.99/Impossible_POS_Setup_v1.3.99.exe",
+      "permanent": false
+    },
+    {
+      "source": "/downloads/v1.3.99/Impossible_POS_v1.3.99.zip",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.99/Impossible_POS_v1.3.99.zip",
+      "permanent": false
+    },
+    {
+      "source": "/Impossible_POS_v1.3.99.zip",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.99/Impossible_POS_v1.3.99.zip",
+      "permanent": false
+    },
+    {
+      "source": "/Impossible_POS_Hardware_Setup.exe",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.27/Impossible_POS_Hardware_Setup.exe",
+      "permanent": false
+    },
+    {
+      "source": "/Impossible_POS_Hardware_Setup.zip",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.27/Impossible_POS_Hardware_Setup.zip",
+      "permanent": false
+    },
+    {
+      "source": "/Actualizar_Impossible_POS.exe",
+      "destination": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.36/Actualizar_Impossible_POS.exe",
+      "permanent": false
+    }
+  ]
+}
