@@ -1046,6 +1046,13 @@
                     <p id="lead-success-msg" class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mt-1" data-i18n="lead_success_msg_ready">Your 30-day free trial has been registered. Choose your download below to get started:</p>
                 </div>
 
+                <!-- Auto-Generated 30-Day License Key Box -->
+                <div id="lead-license-box" class="hidden max-w-md mx-auto p-4 bg-emerald-50 border-2 border-emerald-400/50 rounded-2xl shadow-sm text-center">
+                    <div class="text-[11px] font-black uppercase tracking-wider text-emerald-800" data-i18n="lead_key_title">Official 30-Day License Key / Clave de Activación Oficial:</div>
+                    <div id="leadGeneratedKey" class="text-2xl sm:text-3xl font-mono font-black text-emerald-700 tracking-wider my-1 select-all">IMPOS-XXXXXX-XXXX</div>
+                    <p class="text-[11px] text-emerald-700 leading-tight" data-i18n="lead_key_desc">Save this key. Enter it in Impossible POS to activate your 30-day trial across your local network.</p>
+                </div>
+
                 <!-- Windows Success Downloads Container -->
                 <div id="success-windows-container" class="space-y-3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
@@ -1467,6 +1474,8 @@
             foot_report: "Report an Issue",
             foot_privacy: "Privacy Policy",
             foot_terms: "Terms of Service (EULA)",
+            lead_key_title: "Official 30-Day License Key",
+            lead_key_desc: "Save this key. Enter it in Impossible POS (Setup > Software Licensing) to activate your 30-day trial across all your stations.",
 
             lead_title_default: "Start Your 30-Day Free Trial",
             nav_features: "Features",
@@ -1786,6 +1795,8 @@
             foot_report: "Reportar un Problema",
             foot_privacy: "Política de Privacidad",
             foot_terms: "Términos de Servicio (EULA)",
+            lead_key_title: "Clave de Activación Oficial (30 Días)",
+            lead_key_desc: "Guarda esta clave. Ingrésala en Impossible POS (Setup > Licencias de Software) para activar tus 30 días de prueba en todas tus cajas.",
 
             lead_title_default: "Inicia tu Prueba Gratis de 30 Días",
             lead_title_android: "Probar Demo en la Nube para Android",
@@ -2079,6 +2090,35 @@ ${notes ? notes : 'Ninguno especificado.'}
             }),
             keepalive: true
         }).catch(() => {});
+
+        // Automatically provision 30-day license in Cloud License Server
+        fetch('https://impossible-pos-licenses.onrender.com/api/public/register-lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                businessName: business,
+                phone,
+                email,
+                terminals: terminals || '1',
+                source,
+                notes
+            })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data && data.success && data.licenseKey) {
+                const keyEl = document.getElementById('leadGeneratedKey');
+                const boxEl = document.getElementById('lead-license-box');
+                if (keyEl && boxEl) {
+                    keyEl.innerText = data.licenseKey;
+                    boxEl.classList.remove('hidden');
+                }
+            }
+        })
+        .catch(err => {
+            console.warn('Auto lead license sync:', err);
+        });
 
         // Show Success View
         document.getElementById('lead-form').classList.add('hidden');
