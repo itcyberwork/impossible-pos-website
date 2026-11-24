@@ -1,17 +1,17 @@
 {
-  "version": "1.3.100",
-  "latestVersion": "1.3.100",
-  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.100.zip",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.100.zip",
-  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.100.zip",
-  "patchFileName": "patch-1.3.100.zip",
+  "version": "1.3.103",
+  "latestVersion": "1.3.103",
+  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.103.zip",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.103.zip",
+  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.103.zip",
+  "patchFileName": "patch-1.3.103.zip",
   "mandatory": true,
-  "releaseNotes": "Official Release v1.3.100:\n- IMPOSSIBLE MATRIX: Universal 1:1 Mirror Menu Editor now opens directly from Product Inventory.\n- Dynamic Sub-Tabs: Instant horizontal subcategory filtering (Cognac, Tequila, Whisky, etc.) on Matrix and sales comanda.\n- Order Destination Router: Clean selection dialog when sending orders (Assign to Table, Add to Open Tab, Create New Order).\n- Zero rogue floor plan generation dialogs when taking customer orders.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings.",
+  "releaseNotes": "Official Release v1.3.103:\n- SCALE INVENTORY INTEGRATION: Live RG14 USB Scale gram readings directly in Alcohol Control tab.\n- BOTTLE TARE & CALIBRATION: One-touch 'Set Full (g)' and 'Set Empty (g)' instant weight capture.\n- AUTO-CAPTURE STABILITY: Automatic weight recognition when bottle rests on scale.\n- TOUCH ROLE BUTTONS: Replaced system select dropdowns with high-contrast touch pills for flawless kiosk touch editing.\n- STAFF QUICK-SWITCH: Tap employee role badge to cycle access level seamlessly.\n- BARTENDER BARCODE ACCESS: Verified manager card authentication for bartender access.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings.",
   "changelog": [
-    "v1.3.100: Impossible Matrix visual menu mirror editor",
-    "v1.3.100: Dynamic department sub-tabs bar",
-    "v1.3.100: Order Destination router dialog (Table, Open Tab, New Order)",
-    "v1.3.100: 100% Quality Control standard verified across all vectors"
+    "v1.3.103: Live RG14 USB scale integration in Alcohol Inventory",
+    "v1.3.103: 1-click Set Full / Set Empty bottle weight calibration",
+    "v1.3.103: Touchscreen role buttons in employee registration form",
+    "v1.3.103: 100% Quality Control standard verified across all vectors"
   ],
-  "updatedAt": "2026-11-22T01:37:00.716Z"
+  "updatedAt": "2026-11-24T04:28:44.937Z"
 }
