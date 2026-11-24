@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Impossible POS - Pair Screen</title>
+  <link rel="icon" type="image/x-icon" href="/icons/pos.ico">
+  <style>
+    :root {
+      --bg: #090c12;
+      --card-bg: #121722;
+      --card-border: #1e2638;
+      --accent: #00ffcc;
+      --accent-glow: rgba(0, 255, 204, 0.25);
+      --text: #f0f4f8;
+      --text-muted: #8391a7;
+      --success: #30d158;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      overflow-x: hidden;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .brand-title span {
+      color: var(--accent);
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3px 8px;
+      gap: 4px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .container {
+      max-width: 620px;
+      width: 100%;
+      text-align: center;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 18px;
+      padding: 44px 32px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .server-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 204, 0.08);
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    p.subtitle {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .code-grid {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .code-digit {
+      width: 68px;
+      height: 84px;
+      background: #090c13;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px var(--accent-glow);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .waiting-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .waiting-text {
+      font-size: 13.5px;
+      color: #ccd7e4;
+      font-weight: 500;
+    }
+
+    .paired-success {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .paired-success h2 {
+      color: var(--success);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .actions-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #3b4860;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      font-weight: 700;
+    }
+    .btn-primary:hover {
+      background: #00d6ab;
+      box-shadow: 0 4px 18px var(--accent-glow);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="brand">
+      <img src="/icons/pos.ico" alt="Impossible POS">
+      <div class="brand-title">Impossible <span>POS</span></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="/hardware-guide" target="_blank" id="lnkVisualGuide" style="color: var(--accent); font-size: 11px; text-decoration: none; border: 1px solid var(--accent); padding: 4px 10px; border-radius: 16px; font-weight: 700;">Setup Guide</a>
+      <div class="lang-switcher">
+      <button id="btnLangEn" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <span style="color: var(--card-border); font-size: 11px;">|</span>
+      <button id="btnLangEs" class="lang-btn" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer">
+    <div class="server-status-pill">
+      <div class="pulse-dot"></div>
+      <span id="lblServerStatus">Connected to Central Register Server</span>
+    </div>
+
+    <div id="pairView">
+      <h1 id="lblTitle">Pair This Screen</h1>
+      <p class="subtitle" id="lblSubtitle">
+        Confirm this 4-digit code on your Main Cash Register to link this screen automatically.
+      </p>
+
+      <div class="code-grid" id="codeGrid">
+        <div class="code-digit" id="d1">-</div>
+        <div class="code-digit" id="d2">-</div>
+        <div class="code-digit" id="d3">-</div>
+        <div class="code-digit" id="d4">-</div>
+      </div>
+
+      <div class="waiting-box">
+        <div class="spinner"></div>
+        <div class="waiting-text" id="lblWaiting">Waiting for Cash Register approval...</div>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" class="btn" onclick="requestNewCode()" id="btnNewCode">Generate New Code</button>
+        <a href="/download-hardware-setup" class="btn" id="btnDownloadBat">Download Desktop Installer</a>
+      </div>
+    </div>
+
+    <div id="successView" class="paired-success">
+      <h2 id="lblSuccessTitle">Screen Linked Successfully!</h2>
+      <p class="subtitle" id="lblSuccessMsg">Configured as Kitchen Display. Launching now...</p>
+      <div class="actions-row">
+        <button type="button" class="btn btn-primary" onclick="launchTargetStation()" id="btnLaunchNow">Open Screen Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = localStorage.getItem('kiosk_lang') || 'en';
+    let myDeviceId = localStorage.getItem('kiosk_device_id');
+    if (!myDeviceId) {
+      myDeviceId = 'dev_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+      localStorage.setItem('kiosk_device_id', myDeviceId);
+    }
+
+    let activePairingCode = '';
+    let targetStationUrl = '/cocina.html';
+    let socket = null;
+    let pollInterval = null;
+
+    const I18N = {
+      en: {
+        pageTitle: "Impossible POS - Pair Screen",
+        serverStatus: "Connected to Central Register Server",
+        title: "Pair This Screen",
+        subtitle: "Confirm this 4-digit code on your Main Cash Register to link this screen automatically.",
+        waiting: "Waiting for Cash Register approval...",
+        btnNewCode: "Generate New Code",
+        btnDownloadBat: "Download Desktop Installer",
+        successTitle: "Screen Linked Successfully!",
+        successMsg: "Configured and authorized. Launching now...",
+        btnLaunchNow: "Open Screen Now",
+        lnkVisualGuide: "Setup Guide"
+      },
+      es: {
+        pageTitle: "Impossible POS - Enlazar Pantalla",
+        serverStatus: "Conectado al Servidor de Caja Central",
+        title: "Enlazar Esta Pantalla",
+        subtitle: "Confirma este codigo de 4 digitos en la Caja Principal para conectar esta pantalla automaticamente.",
+        waiting: "Esperando confirmacion en la Caja Principal...",
+        btnNewCode: "Generar Nuevo Codigo",
+        btnDownloadBat: "Descargar Instalador de Escritorio",
+        successTitle: "Pantalla Enlazada con Exito",
+        successMsg: "Configurada y autorizada. Iniciando ahora...",
+        btnLaunchNow: "Abrir Pantalla Ahora",
+        lnkVisualGuide: "Guia Visual"
+      }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('kiosk_lang', lang);
+      document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
+      document.getElementById('btnLangEs').classList.toggle('active', lang === 'es');
+
+      const dict = I18N[lang] || I18N.en;
+      document.getElementById('pageTitle').textContent = dict.pageTitle;
+      document.getElementById('lblServerStatus').textContent = dict.serverStatus;
+      document.getElementById('lblTitle').textContent = dict.title;
+      document.getElementById('lblSubtitle').textContent = dict.subtitle;
+      document.getElementById('lblWaiting').textContent = dict.waiting;
+      document.getElementById('btnNewCode').textContent = dict.btnNewCode;
+      document.getElementById('btnDownloadBat').textContent = dict.btnDownloadBat;
+      document.getElementById('lblSuccessTitle').textContent = dict.successTitle;
+      document.getElementById('lblSuccessMsg').textContent = dict.successMsg;
+      document.getElementById('btnLaunchNow').textContent = dict.btnLaunchNow;
+      const guideEl = document.getElementById('lnkVisualGuide');
+      if (guideEl && dict.lnkVisualGuide) guideEl.textContent = dict.lnkVisualGuide;
+    }
+
+    async function requestNewCode() {
+      try {
+        const res = await fetch('/api/kiosk/pair/request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            deviceId: myDeviceId,
+            deviceName: window.navigator.userAgent.includes('Mobile') ? 'Tablet Display' : 'Kitchen PC Screen'
+          })
+        });
+        const data = await res.json();
+        if (data.success && data.code) {
+          activePairingCode = String(data.code);
+          const digits = activePairingCode.split('');
+          document.getElementById('d1').textContent = digits[0] || '-';
+          document.getElementById('d2').textContent = digits[1] || '-';
+          document.getElementById('d3').textContent = digits[2] || '-';
+          document.getElementById('d4').textContent = digits[3] || '-';
+        }
+      } catch (e) {
+        console.error('Error requesting pairing code:', e);
+      }
+    }
+
+    function initWebSocket() {
+      try {
+        const proto = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        socket = new WebSocket(proto + '//' + window.location.host);
+        
+        socket.onmessage = function(event) {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === 'STATION_PAIR_APPROVED') {
+              if (data.deviceId === myDeviceId || data.code === activePairingCode) {
+                onPairingApproved(data);
+              }
+            }
+          } catch(e) {}
+        };
+
+        socket.onclose = function() {
+          setTimeout(initWebSocket, 3000);
+        };
+      } catch (e) {}
+    }
+
+    async function checkPairStatus() {
+      if (!activePairingCode) return;
+      try {
+        const res = await fetch('/api/kiosk/pair/status?deviceId=' + encodeURIComponent(myDeviceId) + '&code=' + encodeURIComponent(activePairingCode));
+        const data = await res.json();
+        if (data.approved) {
+          onPairingApproved(data);
+        }
+      } catch (e) {}
+    }
+
+    function onPairingApproved(data) {
+      if (pollInterval) clearInterval(pollInterval);
+      if (data.targetUrl) targetStationUrl = data.targetUrl;
+      if (data.token) localStorage.setItem('kiosk_paired_token', data.token);
+      if (data.stationType) localStorage.setItem('kiosk_station_type', data.stationType);
+
+      document.getElementById('pairView').style.display = 'none';
+      const successView = document.getElementById('successView');
+      successView.style.display = 'block';
+
+      const roleName = data.stationName || data.stationType || 'Kitchen Display';
+      const dict = I18N[currentLang] || I18N.en;
+      document.getElementById('lblSuccessMsg').textContent = `${dict.successMsg} (${roleName})`;
+
+      setTimeout(() => {
+        launchTargetStation();
+      }, 1800);
+    }
+
+    function launchTargetStation() {
+      window.location.href = targetStationUrl;
+    }
+
+    // Auto-startup
+    window.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+      requestNewCode();
+      initWebSocket();
+      pollInterval = setInterval(checkPairStatus, 2500);
+    });
+  </script>
+</body>
+</html>
