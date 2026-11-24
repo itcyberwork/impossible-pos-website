@@ -1,17 +1,17 @@
 {
-  "version": "1.3.111",
-  "latestVersion": "1.3.111",
-  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.111.zip",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.111.zip",
-  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.111.zip",
-  "patchFileName": "patch-1.3.111.zip",
+  "version": "1.3.112",
+  "latestVersion": "1.3.112",
+  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
+  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
+  "patchFileName": "patch-1.3.112.zip",
   "mandatory": true,
-  "releaseNotes": "Official Release v1.3.111:\n- NATIVE DIGITALPERSONA 4500 INTEGRATION: Direct hardware sensor communication without Windows Hello or PIN dependencies.\n- AUTOMATIC PROCESS LIFECYCLE: Graceful HTTP shutdown and auto-healing prevents orphaned background bridge processes.\n- INSTANT ONE-TOUCH ENROLLMENT: High-speed biometric registration in staff manager with immediate visual feedback.\n- ENHANCED STAFF BIOMETRIC AUTH: Instant login, manager overrides, and punch clock biometrics out-of-the-box.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
+  "releaseNotes": "Official Release v1.3.112:\n- OPTICAL FINGERPRINT ILLUMINATION: Directly powers on DigitalPersona 4500 LEDs on finger contact.\n- ZERO-WINDOWS-HELLO ARCHITECTURE: Captures raw optical biometric frames with zero PIN or Microsoft account requirements.\n- INSTANT ONE-TOUCH ENROLLMENT: High-speed enrollment in staff manager with immediate visual ripple feedback.\n- GRACEFUL PROCESS LIFECYCLE: Automatic background supervisor guarantees clean starts without orphaned processes.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
   "changelog": [
-    "v1.3.111: Native DigitalPersona 4500 direct hardware sensor capture",
-    "v1.3.111: Zero-Windows-Hello biometric architecture eliminating PINs & passwords",
-    "v1.3.111: Graceful background process lifecycle & auto-restart supervisor",
-    "v1.3.111: 100% Quality Control standard verified across all vectors"
+    "v1.3.112: Powers on DigitalPersona 4500 optical illumination LEDs for direct scan",
+    "v1.3.112: Raw optical biometric capture bypassing Windows Hello & PIN requirements",
+    "v1.3.112: Multi-tier fallback (EnrollCapture, CaptureSample, LocateSensor)",
+    "v1.3.112: 100% Quality Control standard verified across all vectors"
   ],
-  "updatedAt": "2026-11-24T15:30:17.962Z"
+  "updatedAt": "2026-11-24T17:18:14.787Z"
 }
