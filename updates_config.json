@@ -1,17 +1,16 @@
 {
-  "version": "1.3.112",
-  "latestVersion": "1.3.112",
-  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
-  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.112.zip",
-  "patchFileName": "patch-1.3.112.zip",
+  "version": "1.3.113",
+  "latestVersion": "1.3.113",
+  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.113.zip",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.113.zip",
+  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.113.zip",
+  "patchFileName": "patch-1.3.113.zip",
   "mandatory": true,
-  "releaseNotes": "Official Release v1.3.112:\n- OPTICAL FINGERPRINT ILLUMINATION: Directly powers on DigitalPersona 4500 LEDs on finger contact.\n- ZERO-WINDOWS-HELLO ARCHITECTURE: Captures raw optical biometric frames with zero PIN or Microsoft account requirements.\n- INSTANT ONE-TOUCH ENROLLMENT: High-speed enrollment in staff manager with immediate visual ripple feedback.\n- GRACEFUL PROCESS LIFECYCLE: Automatic background supervisor guarantees clean starts without orphaned processes.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
+  "releaseNotes": "Official Release v1.3.113:\n- NATIVE HARDWARE LED ARMING: Restored WinBioIdentify driver call that lights up blue/red LEDs on touch.\n- UNREGISTERED FINGERPRINT CATCH: Captures 0x80098007 (UNKNOWN_ID) as instant enrollment event.\n- ZERO WINDOWS HELLO DEPENDENCY: Works 100% on fresh Windows computers without passwords or PINs.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
   "changelog": [
-    "v1.3.112: Powers on DigitalPersona 4500 optical illumination LEDs for direct scan",
-    "v1.3.112: Raw optical biometric capture bypassing Windows Hello & PIN requirements",
-    "v1.3.112: Multi-tier fallback (EnrollCapture, CaptureSample, LocateSensor)",
-    "v1.3.112: 100% Quality Control standard verified across all vectors"
+    "v1.3.113: Native hardware arming for DigitalPersona 4500 (restoring blue & red LEDs)",
+    "v1.3.113: Intercepting WINBIO_E_UNKNOWN_ID for immediate employee registration",
+    "v1.3.113: 100% Quality Control standard verified across all vectors"
   ],
-  "updatedAt": "2026-11-24T17:18:14.787Z"
+  "updatedAt": "2026-11-24T17:34:53.488Z"
 }
