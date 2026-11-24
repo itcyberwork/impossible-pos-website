@@ -100,6 +100,10 @@
 
                 <!-- Right Actions: Language Switcher, Owner Login & Trial CTA -->
                 <div class="flex items-center gap-2.5 sm:gap-3">
+                    <a href="tablets.html" class="inline-flex items-center gap-1.5 bg-sky-500 hover:bg-sky-600 text-slate-950 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold shadow-sm transition-all">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <span data-i18n="nav_tablets">Tablets</span>
+                    </a>
                     <a href="portal.html" class="inline-flex items-center gap-1.5 bg-brand-500 hover:bg-brand-600 text-slate-950 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-extrabold shadow-sm transition-all">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
                         <span data-i18n="nav_owner_login">Owner Login</span>
@@ -124,6 +128,10 @@
             <div class="hidden md:flex justify-center items-center py-2 space-x-8">
                 <a href="#features" data-i18n="nav_features" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Features</a>
                 <a href="#hardware" data-i18n="nav_hardware" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Hardware</a>
+                <a href="tablets.html" class="text-sm font-bold text-sky-600 hover:text-sky-700 transition-colors flex items-center gap-1 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span data-i18n="nav_tablets">Tablets</span>
+                </a>
                 <a href="#why-impossible" data-i18n="nav_why" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Why Impossible?</a>
                 <a href="#pricing" data-i18n="nav_pricing" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Pricing</a>
                 <a href="portal.html" class="text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
@@ -1121,9 +1129,9 @@
                                 <h5 class="text-sm font-black text-slate-900 mb-1" data-i18n="and_card2_title">Wireless Hardware Pairing</h5>
                                 <p class="text-[11px] text-slate-600 leading-relaxed mb-3" data-i18n="and_card2_desc">Pair waiter handhelds, Sunmi POS terminals, and Smart TVs via 4-digit security code or QR.</p>
                             </div>
-                            <a href="/pair.html" target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] w-full text-center">
+                            <a href="tablets.html" target="_blank" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] w-full text-center">
                                 <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                                <span data-i18n="and_card2_btn">Open Screen Pairing (pair.html)</span>
+                                <span data-i18n="and_card2_btn">Connect Tablets & Handhelds</span>
                             </a>
                         </div>
                     </div>
@@ -1260,6 +1268,7 @@
             nav_why: "Why Impossible?",
             nav_pricing: "Pricing",
             nav_portal: "Owner Portal",
+            nav_tablets: "Tablets",
             nav_owner_login: "Owner Login",
             nav_trial_btn: "Start 30-Day Free Trial",
 
@@ -1483,6 +1492,7 @@
             nav_why: "Why Impossible?",
             nav_pricing: "Pricing",
             nav_portal: "Owner Portal",
+            nav_tablets: "Tablets",
             nav_owner_login: "Owner Login",
             nav_cta_try: "Start Free Trial",
             hero_badge: "Next-Gen Restaurant & Bar POS Engine",
@@ -1581,6 +1591,7 @@
             nav_why: "¿Por qué Impossible?",
             nav_pricing: "Precios",
             nav_portal: "Portal de Dueños",
+            nav_tablets: "Tabletas",
             nav_owner_login: "Acceso Dueños",
             nav_trial_btn: "Prueba Gratis 30 Días",
 
@@ -2236,6 +2247,14 @@ ${notes ? notes : 'Ninguno especificado.'}
 
             const lower = userText.toLowerCase().trim();
 
+            if (lower === 'tablet' || lower === 'tablets' || lower === 'tableta' || lower === 'tabletas' || lower === 'ipad' || lower === 'vincular' || lower.includes('conectar tableta') || lower.includes('connect tablet') || lower.includes('mesera') || lower.includes('waitress tablet') || lower.includes('vincular tableta')) {
+                const ans = currentLang === 'es'
+                    ? `<strong>Vincular Tabletas y Móviles (tablets.html):</strong><br>• <strong>Compatible con Android y Apple iPad:</strong> Conecta tabletas de meseras, Sunmi y iPads a tu Caja Principal en 2 pasos.<br>• <strong>Autodescubrimiento Wi-Fi:</strong> Abre <a href="tablets.html" target="_blank" class="text-brand-600 font-bold underline">Centro de Tabletas (tablets.html)</a> y presiona <em>[Escanear y Conectar Tableta]</em> para enlazarla automáticamente sin escribir direcciones IP.<br>• <strong>Escaneo con Cámara:</strong> Abre la cámara de tu tableta y apúntala al código QR en la pantalla de Caja (Setup > Hardware > Móviles / Sunmi).<br>• <strong>Instalar como App:</strong> En Chrome toca (⋮) > 'Instalar app' o en Safari toca Compartir > 'Agregar al inicio' para que abra a pantalla completa como una app nativa.`
+                    : `<strong>Connect Tablets & Mobile Handhelds (tablets.html):</strong><br>• <strong>Android & Apple iPad Compatible:</strong> Link waitress tablets, Sunmi handhelds, and iPads to your Central Register in 2 steps.<br>• <strong>Automatic Wi-Fi Discovery:</strong> Open the <a href="tablets.html" target="_blank" class="text-brand-600 font-bold underline">Tablet Hub (tablets.html)</a> and tap <em>[Scan & Connect Tablet]</em> to link automatically without typing IP addresses.<br>• <strong>Instant Camera QR:</strong> Open your tablet camera and aim it at the QR code on the register (Setup > Hardware > Móviles / Sunmi).<br>• <strong>Install as App:</strong> In Chrome tap (⋮) > 'Install app' or in Safari tap Share > 'Add to Home Screen' to launch in fullscreen kiosk mode.`;
+                addChatMessage('bot', ans);
+                return;
+            }
+
             if (lower === 'backoffice' || lower === 'back office' || lower === 'connect' || lower === 'conectar' || lower === 'client' || lower === 'cliente' || lower.includes('connect client') || lower.includes('conectar caja') || lower.includes('conectar estacion') || lower.includes('conectar backoffice') || lower.includes('connect station')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Cómo conectar Cajas y Estaciones al Back Office:</strong><br>• <strong>Servidor Back Office:</strong> Corre en el equipo principal en el puerto 3000 con la base de datos central. El instalador abre automáticamente los puertos 3000 (TCP) y 38899 (UDP para autodetección).<br>• <strong>Conectar Cajas Secundarias (Caja 2, Cocina, Barra):</strong> Conecta la otra PC a la misma red Wi-Fi o router, abre el navegador en <code>http://IP_SERVIDOR:3000/kiosco.html</code> y haz clic en <strong>'Instalar Kiosco en este equipo'</strong>.<br>• <strong>Reconexión DHCP Inteligente:</strong> El lanzador encuentra solo al servidor aunque el router cambie las direcciones IP. Cero configuración manual.`
@@ -2308,7 +2327,7 @@ ${notes ? notes : 'Ninguno especificado.'}
                 return;
             }
 
-            if (lower.includes('doordash') || lower.includes('uber') || lower.includes('ubereats') || lower.includes('grubhub') || lower.includes('delivery') || lower.includes('tableta') || lower.includes('tablets') || lower.includes('pedidos online') || lower.includes('online orders')) {
+            if (lower.includes('doordash') || lower.includes('uber') || lower.includes('ubereats') || lower.includes('grubhub') || lower.includes('delivery') || lower.includes('pedidos online') || lower.includes('online orders')) {
                 const ans = currentLang === 'es'
                     ? `<strong>Integración Todo-en-Uno de Delivery (DoorDash, Uber Eats, Grubhub y Menú Web):</strong><br>• <strong>Cero Tabletas en el Mostrador:</strong> Olvídate de tener 4 o 5 tabletas diferentes sonando y ocupando espacio. Todos los pedidos entran directamente a Impossible POS.<br>• <strong>Cocina KDS con Colores Oficiales:</strong> Las comandas llegan a la pantalla de cocina con distintivos oficiales (DoorDash en rojo, Uber Eats en verde, Grubhub en naranja y Menú Web en azul) con timbre sonoro automático.<br>• <strong>Despacho Ultrarrápido con Escáner:</strong> Cuando el chofer (Dasher / Uber Driver) llega, la cajera solo escanea el código QR o de barras de su teléfono para verificar la bolsa y confirmar la entrega en 1 segundo.<br>• <strong>Hardware Compatible:</strong> Funciona con cualquier pantalla o tablet táctil para cocina y lectores de código de barras USB estándar.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Solicitar demostración de Delivery</a>`
                     : `<strong>All-in-One Delivery Integration (DoorDash, Uber Eats, Grubhub & Web Store):</strong><br>• <strong>Zero Counter Clutter:</strong> Eliminate the chaos of 5 different tablets taking up counter space. All orders stream directly into Impossible POS.<br>• <strong>Color-Coded Smart KDS:</strong> Tickets appear on the kitchen display with official platform branding (DoorDash Red, Uber Eats Green, Grubhub Orange, Web Blue) and automatic chime sounds.<br>• <strong>Instant Barcode / QR Handover:</strong> When the delivery driver arrives, simply scan their phone screen with your USB scanner to verify the bag and hand it over in 1 second.<br>• <strong>Universal Hardware:</strong> Works with standard monitors/tablets for Kitchen KDS and standard USB 2D barcode/QR scanners.<br><a href="javascript:void(0)" onclick="openLeadModal('sales')" class="text-brand-600 font-bold underline inline-block mt-1">Request a Delivery Demo</a>`;
