@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title id="docTitle">Impossible POS | Connect Tablets & Mobile Handhelds</title>
+  <link rel="icon" type="image/png" href="logo_clean.png">
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com">
+    // PWA & Service Worker Registration
+    let deferredInstallPrompt = null;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+          console.warn('SW registration skipped:', err.message);
+        });
+      });
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const btn = document.getElementById('btn1ClickInstall');
+      if (btn) {
+        btn.classList.add('ring-4', 'ring-emerald-400/40', 'animate-pulse');
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      const btn = document.getElementById('btn1ClickInstall');
+      if (btn) {
+        btn.innerHTML = '<span>App Installed Successfully!</span>';
+        btn.classList.remove('animate-pulse');
+        btn.classList.add('bg-emerald-600', 'pointer-events-none');
+      }
+    });
+
+    function trigger1ClickInstall() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the 1-click install prompt');
+          }
+          deferredInstallPrompt = null;
+        });
+      } else if (isIOS) {
+        const hint = document.getElementById('iosInstallHint');
+        if (hint) {
+          hint.classList.remove('hidden');
+          hint.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        // Fallback for browsers that require standard menu or direct intent
+        const hint = document.getElementById('iosInstallHint');
+        if (hint) {
+          hint.innerHTML = '<span class="text-amber-300">Tap the three vertical dots (⋮) in Chrome and select "Install App" or "Add to Home Screen".</span>';
+          hint.classList.remove('hidden');
+          hint.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    // Auto-detect platform badge
+    window.addEventListener('DOMContentLoaded', () => {
+      const badge = document.getElementById('detectedPlatformBadge');
+      if (badge) {
+        if (isIOS) {
+          badge.textContent = 'Apple iPadOS Detected';
+        } else if (/Android/i.test(navigator.userAgent)) {
+          badge.textContent = 'Android / Sunmi Detected';
+        } else if (/Windows/i.test(navigator.userAgent)) {
+          badge.textContent = 'Windows PC / Tablet Detected';
+        }
+      }
+    });
+</script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+            accent: {
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            },
+            dark: {
+              950: '#07090e',
+              900: '#0d1117',
+              850: '#131923',
+              800: '#1a2232',
+              700: '#26334a',
+              600: '#334460'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #07090e; color: #f1f5f9; }
+    .card-dark {
+      background: #0d1117;
+      border: 1px solid #1a2232;
+    }
+    .pulse-ring {
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+      animation: pulse-blue 2s infinite;
+    }
+    @keyframes pulse-blue {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col antialiased selection:bg-brand-500 selection:text-black">
+
+  <!-- TOP BAR -->
+  <header class="sticky top-0 z-40 bg-dark-900/90 backdrop-blur-md border-b border-dark-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="logo_clean.png" alt="Impossible POS" class="w-8 h-8 rounded-lg" onerror="this.src='https://impossiblepos.com/logo_clean.png'">
+          <span class="font-extrabold text-lg text-white">Impossible<span class="text-brand-400">POS</span></span>
+        </a>
+        <span class="text-xs bg-brand-500/10 text-brand-400 font-bold px-2.5 py-0.5 rounded-full border border-brand-500/20" data-i18n="badge_tablets">Tablet Hub</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher -->
+        <div class="inline-flex p-1 bg-dark-850 rounded-full border border-dark-700 text-xs font-bold">
+          <button id="lang-btn-en" onclick="setLang('en')" class="px-2.5 py-1 rounded-full bg-brand-500 text-white transition-all cursor-pointer">
+            EN
+          </button>
+          <button id="lang-btn-es" onclick="setLang('es')" class="px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition-all cursor-pointer">
+            ES
+          </button>
+        </div>
+
+        <a href="index.html" class="text-xs font-bold text-slate-300 hover:text-white bg-dark-800 px-3 py-1.5 rounded-lg border border-dark-700 transition-colors" data-i18n="btn_home">
+          Home
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- HERO HEADER -->
+    <div class="text-center mb-8">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2" data-i18n="hero_title">
+        Connect Waitress Tablets & Mobile Screens
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto" data-i18n="hero_subtitle">
+        Link any Android tablet or Apple iPad to your Central POS Register in seconds. No manual IP typing, no network cables, and zero app store fees.
+      </p>
+    </div>
+
+    <!-- PRIMARY ACTION: AUTOMATIC WI-FI LINKING -->
+    <div class="card-dark rounded-2xl p-6 sm:p-8 mb-8 border-2 border-brand-500/40 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-48 h-48 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center flex-shrink-0 text-brand-400">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs uppercase font-extrabold tracking-wider text-brand-400" data-i18n="method1_tag">Method 1 (Recommended)</span>
+              <span class="text-[11px] bg-emerald-500/10 text-emerald-400 font-bold px-2 py-0.2 rounded-full border border-emerald-500/20" data-i18n="badge_instant">Instant Wi-Fi Sync</span>
+            </div>
+            <h2 class="text-lg sm:text-xl font-bold text-white mb-1" data-i18n="method1_title">
+              1-Click Automatic Wi-Fi Auto-Discovery
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-xl" data-i18n="method1_desc">
+              Make sure this tablet is connected to the restaurant Wi-Fi. Tap the button below and the tablet will locate the Central POS register on your network automatically.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-auto flex-shrink-0">
+          <button id="btnStartDiscovery" onclick="startLocalDiscovery()" class="w-full sm:w-auto px-6 py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-extrabold rounded-xl text-sm shadow-lg shadow-brand-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <span data-i18n="btn_scan_connect">Scan & Connect Tablet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCANNING STATUS BOX (Hidden by default) -->
+      <div id="scanStatusContainer" class="hidden mt-6 pt-6 border-t border-dark-800">
+        <div class="flex items-center gap-3">
+          <div class="w-4 h-4 rounded-full bg-brand-400 pulse-ring"></div>
+          <span id="scanStatusText" class="text-xs font-semibold text-slate-300" data-i18n="scan_in_progress">
+            Searching Wi-Fi network for Central POS Server...
+          </span>
+        </div>
+        <div class="w-full bg-dark-800 rounded-full h-1.5 mt-3 overflow-hidden">
+          <div id="scanProgressBar" class="bg-brand-500 h-1.5 rounded-full transition-all duration-300" style="width: 15%"></div>
+        </div>
+        <div id="scanResultArea" class="mt-4 hidden"></div>
+      </div>
+    </div>
+
+    <!-- 2-COLUMN GRID: CAMERA QR & 4-DIGIT PIN -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+      <!-- METHOD 2: CAMERA QR PAIRING -->
+      <div class="card-dark rounded-2xl p-6 border border-dark-800 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-400" data-i18n="method2_tag">Method 2</span>
+            <span class="text-[11px] bg-dark-800 text-slate-300 font-bold px-2 py-0.5 rounded-full border border-dark-700" data-i18n="badge_camera">Camera Scan</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-2" data-i18n="method2_title">
+            Point Tablet Camera at POS Screen
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="method2_desc">
+            The simplest method for waitresses on shift. Open the standard Camera app on your Android tablet or iPad and point it directly at the POS register screen.
+          </p>
+          <div class="bg-dark-850 p-4 rounded-xl border border-dark-800 text-xs text-slate-300 space-y-2 mb-4">
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-brand-400">1.</span>
+              <span data-i18n="step_qr_1">On the Main POS computer, go to <strong>Setup &gt; Hardware &gt; Móviles / Sunmi</strong>.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-brand-400">2.</span>
+              <span data-i18n="step_qr_2">Click <strong>[View Sunmi / Tablet QR Codes]</strong> to display the official pairing code.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-brand-400">3.</span>
+              <span data-i18n="step_qr_3">Aim your tablet camera at the screen and tap the link that pops up.</span>
+            </div>
+          </div>
+        </div>
+        <div class="pt-2">
+          <a href="pair.html" class="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-dark-800 hover:bg-dark-700 text-slate-200 text-xs font-bold rounded-xl border border-dark-700 transition-colors">
+            <span data-i18n="btn_open_pairing_screen">Open 4-Digit Code Pairing (pair.html)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- METHOD 3: 4-DIGIT SMART TV PIN -->
+      <div class="card-dark rounded-2xl p-6 border border-dark-800 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs uppercase font-extrabold tracking-wider text-purple-400" data-i18n="method3_tag">Method 3</span>
+            <span class="text-[11px] bg-dark-800 text-slate-300 font-bold px-2 py-0.5 rounded-full border border-dark-700" data-i18n="badge_pin">Smart TV PIN</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-white mb-2" data-i18n="method3_title">
+            Direct Server Address or PIN
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="method3_desc">
+            If your restaurant uses an advanced corporate router or isolated guest Wi-Fi, you can link this tablet by typing your local register IP or approval PIN.
+          </p>
+          <div class="space-y-3 mb-4">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-400 mb-1" data-i18n="lbl_input_ip">Register IP Address or Subdomain:</label>
+              <div class="flex gap-2">
+                <input type="text" id="manualIpInput" placeholder="e.g. 192.168.50.4" value="192.168.50.4" class="flex-grow bg-dark-850 border border-dark-700 rounded-xl px-3 py-2 text-xs text-white font-mono focus:border-brand-500 focus:outline-none">
+                <button type="button" onclick="connectToCustomIp()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold rounded-xl transition-colors cursor-pointer" data-i18n="btn_connect">
+                  Connect
+                </button>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-500" data-i18n="hint_manual_ip">
+              Default nightclub terminal port is 3000. It connects directly to your local database.
+            </p>
+          </div>
+        </div>
+        <div class="pt-2">
+          <button type="button" onclick="launchLocalWaitressApp('192.168.50.4')" class="w-full py-2.5 bg-dark-850 hover:bg-dark-800 text-brand-400 text-xs font-bold rounded-xl border border-brand-500/20 transition-colors cursor-pointer">
+            <span data-i18n="btn_quick_connect_nightclub">Launch Miami Night Club Terminal (192.168.50.4)</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PLATFORM SPECIFIC INSTRUCTIONS (ANDROID & APPLE IPAD) -->
+    <div class="card-dark rounded-2xl p-6 sm:p-8 border border-dark-800 mb-8">
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <span class="text-xs uppercase font-extrabold tracking-wider text-amber-400" data-i18n="install_guide_tag">One-Time Tablet Setup</span>
+        <h3 class="text-lg sm:text-xl font-bold text-white mt-1" data-i18n="install_guide_title">
+          How to Download the App to Your Tablet Desktop
+        </h3>
+        <p class="text-xs text-slate-400 mt-1" data-i18n="install_guide_desc">
+          Add the official Impossible POS icon to your tablet home screen. It runs in full-screen kiosk mode with zero browser address bars or navigation buttons.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- ANDROID TABLETS (SAMSUNG, LENOVO, SUNMI, XIAOMI) -->
+        <div class="bg-dark-850 rounded-xl p-5 border border-dark-700">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white" data-i18n="android_title">Android Tablets (Samsung, Lenovo, Sunmi)</h4>
+              <span class="text-[11px] text-slate-400">Google Chrome Browser</span>
+            </div>
+          </div>
+          <ol class="space-y-2.5 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-[10px]">1</span>
+              <span data-i18n="step_and_1">Open Google Chrome on your Android tablet.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-[10px]">2</span>
+              <span data-i18n="step_and_2">Tap the three vertical dots <strong>(⋮)</strong> in the top right corner.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-[10px]">3</span>
+              <span data-i18n="step_and_3">Tap <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-emerald-400 font-bold text-[10px]">4</span>
+              <span data-i18n="step_and_4">Done! The official Impossible POS app icon will appear on your desktop.</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- APPLE IPADS (IPAD MINI, IPAD AIR, IPAD PRO) -->
+        <div class="bg-dark-850 rounded-xl p-5 border border-dark-700">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white" data-i18n="apple_title">Apple iPads (iPad Mini, Air, Pro)</h4>
+              <span class="text-[11px] text-slate-400">Apple Safari Browser</span>
+            </div>
+          </div>
+          <ol class="space-y-2.5 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-sky-400 font-bold text-[10px]">1</span>
+              <span data-i18n="step_ios_1">Open Apple Safari on your iPad.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-sky-400 font-bold text-[10px]">2</span>
+              <span data-i18n="step_ios_2">Tap the <strong>Share</strong> button (box with an arrow pointing up).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-sky-400 font-bold text-[10px]">3</span>
+              <span data-i18n="step_ios_3">Scroll down and tap <strong>"Add to Home Screen"</strong> (+).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-5 h-5 rounded-full bg-dark-750 border border-dark-700 flex items-center justify-center flex-shrink-0 text-sky-400 font-bold text-[10px]">4</span>
+              <span data-i18n="step_ios_4">Tap <strong>Add</strong> in the top right. It opens full screen with zero borders.</span>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER FAQ -->
+    <div class="text-center text-xs text-slate-500 py-4">
+      <p data-i18n="footer_note">
+        Impossible POS is a registered commercial restaurant platform. Waitress stations synchronize continuously with the central cash register and kitchen displays over your local Wi-Fi.
+      </p>
+    </div>
+
+  </main>
+
+  <script>
+    let currentLang = localStorage.getItem('imp_pos_lang') || 'en';
+
+    const I18N = {
+      en: {
+        docTitle: "Impossible POS | Connect Tablets & Mobile Handhelds",
+        badge_tablets: "Tablet Hub",
+        btn_home: "Home",
+        hero_title: "Connect Waitress Tablets & Mobile Screens",
+        hero_subtitle: "Link any Android tablet or Apple iPad to your Central POS Register in seconds. No manual IP typing, no network cables, and zero app store fees.",
+        method1_tag: "Method 1 (Recommended)",
+        badge_instant: "Instant Wi-Fi Sync",
+        method1_title: "1-Click Automatic Wi-Fi Auto-Discovery",
+        method1_desc: "Make sure this tablet is connected to the restaurant Wi-Fi. Tap the button below and the tablet will locate the Central POS register on your network automatically.",
+        btn_scan_connect: "Scan & Connect Tablet",
+        scan_in_progress: "Searching Wi-Fi network for Central POS Server...",
+        method2_tag: "Method 2",
+        badge_camera: "Camera Scan",
+        method2_title: "Point Tablet Camera at POS Screen",
+        method2_desc: "The simplest method for waitresses on shift. Open the standard Camera app on your Android tablet or iPad and point it directly at the POS register screen.",
+        step_qr_1: "On the Main POS computer, go to <strong>Setup > Hardware > Móviles / Sunmi</strong>.",
+        step_qr_2: "Click <strong>[View Sunmi / Tablet QR Codes]</strong> to display the official pairing code.",
+        step_qr_3: "Aim your tablet camera at the screen and tap the link that pops up.",
+        btn_open_pairing_screen: "Open 4-Digit Code Pairing (pair.html)",
+        method3_tag: "Method 3",
+        badge_pin: "Smart TV PIN",
+        method3_title: "Direct Server Address or PIN",
+        method3_desc: "If your restaurant uses an advanced corporate router or isolated guest Wi-Fi, you can link this tablet by typing your local register IP or approval PIN.",
+        lbl_input_ip: "Register IP Address or Subdomain:",
+        btn_connect: "Connect",
+        hint_manual_ip: "Default nightclub terminal port is 3000. It connects directly to your local database.",
+        btn_quick_connect_nightclub: "Launch Miami Night Club Terminal (192.168.50.4)",
+        install_banner_title: "Install Impossible POS on this Tablet",
+        install_banner_desc: "Puts the official full-screen kiosk app icon on your tablet home screen with zero browser bars.",
+        btn_install_1click: "Install App on Tablet (1-Click)",
+        ios_hint_text: "iPad users: Tap the Share button (square with arrow up) at the top of Safari, then choose Add to Home Screen.",
+        install_guide_tag: "One-Time Tablet Setup",
+        install_guide_title: "How to Download the App to Your Tablet Desktop",
+        install_guide_desc: "Add the official Impossible POS icon to your tablet home screen. It runs in full-screen kiosk mode with zero browser address bars or navigation buttons.",
+        android_title: "Android Tablets (Samsung, Lenovo, Sunmi)",
+        step_and_1: "Open Google Chrome on your Android tablet.",
+        step_and_2: "Tap the three vertical dots <strong>(⋮)</strong> in the top right corner.",
+        step_and_3: "Tap <strong>\"Install app\"</strong> or <strong>\"Add to Home screen\"</strong>.",
+        step_and_4: "Done! The official Impossible POS app icon will appear on your desktop.",
+        apple_title: "Apple iPads (iPad Mini, Air, Pro)",
+        step_ios_1: "Open Apple Safari on your iPad.",
+        step_ios_2: "Tap the <strong>Share</strong> button (box with an arrow pointing up).",
+        step_ios_3: "Scroll down and tap <strong>\"Add to Home Screen\"</strong> (+).",
+        step_ios_4: "Tap <strong>Add</strong> in the top right. It opens full screen with zero borders.",
+        footer_note: "Impossible POS is a registered commercial restaurant platform. Waitress stations synchronize continuously with the central cash register and kitchen displays over your local Wi-Fi."
+      },
+      es: {
+        docTitle: "Impossible POS | Conectar Tabletas y Dispositivos Móviles",
+        badge_tablets: "Centro de Tabletas",
+        btn_home: "Inicio",
+        hero_title: "Conectar Tabletas de Meseras y Pantallas Móviles",
+        hero_subtitle: "Vincula cualquier tableta Android o iPad de Apple a tu Caja Central en segundos. Sin teclear direcciones IP, sin cables y sin comisiones de tiendas de apps.",
+        method1_tag: "Método 1 (Recomendado)",
+        badge_instant: "Sincronización Wi-Fi Instantánea",
+        method1_title: "Autodescubrimiento Wi-Fi en 1 Clic",
+        method1_desc: "Asegúrate de que esta tableta esté conectada a la misma red Wi-Fi del restaurante. Pulsa el botón abajo y la tableta encontrará la Caja Principal automáticamente.",
+        btn_scan_connect: "Escanear y Conectar Tableta",
+        scan_in_progress: "Buscando Servidor de Caja Central en la red Wi-Fi...",
+        method2_tag: "Método 2",
+        badge_camera: "Escaneo con Cámara",
+        method2_title: "Apunta la Cámara de la Tableta a la Pantalla de Caja",
+        method2_desc: "El método más sencillo para las meseras en turno. Abre la aplicación de Cámara de tu tableta Android o iPad y apúntala directamente a la pantalla de cobro.",
+        step_qr_1: "En la computadora de la Caja Principal, entra a <strong>Setup > Hardware > Móviles / Sunmi</strong>.",
+        step_qr_2: "Haz clic en <strong>[Ver Códigos QR de Sunmi / Tabletas]</strong> para ver el código oficial.",
+        step_qr_3: "Apunta la cámara de tu tableta a la pantalla y toca el enlace amarillo que aparece.",
+        btn_open_pairing_screen: "Abrir Emparejamiento por Código de 4 Dígitos (pair.html)",
+        method3_tag: "Método 3",
+        badge_pin: "PIN Estilo Smart TV",
+        method3_title: "Dirección de Servidor Directa o PIN",
+        method3_desc: "Si tu restaurante utiliza un router corporativo o redes aisladas, puedes conectar esta tableta escribiendo la dirección IP de tu caja o tu PIN de aprobación.",
+        lbl_input_ip: "Dirección IP o Subdominio de la Caja:",
+        btn_connect: "Conectar",
+        hint_manual_ip: "El puerto predeterminado del night club es 3000. Se conecta directo a tu base de datos local.",
+        btn_quick_connect_nightclub: "Abrir Terminal de Miami Night Club (192.168.50.4)",
+        install_banner_title: "Instalar Impossible POS en esta Tableta",
+        install_banner_desc: "Coloca el icono oficial de la app en el escritorio de tu tableta en modo kiosco sin barras ni menús.",
+        btn_install_1click: "Instalar App en Tableta (1 Clic)",
+        ios_hint_text: "En iPad: Toca el botón Compartir (cuadrado con flecha arriba) en Safari y selecciona Agregar al inicio.",
+        install_guide_tag: "Instalación Rápida Única",
+        install_guide_title: "Cómo Bajar la Aplicación al Escritorio de tu Tableta",
+        install_guide_desc: "Coloca el icono oficial de Impossible POS en la pantalla principal de tu tableta. Se abrirá a pantalla completa sin barras de navegador ni botones molestos.",
+        android_title: "Tabletas Android (Samsung, Lenovo, Sunmi)",
+        step_and_1: "Abre Google Chrome en tu tableta Android.",
+        step_and_2: "Toca los tres puntos verticales <strong>(⋮)</strong> en la esquina superior derecha.",
+        step_and_3: "Toca <strong>\"Instalar aplicación\"</strong> o <strong>\"Agregar a pantalla principal\"</strong>.",
+        step_and_4: "¡Listo! El icono oficial de Impossible POS aparecerá en tu escritorio.",
+        apple_title: "iPads de Apple (iPad Mini, Air, Pro)",
+        step_ios_1: "Abre Apple Safari en tu iPad.",
+        step_ios_2: "Toca el botón <strong>Compartir</strong> (cuadrado con flecha hacia arriba).",
+        step_ios_3: "Desliza hacia abajo y toca <strong>\"Agregar al inicio\"</strong> (+).",
+        step_ios_4: "Toca <strong>Agregar</strong> arriba a la derecha. Se abrirá a pantalla completa sin bordes.",
+        footer_note: "Impossible POS es una plataforma comercial de punto de venta. Las estaciones de meseras se sincronizan continuamente con la caja central y pantallas de cocina por la red Wi-Fi local."
+      }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('imp_pos_lang', lang);
+
+      const btnEn = document.getElementById('lang-btn-en');
+      const btnEs = document.getElementById('lang-btn-es');
+      if (lang === 'es') {
+        btnEs.className = "px-2.5 py-1 rounded-full bg-brand-500 text-white transition-all cursor-pointer";
+        btnEn.className = "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition-all cursor-pointer";
+      } else {
+        btnEn.className = "px-2.5 py-1 rounded-full bg-brand-500 text-white transition-all cursor-pointer";
+        btnEs.className = "px-2.5 py-1 rounded-full text-slate-400 hover:text-white transition-all cursor-pointer";
+      }
+
+      const dict = I18N[lang] || I18N.en;
+      document.getElementById('docTitle').textContent = dict.docTitle;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+    }
+
+    // Auto-Discovery Scanner
+    let isScanning = false;
+    async function startLocalDiscovery() {
+      if (isScanning) return;
+      isScanning = true;
+
+      const container = document.getElementById('scanStatusContainer');
+      const text = document.getElementById('scanStatusText');
+      const bar = document.getElementById('scanProgressBar');
+      const resultArea = document.getElementById('scanResultArea');
+
+      container.classList.remove('hidden');
+      resultArea.classList.add('hidden');
+      resultArea.innerHTML = '';
+      bar.style.width = '25%';
+
+      const isEs = (currentLang === 'es');
+      text.innerText = isEs ? 'Verificando terminales activas en la red Wi-Fi...' : 'Probing active register terminals on Wi-Fi...';
+
+      // Candidate IPs to probe in parallel
+      const candidateIps = [
+        '192.168.50.4', // Night Club Bar PC
+        '192.168.50.2', '192.168.50.3', '192.168.50.5', '192.168.50.10', '192.168.50.20', '192.168.50.100',
+        '192.168.1.4', '192.168.1.100', '192.168.1.50', '192.168.1.200', '192.168.1.2',
+        '192.168.0.4', '192.168.0.100', '192.168.0.50', '10.0.0.4', '10.0.0.100'
+      ];
+
+      let foundIp = null;
+
+      function probeIp(ip) {
+        return new Promise((resolve) => {
+          const img = new Image();
+          const timer = setTimeout(() => {
+            img.src = '';
+            resolve(false);
+          }, 1200);
+
+          img.onload = function() {
+            clearTimeout(timer);
+            resolve(ip);
+          };
+          img.onerror = function() {
+            clearTimeout(timer);
+            resolve(false);
+          };
+          img.src = 'http://' + ip + ':3000/icons/pos.ico?t=' + Date.now();
+        });
+      }
+
+      // First fast probe to known IP
+      const firstCheck = await probeIp('192.168.50.4');
+      bar.style.width = '60%';
+
+      if (firstCheck) {
+        foundIp = firstCheck;
+      } else {
+        const batchResults = await Promise.all(candidateIps.map(ip => probeIp(ip)));
+        foundIp = batchResults.find(r => r !== false);
+      }
+
+      bar.style.width = '100%';
+      isScanning = false;
+
+      resultArea.classList.remove('hidden');
+      if (foundIp) {
+        text.innerText = isEs ? 'Terminal encontrada con exito' : 'Central POS Terminal Found Successfully!';
+        resultArea.innerHTML = `
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">✓</div>
+              <div>
+                <div class="text-sm font-bold text-white">${isEs ? 'Caja Principal Conectada' : 'Central Register Connected'} (${foundIp})</div>
+                <div class="text-xs text-emerald-400 font-mono">http://${foundIp}:3000/caja_v14.html?mode=waitress</div>
+              </div>
+            </div>
+            <button onclick="launchLocalWaitressApp('${foundIp}')" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl text-xs sm:text-sm transition-all cursor-pointer">
+              ${isEs ? 'Abrir Tableta Ahora' : 'Launch Tablet Register'}
+            </button>
+          </div>
+        `;
+        // Auto forward after 1.5 seconds if requested
+        setTimeout(() => {
+          launchLocalWaitressApp(foundIp);
+        }, 1500);
+      } else {
+        text.innerText = isEs ? 'No se detecto la caja automaticamente. Usa el Método 2 (Escanear QR) o escribe la IP.' : 'Could not auto-detect register. Please use Method 2 (Camera QR) or type the IP.';
+        resultArea.innerHTML = `
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-xs text-amber-300">
+            ${isEs ? 'Verifica que tu tableta este conectada al mismo Wi-Fi de la caja o pulsa el boton de Miami Night Club abajo.' : 'Verify this tablet is connected to the same restaurant Wi-Fi, or tap the Miami Night Club direct button below.'}
+          </div>
+        `;
+      }
+    }
+
+    function launchLocalWaitressApp(ip) {
+      window.location.href = 'http://' + ip + ':3000/caja_v14.html?mode=waitress';
+    }
+
+    function connectToCustomIp() {
+      const val = document.getElementById('manualIpInput').value.trim();
+      if (!val) return;
+      const cleanIp = val.replace(/^https?:\/\//i, '').split(':')[0].split('/')[0];
+      launchLocalWaitressApp(cleanIp);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang(currentLang);
+    });
+  </script>
+</body>
+</html>
