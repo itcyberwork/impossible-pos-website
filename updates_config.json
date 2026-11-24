@@ -1,17 +1,17 @@
 {
-  "version": "1.3.109",
-  "latestVersion": "1.3.109",
-  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.109.zip",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.109.zip",
-  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.109.zip",
-  "patchFileName": "patch-1.3.109.zip",
+  "version": "1.3.110",
+  "latestVersion": "1.3.110",
+  "url": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.110.zip",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.110.zip",
+  "downloadUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.110.zip",
+  "patchFileName": "patch-1.3.110.zip",
   "mandatory": true,
-  "releaseNotes": "Official Release v1.3.109:\n- 1-CLICK MULTI-STATION SETUP: Automatic LAN discovery for Back Office server with instant 1-touch register selection.\n- ZERO-SETUP SECONDARY STATIONS: Connects secondary registers (Caja 2 / Caja 3) directly to the main database with no duplicate forms.\n- NATIVE LOCAL PRINTING: Client registers use local printer queues and drawers while syncing orders to the main server.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
+  "releaseNotes": "Official Release v1.3.110:\n- 1-CLICK MULTI-STATION SETUP: Automatic LAN discovery for Back Office server with instant 1-touch register selection.\n- ZERO-SETUP SECONDARY STATIONS: Connects secondary registers (Caja 2 / Caja 3) directly to the main database with no duplicate forms.\n- NATIVE LOCAL PRINTING: Client registers use local printer queues and drawers while syncing orders to the main server.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
   "changelog": [
-    "v1.3.109: 1-touch station connection wizard with automatic network discovery",
-    "v1.3.109: Zero-friction secondary register pairing (Caja 2 / Caja 3 / Kitchen)",
-    "v1.3.109: Automated prerequisite validation avoiding blocking checklists",
-    "v1.3.109: 100% Quality Control standard verified across all vectors"
+    "v1.3.110: 1-touch station connection wizard with automatic network discovery",
+    "v1.3.110: Zero-friction secondary register pairing (Caja 2 / Caja 3 / Kitchen)",
+    "v1.3.110: Automated prerequisite validation avoiding blocking checklists",
+    "v1.3.110: 100% Quality Control standard verified across all vectors"
   ],
-  "updatedAt": "2026-11-24T13:08:28.441Z"
+  "updatedAt": "2026-11-24T14:19:04.689Z"
 }
