@@ -1,12 +1,12 @@
 {
-  "version": "1.3.125",
-  "latestVersion": "1.3.125",
-  "patchFileName": "patch-1.3.125.zip",
-  "releaseNotes": "Official Release v1.3.125:\n- DIRECT PHYSICAL HARDWARE BINDING: Binds DPFP.Capture directly to physical reader serial number, preventing SDK from routing messages to dummy null device.\n- INSTANT ONFINGERTOUCH & ONCOMPLETE DISPATCH: Direct delivery of hardware contact and sample payload to Impossible POS UI.\n- CASCADING ACQUISITION PRIORITY: Priority.Normal -> Priority.Low -> Priority.High with safe disposal between retries.\n- 32-BIT NATIVE ARCHITECTURE: Pure x86 alignment with DigitalPersona One Touch C++ runtime.\n- ENGLISH BY DEFAULT & ZERO EMOJIS: 100% compliant with company standards.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
+  "version": "1.3.126",
+  "latestVersion": "1.3.126",
+  "patchFileName": "patch-1.3.126.zip",
+  "releaseNotes": "Official Release v1.3.126:\n- BACKGROUND ACQUISITION ON PHYSICAL HARDWARE: Configures Priority.High explicitly on the physical reader serial, allowing touch messages to be delivered while POS application runs in foreground.\n- HARDWARE SERIAL ENFORCEMENT: Directly bounds to connected DigitalPersona 4500 device ({5A22C247-5421-DE46-94A5-C6ED6A794BED}).\n- FALLBACK CASCADE: Priority.High -> Priority.Normal -> Priority.Low with clean resource disposal between attempts.\n- NATIVE 32-BIT ARCHITECTURE: Pure x86 alignment with DigitalPersona One Touch driver SDK.\n- ENGLISH BY DEFAULT & ZERO EMOJIS: 100% compliant with company standards.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
   "mandatory": true,
-  "releaseDate": "2026-11-25T19:36:35.902Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.125/Impossible_POS_Setup_v1.3.125.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.125.zip",
-  "installerSize": 274691988,
-  "patchSize": 9935528
+  "releaseDate": "2026-11-25T19:57:36.766Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.126/Impossible_POS_Setup_v1.3.126.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.126.zip",
+  "installerSize": 274679578,
+  "patchSize": 9935712
 }
