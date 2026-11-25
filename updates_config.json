@@ -1,12 +1,12 @@
 {
-  "version": "1.3.129",
-  "latestVersion": "1.3.129",
-  "patchFileName": "patch-1.3.129.zip",
-  "releaseNotes": "Official Release v1.3.129:\n- INDIVIDUAL STAFF IDENTIFICATION: Recognizes and greets enrolled staff by their personal name on splash biometric login, setting active cashier globally.\n- MANAGER OVERRIDE AUTHENTICATION: Corrected modalAuth verification so touching DigitalPersona 4500 immediately authorizes Manager and Admin functions cleanly.\n- STAFF TABLE FINGERPRINT BADGE: Clear FP: YES (green) and FP: NO (neutral) badges in Staff Management table indicating enrolled fingerprint credentials.\n- IDLE DISPLAY AUTO-LOCK: Reorganized Hardware & Devices with top-level Idle Display tab, Check enable toggle, and 30s, 1m, 2m, and Never lock duration options.\n- REORGANIZED HARDWARE SETUP: Clean, uncluttered layout grouping subtabs logically across the entire management pane.\n- DRIVER PACKAGE EMBEDDED: DigitalPersona Legacy Driver v4.1.0.217 installer bundled in Hardware_Drivers for fast offline installation.\n- 100% Quality Standard: 0 errors and 0 warnings across all integrity vectors.",
+  "version": "1.3.130",
+  "latestVersion": "1.3.130",
+  "patchFileName": "patch-1.3.130.zip",
+  "releaseNotes": "Official Release v1.3.130:\n- MASTER SERVER AUTO-DETECTION: Automatically identifies existing databases (pos.db or legacy database.sqlite) and configures the computer as Master Server (All-in-One) instantly with zero white screens.\n- ZERO WIZARDS ON ACTIVE SYSTEMS: Strictly bypasses the station setup wizard on any computer with pre-existing restaurant data, opening directly to the cashier register in under two seconds.\n- LEGACY DATABASE AUTO-ADOPTION: Seamlessly imports and preserves legacy database formats without data loss or button layout disruption.\n- NETWORK MULTI-STATION STABILITY: Seamless connection across Master Servers, All-in-One registers, and secondary client terminals (Register 2, Kitchen KDS).\n- 100% Quality Standard: 0 errors and 0 warnings across all integrity vectors.",
   "mandatory": true,
-  "releaseDate": "2026-11-25T21:38:28.160Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.129/Impossible_POS_Setup_v1.3.129.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.129.zip",
-  "installerSize": 318722157,
-  "patchSize": 9937705
+  "releaseDate": "2026-11-25T22:40:06.940Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.130/Impossible_POS_Setup_v1.3.130.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.130.zip",
+  "installerSize": 318651122,
+  "patchSize": 9938040
 }
