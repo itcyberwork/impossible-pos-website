@@ -1,12 +1,12 @@
 {
-  "version": "1.3.127",
-  "latestVersion": "1.3.127",
-  "patchFileName": "patch-1.3.127.zip",
-  "releaseNotes": "Official Release v1.3.127:\n- OFFICIAL MANUFACTURER HIGH PRIORITY CAPTURE: Enforces Priority.High background capture explicitly required by DigitalPersona One Touch SDK for non-focused background biometric services.\n- EMBEDDED ELEVATED ADMINISTRATOR MANIFEST: Embedded requireAdministrator manifest on Impossible_POS.exe and DPFPBridge.exe, granting exclusive background hardware hook privileges.\n- DIRECT PHYSICAL SERIAL BINDING: Binds directly to physical reader serial {5A22C247-5421-DE46-94A5-C6ED6A794BED}.\n- NATIVE 32-BIT (x86) ARCHITECTURE: Exact match to manufacturer C++ One Touch SDK runtime.\n- ENGLISH BY DEFAULT & ZERO EMOJIS: 100% compliant with company standards.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
+  "version": "1.3.128",
+  "latestVersion": "1.3.128",
+  "patchFileName": "patch-1.3.128.zip",
+  "releaseNotes": "Official Release v1.3.128:\n- OFFICIAL DIGITALPERSONA BACKGROUND ACQUISITION: Configured reader to manufacturer Priority.Low background mode, enabling active touch event delivery without requiring application foreground focus.\n- STANDARD USER LEVEL BINARY EXECUTION: Resolved spawn EACCES by configuring asInvoker execution level, enabling silent automatic bridge startup.\n- RECURSION GUARD IN MAIN PROCESS: Guarded application termination against recursive quit events.\n- DIRECT PHYSICAL SERIAL BINDING: Binds directly to physical reader serial {5A22C247-5421-DE46-94A5-C6ED6A794BED}.\n- NATIVE 32-BIT (x86) ARCHITECTURE: Exact match to manufacturer C++ One Touch SDK runtime.\n- ENGLISH BY DEFAULT & ZERO EMOJIS: 100% compliant with company standards.\n- 100% Quality Standard: Verified with 0 errors and 0 warnings across all integrity vectors.",
   "mandatory": true,
-  "releaseDate": "2026-11-25T20:23:24.019Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.127/Impossible_POS_Setup_v1.3.127.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.127.zip",
-  "installerSize": 274707784,
-  "patchSize": 9936027
+  "releaseDate": "2026-11-25T20:49:14.583Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.128/Impossible_POS_Setup_v1.3.128.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.128.zip",
+  "installerSize": 274663275,
+  "patchSize": 9936065
 }
