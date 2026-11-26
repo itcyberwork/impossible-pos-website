@@ -1,12 +1,12 @@
 {
-  "version": "1.3.135",
-  "latestVersion": "1.3.135",
-  "patchFileName": "patch-1.3.135.zip",
-  "releaseNotes": "Official Release v1.3.135:\n- 100% IMPOSSIBLE MATRIX 1:1 MIRROR: Eliminated cluttered arrow bars and top subtab wrappers. Clean [+ ADD SUB-TAB] and [+ ADD PRODUCT] controls.\n- SLEEK CARD ACTION CONTROLS: Replaced bulky black toolbars on cards with sleek, integrated corner controls (Move Left, Move Right, Edit, Delete).\n- MENU & MATRIX SYNCHRONIZATION: Department and subcategory cards in Impossible Matrix match the main POS screen 1:1, including Custom Cake and Wedding & Events navigation.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.136",
+  "latestVersion": "1.3.136",
+  "patchFileName": "patch-1.3.136.zip",
+  "releaseNotes": "Official Release v1.3.136:\n- PROMINENT SAVE BUTTON: Added prominent SAVE button in the header (always visible beside close button) and in the footer of the product edit modal.\n- 100% DECIMAL INPUT & KEYBOARD FIX: Resolved issue where pressing decimal dot '.' on the touch keypad cleared the input value when modifying product prices.\n- SEAMLESS PRICE EDITING: Converted strict number inputs to decimal inputs to allow natural progressive typing (e.g. '2.', '2.50') without browser reset.\n- STABLE VIRTUAL KEYBOARD: Verified smooth behavior on Clear, Backspace, numbers, and decimal points across all modals.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T07:08:45.594Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.135/Impossible_POS_Setup_v1.3.135.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.135.zip",
-  "installerSize": 318687954,
-  "patchSize": 819223
+  "releaseDate": "2026-11-26T07:35:53.095Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.136/Impossible_POS_Setup_v1.3.136.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.136.zip",
+  "installerSize": 318655138,
+  "patchSize": 745204
 }
