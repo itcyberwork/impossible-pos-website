@@ -1,12 +1,12 @@
 {
-  "version": "1.3.139",
-  "latestVersion": "1.3.139",
-  "patchFileName": "patch-1.3.139.zip",
-  "releaseNotes": "Official Release v1.3.139:\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear, prominent green SAVE CHANGES button in the modal footer to eliminate ambiguity.\n- MODIFIER COLUMNS NUMBERING & SHIFT ARROWS: Added column numbers (#1, #2, #3) and left/right arrows (◀ / ▶) in modifier column headers for dynamic group reordering.\n- MODIFIER ITEMS UP/DOWN REORDERING: Added up/down arrows (▲ / ▼) on every modifier option to easily reorder ingredients, meats, and addons.\n- STATION INDEPENDENCE & SAFE POWER CONTROLS: Remote cashier stations reload screens locally; remote server shutdowns and reboots are permanently blocked.\n- NATIVE DIGITALPERSONA AUTO-STARTUP ON EVERY PC: DPFPBridge.exe is registered in Windows Startup and auto-spawned by the app on all cashier machines.\n- CATEGORY TABS RESTORED IN PRODUCT INVENTORY: Dynamic category tabs bar (ALL, COMIDA, DRINKS, PAN, POSTRES, STORE, SIDES) active with one-tap filtering.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.140",
+  "latestVersion": "1.3.140",
+  "patchFileName": "patch-1.3.140.zip",
+  "releaseNotes": "Official Release v1.3.140:\n- NATIVE DIGITALPERSONA ENGINE INCLUDED IN OTA PATCH: DPFPBridge.exe and all native manufacturer DLLs packaged directly in the update. Runs automatically on every station out of the box.\n- PHYSICAL PC POWER CONTROLS: Restart and Shutdown buttons execute native ACPI hardware commands on that station physically without ever touching or disconnecting the central server.\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear, prominent green SAVE CHANGES button in the modal footer to eliminate ambiguity.\n- MODIFIER COLUMNS NUMBERING & SHIFT ARROWS: Added column numbers (#1, #2, #3) and left/right arrows (◀ / ▶) in modifier column headers for dynamic group reordering.\n- MODIFIER ITEMS UP/DOWN REORDERING: Added up/down arrows (▲ / ▼) on every modifier option to easily reorder ingredients, meats, and addons.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T09:28:11.210Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.139/Impossible_POS_Setup_v1.3.139.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.139.zip",
-  "installerSize": 318689835,
-  "patchSize": 823858
+  "releaseDate": "2026-11-26T09:59:06.613Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.140/Impossible_POS_Setup_v1.3.140.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.140.zip",
+  "installerSize": 318702419,
+  "patchSize": 2094178
 }
