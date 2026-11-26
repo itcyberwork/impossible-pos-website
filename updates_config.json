@@ -1,12 +1,12 @@
 {
-  "version": "1.3.142",
-  "latestVersion": "1.3.142",
-  "patchFileName": "patch-1.3.142.zip",
-  "releaseNotes": "Official Release v1.3.142:\n- INDEPENDENT STATION AUTO-UPDATE ARCHITECTURE: Every cashier station and kitchen screen updates its own local disk (C:\\Impossible_POS) independently with one click.\n- SILENT AUTOMATIC DRIVER INSTALLATION: digitalpersona_setup.msi installed in background automatically on stations without manual prompts.\n- NATIVE BIOMETRIC ENGINE: DPFPBridge.exe and native manufacturer DLLs installed in System_Files and bin, auto-spawned in background.\n- INDEPENDENT PHYSICAL POWER CONTROLS: Hardware ACPI Shutdown & Restart on each station physically without affecting the server.\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear green SAVE CHANGES button in modal footer.\n- MODIFIERS NUMBERING & SHIFT ARROWS: Added column numbering (#1, #2, #3) and left/right shift arrows (◀ / ▶) on modifier columns.\n- MODIFIERS ITEMS REORDERING: Added up/down arrows (▲ / ▼) on every modifier option.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.143",
+  "latestVersion": "1.3.143",
+  "patchFileName": "patch-1.3.143.zip",
+  "releaseNotes": "Official Release v1.3.143:\n- STATION SETUP WIZARD ON FRESH INSTALLS: Fresh installations on new computers automatically display the station setup wizard, allowing instant pairing as Secondary Register (Caja 2, Caja 3, etc.) without prompting for business profile information.\n- INDEPENDENT STATION AUTO-UPDATE ARCHITECTURE: Every cashier station and kitchen screen updates its own local disk (C:\\Impossible_POS) independently with one click.\n- DUAL UPDATER ENGINE: Stations without active local IPC fallback to local service update on 127.0.0.1:3000, ensuring 100% automated local updates without manual steps.\n- SILENT AUTOMATIC DRIVER INSTALLATION: digitalpersona_setup.msi installed in background automatically on stations without manual prompts.\n- NATIVE BIOMETRIC ENGINE: DPFPBridge.exe and native manufacturer DLLs installed in System_Files and bin, auto-spawned in background.\n- INDEPENDENT PHYSICAL POWER CONTROLS: Hardware ACPI Shutdown & Restart on each station physically without affecting the server.\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear green SAVE CHANGES button in modal footer.\n- MODIFIERS NUMBERING & SHIFT ARROWS: Added column numbering (#1, #2, #3) and left/right column shift arrows (◀ / ▶).\n- MODIFIER OPTIONS REORDERING ARROWS: Added dedicated up/down (▲ / ▼) arrows for each option item.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T10:59:07.764Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.142/Impossible_POS_Setup_v1.3.142.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.142.zip",
-  "installerSize": 318691905,
-  "patchSize": 31726725
+  "releaseDate": "2026-11-26T11:34:22.701Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.143/Impossible_POS_Setup_v1.3.143.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.143.zip",
+  "installerSize": 318687242,
+  "patchSize": 31727659
 }
