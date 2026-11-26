@@ -1,12 +1,12 @@
 {
-  "version": "1.3.132",
-  "latestVersion": "1.3.132",
-  "patchFileName": "patch-1.3.132.zip",
-  "releaseNotes": "Official Release v1.3.132:\n- COMMERCIAL WEIGHT SCALE & LIQUOR MATH AUTOMATION: Full integration for Torrey price computing and commercial weight scales in Pounds (lb). Automatically converts bottle weight to net liquor grams, fluid ounces, and remaining shots in real-time with zero manual math.\n- VISUAL MENU EDITING & REORDERING: Products and Sub-Tabs now feature dedicated direction controls (Move Left / Move Right) and immediate one-touch Delete buttons directly on cards.\n- SUB-TAB MODIFICATION: Full Rename, Move, and Delete controls for department Sub-Tabs (Cognac, Tequila, Whiskey, etc.), automatically syncing assigned catalog products.\n- TOUCH KEYBOARD AUTO-DISMISS: Virtual on-screen keyboard automatically and cleanly hides whenever modal dialogs close or terminal locks due to inactivity.\n- ALCOHOL CATALOG EDIT & DELETE ACTIONS: Clear, prominent Edit and Delete action buttons across bottle catalog tables.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.133",
+  "latestVersion": "1.3.133",
+  "patchFileName": "patch-1.3.133.zip",
+  "releaseNotes": "Official Release v1.3.133:\n- LIQUOR SUBCATEGORY PRESETS: Automatic out-of-the-box support for official bar liquor categories (Cognac, Tequila, Whiskey, Vodka, Rum, Gin, Mezcal, Cordials, Champagne).\n- TOUCH-FRIENDLY SUB-TAB ASSIGNMENT: Instant one-tap pill buttons in product quick editor to assign bottles directly to Cognac or other categories without manual typing.\n- PURE BOTTLE INVENTORY: Removed redundant price fields from alcohol & commercial scale control, dedicating screen 100% to fluid ounces, bottle counts, and weight calibration.\n- PERSISTENT DIRECTION CONTROLS: Fixed product reordering and sub-tab reordering via centralized database transactions with boundary toasts.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T01:51:30.618Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.132/Impossible_POS_Setup_v1.3.132.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.132.zip",
-  "installerSize": 318689504,
-  "patchSize": 9943958
+  "releaseDate": "2026-11-26T02:22:21.647Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.133/Impossible_POS_Setup_v1.3.133.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.133.zip",
+  "installerSize": 318694616,
+  "patchSize": 815561
 }
