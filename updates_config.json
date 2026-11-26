@@ -1,12 +1,12 @@
 {
-  "version": "1.3.140",
-  "latestVersion": "1.3.140",
-  "patchFileName": "patch-1.3.140.zip",
-  "releaseNotes": "Official Release v1.3.140:\n- NATIVE DIGITALPERSONA ENGINE INCLUDED IN OTA PATCH: DPFPBridge.exe and all native manufacturer DLLs packaged directly in the update. Runs automatically on every station out of the box.\n- PHYSICAL PC POWER CONTROLS: Restart and Shutdown buttons execute native ACPI hardware commands on that station physically without ever touching or disconnecting the central server.\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear, prominent green SAVE CHANGES button in the modal footer to eliminate ambiguity.\n- MODIFIER COLUMNS NUMBERING & SHIFT ARROWS: Added column numbers (#1, #2, #3) and left/right arrows (◀ / ▶) in modifier column headers for dynamic group reordering.\n- MODIFIER ITEMS UP/DOWN REORDERING: Added up/down arrows (▲ / ▼) on every modifier option to easily reorder ingredients, meats, and addons.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.141",
+  "latestVersion": "1.3.141",
+  "patchFileName": "patch-1.3.141.zip",
+  "releaseNotes": "Official Release v1.3.141:\n- 100% IDENTICAL SYNCHRONIZATION: Master installer and OTA updates are completely unified.\n- HARDWARE DRIVERS INCLUDED: digitalpersona_setup.msi and Hardware_Drivers directory delivered directly via OTA update.\n- ONE-CLICK DRIVER LAUNCH: Cashier stations can launch the official driver setup with one click from Hardware Settings.\n- NATIVE BIOMETRIC ENGINE: DPFPBridge.exe and native manufacturer DLLs installed in System_Files and bin, auto-spawned in background.\n- INDEPENDENT PHYSICAL POWER CONTROLS: Hardware ACPI Shutdown & Restart on each station physically without affecting the server.\n- SINGLE PROMINENT SAVE BUTTON: Maintained one clear green SAVE CHANGES button in modal footer.\n- MODIFIERS NUMBERING & SHIFT ARROWS: Added column numbering (#1, #2, #3) and left/right shift arrows (◀ / ▶) on modifier columns.\n- MODIFIERS ITEMS REORDERING: Added up/down arrows (▲ / ▼) on every modifier option.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T09:59:06.613Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.140/Impossible_POS_Setup_v1.3.140.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.140.zip",
-  "installerSize": 318702419,
-  "patchSize": 2094178
+  "releaseDate": "2026-11-26T10:34:08.598Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.141/Impossible_POS_Setup_v1.3.141.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.141.zip",
+  "installerSize": 318708994,
+  "patchSize": 31724863
 }
