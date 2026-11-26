@@ -1,12 +1,12 @@
 {
-  "version": "1.3.130",
-  "latestVersion": "1.3.130",
-  "patchFileName": "patch-1.3.130.zip",
-  "releaseNotes": "Official Release v1.3.130:\n- MASTER SERVER AUTO-DETECTION: Automatically identifies existing databases (pos.db or legacy database.sqlite) and configures the computer as Master Server (All-in-One) instantly with zero white screens.\n- ZERO WIZARDS ON ACTIVE SYSTEMS: Strictly bypasses the station setup wizard on any computer with pre-existing restaurant data, opening directly to the cashier register in under two seconds.\n- LEGACY DATABASE AUTO-ADOPTION: Seamlessly imports and preserves legacy database formats without data loss or button layout disruption.\n- NETWORK MULTI-STATION STABILITY: Seamless connection across Master Servers, All-in-One registers, and secondary client terminals (Register 2, Kitchen KDS).\n- 100% Quality Standard: 0 errors and 0 warnings across all integrity vectors.",
+  "version": "1.3.131",
+  "latestVersion": "1.3.131",
+  "patchFileName": "patch-1.3.131.zip",
+  "releaseNotes": "Official Release v1.3.131:\n- DEPARTMENT SUB-TAB CARDS: Sub-categories across all departments (Liquor, Wine, Cocktails, Food) now render as large, touch-friendly, vibrantly colored cards matching the Beer croquis layout.\n- CLEAN SALES SCREEN: Eliminated clutter and persistent pills above products; categorized items tuck neatly into their sub-tab folders, hiding from the root screen.\n- STEP-INTO & BACK BROWSING: Tapping any sub-category card opens its dedicated catalog with an immediate Back button to return to top-level cards.\n- VISUAL MENU MIRROR SYNC: Options -> Edit by Mirror View allows effortless adding of new sub-tabs, full assignment of products to sub-folders, and right-click removal of unwanted sub-categories.\n- 100% Quality Standard: 0 errors and 0 warnings across all integrity vectors.",
   "mandatory": true,
-  "releaseDate": "2026-11-25T22:40:06.940Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.130/Impossible_POS_Setup_v1.3.130.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.130.zip",
-  "installerSize": 318651122,
-  "patchSize": 9938040
+  "releaseDate": "2026-11-26T01:27:17.460Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.131/Impossible_POS_Setup_v1.3.131.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.131.zip",
+  "installerSize": 318679464,
+  "patchSize": 9939220
 }
