@@ -1,12 +1,12 @@
 {
-  "version": "1.3.137",
-  "latestVersion": "1.3.137",
-  "patchFileName": "patch-1.3.137.zip",
-  "releaseNotes": "Official Release v1.3.137:\n- PROMINENT SAVE BUTTON: Added prominent SAVE button in the header (always visible beside close button) and in the footer of the product edit modal.\n- 100% DECIMAL INPUT & KEYBOARD FIX: Resolved issue where pressing decimal dot '.' on the touch keypad cleared the input value when modifying product prices.\n- SEAMLESS PRICE EDITING: Converted strict number inputs to decimal inputs to allow natural progressive typing (e.g. '2.', '2.50') without browser reset.\n- STABLE VIRTUAL KEYBOARD: Verified smooth behavior on Clear, Backspace, numbers, and decimal points across all modals.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
+  "version": "1.3.138",
+  "latestVersion": "1.3.138",
+  "patchFileName": "patch-1.3.138.zip",
+  "releaseNotes": "Official Release v1.3.138:\n- CATEGORY TABS RESTORED IN PRODUCT INVENTORY: Restored dynamic department & category tabs bar (ALL, COMIDA, DRINKS, PAN, POSTRES, STORE, SIDES) in Product Inventory with one-tap filtering.\n- ALL PRODUCTS VISIBLE UNDER CATEGORIES: Removed subcategory suppression in inventory table so all products belonging to a department remain clearly visible.\n- MODIFIERS MIRROR IN IMPOSSIBLE MATRIX: Shifted product details to the left and placed modifier groups (Carnes, NO exclusions, Extras) side-by-side as editable columns mirroring the cashier ordering screen.\n- SAVE BUTTONS IN HEADER & FOOTER: Added prominent SAVE buttons allowing immediate saving of product details and modifier options with instant database sync.\n- NAVIGATION PRESERVATION: Closing Impossible Matrix or product quick editor returns directly to the Product Inventory tab without kicking the user to the main menu.\n- 100% Quality Standard: 0 errors and 0 warnings verified across all integrity auditors.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T08:13:32.488Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.137/Impossible_POS_Setup_v1.3.137.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.137.zip",
-  "installerSize": 318692342,
-  "patchSize": 819437
+  "releaseDate": "2026-11-26T09:00:41.867Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.138/Impossible_POS_Setup_v1.3.138.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.138.zip",
+  "installerSize": 318687250,
+  "patchSize": 822792
 }
