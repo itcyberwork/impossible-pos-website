@@ -1,12 +1,12 @@
 {
-  "version": "1.3.144",
-  "latestVersion": "1.3.144",
-  "patchFileName": "patch-1.3.144.zip",
-  "releaseNotes": "Official Release v1.3.144:\n- STRICT BIOMETRIC IDENTIFICATION: Removed false fallback matching that assigned unregistered fingerprints to first enrolled employee. Unrecognized fingerprints now properly report 'Not Recognized'.\n- STATION SETUP WIZARD ON FRESH INSTALLS: Fresh installations on new computers automatically display the station setup wizard, allowing instant pairing as Secondary Register (Caja 2, Caja 3, etc.) without prompting for business profile information.\n- INDEPENDENT STATION AUTO-UPDATE ARCHITECTURE: Every cashier station and kitchen screen updates its own local disk (C:\\Impossible_POS) independently with one click.\n- DUAL UPDATER ENGINE: Stations without active local IPC fallback to local service update on 127.0.0.1:3000, ensuring 100% automated local updates without manual steps.\n- SILENT AUTOMATIC DRIVER INSTALLATION: digitalpersona_setup.msi installed in background automatically on stations without manual prompts.\n- NATIVE BIOMETRIC ENGINE: DPFPBridge.exe and native manufacturer DLLs installed in System_Files and bin, auto-spawned in background.",
+  "version": "1.3.145",
+  "latestVersion": "1.3.145",
+  "patchFileName": "patch-1.3.145.zip",
+  "releaseNotes": "Official Release v1.3.145:\n- NATIVE 32-BIT DPFPApi.dll ARCHITECTURE FIX: Replaced 64-bit DPFPApi.dll with matching 32-bit manufacturer binary, completely eliminating the 0x8007000B (incorrect format) error and ensuring hardware reader initialization and indicator lights turn on reliably on all Windows 10/11 stations.\n- OFFICIAL DIGITALPERSONA BIOMETRIC ENGINE: Integrated official DPFP.Verification and DPFP.Processing.Enrollment engines with true minutiae-based biometric matching across all stations, replacing legacy static string hashes with real mathematical ridge pattern verification.\n- DYNAMIC BIOMETRIC TEMPLATE SYNCHRONIZATION: Automatic background synchronization of enrolled employee templates from central server to local hardware bridge via WebSocket.",
   "mandatory": true,
-  "releaseDate": "2026-11-26T12:04:57.532Z",
-  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.144/Impossible_POS_Setup_v1.3.144.exe",
-  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.144.zip",
-  "installerSize": 318699856,
-  "patchSize": 31727006
+  "releaseDate": "2026-11-26T13:40:22.646Z",
+  "downloadUrl": "https://github.com/itcyberwork/impossible-pos-website/releases/download/v1.3.145/Impossible_POS_Setup_v1.3.145.exe",
+  "patchUrl": "https://impossible-pos-licenses.onrender.com/api/updates/download/patch-1.3.145.zip",
+  "installerSize": 318677466,
+  "patchSize": 31617740
 }
